@@ -46,40 +46,42 @@ const NavBar = () => {
     <>
       {pathname !== "/thank-you/" && (
         <header
-          className={`py-3 ${navbar ? "bg-blue-primary" : "bg-transparent"} border-b border-gray-700 shadow-xl fixed top-0 w-full flex items-center justify-center z-50`}
+          className={`py-4 ${navbar ? "bg-blue-primary " : "bg-transparent border-b "} duration-700 transition ease-out shadow-xl fixed top-0 w-full flex items-center justify-center z-50`}
         >
           <div className="w-full">
             <Container>
               {/* navbar top */}
-              {!navbar && (
-                <nav className="flex justify-between items-center py-4">
-                  {/* navbar left */}
-                  <ul className="flex items-center justify-center gap-3">
-                    {contactData.map((item) => (
-                      <li key={item.label} className="px-3">
-                        <Link href={item.href || ""}>
-                          {item.icon}
-                          <span className="sr-only">{item.label}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                  {/* navbar right */}
-                  <ul className="flex items-center justify-center gap-1">
-                    {connect.map((link) => (
-                      <li key={link.name} className="p-3">
-                        <Link
-                          href={link.link}
-                          className="text-white text-base flex hover:scale-105 duration-300 justify-center items-center gap-2"
-                        >
-                          {link.icon}
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              )}
+              <nav
+                className={`${navbar ? "hidden" : "flex justify-between items-center"} transition ease-out`}
+              >
+                {/* navbar left */}
+                <ul className="flex items-center justify-center gap-3">
+                  {contactData.map((item) => (
+                    <li key={item.label} className="px-3">
+                      <Link href={item.href || ""} target="_blank">
+                        {item.icon}
+                        <span className="sr-only">{item.label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                {/* navbar right */}
+                <ul className="flex items-center justify-center gap-1">
+                  {connect.map((link) => (
+                    <li key={link.name} className="p-3">
+                      <Link
+                        href={link.link}
+                        className="text-white text-base flex hover:scale-105 duration-300 justify-center items-center gap-2"
+                      >
+                        <span className="sr-only">{link.name}</span>
+                        {link.icon}
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
               {/* navbar bottom */}
               <nav className="flex justify-between items-center relative">
                 {/* navbar left */}
@@ -88,7 +90,7 @@ const NavBar = () => {
                     <li key={link.name} className="p-3">
                       <Link
                         href={link.link}
-                        className="text-white uppercase text-sm"
+                        className={`${pathname === link.link ? "border-b border-white" : ""} hover:border-b hover:border-white hover:scale-50 duration-300 text-white uppercase`}
                       >
                         {link.name}
                       </Link>
@@ -98,7 +100,7 @@ const NavBar = () => {
 
                 {/* logo */}
                 {navbar ? (
-                  <div className="absolute top-[90%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
+                  <div className="absolute top-[90%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 duration-700 transition ease-out">
                     <div className="relative aspect-[1/1] lg:w-[110px] w-[55px]">
                       <Image
                         src={Logo}
@@ -111,7 +113,7 @@ const NavBar = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="absolute top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-700 transition ease-out">
                     <div className="relative aspect-[1/1] lg:w-[150px] w-[55px]">
                       <Image
                         src={Logo2}
@@ -130,7 +132,7 @@ const NavBar = () => {
                     <li key={link.name} className="p-3">
                       <Link
                         href={link.link}
-                        className="text-white uppercase text-sm"
+                        className={`${pathname === link.link ? "border-b border-white" : ""} hover:border-b hover:border-white hover:scale-75 duration-300 text-white uppercase text-sm`}
                       >
                         {link.name}
                       </Link>

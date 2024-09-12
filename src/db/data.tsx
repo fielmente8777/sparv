@@ -11,22 +11,22 @@ import { ContactUsProps } from "@/types/type";
 export const contactData: ContactUsProps[] = [
   {
     label: "facebook",
-    href: "#",
+    href: "https://www.facebook.com/people/Sparv-Aulakhs-Resort-Goa/61551214832526/?mibextid=b06tZ0",
     icon: <FillFaceBook />,
   },
   {
     label: "instagram",
-    href: "#",
+    href: "https://www.instagram.com/sparvaulakhsresortgoa/",
     icon: <FillInstagram />,
   },
   {
     label: "tripadvisor",
-    href: "#",
+    href: "https://www.tripadvisor.com/Hotel_Review-g1010240-d26635488-Reviews-SPARV_Aulakhs_Resort-Mandrem_North_Goa_District_Goa.html",
     icon: <FillTripadvisor />,
   },
   {
     label: "linkedin",
-    href: "#",
+    href: "https://www.linkedin.com/company/sparvgroup/",
     icon: <FillLinkedin />,
   },
 ];

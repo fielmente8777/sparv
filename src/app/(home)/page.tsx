@@ -1,9 +1,13 @@
+import { Banner } from "@/components";
+import { RoomAccommodation } from "./component";
+
 const page = () => {
-    return (
-        <div>
-            Enter
-        </div>
-    );
-}
+  return (
+    <main>
+      <Banner src={"/images/Background.png"} alt={"Banner-img"} />
+      <RoomAccommodation />
+    </main>
+  );
+};
 
 export default page;

@@ -6,26 +6,26 @@ export const navLink = [
     },
     {
         name: "About us",
-        link: "/About",
+        link: "/About/",
     },
     {
         name: "Rooms",
-        link: "/Rooms",
+        link: "/Rooms/",
     },
     {
         name: "Gallery",
-        link: "/Gallery",
+        link: "/Gallery/",
     },
     {
         name: "career",
-        link: "/Career",
+        link: "/Career/",
     },
     {
         name: "Facilities",
-        link: "/Facilities",
+        link: "/Facilities/",
     },
     {
         name: "Contact",
-        link: "/Contact",
+        link: "/Contact/",
     }
 ]

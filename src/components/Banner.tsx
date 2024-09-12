@@ -6,7 +6,7 @@ import { BannerProps } from "@/types/type";
 const Banner: React.FC<BannerProps> = ({ src, alt }) => {
   return (
     <section className="lg:pb-10 pb-5 font-p-d">
-      <div className="w-full lg:aspect-[4/1.9] aspect-[1/1] relative">
+      <div className="w-full lg:aspect-[4/1.907] aspect-[1/1] relative">
         <Image
           src={src}
           alt={`${alt ? alt : "Banner"}`}
