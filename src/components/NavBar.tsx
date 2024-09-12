@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { navLink } from "@/db/navLink";
 import { useEffect, useState } from "react";
 import { IoMenu, IoCloseSharp } from "react-icons/io5";
+import { contactData } from "@/db/data";
 
 const NavBar = () => {
   const pathname = usePathname();
@@ -29,6 +30,22 @@ const NavBar = () => {
         <header className="py-5 bg-blue-primary ">
           <div className="">
             <Container>
+              {/* navbar top */}
+              <nav className="flex justify-between items-center py-7">
+                {/* navbar left */}
+                <ul className="flex items-center justify-center gap-3">
+                  {contactData.map((item) => (
+                    <li key={item.label} className="px-3">
+                      <Link href={item.href || ""} >
+                        {item.icon}
+                        <span className="sr-only">{item.label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                {/* navbar right */}
+              </nav>
+              {/* navbar bottom */}
               <nav className="flex justify-between items-center h-[3vh] relative z-40">
                 {/* navbar left */}
                 <ul className="hidden lg:flex items-center gap-2">
