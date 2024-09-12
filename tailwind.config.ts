@@ -18,7 +18,7 @@ const config: Config = {
           "primary": '#00486C'
         },
         orange: {
-          "primary": '#B58E3E'
+          "primary": '#D0B376'
         },
         gray: {
           "primary": '#3A3D45'
