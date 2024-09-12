@@ -8,6 +8,7 @@ import { navLink } from "@/db/navLink";
 import { useEffect, useState } from "react";
 import { IoMenu, IoCloseSharp } from "react-icons/io5";
 import { contactData } from "@/db/data";
+import { IoPricetagOutline } from "react-icons/io5";
 
 const NavBar = () => {
   const pathname = usePathname();
@@ -24,6 +25,18 @@ const NavBar = () => {
     };
   }, [open]);
 
+  const connect = [
+    {
+      icon: <IoPricetagOutline />,
+      name: "info@sparvhospitality.com",
+      link: "mailto:info@sparvhospitality.com",
+    },
+    {
+      name: "7410112890",
+      link: "tel:7410112890",
+    },
+  ];
+
   return (
     <>
       {pathname !== "/thank-you/" && (
@@ -36,7 +49,7 @@ const NavBar = () => {
                 <ul className="flex items-center justify-center gap-3">
                   {contactData.map((item) => (
                     <li key={item.label} className="px-3">
-                      <Link href={item.href || ""} >
+                      <Link href={item.href || ""}>
                         {item.icon}
                         <span className="sr-only">{item.label}</span>
                       </Link>
@@ -44,6 +57,19 @@ const NavBar = () => {
                   ))}
                 </ul>
                 {/* navbar right */}
+                <ul className="flex items-center justify-center gap-3">
+                  {connect.map((link) => (
+                    <li key={link.name} className="p-3">
+                      <Link
+                        href={link.link}
+                        className="text-white text-sm flex justify-center items-center gap-2"
+                      >
+                        {link.icon}
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </nav>
               {/* navbar bottom */}
               <nav className="flex justify-between items-center h-[3vh] relative z-40">
