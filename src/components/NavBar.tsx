@@ -9,19 +9,23 @@ import { useEffect, useState } from "react";
 import { IoMenu, IoCloseSharp } from "react-icons/io5";
 import { contactData } from "@/db/data";
 import { IoPricetagOutline } from "react-icons/io5";
+import { OutlinePhoneIcon } from "@/icons/icons";
+import Logo2 from "../../public/images/log2.png";
 
 const NavBar = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [navbar, setNavbar] = useState(false);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    const changBg = () => setNavbar(window.scrollY >= 9);
+
+    window.addEventListener("scroll", changBg);
+    document.body.style.overflow = open ? "hidden" : "auto";
+
     return () => {
       document.body.style.overflow = "auto";
+      window.removeEventListener("scroll", changBg);
     };
   }, [open]);
 
@@ -32,6 +36,7 @@ const NavBar = () => {
       link: "mailto:info@sparvhospitality.com",
     },
     {
+      icon: <OutlinePhoneIcon />,
       name: "7410112890",
       link: "tel:7410112890",
     },
@@ -40,39 +45,43 @@ const NavBar = () => {
   return (
     <>
       {pathname !== "/thank-you/" && (
-        <header className="py-5 bg-blue-primary ">
-          <div className="">
+        <header
+          className={`py-3 ${navbar ? "bg-blue-primary" : "bg-transparent"} border-b border-gray-700 shadow-xl fixed top-0 w-full flex items-center justify-center z-50`}
+        >
+          <div className="w-full">
             <Container>
               {/* navbar top */}
-              <nav className="flex justify-between items-center py-7">
-                {/* navbar left */}
-                <ul className="flex items-center justify-center gap-3">
-                  {contactData.map((item) => (
-                    <li key={item.label} className="px-3">
-                      <Link href={item.href || ""}>
-                        {item.icon}
-                        <span className="sr-only">{item.label}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                {/* navbar right */}
-                <ul className="flex items-center justify-center gap-3">
-                  {connect.map((link) => (
-                    <li key={link.name} className="p-3">
-                      <Link
-                        href={link.link}
-                        className="text-white text-sm flex justify-center items-center gap-2"
-                      >
-                        {link.icon}
-                        {link.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+              {!navbar && (
+                <nav className="flex justify-between items-center py-4">
+                  {/* navbar left */}
+                  <ul className="flex items-center justify-center gap-3">
+                    {contactData.map((item) => (
+                      <li key={item.label} className="px-3">
+                        <Link href={item.href || ""}>
+                          {item.icon}
+                          <span className="sr-only">{item.label}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  {/* navbar right */}
+                  <ul className="flex items-center justify-center gap-1">
+                    {connect.map((link) => (
+                      <li key={link.name} className="p-3">
+                        <Link
+                          href={link.link}
+                          className="text-white text-base flex hover:scale-105 duration-300 justify-center items-center gap-2"
+                        >
+                          {link.icon}
+                          {link.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              )}
               {/* navbar bottom */}
-              <nav className="flex justify-between items-center h-[3vh] relative z-40">
+              <nav className="flex justify-between items-center relative">
                 {/* navbar left */}
                 <ul className="hidden lg:flex items-center gap-2">
                   {navLink.slice(0, 3).map((link) => (
@@ -88,19 +97,33 @@ const NavBar = () => {
                 </ul>
 
                 {/* logo */}
-                {/* logo */}
-                <div className="absolute top-[190%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
-                  <div className="relative aspect-[1/1] lg:w-[110px] w-[55px]">
-                    <Image
-                      src={Logo}
-                      alt="Logo"
-                      priority={true}
-                      quality={100}
-                      fill
-                      className="object-contain"
-                    />
+                {navbar ? (
+                  <div className="absolute top-[90%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
+                    <div className="relative aspect-[1/1] lg:w-[110px] w-[55px]">
+                      <Image
+                        src={Logo}
+                        alt="Logo"
+                        priority={true}
+                        quality={100}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div className="relative aspect-[1/1] lg:w-[150px] w-[55px]">
+                      <Image
+                        src={Logo2}
+                        alt="Logo2"
+                        priority={true}
+                        quality={100}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                )}
                 {/* navbar right */}
                 <ul className="hidden lg:flex items-center gap-2">
                   {navLink.slice(3, navLink.length).map((link) => (
@@ -117,19 +140,15 @@ const NavBar = () => {
 
                 {/* hamburger menu */}
                 <div className="lg:hidden z-30" onClick={() => setOpen(!open)}>
-                  <button className="text-white" aria-label="Toggle menu">
-                    {!open ? (
-                      <IoMenu
-                        className={`w-6 h-6 transition-transform duration-300 ${
-                          open ? "rotate-180" : ""
-                        }`}
-                      />
+                  <button
+                    className="text-white"
+                    aria-label="Toggle menu"
+                    aria-expanded={open}
+                  >
+                    {open ? (
+                      <IoCloseSharp className="w-6 h-6 transition-transform duration-300 rotate-180" />
                     ) : (
-                      <IoCloseSharp
-                        className={`w-6 h-6 transition-transform duration-300 ${
-                          open ? "rotate-180" : ""
-                        }`}
-                      />
+                      <IoMenu className="w-6 h-6 transition-transform duration-300" />
                     )}
                   </button>
                 </div>
@@ -139,8 +158,8 @@ const NavBar = () => {
 
           {/* Mobile menu */}
           <div
-            className={`fixed top-10 left-0 w-full h-screen lg:hidden bg-blue-primary z-10 transform ${
-              open ? "translate-x-0" : "-translate-x-full"
+            className={`w-full h-screen lg:hidden bg-blue-primary z-10 transform ${
+              open ? "translate-x-0 fixed top-10 left-0" : "-translate-x-full"
             } transition-transform duration-500 ease-in-out`}
           >
             <MobileNavBar />
