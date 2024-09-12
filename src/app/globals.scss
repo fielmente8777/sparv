@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-spinner::-webkit-outer-spin-button,
+  .no-spinner::-webkit-inner-spin-button {
+    @apply appearance-none;
+    margin: 0;
+  }
+
+  .no-spinner {
+    @apply appearance-none;
+  }
+}
+
+.font-p-d {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+}
+
+.font-m {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+}
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Montserrat", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background-color: #fc9e4f;
+  margin-block: 0.3rem;
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #000070;
+  border-radius: 1rem;
+}
+
+.max-Width {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    padding: 0 1.5rem;
+  }
+  @media screen and (max-width: 480px) {
+    padding: 0 1.65rem;
+  }
+}
+
+.input-div .file-upload {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #727272;
+}
+.file-upload-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: #ffffff;
+  border-radius: .25rem;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+  padding: .11rem .8rem;
+}
+
+.file-upload {
+  display: none;
+  /* Hide the default file input */
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: .3rem 20px;
+  background-color: #B58E3E;
+  /* Change this to your desired color */
+  color: white;
+  border: 1px solid #B58E3E;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.custom-file-upload:hover {
+  background-color: #ffffff;
+  color: #B58E3E;
+}
+
+.upload-text {
+  /* margin-right: 10px;
+   */
+  /* Space between text and button */
+  width: 400px;
+  color: #727272;
+}
+
+.job-section {
+  position: relative;
+}
+
+.job-section select {
+  -webkit-appearance: none;
+  /* Remove default arrow in WebKit browsers */
+  -moz-appearance: none;
+  /* Remove default arrow in Firefox */
+  appearance: none;
+  /* Remove default arrow in modern browsers */
+}
+
+.job-section select::-ms-expand {
+  display: none;
+  /* Remove default arrow in Internet Explorer */
+}
+
+
+.svg {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  width: max-content;
+  height: max-content;
+  fill: #B58E3E;
+  transform: translateY(-50%);
+  cursor: pointer;
+  /* Make SVG cursor a pointer */
+  background-color: #fff;
+  pointer-events: none;
+}
+
