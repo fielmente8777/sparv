@@ -9,6 +9,7 @@
   .text-balance {
     text-wrap: balance;
   }
+
   .no-spinner::-webkit-outer-spin-button,
   .no-spinner::-webkit-inner-spin-button {
     @apply appearance-none;
@@ -44,13 +45,15 @@
 ::-webkit-scrollbar {
   width: 0.5rem;
 }
+
 ::-webkit-scrollbar-track {
-  background-color: #fc9e4f;
+  background-color: #D0B376;
   margin-block: 0.3rem;
   border-radius: 1rem;
 }
+
 ::-webkit-scrollbar-thumb {
-  background-color: #000070;
+  background-color: #00486C;
   border-radius: 1rem;
 }
 
@@ -59,9 +62,11 @@
   margin: 0 auto;
   padding: 0;
   width: 100%;
+
   @media screen and (max-width: 768px) {
     padding: 0 1.5rem;
   }
+
   @media screen and (max-width: 480px) {
     padding: 0 1.65rem;
   }
@@ -73,6 +78,7 @@
   align-items: center;
   color: #727272;
 }
+
 .file-upload-wrapper {
   position: relative;
   display: flex;
@@ -95,17 +101,17 @@
 .custom-file-upload {
   display: inline-block;
   padding: .3rem 20px;
-  background-color: #B58E3E;
+  background-color: #D0B376;
   /* Change this to your desired color */
   color: white;
-  border: 1px solid #B58E3E;
+  border: 1px solid #D0B376;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .custom-file-upload:hover {
   background-color: #ffffff;
-  color: #B58E3E;
+  color: #D0B376;
 }
 
 .upload-text {
@@ -141,11 +147,10 @@
   right: 1.5rem;
   width: max-content;
   height: max-content;
-  fill: #B58E3E;
+  fill: #D0B376;
   transform: translateY(-50%);
   cursor: pointer;
   /* Make SVG cursor a pointer */
   background-color: #fff;
   pointer-events: none;
 }
-
