@@ -48,7 +48,7 @@ const CardWithSlider: React.FC<CardWithSliderProps> = ({
           </div>
         )}
       </SliderSwip>
-      <div className="w-full bg-white p-4">
+      <div className="w-full bg-white p-3">
         <div className="flex flex-col gap-1 p-5">
           <h3 className="text-2xl font-semibold font-p-d text-blue-primary">
             {title || "title"}
