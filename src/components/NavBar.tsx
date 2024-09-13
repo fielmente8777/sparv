@@ -160,8 +160,8 @@ const NavBar = () => {
 
           {/* Mobile menu */}
           <div
-            className={`w-full h-screen lg:hidden bg-blue-primary z-10 transform ${
-              open ? "translate-x-0 fixed top-10 left-0" : "-translate-x-full"
+            className={`w-full fixed top-10 left-0 h-screen lg:hidden bg-blue-primary z-10 transform ${
+              open ? "translate-x-0 " : "-translate-x-full"
             } transition-transform duration-500 ease-in-out`}
           >
             <MobileNavBar />

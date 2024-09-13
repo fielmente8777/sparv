@@ -2,11 +2,16 @@ interface Props {
   className?: string;
   children: React.ReactNode;
   id?: string;
+  style?: React.CSSProperties;
 }
 
-const Section: React.FC<Props> = ({ className, children, id }) => {
+const Section: React.FC<Props> = ({ className, children, id, style }) => {
   return (
-    <section className={`${className ? className : "lg:py-10"} py-5`} id={id}>
+    <section
+      className={`${className ? className : "lg:py-10"} py-5`}
+      id={id}
+      style={style}
+    >
       {children}
     </section>
   );
