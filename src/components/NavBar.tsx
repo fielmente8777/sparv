@@ -46,13 +46,13 @@ const NavBar = () => {
     <>
       {pathname !== "/thank-you/" && (
         <header
-          className={`py-4 ${navbar ? "bg-blue-primary " : "bg-transparent border-b "} duration-700 transition ease-out shadow-xl fixed top-0 w-full flex items-center justify-center z-50`}
+          className={`lg:py-4 ${navbar ? "bg-blue-primary " : "bg-transparent lg:border-b "}  duration-700 transition ease-out shadow-xl fixed top-0 w-full flex items-center justify-center z-50`}
         >
           <div className="w-full">
             <Container>
               {/* navbar top */}
               <nav
-                className={`${navbar ? "hidden" : "flex justify-between items-center"} transition ease-out`}
+                className={`${navbar ? "hidden" : "flex justify-between items-center"} max-md:hidden transition ease-out`}
               >
                 {/* navbar left */}
                 <ul className="flex items-center justify-center gap-3">
@@ -100,7 +100,7 @@ const NavBar = () => {
 
                 {/* logo */}
                 {navbar ? (
-                  <div className="absolute top-[90%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 duration-700 transition ease-out">
+                  <div className="absolute top-[90%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 duration-700 transition ease-out lg:block hidden">
                     <div className="relative aspect-[1/1] lg:w-[110px] w-[55px]">
                       <Image
                         src={Logo}
@@ -113,8 +113,8 @@ const NavBar = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="absolute top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-700 transition ease-out">
-                    <div className="relative aspect-[1/1] lg:w-[150px] w-[55px]">
+                  <div className="absolute top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-700 transition ease-out max-md:hidden">
+                    <div className="relative aspect-[1/1] lg:w-[150px] w-[5rem]">
                       <Image
                         src={Logo2}
                         alt="Logo2"
@@ -126,6 +126,18 @@ const NavBar = () => {
                     </div>
                   </div>
                 )}
+                <div className="lg:hidden duration-700 transition ease-out">
+                  <div className="relative aspect-[1/1] lg:w-[150px] w-[5rem]">
+                    <Image
+                      src={Logo2}
+                      alt="Logo2"
+                      priority={true}
+                      quality={100}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
                 {/* navbar right */}
                 <ul className="hidden lg:flex items-center gap-2">
                   {navLink.slice(3, navLink.length).map((link) => (
@@ -148,9 +160,9 @@ const NavBar = () => {
                     aria-expanded={open}
                   >
                     {open ? (
-                      <IoCloseSharp className="w-6 h-6 transition-transform duration-300 rotate-180" />
+                      <IoCloseSharp className="w-8 h-8 transition-transform duration-300 rotate-180" />
                     ) : (
-                      <IoMenu className="w-6 h-6 transition-transform duration-300" />
+                      <IoMenu className="w-8 h-8 transition-transform duration-300" />
                     )}
                   </button>
                 </div>
@@ -160,11 +172,11 @@ const NavBar = () => {
 
           {/* Mobile menu */}
           <div
-            className={`w-full fixed top-10 left-0 h-screen lg:hidden bg-blue-primary z-10 transform ${
-              open ? "translate-x-0 " : "-translate-x-full"
+            className={`w-full fixed top-20 left-0 h-max lg:hidden bg-blue-primary z-10 transform ${
+              open ? "-translate-x-0 " : "translate-x-full"
             } transition-transform duration-500 ease-in-out`}
           >
-            <MobileNavBar />
+            <MobileNavBar pathname={pathname} setOpen={setOpen} />
           </div>
         </header>
       )}
@@ -174,14 +186,24 @@ const NavBar = () => {
 
 export default NavBar;
 
-const MobileNavBar = () => {
+const MobileNavBar = ({
+  pathname,
+  setOpen,
+}: {
+  pathname: string;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   return (
     <Container>
       <nav className="w-full h-[50vh] bg-blue-primary">
         <ul className="flex flex-col mt-5 justify-center gap-1">
           {navLink.map((link) => (
             <li key={link.name} className="p-2">
-              <Link href={link.link} className="text-white uppercase text-sm">
+              <Link
+                href={link.link}
+                className={`${pathname === link.link ? "border-b border-white" : ""} hover:border-b hover:border-white hover:scale-50 duration-300 text-white uppercase text-sm`}
+                onClick={() => setOpen(false)}
+              >
                 {link.name}
               </Link>
             </li>

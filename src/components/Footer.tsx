@@ -1,8 +1,5 @@
 "use client";
-import Image from "next/image";
 import Container from "./Container";
-import Logo from "../../public/images/logo.png";
-import { OutLineCopyRight } from "@/icons/icons";
 import Link from "next/link";
 import { contactData, footerPageLink } from "@/db/data";
 import { usePathname } from "next/navigation";
