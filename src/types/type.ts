@@ -56,31 +56,9 @@ export interface MelaPackagesDataProps {
 }
 
 export interface CardProps {
-    data?: {
-        title?: string;
-        description?: string;
-        subDescription?: string;
-        href?: string;
-        linkText?: string;
-        videoLink?: string;
-        popup?: {
-            title?: string;
-            description?: string;
-            src?: string;
-        }[];
-    };
-    image?: {
-        src: string;
-        alt: string;
-    };
-    icon?: React.ReactNode;
-    center?: boolean;
-    border?: boolean;
-    centerTitle?: string;
-    aspect?: number;
-    setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
-    setData?: React.Dispatch<React.SetStateAction<MelaPackagesDataProps['items'][number] | null>>;
-    setSrc?: React.Dispatch<React.SetStateAction<string | null>>;
+    img: string;
+    label: string,
+    href: string,
 }
 
 export interface FeaturedPressReleasesType {

@@ -1,70 +1,26 @@
 import { CardProps } from "@/types/type";
 import Image from "next/image";
+import Link from "next/link";
 
-const Card: React.FC<CardProps> = ({
-  image,
-  center = false,
-  data,
-  icon,
-  border = true,
-  centerTitle,
-  aspect,
-  setOpen,
-  setData,
-}) => {
+const Card: React.FC<CardProps> = ({ img, label, href }) => {
   return (
-    <div
-      onClick={() => {
-        if (setOpen && setData) {
-          setOpen(true);
-          setData({
-            data,
-            image,
-            icon,
-            centerTitle,
-          });
-        }
-      }}
-      className={`${border && "border"} cursor-pointer group group-[&:hover]:shadow-2xl transition duration-1000 ease-in-out rounded-lg overflow-hidden w-full`}
-    >
-      {image && (
-        <div
-          className={`${aspect ? `lg:aspect-[${aspect}]` : "lg:aspect-[4/2.5]"} w-full group-[&:hover]:shadow-xl aspect-[4/3] relative overflow-hidden`}
-        >
-          <Image
-            src={image.src}
-            alt={image.alt || "Banner"}
-            fill
-            className="object-cover group-hover:scale-110 transition duration-1000 ease-in-out"
-          />
-          {centerTitle && (
-            <div className="">
-              <h3 className="absolute bottom-0 left-0 right-0 text-center text-xl bg-black/30 group-[&:hover]:bg-black/70 transition duration-1000 ease-in-out py-3 z-50 text-white font-semibold">
-                {centerTitle}
-              </h3>
-            </div>
-          )}
-        </div>
-      )}
-      {icon && (
-        <div className="p-3 flex items-center justify-center">{icon}</div>
-      )}
-      {data && (
-        <div className="flex flex-col gap-4 py-6 px-3">
-          <h3
-            className={`text-lg text-blue-primary font-semibold ${center ? "text-center" : "text-start"}`}
+    <div className="shadow-2xl group  duration-500">
+      <div className="relative w-full aspect-square overflow-hidden">
+        <Image
+          src={img}
+          alt={label}
+          fill
+          className="object-cover group-hover:scale-150 duration-1000 transition ease-in-out"
+        />
+        <div className="absolute bottom-0 left-0 w-full h-[25vh] duration-500 ease-in-out group-hover:h-full group-[&:hover]:bg-blue-primary/70 flex justify-center items-center">
+          <Link
+            href={href}
+            className="text-white uppercase border px-4 py-2 text-lg bg-transparent hover:bg-orange-secondary duration-500 rounded-sm hover:text-[#222] hover:bg-white"
           >
-            {data.title}
-          </h3>
-          {data.description && (
-            <p
-              className={`text-base text-gray-primary ${center ? "text-center" : "text-start"}`}
-            >
-              {data.description}
-            </p>
-          )}
+            {label}
+          </Link>
         </div>
-      )}
+      </div>
     </div>
   );
 };

@@ -120,3 +120,49 @@ export const galleryData = {
         }
     ]
 }
+
+export const nearbyData = {
+    title: "Nearby",
+    span: "Places",
+    description: "Explore Wonders of food, fashion, and forts, just steps away from your accommodation in Mandrem.",
+    label: "view all",
+    href: "/Gallery/",
+    data: [
+        {
+            id: 1,
+            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-32.jpg",
+            label: "restaurant",
+            href: "/Gallery/",
+        },
+        {
+            id: 2,
+            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-6.jpg",
+            label: "hotel",
+            href: "/Gallery/",
+        },
+        {
+            id: 3,
+            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Home+page+/Resort+facilities/Tea+Point.jpg",
+            label: "nearby",
+            href: "/Gallery/",
+        },
+        {
+            id: 4,
+            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Home+page+/Resort+facilities/Restaurant.jpg",
+            label: "view",
+            href: "/Gallery/",
+        },
+        {
+            id: 5,
+            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated/gallery/RUAN9822+(1).jpg",
+            label: "rooms",
+            href: "/Gallery/",
+        },
+        {
+            id: 6,
+            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Home+page+/Resort+facilities/Tea+Point.jpg",
+            label: "lobby",
+            href: "/Gallery/",
+        }
+    ]
+}

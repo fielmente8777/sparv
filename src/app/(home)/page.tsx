@@ -8,6 +8,7 @@ import {
   roomsCardsData,
   ResortFacilitiesData,
   galleryData,
+  nearbyData,
 } from "@/db/homePage";
 
 const page = () => {
@@ -17,6 +18,7 @@ const page = () => {
       <RoomAccommodation data={roomsCardsData} />
       <ResortFacilities data={ResortFacilitiesData} />
       <CommonSection data={galleryData} />
+      <CommonSection data={nearbyData} />
     </main>
   );
 };
