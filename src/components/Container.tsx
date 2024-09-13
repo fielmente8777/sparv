@@ -5,7 +5,7 @@ interface container {
 }
 const Container: React.FC<container> = ({ children, id, className }) => {
   return (
-    <div className={`${className} max-Width`} id={id}>
+    <div className={`${className || ""} max-Width`} id={id}>
       {children}
     </div>
   );

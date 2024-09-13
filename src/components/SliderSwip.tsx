@@ -23,7 +23,7 @@ const SliderSwip: React.FC<Props> = ({
   ...props
 }) => {
   return (
-    <Swiper {...props} className={`${classNameSwiper} mySwiper`}>
+    <Swiper  {...props} className={`${classNameSwiper} mySwiper`}>
       {data.map((item, index) => (
         <SwiperSlide key={index} className={`${classNameSwiperSlide}`}>
           {children(item)}

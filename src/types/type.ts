@@ -125,3 +125,16 @@ export interface ContactUsProps {
     icon: React.ReactNode;
     traget?: boolean;
 }
+
+
+
+export interface roomDataType {
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    currency: string;
+    time: string;
+    href: string;
+    img: string[];
+}

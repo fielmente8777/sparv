@@ -10,7 +10,7 @@ const Location = () => {
           className="w-full grid lg:grid-cols-2 bg-fixed bg-center bg-no-repeat bg-[url('/images/contact.png')] grid-cols-1 gap-10 items-center justify-center"
           style={{ backgroundSize: "70%" }}
         >
-          <div className="max-w-[400px] max-md:max-w-[300px] mx-auto w-full aspect-square -rotate-[45deg] flex items-center justify-center shadow-xl bg-blue-primary/50">
+          <div className="max-w-[400px] max-md:max-w-[250px] mx-auto w-full aspect-square -rotate-[45deg] flex items-center justify-center shadow-xl bg-blue-primary/50">
             <div className="flex flex-col gap-1 max-md:gap-2 items-center justify-center text-white rotate-[45deg]">
               <h2 className="text-3xl max-md:text-2xl font-normal font-p-d uppercase">
                 Subscribe
