@@ -21,12 +21,14 @@ const RoomAccommodation = ({ data }: Props) => {
           <h2 className="text-3xl max-md:text-xl font-normal font-p-d uppercase text-orange-primary pe-2">
             Room <span className="text-black font-p-d">Accommodation</span>
           </h2>
-          <Link
-            href="/Rooms/"
-            className="text-gray-primary max-md:text-sm px-3 max-md:px-1 py-1 border border-gray-primary font-normal uppercase font-p-d hover:bg-gray-primary hover:text-white duration-500 rounded-sm"
-          >
-            View All
-          </Link>
+          <div className="max-md:w-20 flex">
+            <Link
+              href="/Rooms/"
+              className="text-gray-primary max-md:text-sm px-3 max-md:px-1 py-1 border border-gray-primary font-normal h-max uppercase font-p-d hover:bg-gray-primary hover:text-white duration-500 rounded-sm"
+            >
+              View All
+            </Link>
+          </div>
         </div>
         <p className="text-lg max-md:text-base font-medium font-p-d text-[#222] mt-9">
           Utmost Luxury at Mandrem Retreat Beach Resort
