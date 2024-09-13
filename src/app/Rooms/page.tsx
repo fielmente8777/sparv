@@ -1,6 +1,6 @@
 import { Banner } from "@/components";
 import { RoomsCards } from "./component";
-import { roomsCardsData } from "@/db/homePage";
+import { roomsCardsData } from "@/db/roomPage";
 
 const page = () => {
   return (
