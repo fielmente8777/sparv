@@ -4,16 +4,18 @@ const CardSection = () => {
   return (
     <Section>
       <Container>
-        {data.map((item, index) => (
-          <TwoColGridCard
-            key={index}
-            title={item.title}
-            image={item.image}
-            list={item.list}
-            disc={item.disc}
-            id={index}
-          />
-        ))}
+        <div className="flex flex-col max-md:gap-10">
+          {data.map((item, index) => (
+            <TwoColGridCard
+              key={index}
+              title={item.title}
+              image={item.image}
+              list={item.list}
+              disc={item.disc}
+              id={index}
+            />
+          ))}
+        </div>
       </Container>
     </Section>
   );

@@ -25,7 +25,7 @@ const SEOVideo: React.FC<VideoProps> = ({
   width,
   height,
   controls = true,
-  autoPlay = false,
+  autoPlay,
   loop = false,
   muted = false,
   preload = "auto",

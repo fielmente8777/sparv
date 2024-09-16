@@ -3,11 +3,11 @@ const CardSection2 = () => {
   return (
     <Section className="lg:pt-0 lg:pb-16">
       <Container className="bg-white text-justify">
-        <div className="flex flex-col items-center justify-center gap-6 py-12">
-          <h2 className="text-3xl font-normal font-p-d capitalize text-[#222] text-center">
+        <div className="flex flex-col items-center justify-center gap-6 py-6">
+          <h2 className="text-3xl max-md:text-xl font-normal font-p-d capitalize text-[#222] text-center">
             How to find Sparv Aulakhs Resort Goa Mandrem
           </h2>
-          <div className="w-full max-w-32 h-[1.5px] relative bg-zinc-300">
+          <div className="w-full max-w-32 h-[1.5px] relative bg-zinc-300 my-5">
             <div className="absolute transform left-1/2  top-[-600%] -translate-x-1/2 translate-y-1/2 w-2.5 h-2.5 rounded-xl bg-zinc-300" />
           </div>
         </div>
@@ -31,11 +31,11 @@ const CardSection2 = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center gap-6 py-12">
-          <h2 className="text-3xl font-normal font-p-d capitalize text-[#222] text-center">
+        <div className="flex flex-col items-center justify-center gap-6 py-6">
+          <h2 className="text-3xl max-md:text-xl font-normal font-p-d capitalize text-[#222] text-center">
             Things to do in Mandrem
           </h2>
-          <div className="w-full max-w-32 h-[1.5px] relative bg-zinc-300">
+          <div className="w-full max-w-32 h-[1.5px] relative bg-zinc-300 my-5">
             <div className="absolute transform left-1/2  top-[-600%] -translate-x-1/2 translate-y-1/2 w-2.5 h-2.5 rounded-xl bg-zinc-300" />
           </div>
         </div>
@@ -53,7 +53,7 @@ const CardSection2 = () => {
               retreat the perfect place for travellers.
             </p>
             <div className="w-full h-[1.5px] bg-zinc-300 my-12" />
-            <div className="w-full lg:grid grid-cols-2 gap-4 ">
+            <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 ">
               {data.map((item, index) => (
                 <Card key={index} {...item} />
               ))}

@@ -48,25 +48,22 @@ const Form = () => {
     }
 
     try {
-      const response = await fetch(
+      const { data } = await axios.post(
         "https://nexon.eazotel.com/eazotel/addcontacts",
         {
-          method: "POST",
+          Domain: "abhijeet", // Replace with your actual domain value
+          // Domain: "eracamps", // Replace with your actual domain value
+          email: userEmail,
+          Name: userName,
+          Contact: `${countryCode}${userPhone}`, // Combine country code and phone number
+          Description: userMessage,
+        },
+        {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            Domain: "abhijeet", // Replace with your actual domain value
-            // Domain: "eracamps", // Replace with your actual domain value
-            email: userEmail,
-            Name: userName,
-            Contact: `${countryCode}${userPhone}`, // Combine country code and phone number
-            Description: userMessage,
-          }),
         }
       );
-
-      const data = await response.json();
 
       if (data.Status) {
         setFormRes(true);

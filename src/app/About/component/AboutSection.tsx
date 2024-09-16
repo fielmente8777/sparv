@@ -13,7 +13,7 @@ const AboutSection = () => {
           <h2 className="text-3xl font-normal font-p-d capitalize text-[#222] text-center">
             About Sparv Hotel
           </h2>
-          <div className="w-full max-w-32 h-[1.5px] relative bg-zinc-300">
+          <div className="w-full max-w-32 h-[1.5px] relative bg-zinc-300 my-3">
             <div className="absolute transform left-1/2  top-[-600%] -translate-x-1/2 translate-y-1/2 w-2.5 h-2.5 rounded-xl bg-zinc-300" />
           </div>
         </div>
@@ -32,7 +32,7 @@ const AboutSection = () => {
             {(item) => (
               <div
                 key={item}
-                className="w-full relative aspect-[4/1.91] overflow-hidden"
+                className="w-full relative aspect-[4/1.91] max-md:aspect-square overflow-hidden"
               >
                 <Image
                   src={item}

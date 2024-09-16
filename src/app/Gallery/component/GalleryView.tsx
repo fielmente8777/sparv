@@ -32,7 +32,7 @@ const GalleryView: React.FC<GalleryViewProps> = ({ data }) => {
   return (
     <Section className="lg:pt-0 lg:pb-14">
       <Container>
-        <ul className="w-full pb-6 flex items-center justify-center gap-5">
+        <ul className="w-full pb-6 flex items-center flex-wrap justify-center gap-5">
           {categories.map((item, index) => (
             <li key={index}>
               <button

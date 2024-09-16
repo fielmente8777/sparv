@@ -2,7 +2,7 @@ import { Banner } from "@/components";
 import Form from "./components/Form";
 const page = () => {
   const bannerData = {
-    src: "/images/background.png",
+    src: "/images/Background.png",
     title: "Career",
   };
   return (

@@ -12,11 +12,14 @@ const page = () => {
       <Banner {...bannerData} />
       <Section className="lg:py-14 -mt-60 z-10 relative">
         <Container className="bg-white">
-          <div className="lg:py-14">
+        <div className="flex flex-col items-center justify-center gap-6 py-12">
           <h2 className="text-center text-3xl font-light font-p-d">
             Terms & Conditions
-          </h2>
+            </h2>
+          <div className="w-full max-w-32 h-[1.5px] relative bg-zinc-300 my-3">
+            <div className="absolute transform left-1/2  top-[-600%] -translate-x-1/2 translate-y-1/2 w-2.5 h-2.5 rounded-xl bg-zinc-300" />
           </div>
+        </div>
           <div
             className="pagedata px-16"
             dangerouslySetInnerHTML={{ __html: TermsAndConditions }}

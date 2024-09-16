@@ -22,11 +22,11 @@ const ResortFacilities: React.FC<Props> = ({ data }) => {
         <SectionHeading {...data} />
       </Container>
       <div className="mt-16">
-        <div className="max-w-[1600px] mx-auto flex items-center justify-center">
+        <div className="max-w-[1600px] mx-auto flex max-sm:flex-col items-center justify-center">
           {data.imageData.map((item, index) => (
             <div
               key={index}
-              className="relative w-full h-[5.25rem] lg:h-[31.25rem] overflow-hidden group hover:lg:w-[250rem] duration-500"
+              className="relative w-full h-[20.25rem] lg:h-[31.25rem] overflow-hidden group hover:lg:w-[250rem] duration-500"
             >
               <Image
                 src={item.img}

@@ -45,14 +45,14 @@ const CommonSection: React.FC<CommonSectionProps> = ({
                   {open ? "Close form" : "Contact Us via form"}
                 </button>
                 <div
-                  className={`${open ? "h-max" : "h-0"} overflow-hidden transition-all duration-300 ease-linear w-full`}
+                  className={`${open ? "h-max" : "h-0"} overflow-hidden max-md:w-4/5 transition-all duration-300 ease-linear w-full`}
                 >
                   <Form />
                 </div>
               </>
             )}
           </div>
-          <div className="flex max-md:items-center max-md:flex-col px-8 bg-[#EEEEEE] justify-between max-md:justify-center max-md:gap-16 w-full py-12">
+          <div className="flex max-md:items-center max-md:flex-col px-8 bg-[#EEEEEE] justify-between max-md:justify-center max-md:gap-6 w-full lg:py-12 py-8">
             {data.map((item) => (
               <div
                 key={item.title}

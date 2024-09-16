@@ -46,7 +46,7 @@ const NavBar = () => {
     <>
       {pathname !== "/thank-you/" && (
         <header
-          className={`lg:py-4 ${navbar ? "bg-blue-primary " : "bg-transparent lg:border-b "}  duration-700 transition ease-out shadow-xl fixed top-0 w-full flex items-center justify-center z-50`}
+          className={`lg:py-4 ${navbar ? "bg-blue-primary " : "bg-transparent lg:border-b "} max-md:bg-blue-primary duration-700 transition ease-out lg:fixed lg:top-0 w-full flex items-center justify-center lg:z-50`}
         >
           <div className="w-full">
             <Container>

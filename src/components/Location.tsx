@@ -12,10 +12,10 @@ const Location = () => {
         >
           <div className="max-w-[400px] max-md:max-w-[250px] mx-auto w-full aspect-square -rotate-[45deg] flex items-center justify-center shadow-xl bg-blue-primary/50">
             <div className="flex flex-col gap-1 max-md:gap-2 items-center justify-center text-white rotate-[45deg]">
-              <h2 className="text-3xl max-md:text-2xl font-normal font-p-d uppercase">
+              <h2 className="text-3xl max-md:text-xl font-normal font-p-d uppercase max-md:-mt-8">
                 Subscribe
               </h2>
-              <p className="lg:text-lg font-medium">
+              <p className="lg:text-lg text-sm font-medium">
                 Get Exclusive Offers and Discounts
               </p>
               <div className="flex gap-3 bg-white py-1 px-2 rounded-sm lg:mt-9 max-w-sm w-full">
@@ -24,9 +24,9 @@ const Location = () => {
                   name=""
                   aria-label="email"
                   placeholder="Subscribe"
-                  className="w-full outline-none"
+                  className="w-full outline-none max-md:text-sm"
                 />
-                <button className="bg-blue-primary text-white px-3 py-1.5 font-normal uppercase hover:bg-blue-secondary duration-500 rounded-sm">
+                <button className="bg-blue-primary max-md:text-sm text-white px-3 py-1.5 font-normal uppercase hover:bg-blue-secondary duration-500 rounded-sm">
                   go
                 </button>
               </div>
