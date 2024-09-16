@@ -5,7 +5,7 @@ import Link from "next/link";
 const Card: React.FC<CardProps> = ({ img, label, href }) => {
   return (
     <div className="shadow-2xl group  duration-500">
-      <div className="relative w-full aspect-square overflow-hidden">
+      <div className="relative w-full aspect-[4/3.5] overflow-hidden">
         <Image
           src={img}
           alt={label}
@@ -15,7 +15,7 @@ const Card: React.FC<CardProps> = ({ img, label, href }) => {
         <div className="absolute bottom-0 left-0 w-full h-[25vh] duration-500 ease-in-out group-hover:h-full group-[&:hover]:bg-blue-primary/70 flex justify-center items-center">
           <Link
             href={href}
-            className="text-white uppercase border px-4 py-2 text-lg bg-transparent hover:bg-orange-secondary duration-500 rounded-sm hover:text-[#222] hover:bg-white"
+            className="text-white font-light text-sm uppercase border px-4 py-2 bg-transparent hover:bg-orange-secondary duration-500 rounded-sm hover:text-[#222] hover:bg-white"
           >
             {label}
           </Link>

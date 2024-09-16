@@ -1,0 +1,57 @@
+import { Container, Section, TwoColGridCard } from "@/components";
+
+const CardSection = () => {
+  return (
+    <Section>
+      <Container>
+        {data.map((item, index) => (
+          <TwoColGridCard
+            key={index}
+            title={item.title}
+            image={item.image}
+            list={item.list}
+            disc={item.disc}
+            id={index}
+          />
+        ))}
+      </Container>
+    </Section>
+  );
+};
+
+export default CardSection;
+
+const data = [
+  {
+    id: 1,
+    title: "Hotel Information",
+    image:
+      "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/about+us/Hotel+Features.jpg",
+    list: ["Check-in Time: 02:00PM", "Check-out Time: 12:00PM", "Information:"],
+    disc: [
+      "The minimum age for guests is 7 years.",
+      "Early check-in is subject to availability. For guaranteed early check-in, book from the previous night.",
+      "Full breakfast is served from 7:00 AM to 10:00 AM.",
+      "Smoking is prohibited in the rooms; please use designated outdoor areas.",
+      "Prior approval is required for events, weddings, and commercial activities.",
+    ],
+  },
+  {
+    id: 2,
+    title: "Hotel Features",
+    image:
+      "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-31.jpg",
+    list: [
+      "Conference Hall",
+      "Air Conditioner",
+      "24hr Security",
+      "Laundry Service",
+      "Room Service",
+      "Swimming Pool",
+      "Daily Housekeeping",
+      "Tea and Coffee Maker",
+      "Mini Bar",
+      "Restaurant",
+    ],
+  },
+];

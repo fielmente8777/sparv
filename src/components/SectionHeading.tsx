@@ -5,6 +5,7 @@ interface Props {
   label?: string;
   href?: string;
   description?: string;
+  textWhite?: boolean;
 }
 const SectionHeading: React.FC<Props> = ({
   title,
@@ -12,18 +13,24 @@ const SectionHeading: React.FC<Props> = ({
   label,
   href,
   description,
+  textWhite,
 }) => {
   return (
     <article>
-      <div className="flex lg:justify-between gap-2 lg:items-center">
+      <div className="flex justify-between gap-2 lg:items-center">
         <h2 className="text-3xl max-md:text-xl font-normal font-p-d uppercase text-orange-primary pe-2">
-          {title} <span className="text-black font-p-d">{span}</span>
+          {title}{" "}
+          <span
+            className={` font-p-d ${textWhite ? "text-white" : "text-black"}`}
+          >
+            {span}
+          </span>
         </h2>
         {label && (
-          <div className="max-md:w-20 flex">
+          <div className="max-md:w-max flex">
             <Link
               href={href || "/"}
-              className="text-gray-primary max-md:text-sm px-3 max-md:px-1 py-1 border border-gray-primary font-normal h-max uppercase font-p-d hover:bg-gray-primary hover:text-white duration-500 rounded-sm"
+              className={`text-sm px-3 max-md:px-1 py-1 border ${textWhite ? "border-white" : "border-gray-primary"} font-normal h-max uppercase ${textWhite ? "hover:bg-white hover:text-[#222]" : "hover:bg-gray-primary hover:text-white"}  duration-500 rounded-sm ${textWhite ? "text-white" : "text-gray-primary"}`}
             >
               {label || "View All"}
             </Link>
@@ -31,7 +38,9 @@ const SectionHeading: React.FC<Props> = ({
         )}
       </div>
       {description && (
-        <p className="text-lg max-md:text-base font-medium font-p-d text-[#222] mt-9">
+        <p
+          className={`text-lg max-md:text-base font-normal mt-9 ${textWhite ? "text-white" : "text-[#222]"}`}
+        >
           {description}
         </p>
       )}

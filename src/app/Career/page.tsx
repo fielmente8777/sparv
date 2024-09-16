@@ -1,10 +1,14 @@
 import { Banner } from "@/components";
 import Form from "./components/Form";
 const page = () => {
+  const bannerData = {
+    src: "/images/background.png",
+    title: "Career",
+  };
   return (
     <main>
-      {/* <PopupForm /> */}
-      <Banner src={"/images/Background.png"} alt={"Banner-img"} />
+      <Banner {...bannerData} />
+
       <Form />
     </main>
   );

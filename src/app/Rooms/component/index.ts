@@ -1,3 +1,4 @@
 import RoomsCards from './RoomsCards';
+import RoomAmenities from './RoomAmenities';
 
-export { RoomsCards }
+export { RoomsCards,RoomAmenities }

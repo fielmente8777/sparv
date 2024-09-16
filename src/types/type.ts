@@ -6,21 +6,34 @@ export interface Link {
     link: string;
 }
 
+export interface AmenityItemProps {
+    icon: string;
+    name: string;
+}
 export interface BannerProps {
-    src: string | StaticImageData;
-    alt?: string;
+    src?: string | StaticImageData;
+    title?: string;
+    description?: string;
+    imgSlider?: boolean;
+    data?: {
+        src: string | StaticImageData;
+        title: string;
+        description: string;
+    }[];
 }
 
 export interface TwoColCardprops {
     title: string;
-    description: string;
-    description2: string;
-    image: {
-        src: string | StaticImageData;
-        alt?: string;
-    };
-    href: string;
-    linkText: string;
+    description?: string;
+    image: string | StaticImageData;
+    id: number;
+    href?: string;
+    linkText?: string;
+    price?: number;
+    currency?: string;
+    time?: string;
+    list?: string[];
+    disc?: string[];
 }
 
 export interface MelaPackagesDataProps {

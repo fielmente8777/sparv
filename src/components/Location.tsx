@@ -26,7 +26,7 @@ const Location = () => {
                   placeholder="Subscribe"
                   className="w-full outline-none"
                 />
-                <button className="bg-blue-primary text-white px-3 py-1.5 font-normal uppercase hover:bg-white hover:text-orange-primary duration-500 rounded-sm">
+                <button className="bg-blue-primary text-white px-3 py-1.5 font-normal uppercase hover:bg-blue-secondary duration-500 rounded-sm">
                   go
                 </button>
               </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { contactData, footerPageLink } from "@/db/data";
 import { usePathname } from "next/navigation";
 import Location from "./Location";
+import { navLink } from "@/db/navLink";
 const Footer = () => {
   const pathname = usePathname();
   return (
@@ -27,21 +28,16 @@ const Footer = () => {
             </ul>
             {/* footer right */}
             <ul className="flex lg:items-center max-md:gap-3 lg:justify-center max-md:flex-col">
-              {footerPageLink
-                .slice(3, footerPageLink.length)
-                .map((link, index) => (
-                  <li
-                    key={link.name}
-                    className={`${index !== footerPageLink.slice(3, footerPageLink.length).length - 1 && "lg:border-e-2 border-[#ffffff]"}`}
-                  >
-                    <Link
-                      href={link.link}
-                      className="text-white uppercase px-3"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
+              {navLink.slice(3, navLink.length).map((link, index) => (
+                <li
+                  key={link.name}
+                  className={`${index !== navLink.slice(3, navLink.length).length - 1 && "lg:border-e-2 border-[#ffffff]"}`}
+                >
+                  <Link href={link.link} className="text-white uppercase px-3">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

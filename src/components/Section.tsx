@@ -8,7 +8,7 @@ interface Props {
 const Section: React.FC<Props> = ({ className, children, id, style }) => {
   return (
     <section
-      className={`${className ? className : "lg:py-10"} py-5`}
+      className={`${className ? className : "lg:py-14"} py-5`}
       id={id}
       style={style}
     >

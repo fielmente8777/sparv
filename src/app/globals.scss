@@ -31,9 +31,6 @@
   font-optical-sizing: auto;
 }
 
-
-
-
 * {
   margin: 0;
   padding: 0;
@@ -47,13 +44,13 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #D0B376;
+  background-color: #d0b376;
   margin-block: 0.3rem;
   border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #00486C;
+  background-color: #00486c;
   border-radius: 1rem;
 }
 
@@ -86,11 +83,11 @@
   justify-content: space-between;
   width: 100%;
   background: #ffffff;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   overflow: hidden;
   cursor: pointer;
   width: 100%;
-  padding: .11rem .8rem;
+  padding: 0.11rem 0.8rem;
 }
 
 .file-upload {
@@ -100,18 +97,18 @@
 
 .custom-file-upload {
   display: inline-block;
-  padding: .3rem 20px;
-  background-color: #D0B376;
+  padding: 0.3rem 20px;
+  background-color: #d0b376;
   /* Change this to your desired color */
   color: white;
-  border: 1px solid #D0B376;
+  border: 1px solid #d0b376;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .custom-file-upload:hover {
   background-color: #ffffff;
-  color: #D0B376;
+  color: #d0b376;
 }
 
 .upload-text {
@@ -140,17 +137,81 @@
   /* Remove default arrow in Internet Explorer */
 }
 
-
 .svg {
   position: absolute;
   top: 50%;
   right: 1.5rem;
   width: max-content;
   height: max-content;
-  fill: #D0B376;
+  fill: #d0b376;
   transform: translateY(-50%);
   cursor: pointer;
   /* Make SVG cursor a pointer */
   background-color: #fff;
   pointer-events: none;
+}
+
+// animations
+.fed-up {
+  animation: fedUp 0.9s ease-in-out;
+}
+
+@keyframes fedUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.fed-down {
+  animation: fedDown 0.9s ease-in-out;
+}
+
+@keyframes fedDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.pagedata {
+  text-align: justify;
+  ul {
+    @apply text-lg;
+    color: #727272;
+    list-style: circle;
+    font-weight: 300;
+    padding: 0 0 0 2.5rem;
+    @media screen and (max-width: 768px) {
+      @apply text-base;
+      padding: 0 0 0 1.5rem;
+    }
+  }
+  p {
+    @apply text-lg;
+    font-weight: 300;
+    color: #727272;
+    @media screen and (max-width: 768px) {
+      @apply text-base;
+    }
+  }
+  ol {
+    @apply text-lg;
+    color: #727272;
+    font-weight: 300;
+    list-style: decimal;
+    padding: 0 0 0 2.5rem;
+    @media screen and (max-width: 768px) {
+      @apply text-base;
+      padding: 0 0 0 1.5rem;
+    }
+  }
 }

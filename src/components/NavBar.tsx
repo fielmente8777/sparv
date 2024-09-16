@@ -85,12 +85,12 @@ const NavBar = () => {
               {/* navbar bottom */}
               <nav className="flex justify-between items-center relative">
                 {/* navbar left */}
-                <ul className="hidden lg:flex items-center gap-2">
+                <ul className="hidden lg:flex items-center gap-3">
                   {navLink.slice(0, 3).map((link) => (
-                    <li key={link.name} className="p-3">
+                    <li key={link.name} className="py-3">
                       <Link
                         href={link.link}
-                        className={`${pathname === link.link ? "border-b border-white" : ""} hover:border-b hover:border-white hover:scale-50 duration-300 text-white uppercase`}
+                        className={`${pathname === link.link ? "border-b border-white" : ""} hover:border-b text-sm hover:border-white hover:scale-50 duration-300 text-white uppercase`}
                       >
                         {link.name}
                       </Link>
@@ -139,9 +139,9 @@ const NavBar = () => {
                   </div>
                 </div>
                 {/* navbar right */}
-                <ul className="hidden lg:flex items-center gap-2">
+                <ul className="hidden lg:flex items-center gap-3">
                   {navLink.slice(3, navLink.length).map((link) => (
-                    <li key={link.name} className="p-3">
+                    <li key={link.name} className="py-3">
                       <Link
                         href={link.link}
                         className={`${pathname === link.link ? "border-b border-white" : ""} hover:border-b hover:border-white hover:scale-75 duration-300 text-white uppercase text-sm`}

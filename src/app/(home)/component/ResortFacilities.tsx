@@ -16,7 +16,6 @@ interface Props {
   };
 }
 const ResortFacilities: React.FC<Props> = ({ data }) => {
-  console.log(data);
   return (
     <Section>
       <Container>

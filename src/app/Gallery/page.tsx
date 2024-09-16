@@ -1,9 +1,19 @@
+import { Banner } from "@/components";
+import GalleryView from "./component/GalleryView";
+import { galleryData } from "@/db/gallery";
+
 const page = () => {
-    return (
-        <div>
-            Enter
-        </div>
-    );
-}
+  const bannerData = {
+    src: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Gallery/Gallery+Banner.jpg",
+    title: "GALLERY",
+    description: "WHERE OPEN SKIES BECOME YOUR HORIZON",
+  };
+  return (
+    <main>
+      <Banner {...bannerData} />
+      <GalleryView data={galleryData} />
+    </main>
+  );
+};
 
 export default page;

@@ -15,7 +15,7 @@ interface Props {
 
 const RoomsCards: React.FC<Props> = ({ data }) => {
   return (
-    <Section>
+    <Section className="lg:pt-0 lg:pb-10">
       <Container>
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-10">
           {data.map((item, index) => (
