@@ -23,7 +23,6 @@ const TwoColGridCard: React.FC<TwoColCardprops> = ({
   list,
   disc,
 }) => {
-  console.log("image", image);
   return (
     <div
       className={`lg:grid grid-cols-2 flex ${id % 2 === 0 ? "flex-col-reverse" : "flex-col"} bg-[#EEEEEE] group`}
