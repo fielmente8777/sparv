@@ -1,6 +1,9 @@
+"use client";
 import { Container, Section } from "@/components";
 import CardWithSlider from "@/components/CardWithSlider";
+import SliderSwip from "@/components/SliderSwip";
 import Link from "next/link";
+import { Autoplay } from "swiper/modules";
 
 interface Props {
   data: {
@@ -35,7 +38,7 @@ const RoomAccommodation = ({ data }: Props) => {
         </p>
       </Container>
       <Container>
-        <div className="grid lg:grid-cols-3 grid-cols-1 gap-6 mt-10">
+        <div className="grid lg:grid-cols-3 max-md:hidden gap-6 mt-10">
           {data.map((item, index) => (
             <div
               className="shadow-2xl group group-hover:scale-105 duration-500"
@@ -53,8 +56,32 @@ const RoomAccommodation = ({ data }: Props) => {
             </div>
           ))}
         </div>
+        <div className="block lg:hidden mt-9">
+          <SliderSwip
+            data={data}
+            modules={[Autoplay]}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            speed={1000}
+            loop
+            slidesPerView={1}
+            spaceBetween={10}
+            classNameSwiper="shadow-2xl group group-hover:scale-105 duration-500"
+          >
+            {(item) => (
+              <CardWithSlider
+                title={item.name}
+                data={item.img}
+                label={"Book Now"}
+                currency={item.currency}
+                description={item.description}
+                price={item.price}
+                time={item.time}
+              />
+            )}
+          </SliderSwip>
+        </div>
       </Container>
-      <div className="bg-blue-primary py-56 -mt-80 "></div>
+      <div className="bg-blue-primary py-56 max-md:py-48 -mt-80  "></div>
     </Section>
   );
 };

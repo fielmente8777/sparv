@@ -31,6 +31,7 @@ const RoomsCards: React.FC<Props> = ({ data }) => {
                 description={item.description}
                 price={item.price}
                 time={item.time}
+                Starting
               />
             </div>
           ))}

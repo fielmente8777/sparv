@@ -12,6 +12,7 @@ interface CardWithSliderProps {
   time?: string;
   label?: string;
   data?: any;
+  Starting?: boolean;
   href?: string; // Add href as a prop
 }
 
@@ -23,6 +24,7 @@ const CardWithSlider: React.FC<CardWithSliderProps> = ({
   time,
   label,
   currency,
+  Starting = false,
   href, // Destructure href prop
 }) => {
   return (
@@ -53,14 +55,16 @@ const CardWithSlider: React.FC<CardWithSliderProps> = ({
           <h3 className="text-2xl font-semibold font-p-d text-blue-primary">
             {title || "title"}
           </h3>
-          <p className="text-base font-normal text-[#222] mt-3">
+          <p className="text-base max-md:h-16 font-normal text-[#222] mt-3">
             {description || "description"}
           </p>
         </div>
         <div className="w-full flex justify-between items-center px-5 pb-5">
           <div className="flex flex-col">
-            <h3 className="text-2xl font-normal uppercase text-gray-primary">
-              {currency || "$"} {price || "100"}
+            <h3 className="text-2xl font-light text-gray-primary">
+              {Starting && "Starting"}{" "}
+              <span className="uppercase">{currency || "$"}</span>{" "}
+              {price || "100"}
             </h3>
             <p className="text-[#222]">{time || "per night"}</p>
           </div>
