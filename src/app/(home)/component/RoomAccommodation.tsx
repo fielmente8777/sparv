@@ -13,6 +13,7 @@ interface Props {
     price: number;
     currency: string;
     time: string;
+    href: string;
     img: string[];
   }[];
 }
@@ -52,6 +53,7 @@ const RoomAccommodation = ({ data }: Props) => {
                 description={item.description}
                 price={item.price}
                 time={item.time}
+                href={item.href}
               />
             </div>
           ))}
@@ -60,7 +62,7 @@ const RoomAccommodation = ({ data }: Props) => {
           <SliderSwip
             data={data}
             modules={[Autoplay]}
-            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            // autoplay={{ delay: 5000, disableOnInteraction: false }}
             speed={1000}
             loop
             slidesPerView={1}
@@ -76,6 +78,8 @@ const RoomAccommodation = ({ data }: Props) => {
                 description={item.description}
                 price={item.price}
                 time={item.time}
+                href={item.href}
+                min_height
               />
             )}
           </SliderSwip>

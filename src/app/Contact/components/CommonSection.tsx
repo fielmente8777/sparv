@@ -56,9 +56,9 @@ const CommonSection: React.FC<CommonSectionProps> = ({
             {data.map((item) => (
               <div
                 key={item.title}
-                className="flex flex-col items-center gap-1 w-full"
+                className="flex flex-col items-center gap-1 w-full group"
               >
-                <div className="text-5xl text-blue-primary font-bold">
+                <div className="text-5xl text-blue-primary font-bold group-[&:hover]:scale-110 group-[&:hover]:-translate-y-1 duration-300 transition ease-linear">
                   {item.icon}
                 </div>
                 <div className="">

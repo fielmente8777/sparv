@@ -21,7 +21,7 @@ export const bannerData = [
 ]
 
 
-const bookNow = "Book Now";
+export const bookNow = "https://engine.eazotel.com/?id=e50d8dc6-4cfc-4c87-b6c0-145ccdeb4121&hid=56369483";
 export const roomsCardsData: roomDataType[] = [
     {
         id: 1,

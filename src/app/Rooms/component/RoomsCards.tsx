@@ -10,6 +10,7 @@ interface Props {
     currency: string;
     time: string;
     img: string[];
+    href: string;
   }[];
 }
 
@@ -31,6 +32,7 @@ const RoomsCards: React.FC<Props> = ({ data }) => {
                 description={item.description}
                 price={item.price}
                 time={item.time}
+                href={item.href}
                 Starting
               />
             </div>

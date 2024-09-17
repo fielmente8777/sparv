@@ -13,6 +13,7 @@ interface CardWithSliderProps {
   label?: string;
   data?: any;
   Starting?: boolean;
+  min_height?: boolean;
   href?: string; // Add href as a prop
 }
 
@@ -25,6 +26,7 @@ const CardWithSlider: React.FC<CardWithSliderProps> = ({
   label,
   currency,
   Starting = false,
+  min_height = false,
   href, // Destructure href prop
 }) => {
   return (
@@ -51,29 +53,34 @@ const CardWithSlider: React.FC<CardWithSliderProps> = ({
         )}
       </SliderSwip>
       <div className="w-full bg-[#EEEEEE] p-3">
-        <div className="flex flex-col gap-1 p-5">
+        <div className="flex flex-col gap-1 p-3">
           <h3 className="text-2xl font-semibold font-p-d text-blue-primary">
             {title || "title"}
           </h3>
-          <p className="text-base max-md:h-16 font-normal text-[#222] mt-3">
+          <p
+            className={`text-base max-md:min-h-11 text-justify font-normal max-md:text-sm text-[#222] mt-3`}
+          >
             {description || "description"}
           </p>
         </div>
-        <div className="w-full flex justify-between items-center px-5 pb-5">
+        <div className="w-full flex justify-between items-center px-3 pb-5">
           <div className="flex flex-col">
-            <h3 className="text-2xl font-light text-gray-primary">
+            <h3 className="text-2xl max-md:text-md font-light text-gray-primary">
               {Starting && "Starting"}{" "}
               <span className="uppercase">{currency || "$"}</span>{" "}
               {price || "100"}
             </h3>
             <p className="text-[#222]">{time || "per night"}</p>
           </div>
-          <Link
-            href={href || "#"}
-            className="text-white px-5 py-4 font-normal uppercase font-p-d bg-blue-primary hover:bg-[#222] duration-500 rounded-sm"
-          >
-            {label || "Book Now"}
-          </Link>
+          <div className="w-max max-md:w-32">
+            <Link
+              target="_blank"
+              href={href || "#"}
+              className="text-white lg:px-5 py-4 font-normal uppercase font-p-d bg-blue-primary hover:bg-[#222] duration-500 rounded-sm flex justify-center items-center max-md:text-sm"
+            >
+              {label || "Book Now"}
+            </Link>
+          </div>
         </div>
       </div>
     </article>

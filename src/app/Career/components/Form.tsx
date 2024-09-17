@@ -20,11 +20,11 @@ const htmlForm = () => {
 
       <Section className="lg:pt-0 lg:pb-12">
         <Container>
-          <form className="bg-blue-primary rounded-md text-white px-7 py-5">
+          <form className="bg-blue-primary rounded-md text-white lg:px-7 px-3 py-5">
             <div className="py-4">
               <h2 className="text-3xl font-p-d">Fill the Form</h2>
             </div>
-            <div className="grid lg:grid-cols-2 gap-4 grid-cols-1">
+            <div className="lg:grid flex flex-col grid-cols-2 gap-4">
               <div className="">
                 <input
                   type="text"
@@ -44,18 +44,30 @@ const htmlForm = () => {
                 />
               </div>
               <div className="input-div">
-                <input type="email" name="email" className="w-full py-3 px-2 rounded-md outline-none" placeholder="Email" required />
+                <input
+                  type="email"
+                  name="email"
+                  className="w-full py-3 px-2 rounded-md outline-none"
+                  placeholder="Email"
+                  required
+                />
               </div>
-              <div className="input-div job-section bg-white text-gray-400 flex justify-between rounded-md overflow-hidden px-3">
-                <select name="job title" id="job" required>
-                  <option value="0" selected>
-                    Job Title
-                  </option>
+              <div className="bg-white relative text-gray-400 flex justify-between rounded-md overflow-hidden">
+                <select
+                  name="job title"
+                  id="job"
+                  required
+                  className="w-full appearance-none px-3 py-3 outline-none"
+                >
+                  <option value="0">Job Title</option>
                   <option value="1">one</option>
                   <option value="2">two</option>
                 </select>
 
-                <div className="svg" id="select-svg">
+                <div
+                  className="absolute right-3 top-4 pointer-events-none"
+                  id="select-svg"
+                >
                   <svg
                     width="29"
                     height="18"
@@ -70,7 +82,7 @@ const htmlForm = () => {
                   </svg>
                 </div>
               </div>
-              <div className="input-div">
+              <div className="">
                 <input
                   type="url"
                   name="Linkedin"
@@ -79,10 +91,13 @@ const htmlForm = () => {
                   required
                 />
               </div>
-              <div className="file-upload-wrapper">
+              <div
+                className="relative flex items-center justify-between w-full
+                bg-white text-gray-400 cursor-pointer rounded-md overflow-hidden px-2 max-md:py-2"
+              >
                 <label
                   htmlFor="resume-upload"
-                  className="upload-text cursor-pointer"
+                  className="upload-text text-[#727272] cursor-pointer"
                 >
                   Upload Resume*
                 </label>
@@ -90,15 +105,23 @@ const htmlForm = () => {
                   type="file"
                   name="resume"
                   id="resume-upload"
-                  className="file-upload"
+                  className="absolute left-0 top-0 w-full h-full z-0 opacity-0 outline-none"
                 />
-                <label htmlFor="resume-upload" className="custom-file-upload">
+                <label
+                  htmlFor="resume-upload"
+                  className="flex z-10 active:scale-90 bg-orange-primary px-3 py-2 rounded-md border border-orange-primary text-white max-md:text-xs max-md:w-full hover:bg-white hover:text-orange-primary"
+                >
                   Choose File
                 </label>
               </div>
             </div>
             <div className="py-4 flex justify-center mt-3">
-              <button type="submit" className="px-5 py-2 uppercase rounded-md lg:text-lg bg-orange-primary ">submit your resume</button>
+              <button
+                type="submit"
+                className="px-5 py-2 uppercase rounded-md active:scale-90 lg:text-lg bg-orange-primary hover:bg-white hover:text-orange-primary text-white duration-500"
+              >
+                submit your resume
+              </button>
             </div>
           </form>
         </Container>

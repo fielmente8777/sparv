@@ -30,12 +30,12 @@ const page = () => {
                 <span className="text-xl font-light uppercase">Event</span>
               </div>
             </div>
-            <div className="col-span-3 grid lg:grid-cols-2 grid-cols-1 gap-7 bg-white lg:-ms-16 lg:p-12 max-md:py-8">
+            <div className="col-span-3 grid lg:grid-cols-2 grid-cols-1 gap-7 max-md:gap-4 bg-white lg:-ms-16 lg:p-12 max-md:pt-0 max-md:pb-8">
               <div>
                 <h2 className="text-2xl max-md:text-xl font-normal font-p-d uppercase text-[#222] pe-2">
                   Restaurant
                 </h2>
-                <p className="text-base font-light text-gray-primary text-justify mt-9">
+                <p className="text-base font-light text-gray-primary text-justify lg:mt-9 mt-4">
                   Dining at SPARV Aulakh Resort is a delightful experience. Our
                   restaurant is open throughout the day, serving breakfast,
                   lunch, dinner, and snacks. Whether you prefer a healthy
@@ -51,7 +51,7 @@ const page = () => {
                 <h2 className="text-2xl max-md:text-xl font-normal font-p-d uppercase text-[#222] pe-2">
                   In-room dining
                 </h2>
-                <p className="text-base font-light text-gray-primary text-justify mt-9">
+                <p className="text-base font-light text-gray-primary text-justify lg:mt-9 mt-4">
                   Our in-room dining service at SPARV resort is the perfect
                   choice for those who cherish private dining. Whether it&apso;s
                   breakfast, lunch, dinner, or a quick snack, we offer a range
@@ -62,6 +62,19 @@ const page = () => {
                   romantic meal, our in-room dining service caters to your
                   preferences, making your stay exceptional.
                 </p>
+              </div>
+              <div className="flex items-center justify-center gap-12 py-6">
+                <div className="w-[100px] aspect-square bg-blue-primary -rotate-45">
+                  <div className="w-full h-full flex flex-col text-white items-center justify-center rotate-45">
+                    <span className="">
+                      <OutLineDishWhite />
+                    </span>
+                    <span className="text-base font-light">Dining</span>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <TfiAlarmClock className="text-5xl font-light text-blue-primary" />
+                </div>
               </div>
               {data.map((item, index) => (
                 <Card key={index} {...item} />

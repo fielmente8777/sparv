@@ -58,7 +58,11 @@ const NavBar = () => {
                 <ul className="flex items-center justify-center gap-3">
                   {contactData.map((item) => (
                     <li key={item.label} className="py-3">
-                      <Link href={item.href || ""} target="_blank">
+                      <Link
+                        href={item.href || ""}
+                        target="_blank"
+                        className="text-white text-base flex hover:scale-110 duration-300 justify-center items-center gap-2"
+                      >
                         {item.icon}
                         <span className="sr-only">{item.label}</span>
                       </Link>
@@ -66,12 +70,12 @@ const NavBar = () => {
                   ))}
                 </ul>
                 {/* navbar right */}
-                <ul className="flex items-center justify-center gap-1">
+                <ul className="flex items-center justify-center gap-3">
                   {connect.map((link) => (
                     <li key={link.name} className="py-3">
                       <Link
                         href={link.link}
-                        className="text-white text-base flex hover:scale-105 duration-300 justify-center items-center gap-2"
+                        className="text-white text-base flex hover:scale-105 transition ease-linear  justify-center items-center gap-2"
                       >
                         <span className="sr-only">{link.name}</span>
                         {link.icon}
@@ -90,7 +94,7 @@ const NavBar = () => {
                     <li key={link.name} className="py-3">
                       <Link
                         href={link.link}
-                        className={`${pathname === link.link ? "border-b border-white" : ""} hover:border-b text-sm hover:border-white hover:scale-50 duration-300 text-white uppercase`}
+                        className={`${pathname === link.link ? "border-b border-white" : ""} hover:border-b text-sm flex hover:border-white hover:scale-95 duration-300 text-white uppercase `}
                       >
                         {link.name}
                       </Link>
@@ -101,7 +105,10 @@ const NavBar = () => {
                 {/* logo */}
                 {navbar ? (
                   <div className="absolute top-[90%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 duration-700 transition ease-out lg:block hidden">
-                    <div className="relative aspect-[1/1] lg:w-[110px] w-[55px]">
+                    <Link
+                      href="/"
+                      className="relative aspect-[1/1] lg:w-[110px] w-[55px] block"
+                    >
                       <Image
                         src={Logo}
                         alt="Logo"
@@ -110,11 +117,14 @@ const NavBar = () => {
                         fill
                         className="object-contain"
                       />
-                    </div>
+                    </Link>
                   </div>
                 ) : (
                   <div className="absolute top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-700 transition ease-out max-md:hidden">
-                    <div className="relative aspect-[1/1] lg:w-[150px] w-[5rem]">
+                    <Link
+                      href="/"
+                      className="relative aspect-[1/1] lg:w-[150px] w-[5rem] block"
+                    >
                       <Image
                         src={Logo2}
                         alt="Logo2"
@@ -123,11 +133,14 @@ const NavBar = () => {
                         fill
                         className="object-contain"
                       />
-                    </div>
+                    </Link>
                   </div>
                 )}
                 <div className="lg:hidden duration-700 transition ease-out">
-                  <div className="relative aspect-[1/1] lg:w-[150px] w-[5rem]">
+                  <Link
+                    href="/"
+                    className="relative aspect-[1/1] lg:w-[150px] w-[5rem] block"
+                  >
                     <Image
                       src={Logo2}
                       alt="Logo2"
@@ -136,7 +149,7 @@ const NavBar = () => {
                       fill
                       className="object-contain"
                     />
-                  </div>
+                  </Link>
                 </div>
                 {/* navbar right */}
                 <ul className="hidden lg:flex items-center gap-3">
@@ -144,7 +157,7 @@ const NavBar = () => {
                     <li key={link.name} className="py-3">
                       <Link
                         href={link.link}
-                        className={`${pathname === link.link ? "border-b border-white" : ""} hover:border-b hover:border-white hover:scale-75 duration-300 text-white uppercase text-sm`}
+                        className={`${pathname === link.link ? "border-b border-white" : ""} hover:border-b hover:border-white flex hover:scale-95 duration-300 text-white uppercase text-sm`}
                       >
                         {link.name}
                       </Link>

@@ -1,6 +1,6 @@
 import { AmenityItemProps, roomDataType } from "@/types/type";
+import { bookNow } from "./homePage";
 
-const bookNow = "Book Now";
 export const roomsCardsData: roomDataType[] = [
     {
         id: 1,

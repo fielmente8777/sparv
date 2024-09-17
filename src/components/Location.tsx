@@ -1,8 +1,34 @@
+"use client";
+import { useState } from "react";
 import Container from "./Container";
 import LazyLoadedMap from "./LazyLoadedMap";
 import Section from "./Section";
 
 const Location = () => {
+  const host = "https://eazotel.eazotel.com/api/dashboard/editnewsletter";
+
+  const [email, setEmail] = useState("");
+
+  const handleNewsletter = async () => {
+    const data = {
+      // Domain: "", // enter client domain
+      Domain: "abhijeet", // test domain
+      email: email,
+    };
+    try {
+      const response = await fetch(host, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    setEmail("");
+  };
   return (
     <Section className="lg:py-0 bg-blue-primary max-w-[1600px] w-full mx-auto">
       <Container>
@@ -21,12 +47,17 @@ const Location = () => {
               <div className="flex gap-3 bg-white py-1 px-2 rounded-sm lg:mt-9 max-w-sm w-full">
                 <input
                   type="email"
-                  name=""
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   aria-label="email"
                   placeholder="Subscribe"
                   className="w-full outline-none max-md:text-sm"
                 />
-                <button className="bg-blue-primary max-md:text-sm text-white px-3 py-1.5 font-normal uppercase hover:bg-blue-secondary duration-500 rounded-sm">
+                <button
+                  onClick={handleNewsletter}
+                  className="bg-blue-primary max-md:text-sm text-white px-3 py-1.5 font-normal uppercase hover:bg-blue-secondary duration-500 rounded-sm"
+                >
                   go
                 </button>
               </div>
