@@ -10,9 +10,9 @@ const page = () => {
   return (
     <main>
       <Banner {...bannerData} />
-      <Section className="lg:py-14 -mt-60 z-10 relative">
+      <Section className="lg:py-14 lg:-mt-60 lg:z-10 lg:relative">
         <Container className="bg-white">
-        <div className="flex flex-col items-center justify-center gap-6 py-12">
+        <div className="flex flex-col items-center justify-center gap-6 lg:py-12">
           <h2 className="text-center text-3xl font-light font-p-d">
             Terms & Conditions
             </h2>
@@ -21,7 +21,7 @@ const page = () => {
           </div>
         </div>
           <div
-            className="pagedata px-16"
+            className="pagedata lg:px-16 mb-4"
             dangerouslySetInnerHTML={{ __html: TermsAndConditions }}
           />
         </Container>
