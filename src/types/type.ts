@@ -111,10 +111,10 @@ export interface FeaturedPressReleasesType {
 export interface ContactUsProps {
     label: string;
     href?: string;
-    label2?: string;
-    href2?: string;
+    // label2?: string;
+    // href2?: string;
     icon: React.ReactNode;
-    traget?: boolean;
+    // traget?: boolean;
 }
 
 

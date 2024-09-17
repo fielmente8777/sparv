@@ -57,11 +57,13 @@ const NavBar = () => {
                 {/* navbar left */}
                 <ul className="flex items-center justify-center gap-3">
                   {contactData.map((item) => (
-                    <li key={item.label} className="py-3">
+                    <li key={item.label} className="">
                       <Link
                         href={item.href || ""}
                         target="_blank"
-                        className="text-white text-base flex hover:scale-110 duration-300 justify-center items-center gap-2"
+                        rel="noreferrer"
+                        aria-label={item.label}
+                        className="text-white text-base py-3 pe-3 flex hover:scale-110 duration-300 justify-center items-center gap-2"
                       >
                         {item.icon}
                         <span className="sr-only">{item.label}</span>
@@ -72,10 +74,11 @@ const NavBar = () => {
                 {/* navbar right */}
                 <ul className="flex items-center justify-center gap-3">
                   {connect.map((link) => (
-                    <li key={link.name} className="py-3">
+                    <li key={link.name}>
                       <Link
                         href={link.link}
-                        className="text-white text-base flex hover:scale-105 transition ease-linear  justify-center items-center gap-2"
+                        aria-label={link.name}
+                        className="text-white text-base py-3 ps-3 flex hover:scale-105 transition ease-linear  justify-center items-center gap-2"
                       >
                         <span className="sr-only">{link.name}</span>
                         {link.icon}

@@ -30,6 +30,7 @@ const SectionHeading: React.FC<Props> = ({
           <div className="max-md:w-max flex">
             <Link
               href={href || "/"}
+              aria-label={href?.replace(/^\/|\/$/g, "")}
               className={`text-sm px-3 max-md:px-1 py-1 border ${textWhite ? "border-white" : "border-gray-primary"} font-normal h-max uppercase ${textWhite ? "hover:bg-white hover:text-[#222]" : "hover:bg-gray-primary hover:text-white"}  duration-500 rounded-sm ${textWhite ? "text-white" : "text-gray-primary"}`}
             >
               {label || "View All"}

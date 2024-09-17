@@ -56,6 +56,7 @@ const Location = () => {
                 />
                 <button
                   onClick={handleNewsletter}
+                  aria-label="Subscribe"
                   className="bg-blue-primary max-md:text-sm text-white px-3 py-1.5 font-normal uppercase hover:bg-blue-secondary duration-500 rounded-sm"
                 >
                   go

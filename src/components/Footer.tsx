@@ -20,8 +20,13 @@ const Footer = () => {
                   key={item.name}
                   className={`${index !== footerPageLink.slice(0, 3).length - 1 && "lg:border-e-2 border-[#ffffff]"}`}
                 >
-                  <Link href={item.link} className="text-white uppercase px-3">
+                  <Link
+                    href={item.link}
+                    className="text-white uppercase px-3"
+                    aria-label={item.name}
+                  >
                     {item.name}
+                    <span className="sr-only">{item.name}</span>
                   </Link>
                 </li>
               ))}
@@ -33,8 +38,13 @@ const Footer = () => {
                   key={link.name}
                   className={`${index !== navLink.slice(3, navLink.length).length - 1 && "lg:border-e-2 border-[#ffffff]"}`}
                 >
-                  <Link href={link.link} className="text-white uppercase px-3">
+                  <Link
+                    href={link.link}
+                    className="text-white uppercase px-3"
+                    aria-label={link.name}
+                  >
                     {link.name}
+                    <span className="sr-only">{link.name}</span>
                   </Link>
                 </li>
               ))}
@@ -48,8 +58,12 @@ const Footer = () => {
                 <li key={data.label} className="px-4">
                   <Link
                     href={data.href || "#"}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={data.label}
                     className="text-white uppercase"
                   >
+                    <span className="sr-only">{data.label}</span>
                     {data.icon}
                   </Link>
                 </li>
@@ -58,8 +72,15 @@ const Footer = () => {
           </div>
           <div className="flex justify-center items-center gap-4">
             <p className="text-white ">Copyright ©  |</p>
-            <Link href="https://www.eazotel.com" className="text-white">
+            <Link
+              href="https://www.eazotel.com"
+              className="text-white"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="eazotel"
+            >
               eazotel
+              <span className="sr-only">eazotel</span>
             </Link>
           </div>
         </Container>

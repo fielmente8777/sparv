@@ -1,5 +1,5 @@
 "use client";
-import { Container, Section } from "@/components";
+import { Container, Section, SectionHeading } from "@/components";
 import CardWithSlider from "@/components/CardWithSlider";
 import SliderSwip from "@/components/SliderSwip";
 import Link from "next/link";
@@ -17,26 +17,19 @@ interface Props {
     img: string[];
   }[];
 }
+
+const headingData = {
+  title: "Rooms",
+  span: "Accommodation",
+  description: "Utmost Luxury at Mandrem Retreat Beach Resort",
+  label: "view all",
+  href: "/Rooms/",
+};
 const RoomAccommodation = ({ data }: Props) => {
   return (
     <Section>
       <Container>
-        <div className="flex lg:justify-between gap-2 lg:items-center">
-          <h2 className="text-3xl max-md:text-xl font-normal font-p-d uppercase text-orange-primary pe-2">
-            Room <span className="text-black font-p-d">Accommodation</span>
-          </h2>
-          <div className="max-md:w-20 flex">
-            <Link
-              href="/Rooms/"
-              className="text-gray-primary max-md:text-sm px-3 max-md:px-1 py-1 border border-gray-primary font-normal h-max uppercase font-p-d hover:bg-gray-primary hover:text-white duration-500 rounded-sm"
-            >
-              View All
-            </Link>
-          </div>
-        </div>
-        <p className="text-lg max-md:text-base font-medium font-p-d text-[#222] mt-9">
-          Utmost Luxury at Mandrem Retreat Beach Resort
-        </p>
+        <SectionHeading {...headingData} />
       </Container>
       <Container>
         <div className="grid lg:grid-cols-3 max-md:hidden gap-6 mt-10">
