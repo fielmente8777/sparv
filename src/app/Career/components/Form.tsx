@@ -1,21 +1,86 @@
 "use client";
 import { Container, Section } from "@/components";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const htmlForm = () => {
-  // const [userName, setUserName] = useState("");
-  // const [userEmail, setUserEmail] = useState("");
-  // const [userPhone, setUserPhone] = useState("");
-  // const [jobTitle, setJobTitle] = useState("");
-  // const [url, setUrl] = useState("");
-  // const [resume, setResume] = useState("");
+const Form = () => {
+  const router = useRouter();
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userMessage, setUserMessage] = useState("");
+  const [userPhone, setUserPhone] = useState("");
+  const [countryCode, setCountryCode] = useState("+91"); // Default country code
+  const [formRes, setFormRes] = useState(false);
+  const [emailErrorMessage, setEmailErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    // e.preventDefault();
-    // console.log(userName,userEmail,userPhone,jobTitle,url,resume);
-    // setUserPhone("");
-    // setUserEmail("");
-    alert("Your details submitted successfully");
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+    if (value.length <= 10) {
+      setUserPhone(value);
+      setErrorMessage(value.length < 10 ? "Please enter a valid number" : "");
+    }
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setUserEmail(value);
+    setEmailErrorMessage(
+      !emailRegex.test(value) ? "Please enter a valid email address" : ""
+    );
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormRes(true);
+
+    if (userPhone.length !== 10) {
+      setErrorMessage("Phone number must be exactly 10 digits.");
+      return;
+    }
+
+    if (!emailRegex.test(userEmail)) {
+      setEmailErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    try {
+      const { data } = await axios.post(
+        "https://nexon.eazotel.com/eazotel/addcontacts",
+        {
+          Domain: "abhijeet", // Replace with your actual domain value
+          // Domain: "sparvhospitality",
+          email: userEmail,
+          Name: userName,
+          Contact: `${userPhone}`, // Combine country code and phone number
+          Description: userMessage,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (data.Status) {
+        setFormRes(true);
+        setUserName("");
+        setUserEmail("");
+        setUserMessage("");
+        setUserPhone("");
+        // setCountryCode("+91"); // Reset country code
+        setFormRes(false);
+        // router.push("/thank-you/");
+        alert("Your details has been submitted.");
+      } else {
+        setFormRes(false);
+        alert("Something went wrong!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -52,8 +117,8 @@ const htmlForm = () => {
                   placeholder="Your Full Name"
                   className="w-full py-3 px-2 rounded-md outline-none"
                   required
-                  // value={userName}
-                  // onChange={(e) => setUserName(e.target.value)}
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
                 />
               </div>
               <div className="input-div">
@@ -63,9 +128,13 @@ const htmlForm = () => {
                   placeholder="Phone Number"
                   className="w-full py-3 px-2 rounded-md outline-none"
                   required
-                  // value={userPhone}
-                  // onChange={(e) => setUserPhone(e.target.value)}
+                  max={9999999999}
+                  value={userPhone}
+                  onChange={handlePhoneChange}
                 />
+                {errorMessage && (
+                  <p className="test-sm text-red-700">{errorMessage}</p>
+                )}
               </div>
               <div className="input-div">
                 <input
@@ -74,17 +143,20 @@ const htmlForm = () => {
                   className="w-full py-3 px-2 rounded-md outline-none"
                   placeholder="Email"
                   required
-                  // value={userEmail}
-                  // onChange={(e) => setUserEmail(e.target.value)}
+                  value={userEmail}
+                  onChange={handleEmailChange}
                 />
+                {emailErrorMessage && (
+                  <p className="test-sm text-red-700">{emailErrorMessage}</p>
+                )}
               </div>
               <div className="bg-white relative text-gray-400 flex justify-between rounded-md overflow-hidden">
                 <select
                   name="job title"
                   id="job"
                   required
-                  // value={jobTitle}
-                  // onChange={(e) => setJobTitle(e.target.value)}
+                  value={userMessage}
+                  onChange={(e) => setUserMessage(e.target.value)}
                   className="w-full appearance-none px-3 py-3 outline-none"
                 >
                   <option value="0">Job Title</option>
@@ -116,7 +188,7 @@ const htmlForm = () => {
                   name="Linkedin"
                   placeholder="Linkedin"
                   className="w-full py-3 px-2 rounded-md outline-none t"
-                  required
+                  // required
                 />
               </div>
               <div
@@ -158,4 +230,4 @@ const htmlForm = () => {
   );
 };
 
-export default htmlForm;
+export default Form;

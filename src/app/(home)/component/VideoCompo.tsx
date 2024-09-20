@@ -71,7 +71,7 @@ const VideoCompo = ({
             title={title}
             loop
             muted={!isPlaying}
-            controls
+            controls={isPlaying}
             picture-in-picture={false}
             controlsList="nodownload noplaybackrate"
             poster={poster}

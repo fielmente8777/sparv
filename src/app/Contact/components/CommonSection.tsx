@@ -53,9 +53,9 @@ const CommonSection: React.FC<CommonSectionProps> = ({
             )}
           </div>
           <div className="flex max-md:items-center max-md:flex-col px-8 bg-[#EEEEEE] justify-between max-md:justify-center max-md:gap-6 w-full lg:py-12 py-8">
-            {data.map((item) => (
+            {data.map((item, index) => (
               <div
-                key={item.title}
+                key={index+1}
                 className="flex flex-col items-center gap-1 w-full group"
               >
                 <div className="text-5xl text-blue-primary font-bold group-[&:hover]:scale-110 group-[&:hover]:-translate-y-1 duration-300 transition ease-linear">

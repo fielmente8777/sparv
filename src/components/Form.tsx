@@ -51,8 +51,8 @@ const Form = () => {
       const { data } = await axios.post(
         "https://nexon.eazotel.com/eazotel/addcontacts",
         {
-          // Domain: "abhijeet", // Replace with your actual domain value
-          Domain: "sparvhospitality", 
+          Domain: "abhijeet", // Replace with your actual domain value
+          // Domain: "sparvhospitality", 
           email: userEmail,
           Name: userName,
           Contact: `${countryCode}${userPhone}`, // Combine country code and phone number
@@ -65,6 +65,7 @@ const Form = () => {
         }
       );
 
+      console.log(data)
       if (data.Status) {
         setFormRes(true);
         setUserName("");

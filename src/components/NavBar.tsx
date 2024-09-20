@@ -171,7 +171,7 @@ const NavBar = () => {
                 {/* hamburger menu */}
                 <div className="lg:hidden z-30" onClick={() => setOpen(!open)}>
                   <button
-                    className="text-white"
+                    className={`${open ? "rotate-180" : ""} w-8 aspect-[1/1] transform duration-500 transition-all ease-in-out flex justify-center items-center text-white`}
                     aria-label="Toggle menu"
                     aria-expanded={open}
                   >
