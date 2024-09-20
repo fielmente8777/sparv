@@ -12,7 +12,7 @@ const Location = () => {
   const handleNewsletter = async () => {
     const data = {
       // Domain: "", // enter client domain
-      Domain: "abhijeet", // test domain
+      Domain: "sparvhospitality", // test domain
       email: email,
     };
     try {
