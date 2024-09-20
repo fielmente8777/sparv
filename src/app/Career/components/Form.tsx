@@ -1,6 +1,23 @@
+"use client";
 import { Container, Section } from "@/components";
+import { useState } from "react";
 
 const htmlForm = () => {
+  // const [userName, setUserName] = useState("");
+  // const [userEmail, setUserEmail] = useState("");
+  // const [userPhone, setUserPhone] = useState("");
+  // const [jobTitle, setJobTitle] = useState("");
+  // const [url, setUrl] = useState("");
+  // const [resume, setResume] = useState("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // e.preventDefault();
+    // console.log(userName,userEmail,userPhone,jobTitle,url,resume);
+    // setUserPhone("");
+    // setUserEmail("");
+    alert("Your details submitted successfully");
+  };
+
   return (
     <>
       <Section>
@@ -20,18 +37,23 @@ const htmlForm = () => {
 
       <Section className="lg:pt-0 lg:pb-12">
         <Container>
-          <form className="bg-blue-primary rounded-md text-white lg:px-7 px-3 py-5">
+          <form
+            className="bg-blue-primary rounded-md text-white lg:px-7 px-3 py-5"
+            onSubmit={handleSubmit}
+          >
             <div className="py-4">
               <h2 className="text-3xl font-p-d">Fill the Form</h2>
             </div>
-            <div className="lg:grid flex flex-col grid-cols-2 gap-4">
+            <div className="lg:grid flex flex-col grid-cols-2 gap-4 text-black">
               <div className="">
                 <input
                   type="text"
                   name="name"
-                  placeholder="your Full Name"
+                  placeholder="Your Full Name"
                   className="w-full py-3 px-2 rounded-md outline-none"
                   required
+                  // value={userName}
+                  // onChange={(e) => setUserName(e.target.value)}
                 />
               </div>
               <div className="input-div">
@@ -41,6 +63,8 @@ const htmlForm = () => {
                   placeholder="Phone Number"
                   className="w-full py-3 px-2 rounded-md outline-none"
                   required
+                  // value={userPhone}
+                  // onChange={(e) => setUserPhone(e.target.value)}
                 />
               </div>
               <div className="input-div">
@@ -50,6 +74,8 @@ const htmlForm = () => {
                   className="w-full py-3 px-2 rounded-md outline-none"
                   placeholder="Email"
                   required
+                  // value={userEmail}
+                  // onChange={(e) => setUserEmail(e.target.value)}
                 />
               </div>
               <div className="bg-white relative text-gray-400 flex justify-between rounded-md overflow-hidden">
@@ -57,6 +83,8 @@ const htmlForm = () => {
                   name="job title"
                   id="job"
                   required
+                  // value={jobTitle}
+                  // onChange={(e) => setJobTitle(e.target.value)}
                   className="w-full appearance-none px-3 py-3 outline-none"
                 >
                   <option value="0">Job Title</option>
@@ -87,7 +115,7 @@ const htmlForm = () => {
                   type="url"
                   name="Linkedin"
                   placeholder="Linkedin"
-                  className="w-full py-3 px-2 rounded-md outline-none"
+                  className="w-full py-3 px-2 rounded-md outline-none t"
                   required
                 />
               </div>
