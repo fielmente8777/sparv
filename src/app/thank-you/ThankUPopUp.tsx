@@ -9,14 +9,14 @@ const ThankUPopUp = () => {
   const redirectToHome = () => {
     router.push("/");
   };
-  useEffect(() => {
-    // Google Ads Conversion Tracking
-    const script = document.createElement('script');
-    script.innerHTML = `
-      gtag('event', 'conversion', {'send_to': 'AW-16668758737/GIgUCNnV9swZENGlpIw-'});
-    `;
-    document.head.appendChild(script);
-  }, []);
+  // useEffect(() => {
+  //   // Google Ads Conversion Tracking
+  //   const script = document.createElement('script');
+  //   script.innerHTML = `
+  //     gtag('event', 'conversion', {'send_to': 'AW-16668758737/GIgUCNnV9swZENGlpIw-'});
+  //   `;
+  //   document.head.appendChild(script);
+  // }, []);
   return (
     <section>
       <div className="max-w-[1900px] mx-auto">

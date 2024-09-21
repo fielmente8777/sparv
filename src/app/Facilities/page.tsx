@@ -63,7 +63,7 @@ const page = () => {
                   preferences, making your stay exceptional.
                 </p>
               </div>
-              <div className="flex items-center justify-center gap-12 py-6">
+              <div className="flex lg:hidden items-center justify-center gap-12 py-6">
                 <div className="w-[100px] aspect-square bg-blue-primary -rotate-45">
                   <div className="w-full h-full flex flex-col text-white items-center justify-center rotate-45">
                     <span className="">

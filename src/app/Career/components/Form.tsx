@@ -10,7 +10,9 @@ const Form = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userMessage, setUserMessage] = useState("");
   const [userPhone, setUserPhone] = useState("");
-  const [countryCode, setCountryCode] = useState("+91"); // Default country code
+  const [userLinkedin, setUserLinkedin] = useState("");
+  // const [userResume, setUserResume] = useState("Upload Resume*");
+  // const [countryCode, setCountryCode] = useState("+91"); // Default country code
   const [formRes, setFormRes] = useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -32,6 +34,14 @@ const Form = () => {
     );
   };
 
+  // const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.files && e.target.files.length > 0) {
+  //     setUserResume(e.target.files[0].name); // Show the file name
+  //   } else {
+  //     setUserResume("Upload Resume*"); // Reset if no file is selected
+  //   }
+  // };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormRes(true);
@@ -50,8 +60,8 @@ const Form = () => {
       const { data } = await axios.post(
         "https://nexon.eazotel.com/eazotel/addcontacts",
         {
-          Domain: "abhijeet", // Replace with your actual domain value
-          // Domain: "sparvhospitality",
+          // Domain: "abhijeet", // Replace with your actual domain value
+          Domain: "sparvhospitality",
           email: userEmail,
           Name: userName,
           Contact: `${userPhone}`, // Combine country code and phone number
@@ -70,6 +80,8 @@ const Form = () => {
         setUserEmail("");
         setUserMessage("");
         setUserPhone("");
+        setUserLinkedin("");
+        // setUserResume("");
         // setCountryCode("+91"); // Reset country code
         setFormRes(false);
         // router.push("/thank-you/");
@@ -188,7 +200,9 @@ const Form = () => {
                   name="Linkedin"
                   placeholder="Linkedin"
                   className="w-full py-3 px-2 rounded-md outline-none t"
-                  // required
+                  required
+                  value={userLinkedin}
+                  onChange={(e) => setUserLinkedin(e.target.value)}
                 />
               </div>
               <div
@@ -199,12 +213,15 @@ const Form = () => {
                   htmlFor="resume-upload"
                   className="upload-text text-[#727272] cursor-pointer"
                 >
+                  {/* {userResume} */}
                   Upload Resume*
                 </label>
                 <input
                   type="file"
                   name="resume"
                   id="resume-upload"
+                  // value={userResume}
+                  // onChange={handleFileChange}
                   className="absolute left-0 top-0 w-full h-full z-0 opacity-0 outline-none"
                 />
                 <label

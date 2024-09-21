@@ -51,8 +51,8 @@ const Form = () => {
       const { data } = await axios.post(
         "https://nexon.eazotel.com/eazotel/addcontacts",
         {
-          Domain: "abhijeet", // Replace with your actual domain value
-          // Domain: "sparvhospitality", 
+          // Domain: "abhijeet", // Replace with your actual domain value
+          Domain: "sparvhospitality",
           email: userEmail,
           Name: userName,
           Contact: `${countryCode}${userPhone}`, // Combine country code and phone number
@@ -65,7 +65,7 @@ const Form = () => {
         }
       );
 
-      console.log(data)
+      console.log(data);
       if (data.Status) {
         setFormRes(true);
         setUserName("");
@@ -97,6 +97,7 @@ const Form = () => {
             placeholder="Name"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
+            required
             className="w-full border border-blue-primary h-max p-2 rounded-sm outline-none"
           />
           <div className="w-full">
@@ -105,6 +106,7 @@ const Form = () => {
               placeholder="Email"
               value={userEmail}
               onChange={handleEmailChange}
+              required
               className="w-full border border-blue-primary p-2 rounded-sm outline-none"
             />
             {emailErrorMessage && (
@@ -116,6 +118,7 @@ const Form = () => {
           <select
             value={countryCode}
             onChange={(e) => setCountryCode(e.target.value)}
+            required
             className="text-sm text-[#222] outline-none p-2 rounded-sm"
           >
             {countries.map((country) => (
@@ -129,6 +132,8 @@ const Form = () => {
             placeholder="Phone"
             value={userPhone}
             onChange={handlePhoneChange}
+            required
+            maxLength={10}
             className="w-full  p-2 rounded-sm outline-none"
           />
         </div>
@@ -136,6 +141,7 @@ const Form = () => {
         <input
           type="text"
           placeholder="Subject"
+          required
           className="w-full border border-blue-primary p-2 rounded-sm outline-none"
         />
         <textarea
