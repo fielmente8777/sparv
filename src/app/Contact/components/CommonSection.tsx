@@ -1,6 +1,7 @@
 "use client";
 import { Container, Section } from "@/components";
 import { Form } from "@/components";
+import React from "react";
 import { useState } from "react";
 
 interface CommonSectionProps {
