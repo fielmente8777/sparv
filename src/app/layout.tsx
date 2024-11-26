@@ -27,6 +27,8 @@ export default function RootLayout({
         {/* <!-- Google Tag Manager (noscript) --> */}
 
         {/* <!-- End Google Tag Manager (noscript) --> */}
+
+        <script src="//code.tidio.co/jgcqkgy2d3cjzq4uyy1unspkra3e6oap.js" async></script>
       </body>
     </html>
   );
