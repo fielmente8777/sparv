@@ -4,7 +4,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 function Whatsapp() {
   return (
-    <div className="fixed bottom-32 lg:right-8 right-4 z-20 cursor-pointer ">
+    <div className="fixed bottom-32 lg:left-3  left-4 z-20 cursor-pointer ">
       <Link
         href="https://wa.me/+917410112895?text=Hello"
         target="_blank"
