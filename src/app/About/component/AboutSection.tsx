@@ -73,8 +73,9 @@ const AboutSection = () => {
               Getting ready for a meeting or event? At SPARV resort in Mandrem,
               our fully-equipped conference rooms are the perfect place for
               meetings to go well. Our kids&apos; play area is safe and fun,
-              which is great for families with kids. Take advantage of the ease
-              of room service available 24 hours a day, seven days a week.
+              which is great for families with kids. 
+              {/* Take advantage of the ease
+              of room service available 24 hours a day, seven days a week. */}
             </p>
             <p className="mt-4 text-base font-light text-neutral-800 max-md:max-w-full">
               Stay connected during your stay by using the free Wi-Fi

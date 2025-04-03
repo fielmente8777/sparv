@@ -29,7 +29,7 @@ const data = [
     title: "Hotel Information",
     image:
       "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/about+us/Hotel+Features.jpg",
-    list: ["Check-in Time: 02:00PM", "Check-out Time: 12:00PM", "Information:"],
+    list: ["Check-in Time: 01:00PM", "Check-out Time: 11:00AM", "Information:"],
     disc: [
       "The minimum age for guests is 7 years.",
       "Early check-in is subject to availability. For guaranteed early check-in, book from the previous night.",

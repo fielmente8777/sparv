@@ -25,8 +25,7 @@ const CardSection2 = () => {
               from the accommodation.
             </p>
             <p className="mt-4 text-base font-light text-neutral-800 max-md:max-w-full">
-              <strong>By Air:</strong> If you&apos;re arriving by air, Dabolim
-              Airport is the nearest, located 54 km away from the SPARV resort
+              <strong>By Air:</strong> If you&apos;re arriving by air, Manohar International Airport is the nearest, located 12 kms away from the SPARV resort
               in Mandrem.
             </p>
           </div>
