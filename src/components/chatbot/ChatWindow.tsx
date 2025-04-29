@@ -412,7 +412,7 @@ const ChatWindow = ({
         </div>
 
         <div className="flex space-x-2">
-          <button
+          {/* <button
             onClick={onReset}
             className="p-1 rounded hover:bg-opacity-20 hover:rotate-45 duration-500"
             aria-label="Start new conversation"
@@ -429,7 +429,7 @@ const ChatWindow = ({
                 clipRule="evenodd"
               />
             </svg>
-          </button>
+          </button> */}
 
           <button
             onClick={onClose}
