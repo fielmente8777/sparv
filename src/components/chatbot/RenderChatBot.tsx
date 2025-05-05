@@ -32,25 +32,25 @@ const RenderChatBot = () => {
       .join(",");
 
     try {
-      // const { data } = await axios.post(
-      //   "https://nexon.eazotel.com/eazotel/addcontacts",
-      //   {
-      //     Domain: "sparvhospitality",
-      //     Contact: `${phone}`,
-      //     email: `${email}`,
-      //     Description: description,
-      //     Name: `${name}`,
-      //     Remark: "",
-      //     Subject: null,
-      //     created_from: "Chatbot",
-      //   },
-      //   {
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //   }
-      // );
-      // console.log(data);
+      const { data } = await axios.post(
+        "https://nexon.eazotel.com/eazotel/addcontacts",
+        {
+          Domain: "sparvhospitality",
+          Contact: `${phone}`,
+          email: `${email}`,
+          Description: description,
+          Name: `${name}`,
+          Remark: "",
+          Subject: null,
+          created_from: "Chatbot",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
