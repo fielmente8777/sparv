@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.scss";
 import { Call, Footer, NavBar, Whatsapp } from "@/components";
 import Script from "next/script";
+import RenderChatBot from "@/components/chatbot/RenderChatBot";
 // import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
+        {/* <Script
           id="zoho-init"
           strategy="lazyOnload" // Load script after the page loads
           dangerouslySetInnerHTML={{
@@ -27,7 +28,7 @@ export default function RootLayout({
             $zoho.salesiq = $zoho.salesiq || {ready: function () {}};
           `,
           }}
-        />
+        /> */}
         <Script
           id="zoho-widget"
           src="https://salesiq.zohopublic.in/widget?wc=siq68bd71d03faa62c37d1255ad8a8cdf8200f340a75a33ee9f62c5704ff6ca12a9"
@@ -35,6 +36,7 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning={true}>
+        <RenderChatBot />
         <NavBar />
         {children}
         <Footer />

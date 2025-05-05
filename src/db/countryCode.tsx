@@ -4,391 +4,198 @@ interface data_Type {
 }
 
 export const countries: data_Type[] = [
-  { name: "Afghanistan", code: "+93" },
-
-  { name: "Albania", code: "+355" },
-
-  { name: "Algeria", code: "+213" },
-
-  { name: "Andorra", code: "+376" },
-
-  { name: "Angola", code: "+244" },
-
-  { name: "Antigua and Barbuda", code: "+1-268" },
-
-  { name: "Argentina", code: "+54" },
-
-  { name: "Armenia", code: "+374" },
-
-  { name: "Australia", code: "+61" },
-
-  { name: "Austria", code: "+43" },
-
-  { name: "Azerbaijan", code: "+994" },
-
-  { name: "Bahamas", code: "+1-242" },
-
-  { name: "Bahrain", code: "+973" },
-
-  { name: "Bangladesh", code: "+880" },
-
-  { name: "Barbados", code: "+1-246" },
-
-  { name: "Belarus", code: "+375" },
-
-  { name: "Belgium", code: "+32" },
-
-  { name: "Belize", code: "+501" },
-
-  { name: "Benin", code: "+229" },
-
-  { name: "Bhutan", code: "+975" },
-
-  { name: "Bolivia", code: "+591" },
-
-  { name: "Bosnia and Herzegovina", code: "+387" },
-
-  { name: "Botswana", code: "+267" },
-
-  { name: "Brazil", code: "+55" },
-
-  { name: "Brunei", code: "+673" },
-
-  { name: "Bulgaria", code: "+359" },
-
-  { name: "Burkina Faso", code: "+226" },
-
-  { name: "Burundi", code: "+257" },
-
-  { name: "Cabo Verde", code: "+238" },
-
-  { name: "Cambodia", code: "+855" },
-
-  { name: "Cameroon", code: "+237" },
-
-  { name: "Canada", code: "+1" },
-
-  { name: "Central African Republic", code: "+236" },
-
-  { name: "Chad", code: "+235" },
-
-  { name: "Chile", code: "+56" },
-
-  { name: "China", code: "+86" },
-
-  { name: "Colombia", code: "+57" },
-
-  { name: "Comoros", code: "+269" },
-
-  { name: "Congo", code: "+242" },
-
-  { name: "Costa Rica", code: "+506" },
-
-  { name: "Croatia", code: "+385" },
-
-  { name: "Cuba", code: "+53" },
-
-  { name: "Cyprus", code: "+357" },
-
-  { name: "Czech Republic", code: "+420" },
-
-  { name: "Denmark", code: "+45" },
-
-  { name: "Djibouti", code: "+253" },
-
-  { name: "Dominica", code: "+1-767" },
-
-  { name: "Dominican Republic", code: "+1-809" },
-
-  { name: "East Timor (Timor-Leste)", code: "+670" },
-
-  { name: "Ecuador", code: "+593" },
-
-  { name: "Egypt", code: "+20" },
-
-  { name: "El Salvador", code: "+503" },
-
-  { name: "Equatorial Guinea", code: "+240" },
-
-  { name: "Eritrea", code: "+291" },
-
-  { name: "Estonia", code: "+372" },
-
-  { name: "Ethiopia", code: "+251" },
-
-  { name: "Fiji", code: "+679" },
-
-  { name: "Finland", code: "+358" },
-
-  { name: "France", code: "+33" },
-
-  { name: "Gabon", code: "+241" },
-
-  { name: "Gambia", code: "+220" },
-
-  { name: "Georgia", code: "+995" },
-
-  { name: "Germany", code: "+49" },
-
-  { name: "Ghana", code: "+233" },
-
-  { name: "Greece", code: "+30" },
-
-  { name: "Grenada", code: "+1-473" },
-
-  { name: "Guatemala", code: "+502" },
-
-  { name: "Guinea", code: "+224" },
-
-  { name: "Guinea-Bissau", code: "+245" },
-
-  { name: "Guyana", code: "+592" },
-
-  { name: "Haiti", code: "+509" },
-
-  { name: "Honduras", code: "+504" },
-
-  { name: "Hungary", code: "+36" },
-
-  { name: "Iceland", code: "+354" },
-
-  { name: "India", code: "+91" },
-
-  { name: "Indonesia", code: "+62" },
-
-  { name: "Iran", code: "+98" },
-
-  { name: "Iraq", code: "+964" },
-
-  { name: "Ireland", code: "+353" },
-
-  { name: "Israel", code: "+972" },
-
-  { name: "Italy", code: "+39" },
-
-  { name: "Jamaica", code: "+1-876" },
-
-  { name: "Japan", code: "+81" },
-
-  { name: "Jordan", code: "+962" },
-
-  { name: "Kazakhstan", code: "+7" },
-
-  { name: "Kenya", code: "+254" },
-
-  { name: "Kiribati", code: "+686" },
-
-  { name: "Korea, North", code: "+850" },
-
-  { name: "Korea, South", code: "+82" },
-
-  { name: "Kosovo", code: "+383" },
-
-  { name: "Kuwait", code: "+965" },
-
-  { name: "Kyrgyzstan", code: "+996" },
-
-  { name: "Laos", code: "+856" },
-
-  { name: "Latvia", code: "+371" },
-
-  { name: "Lebanon", code: "+961" },
-
-  { name: "Lesotho", code: "+266" },
-
-  { name: "Liberia", code: "+231" },
-
-  { name: "Libya", code: "+218" },
-
-  { name: "Liechtenstein", code: "+423" },
-
-  { name: "Lithuania", code: "+370" },
-
-  { name: "Luxembourg", code: "+352" },
-
-  { name: "Madagascar", code: "+261" },
-
-  { name: "Malawi", code: "+265" },
-
-  { name: "Malaysia", code: "+60" },
-
-  { name: "Maldives", code: "+960" },
-
-  { name: "Mali", code: "+223" },
-
-  { name: "Malta", code: "+356" },
-
-  { name: "Marshall Islands", code: "+692" },
-
-  { name: "Mauritania", code: "+222" },
-
-  { name: "Mauritius", code: "+230" },
-
-  { name: "Mexico", code: "+52" },
-
-  { name: "Micronesia", code: "+691" },
-
-  { name: "Moldova", code: "+373" },
-
-  { name: "Monaco", code: "+377" },
-
-  { name: "Mongolia", code: "+976" },
-
-  { name: "Montenegro", code: "+382" },
-
-  { name: "Morocco", code: "+212" },
-
-  { name: "Mozambique", code: "+258" },
-
-  { name: "Myanmar (Burma)", code: "+95" },
-
-  { name: "Namibia", code: "+264" },
-
-  { name: "Nauru", code: "+674" },
-
-  { name: "Nepal", code: "+977" },
-
-  { name: "Netherlands", code: "+31" },
-
-  { name: "New Zealand", code: "+64" },
-
-  { name: "Nicaragua", code: "+505" },
-
-  { name: "Niger", code: "+227" },
-
-  { name: "Nigeria", code: "+234" },
-
-  { name: "North Macedonia", code: "+389" },
-
-  { name: "Norway", code: "+47" },
-
-  { name: "Oman", code: "+968" },
-
-  { name: "Pakistan", code: "+92" },
-
-  { name: "Palau", code: "+680" },
-
-  { name: "Palestine", code: "+970" },
-
-  { name: "Panama", code: "+507" },
-
-  { name: "Papua New Guinea", code: "+675" },
-
-  { name: "Paraguay", code: "+595" },
-
-  { name: "Peru", code: "+51" },
-
-  { name: "Philippines", code: "+63" },
-
-  { name: "Poland", code: "+48" },
-
-  { name: "Portugal", code: "+351" },
-
-  { name: "Qatar", code: "+974" },
-
-  { name: "Romania", code: "+40" },
-
-  { name: "Russia", code: "+7" },
-
-  { name: "Rwanda", code: "+250" },
-
-  { name: "Saint Kitts and Nevis", code: "+1-869" },
-
-  { name: "Saint Lucia", code: "+1-758" },
-
-  { name: "Saint Vincent and the Grenadines", code: "+1-784" },
-
-  { name: "Samoa", code: "+685" },
-
-  { name: "San Marino", code: "+378" },
-
-  { name: "Sao Tome and Principe", code: "+239" },
-
-  { name: "Saudi Arabia", code: "+966" },
-
-  { name: "Senegal", code: "+221" },
-
-  { name: "Serbia", code: "+381" },
-
-  { name: "Seychelles", code: "+248" },
-
-  { name: "Sierra Leone", code: "+232" },
-
-  { name: "Singapore", code: "+65" },
-
-  { name: "Slovakia", code: "+421" },
-
-  { name: "Slovenia", code: "+386" },
-
-  { name: "Solomon Islands", code: "+677" },
-
-  { name: "Somalia", code: "+252" },
-
-  { name: "South Africa", code: "+27" },
-
-  { name: "South Sudan", code: "+211" },
-
-  { name: "Spain", code: "+34" },
-
-  { name: "Sri Lanka", code: "+94" },
-
-  { name: "Sudan", code: "+249" },
-
-  { name: "Suriname", code: "+597" },
-
-  { name: "Sweden", code: "+46" },
-
-  { name: "Switzerland", code: "+41" },
-
-  { name: "Syria", code: "+963" },
-
-  { name: "Taiwan", code: "+886" },
-
-  { name: "Tajikistan", code: "+992" },
-
-  { name: "Tanzania", code: "+255" },
-
-  { name: "Thailand", code: "+66" },
-
-  { name: "Togo", code: "+228" },
-
-  { name: "Tonga", code: "+676" },
-
-  { name: "Trinidad and Tobago", code: "+1-868" },
-
-  { name: "Tunisia", code: "+216" },
-
-  { name: "Turkey", code: "+90" },
-
-  { name: "Turkmenistan", code: "+993" },
-
-  { name: "Tuvalu", code: "+688" },
-
-  { name: "Uganda", code: "+256" },
-
-  { name: "Ukraine", code: "+380" },
-
-  { name: "United Arab Emirates", code: "+971" },
-
-  { name: "United Kingdom", code: "+44" },
-
-  { name: "United States", code: "+1" },
-
-  { name: "Uruguay", code: "+598" },
-
-  { name: "Uzbekistan", code: "+998" },
-
-  { name: "Vanuatu", code: "+678" },
-
-  { name: "Vatican City", code: "+379" },
-
-  { name: "Venezuela", code: "+58" },
-
-  { name: "Vietnam", code: "+84" },
-
-  { name: "Yemen", code: "+967" },
-
-  { name: "Zambia", code: "+260" },
-
-  { name: "Zimbabwe", code: "+263" },
+  { name: "AFG", code: "+93" },
+  { name: "ALB", code: "+355" },
+  { name: "DZA", code: "+213" },
+  { name: "AND", code: "+376" },
+  { name: "AGO", code: "+244" },
+  { name: "ATG", code: "+1-268" },
+  { name: "ARG", code: "+54" },
+  { name: "ARM", code: "+374" },
+  { name: "AUS", code: "+61" },
+  { name: "AUT", code: "+43" },
+  { name: "AZE", code: "+994" },
+  { name: "BHS", code: "+1-242" },
+  { name: "BHR", code: "+973" },
+  { name: "BGD", code: "+880" },
+  { name: "BRB", code: "+1-246" },
+  { name: "BLR", code: "+375" },
+  { name: "BEL", code: "+32" },
+  { name: "BLZ", code: "+501" },
+  { name: "BEN", code: "+229" },
+  { name: "BTN", code: "+975" },
+  { name: "BOL", code: "+591" },
+  { name: "BIH", code: "+387" },
+  { name: "BWA", code: "+267" },
+  { name: "BRA", code: "+55" },
+  { name: "BRN", code: "+673" },
+  { name: "BGR", code: "+359" },
+  { name: "BFA", code: "+226" },
+  { name: "BDI", code: "+257" },
+  { name: "CPV", code: "+238" },
+  { name: "KHM", code: "+855" },
+  { name: "CMR", code: "+237" },
+  { name: "CAN", code: "+1" },
+  { name: "CAF", code: "+236" },
+  { name: "TCD", code: "+235" },
+  { name: "CHL", code: "+56" },
+  { name: "CHN", code: "+86" },
+  { name: "COL", code: "+57" },
+  { name: "COM", code: "+269" },
+  { name: "COG", code: "+242" },
+  { name: "CRI", code: "+506" },
+  { name: "HRV", code: "+385" },
+  { name: "CUB", code: "+53" },
+  { name: "CYP", code: "+357" },
+  { name: "CZE", code: "+420" },
+  { name: "DNK", code: "+45" },
+  { name: "DJI", code: "+253" },
+  { name: "DMA", code: "+1-767" },
+  { name: "DOM", code: "+1-809" },
+  { name: "TLS", code: "+670" },
+  { name: "ECU", code: "+593" },
+  { name: "EGY", code: "+20" },
+  { name: "SLV", code: "+503" },
+  { name: "GNQ", code: "+240" },
+  { name: "ERI", code: "+291" },
+  { name: "EST", code: "+372" },
+  { name: "ETH", code: "+251" },
+  { name: "FJI", code: "+679" },
+  { name: "FIN", code: "+358" },
+  { name: "FRA", code: "+33" },
+  { name: "GAB", code: "+241" },
+  { name: "GMB", code: "+220" },
+  { name: "GEO", code: "+995" },
+  { name: "DEU", code: "+49" },
+  { name: "GHA", code: "+233" },
+  { name: "GRC", code: "+30" },
+  { name: "GRD", code: "+1-473" },
+  { name: "GTM", code: "+502" },
+  { name: "GIN", code: "+224" },
+  { name: "GNB", code: "+245" },
+  { name: "GUY", code: "+592" },
+  { name: "HTI", code: "+509" },
+  { name: "HND", code: "+504" },
+  { name: "HUN", code: "+36" },
+  { name: "ISL", code: "+354" },
+  { name: "IND", code: "+91" },
+  { name: "IDN", code: "+62" },
+  { name: "IRN", code: "+98" },
+  { name: "IRQ", code: "+964" },
+  { name: "IRL", code: "+353" },
+  { name: "ISR", code: "+972" },
+  { name: "ITA", code: "+39" },
+  { name: "JAM", code: "+1-876" },
+  { name: "JPN", code: "+81" },
+  { name: "JOR", code: "+962" },
+  { name: "KAZ", code: "+7" },
+  { name: "KEN", code: "+254" },
+  { name: "KIR", code: "+686" },
+  { name: "PRK", code: "+850" },
+  { name: "KOR", code: "+82" },
+  { name: "XKX", code: "+383" },
+  { name: "KWT", code: "+965" },
+  { name: "KGZ", code: "+996" },
+  { name: "LAO", code: "+856" },
+  { name: "LVA", code: "+371" },
+  { name: "LBN", code: "+961" },
+  { name: "LSO", code: "+266" },
+  { name: "LBR", code: "+231" },
+  { name: "LBY", code: "+218" },
+  { name: "LIE", code: "+423" },
+  { name: "LTU", code: "+370" },
+  { name: "LUX", code: "+352" },
+  { name: "MDG", code: "+261" },
+  { name: "MWI", code: "+265" },
+  { name: "MYS", code: "+60" },
+  { name: "MDV", code: "+960" },
+  { name: "MLI", code: "+223" },
+  { name: "MLT", code: "+356" },
+  { name: "MHL", code: "+692" },
+  { name: "MRT", code: "+222" },
+  { name: "MUS", code: "+230" },
+  { name: "MEX", code: "+52" },
+  { name: "FSM", code: "+691" },
+  { name: "MDA", code: "+373" },
+  { name: "MCO", code: "+377" },
+  { name: "MNG", code: "+976" },
+  { name: "MNE", code: "+382" },
+  { name: "MAR", code: "+212" },
+  { name: "MOZ", code: "+258" },
+  { name: "MMR", code: "+95" },
+  { name: "NAM", code: "+264" },
+  { name: "NRU", code: "+674" },
+  { name: "NPL", code: "+977" },
+  { name: "NLD", code: "+31" },
+  { name: "NZL", code: "+64" },
+  { name: "NIC", code: "+505" },
+  { name: "NER", code: "+227" },
+  { name: "NGA", code: "+234" },
+  { name: "MKD", code: "+389" },
+  { name: "NOR", code: "+47" },
+  { name: "OMN", code: "+968" },
+  { name: "PAK", code: "+92" },
+  { name: "PLW", code: "+680" },
+  { name: "PSE", code: "+970" },
+  { name: "PAN", code: "+507" },
+  { name: "PNG", code: "+675" },
+  { name: "PRY", code: "+595" },
+  { name: "PER", code: "+51" },
+  { name: "PHL", code: "+63" },
+  { name: "POL", code: "+48" },
+  { name: "PRT", code: "+351" },
+  { name: "QAT", code: "+974" },
+  { name: "ROU", code: "+40" },
+  { name: "RUS", code: "+7" },
+  { name: "RWA", code: "+250" },
+  { name: "KNA", code: "+1-869" },
+  { name: "LCA", code: "+1-758" },
+  { name: "VCT", code: "+1-784" },
+  { name: "WSM", code: "+685" },
+  { name: "SMR", code: "+378" },
+  { name: "STP", code: "+239" },
+  { name: "SAU", code: "+966" },
+  { name: "SEN", code: "+221" },
+  { name: "SRB", code: "+381" },
+  { name: "SYC", code: "+248" },
+  { name: "SLE", code: "+232" },
+  { name: "SGP", code: "+65" },
+  { name: "SVK", code: "+421" },
+  { name: "SVN", code: "+386" },
+  { name: "SLB", code: "+677" },
+  { name: "SOM", code: "+252" },
+  { name: "ZAF", code: "+27" },
+  { name: "SSD", code: "+211" },
+  { name: "ESP", code: "+34" },
+  { name: "LKA", code: "+94" },
+  { name: "SDN", code: "+249" },
+  { name: "SUR", code: "+597" },
+  { name: "SWE", code: "+46" },
+  { name: "CHE", code: "+41" },
+  { name: "SYR", code: "+963" },
+  { name: "TWN", code: "+886" },
+  { name: "TJK", code: "+992" },
+  { name: "TZA", code: "+255" },
+  { name: "THA", code: "+66" },
+  { name: "TGO", code: "+228" },
+  { name: "TON", code: "+676" },
+  { name: "TTO", code: "+1-868" },
+  { name: "TUN", code: "+216" },
+  { name: "TUR", code: "+90" },
+  { name: "TKM", code: "+993" },
+  { name: "TUV", code: "+688" },
+  { name: "UGA", code: "+256" },
+  { name: "UKR", code: "+380" },
+  { name: "ARE", code: "+971" },
+  { name: "GBR", code: "+44" },
+  { name: "USA", code: "+1" },
+  { name: "URY", code: "+598" },
+  { name: "UZB", code: "+998" },
+  { name: "VUT", code: "+678" },
+  { name: "VAT", code: "+379" },
+  { name: "VEN", code: "+58" },
+  { name: "VNM", code: "+84" },
+  { name: "YEM", code: "+967" },
+  { name: "ZMB", code: "+260" },
+  { name: "ZWE", code: "+263" },
 ];

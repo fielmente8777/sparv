@@ -8,15 +8,24 @@ const Form = () => {
   const router = useRouter();
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
-  const [userMessage, setUserMessage] = useState("");
+  const [userJobDetails, setJobDetails] = useState("");
   const [userPhone, setUserPhone] = useState("");
   const [userLinkedin, setUserLinkedin] = useState("");
-  // const [userResume, setUserResume] = useState("Upload Resume*");
+  const [userResume, setUserResume] = useState("");
   // const [countryCode, setCountryCode] = useState("+91"); // Default country code
   const [formRes, setFormRes] = useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const [optionErrorMessage, setOptionErrorMessage] = useState({
+    userName: "",
+    userResume: "",
+    userPhone: "",
+    userEmail: "",
+    userJobTitle: "",
+    userLinkedin: "",
+  });
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
@@ -42,30 +51,125 @@ const Form = () => {
   //   }
   // };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setFormRes(true);
+
+  //   if (userPhone.length !== 10) {
+  //     setErrorMessage("Phone number must be exactly 10 digits.");
+  //     return;
+  //   }
+
+  //   if (!emailRegex.test(userEmail)) {
+  //     setEmailErrorMessage("Please enter a valid email address.");
+  //     return;
+  //   }
+
+  //   try {
+  //     const { data } = await axios.post(
+  //       "https://nexon.eazotel.com/eazotel/addcontacts",
+  //       {
+  //         // Domain: "abhijeet", // Replace with your actual domain value
+  //         Domain: "sparvhospitality",
+  //         email: userEmail,
+  //         Name: userName,
+  //         Contact: `${userPhone}`, // Combine country code and phone number
+  //         Description: userMessage,
+  //       },
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
+
+  //     if (data.Status) {
+  //       setFormRes(true);
+  //       setUserName("");
+  //       setUserEmail("");
+  //       setUserMessage("");
+  //       setUserPhone("");
+  //       setUserLinkedin("");
+  //       // setUserResume("");
+  //       // setCountryCode("+91"); // Reset country code
+  //       setFormRes(false);
+  //       // router.push("/thank-you/");
+  //       alert("Your details has been submitted.");
+  //     } else {
+  //       setFormRes(false);
+  //       alert("Something went wrong!");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormRes(true);
 
+    setErrorMessage("");
+    setEmailErrorMessage("");
+    setOptionErrorMessage({
+      userName: "",
+      userResume: "",
+      userPhone: "",
+      userEmail: "",
+      userJobTitle: "",
+      userLinkedin: "",
+    });
+
+    let isValid = true;
+    // Handle form submission
+
+    // Phone validation
     if (userPhone.length !== 10) {
-      setErrorMessage("Phone number must be exactly 10 digits.");
-      return;
+      setErrorMessage("Please enter a valid number");
+      isValid = false;
     }
 
+    // Email validation
     if (!emailRegex.test(userEmail)) {
-      setEmailErrorMessage("Please enter a valid email address.");
-      return;
+      setEmailErrorMessage("Please enter a valid email address");
+      isValid = false;
     }
 
+    // option validation
+    if (
+      !userName ||
+      !userEmail ||
+      !userPhone ||
+      !userLinkedin ||
+      !userJobDetails
+    ) {
+      setOptionErrorMessage({
+        userName: !userName ? "Please enter your full name" : "",
+        userResume: !userResume ? "Please upload drive link of resume" : "",
+        userPhone: !userPhone ? "Plase enter the number" : "",
+        userEmail: !userEmail ? "Please enter the email" : "",
+        userJobTitle: !userJobDetails ? "Please enter you job title" : "",
+        userLinkedin: !userLinkedin ? "Please enter your linkedin url" : "",
+      });
+      isValid = false;
+    }
+
+    if (!isValid) {
+      setFormRes(false);
+      return;
+    }
+    // Submit the form
     try {
       const { data } = await axios.post(
-        "https://nexon.eazotel.com/eazotel/addcontacts",
+        "https://nexon.eazotel.com/career/create",
+        // "http://127.0.0.1:5000/career/create",
         {
-          // Domain: "abhijeet", // Replace with your actual domain value
-          Domain: "sparvhospitality",
+          // domain: "testgrm",
+          domain: "sumittest",
+          name: userName,
           email: userEmail,
-          Name: userName,
-          Contact: `${userPhone}`, // Combine country code and phone number
-          Description: userMessage,
+          contact: userPhone,
+          jobtitle: userJobDetails,
+          linkedin: userLinkedin,
+          resume: userResume,
         },
         {
           headers: {
@@ -73,25 +177,33 @@ const Form = () => {
           },
         }
       );
-
+      console.log(data);
       if (data.Status) {
-        setFormRes(true);
-        setUserName("");
-        setUserEmail("");
-        setUserMessage("");
-        setUserPhone("");
-        setUserLinkedin("");
-        // setUserResume("");
-        // setCountryCode("+91"); // Reset country code
-        setFormRes(false);
-        // router.push("/thank-you/");
-        alert("Your details has been submitted.");
+        // setName("");
+        // setCity("");
+        // setDepartment("");
+        // setCurrentPosition("");
+        // setPosition("");
+        // setResume("");
+        // setEmail("");
+        // setCountryCode("+91");
+        // setPhone("");
+        alert("message sent successfully");
+        // alert(data.message);
+        // console.log(data.message);
+        // if (setCareerModal) {
+        //   setCareerModal(false);
+        // }
       } else {
         setFormRes(false);
-        alert("Something went wrong!");
+        alert("something went wrong");
+        // alert(data.message);
       }
     } catch (error) {
       console.log(error);
+      alert(error);
+    } finally {
+      setFormRes(false);
     }
   };
 
@@ -154,7 +266,7 @@ const Form = () => {
                   name="email"
                   className="w-full py-3 px-2 rounded-md outline-none"
                   placeholder="Email"
-                  required
+                  // required
                   value={userEmail}
                   onChange={handleEmailChange}
                 />
@@ -167,8 +279,8 @@ const Form = () => {
                   name="job title"
                   id="job"
                   required
-                  value={userMessage}
-                  onChange={(e) => setUserMessage(e.target.value)}
+                  value={userJobDetails}
+                  onChange={(e) => setJobDetails(e.target.value)}
                   className="w-full appearance-none px-3 py-3 outline-none"
                 >
                   <option value="0">Job Title</option>
@@ -206,30 +318,18 @@ const Form = () => {
                 />
               </div>
               <div
-                className="relative flex items-center justify-between w-full
-                bg-white text-gray-400 cursor-pointer rounded-md overflow-hidden px-2 max-md:py-2"
+                className="flex items-center justify-between w-full
+                bg-white  cursor-pointer rounded-md overflow-hidden px-2 max-md:py-2"
               >
-                <label
-                  htmlFor="resume-upload"
-                  className="upload-text text-[#727272] cursor-pointer"
-                >
-                  {/* {userResume} */}
-                  Upload Resume*
-                </label>
                 <input
-                  type="file"
-                  name="resume"
-                  id="resume-upload"
-                  // value={userResume}
-                  // onChange={handleFileChange}
-                  className="absolute left-0 top-0 w-full h-full z-0 opacity-0 outline-none"
+                  type="url"
+                  name="Resume"
+                  placeholder="Resume Url"
+                  className="w-full py-3 px-2 rounded-md outline-none t"
+                  required
+                  value={userResume}
+                  onChange={(e) => setUserResume(e.target.value)}
                 />
-                <label
-                  htmlFor="resume-upload"
-                  className="flex z-10 active:scale-90 bg-orange-primary px-3 py-2 rounded-md border border-orange-primary text-white max-md:text-xs max-md:w-full hover:bg-white hover:text-orange-primary"
-                >
-                  Choose File
-                </label>
               </div>
             </div>
             <div className="py-4 flex justify-center mt-3">
