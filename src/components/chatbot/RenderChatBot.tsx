@@ -66,7 +66,7 @@ const RenderChatBot = () => {
         title="Sparv Hospitality"
         theme={"#00486C"}
         openInterval={2000}
-        logo={"/logo1.png"}
+        logo={"/log2.png"}
       />
     </div>
   );
