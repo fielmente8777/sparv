@@ -21,7 +21,6 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
   },
   trailingSlash: true,
-  reactStrictMode: true,
 };
 
 export default nextConfig;
