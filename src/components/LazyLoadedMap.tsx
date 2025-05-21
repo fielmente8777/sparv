@@ -1,4 +1,5 @@
 // components/LazyLoadedMap.jsx
+"use client";
 import dynamic from "next/dynamic";
 
 const LazyLoadedMap = dynamic(() => import("./EmbeddedMap"), {
