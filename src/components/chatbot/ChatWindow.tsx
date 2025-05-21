@@ -1,11 +1,11 @@
 // src/components/ChatWindow.jsx
-import { countries } from "@/db/countryCode";
 import Image from "next/image";
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import { IoIosSend } from "react-icons/io";
 import "react-datepicker/dist/react-datepicker.css";
 import "./input-date.scss";
+import { countries } from "./constant";
 
 export type Option = {
   label: string;
@@ -54,11 +54,9 @@ const ChatWindow = ({
   const [showFinalMessage, setShowFinalMessage] = useState(false);
   const [chat, setChat] = useState<ChatMessage[]>([]);
   const [checkInDate, setCheckInDate] = useState<Date | null>(null);
-  const [countryCode, setCountryCode] = useState<string | null>(
-    countries[0].code
-  );
+  const [countryCode, setCountryCode] = useState<string>("+91");
 
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate] = useState(new Date());
 
   const [selectedOptions, setSelectedOptions] = useState<
     Record<
@@ -71,11 +69,11 @@ const ChatWindow = ({
   >({});
 
   const chatEndRef = useRef<HTMLDivElement | null>(null);
-  const dateRef = useRef<HTMLInputElement | null>(null);
+  // const dateRef = useRef<HTMLInputElement | null>(null);
 
-  const selectCountryCode = (e: ChangeEvent<HTMLSelectElement>) => {
-    setCountryCode(e.target.value);
-  };
+  // const selectCountryCode = (e: ChangeEvent<HTMLSelectElement>) => {
+  //   setCountryCode(e.target.value);
+  // };
 
   // check date validation
   const isValidDate = (dateStr: string) => {
@@ -97,17 +95,21 @@ const ChatWindow = ({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
     setInput(e.target.value);
 
-  const handleDateChange = (dateValue: string) => {
-    const value = new Date(dateValue).toLocaleDateString();
+  const handleDateChange = (dateValue: null | Date) => {
+    const value = new Date(dateValue || "").toLocaleDateString("en-GB", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
     console.log(value);
-    const [month, day, year] = value.split("/");
+    const [day, month, year] = value.split("/");
 
     if (!value) return;
 
     const currentFlow = messageFlows[currentIndex];
     const key = currentFlow.key || `q${currentIndex}`;
     const answer = `${day}-${month}-${year}`;
-
+    console.log(answer);
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -182,19 +184,19 @@ const ChatWindow = ({
   };
 
   // handleReset
-  const onReset = () => {
-    setChat([
-      {
-        sender: "bot",
-        text: messageFlows[0].question,
-        key: messageFlows[0].key as string,
-      },
-    ]);
-    setCurrentIndex(0);
-    setAnswers({});
-    setShowFinalMessage(false);
-    setSelectedOptions({});
-  };
+  // const onReset = () => {
+  //   setChat([
+  //     {
+  //       sender: "bot",
+  //       text: messageFlows[0].question,
+  //       key: messageFlows[0].key as string,
+  //     },
+  //   ]);
+  //   setCurrentIndex(0);
+  //   setAnswers({});
+  //   setShowFinalMessage(false);
+  //   setSelectedOptions({});
+  // };
 
   // handleInputSumbit
   const handleSubmit = (e: React.FormEvent) => {
@@ -248,67 +250,71 @@ const ChatWindow = ({
     key: string
   ) => {
     if (selectedOption.value === "all") {
-      setSelectedOptions((prev) => {
-        const existing = prev[key] || { isSelcted: false, value: [] };
-        if (existing.isSelected) {
-          return prev;
-        }
-        // Prevent duplicates
-        if (
-          existing.value &&
-          existing.value.length > 0 &&
-          existing.value.includes(selectedOption.label)
-        ) {
+      setSelectedOptions(
+        (prev: Record<string, { isSelected: boolean; value: string[] }>) => {
+          const existing = prev[key] || { isSelcted: false, value: [] };
+          if (existing.isSelected) {
+            return prev;
+          }
+          // Prevent duplicates
+          if (
+            existing.value &&
+            existing.value.length > 0 &&
+            existing.value.includes(selectedOption.label)
+          ) {
+            return {
+              ...prev,
+              [key]: {
+                ...existing,
+                value: [],
+              },
+            };
+          }
+
           return {
             ...prev,
             [key]: {
               ...existing,
-              value: [],
+              value: allOptions.map((item) => item.label),
             },
           };
         }
-
-        return {
-          ...prev,
-          [key]: {
-            ...existing,
-            value: allOptions.map((item) => item.label),
-          },
-        };
-      });
+      );
     } else {
-      setSelectedOptions((prev) => {
-        const existing = prev[key] || { isSelcted: false, value: [] };
-        if (existing.isSelected) {
-          return prev;
-        }
-        // Prevent duplicates
-        if (
-          existing.value &&
-          existing.value.length > 0 &&
-          existing.value.includes(selectedOption.label)
-        ) {
+      setSelectedOptions(
+        (prev: Record<string, { isSelected: boolean; value: string[] }>) => {
+          const existing = prev[key] || { isSelcted: false, value: [] };
+          if (existing.isSelected) {
+            return prev;
+          }
+          // Prevent duplicates
+          if (
+            existing.value &&
+            existing.value.length > 0 &&
+            existing.value.includes(selectedOption.label)
+          ) {
+            return {
+              ...prev,
+              [key]: {
+                ...existing,
+                value: existing.value.filter(
+                  (opt: string) => opt !== selectedOption.label
+                ),
+              },
+            };
+          }
+
           return {
             ...prev,
             [key]: {
               ...existing,
-              value: existing.value.filter(
-                (opt) => opt !== selectedOption.label
-              ),
+              value: [...existing.value, selectedOption.label],
             },
           };
+
+          return prev;
         }
-
-        return {
-          ...prev,
-          [key]: {
-            ...existing,
-            value: [...existing.value, selectedOption.label],
-          },
-        };
-
-        return prev;
-      });
+      );
     }
   };
 
@@ -381,7 +387,7 @@ const ChatWindow = ({
         },
       ]);
     }
-  }, [messageFlows]);
+  }, [messageFlows, chat.length]);
 
   // useEffect for scroll
   useEffect(() => {
@@ -394,7 +400,7 @@ const ChatWindow = ({
       <div
         className="p-4 flex justify-between items-center "
         style={{
-          background: theme || "#FD5C01",
+          background: theme,
           color: "white",
         }}
       >
@@ -466,7 +472,13 @@ const ChatWindow = ({
             <div
               key={index}
               style={{
-                background: `${msg?.sender === "user" ? (!Array.isArray(msg.text) ? theme : "") : "#EEEEEE"}`,
+                background: `${
+                  msg?.sender === "user"
+                    ? !Array.isArray(msg.text)
+                      ? theme
+                      : ""
+                    : "#EEEEEE"
+                }`,
               }}
               className={`max-w-[85%] break-words whitespace-wrap px-3 py-2 rounded-lg text-sm ${
                 msg.sender === "user"
@@ -482,7 +494,7 @@ const ChatWindow = ({
                       style={{
                         background: theme,
                       }}
-                      className="text-white rounded-full px-3 py-1"
+                      className="text-white rounded-full text-sm px-3 py-1"
                     >
                       {opt}
                     </div>
@@ -581,8 +593,9 @@ const ChatWindow = ({
             <div className="w-full flex items-center">
               {messageFlows[currentIndex]?.key === "phone" && (
                 <select
-                  onChange={selectCountryCode}
-                  defaultValue={countries[0].code}
+                  onChange={(e)=>setCountryCode(e.target.value)}
+                  // defaultValue={countries[0].code}
+                  value={countryCode}
                 >
                   {countries.map((countryCode, idx) => (
                     <option key={idx} value={countryCode.code}>
@@ -599,9 +612,10 @@ const ChatWindow = ({
                       showTwoColumnMonthYearPicker
                       className="outline-none py-6 px-4 cursor-pointer w-full"
                       selected={startDate}
-                      onChange={(date: any) => handleDateChange(date)}
+                      onChange={(date) => handleDateChange(date as Date | null)}
                       showMonthDropdown
                       showIcon
+                      dateFormat={"dd/MM/yyyy"}
                     />
                   </div>
 
@@ -650,13 +664,18 @@ const ChatWindow = ({
                 <IoIosSend
                   size={24}
                   color={theme || "C2185B"}
-                  opacity={`${messageFlows?.length === currentStep ? "0.4" : "1"}`}
+                  opacity={`${
+                    messageFlows?.length === currentStep ? "0.4" : "1"
+                  }`}
                 />
               </span>
             </button>
           </div>
         </form>
       )}
+       <span className="text-sm bg-white text-center py-2 text-black/50">
+        Powered by Eazotel
+      </span>
     </div>
   );
 };
