@@ -62,7 +62,7 @@ const RenderChatBot = () => {
         finalMessage={thankYouMessage}
         messageFlows={messageFlows}
         title="Minimalist"
-        theme={"#7D684D"}
+        theme={"#00486C"}
         openInterval={2000}
         logo={
           "https://s3.amazonaws.com/solvus-dev/files/asksuite-img/558a9fd5-395e-433d-bc39-2fea5dccc932.png"
