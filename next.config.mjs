@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   /* config options here */
-  output: "export",
+  // output: "export",
+  
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -21,7 +21,6 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
   },
   trailingSlash: true,
-  reactStrictMode: true,
 };
 
 export default nextConfig;

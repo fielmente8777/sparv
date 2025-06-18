@@ -12,7 +12,7 @@ export interface FormData {
 
 const RenderChatBot = () => {
   const welcomeMessage =
-    " Welcome to Sparv, Thank you for reaching out to Goa's most preferred Hospitality.";
+    " Welcome to  Sparv Hospitality, How can I help you today?.";
   const thankYouMessage = `Thank you so much for filling up the details, one of our representative will speak to you as soon as possible!`;
 
   const messageFlows = [
@@ -42,7 +42,7 @@ const RenderChatBot = () => {
           Name: `${name}`,
           Remark: "",
           Subject: null,
-          created_from: "Chatbot",
+          created_from: "Eazobot",
         },
         {
           headers: {
@@ -63,10 +63,10 @@ const RenderChatBot = () => {
         messages={welcomeMessage}
         finalMessage={thankYouMessage}
         messageFlows={messageFlows}
-        title="Sparv"
+        title="Sparv Hospitality"
         theme={"#00486C"}
         openInterval={2000}
-        logo={"/images/log2.png"}
+        logo={"/log2.png"}
       />
     </div>
   );

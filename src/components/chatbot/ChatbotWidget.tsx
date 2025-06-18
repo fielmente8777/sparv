@@ -55,18 +55,27 @@ const ChatbotWidget = ({
     }, openInterval || 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [openInterval]);
 
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "auto";
-  //   }
-  //   return () => {
-  //     document.body.style.overflow = "auto";
-  //   };
-  // }, [isOpen]);
+  const [innerWidth, setInnerWidth] = useState<number | null>(null);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setInnerWidth(window.innerWidth);
+      const handleResize = () => {
+        setInnerWidth(window.innerWidth);
+      };
+      window.addEventListener("resize", handleResize);
+      if (isOpen) {
+        if (innerWidth && innerWidth < 640) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "auto";
+        }
+      } else {
+        document.body.style.overflow = "auto";
+      }
+    }
+  }, [isOpen, innerWidth]);
 
   return (
     <div>
