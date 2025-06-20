@@ -2,7 +2,7 @@
 const nextConfig = {
   /* config options here */
   // output: "export",
-  
+
   images: {
     remotePatterns: [
       {
@@ -16,6 +16,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "dynamic-media-cdn.tripadvisor.com",
+      },
+      {
+        protocol: "https",
+        hostname: "s3.amazonaws.com",
       },
     ],
     dangerouslyAllowSVG: true,

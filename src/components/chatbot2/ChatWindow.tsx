@@ -2061,7 +2061,7 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
                             }}
                             onClick={confirmBooking}
                           >
-                            Confrim Booking
+                            Confirm Booking
                           </button>
                           <button
                             className=" rounded-full px-4 py-2 cursor-pointer"
