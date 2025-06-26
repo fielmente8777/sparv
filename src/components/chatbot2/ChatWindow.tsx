@@ -192,7 +192,7 @@ const chatFlow = {
   },
 };
 
-const ChatWindow = ({ logo }: ChatWindowProps) => {
+const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
   const [isBeforeCheckInOutSubmit, setIsBeforeCheckInOutSubmit] =
     useState(false);
   const [mymessages, setMyMessages] = useState<Message[] | []>([]);
@@ -217,6 +217,7 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const [headingTitle, setHeadingTitle] = useState("");
   const [hotelPhone, setPhoneNumber] = useState("");
+  const [roomSummary, setRoomSummary] = useState([]);
 
   type HotelDetailsType = {
     hotels?: Record<string, any>;
@@ -241,6 +242,7 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
     null,
   ]);
   const [startDate, endDate] = dateRange;
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -251,8 +253,6 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
   });
 
   const [error, setError] = useState(false);
-
-  // console.log(dateRange)
 
   const [hid, setHid] = useState("28886842");
   // const [roomSummary, setRoomSummary] = useState([]);
@@ -522,9 +522,13 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
     nextFlowKey: string;
     label: string;
   }) => {
+    if (messagesEndRef?.current) {
+      messagesEndRef?.current.scrollIntoView({ behavior: "smooth" });
+    }
     setIsTyping(true);
 
     setTimeout(async () => {
+      setIsTyping(false);
       if (nextFlowKey === "Start")
         return setMyMessages([
           {
@@ -759,11 +763,11 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
 
   const makeRoomSummary = () => {
     const rooms = mymessages.filter((item) => item?.roomsDetails)[0];
-    const roomSelected = rooms?.roomsDetails?.filter(
+    const roomSelected: any = rooms?.roomsDetails?.filter(
       (item) => item?.roomQuantity
     );
 
-    // setRoomSummary([...roomSelected]);
+    setRoomSummary([...roomSelected] as any);
 
     addBotMessage({
       message: "Room Summary",
@@ -773,6 +777,68 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
   };
 
   const confirmBooking = async () => {
+    const checkInDate = new Date(startDate as any).toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+
+    const checkOutDate = new Date(endDate as any).toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+
+    let roomDetails = "";
+    let idx = 0;
+
+    for (const item of roomSummary as any) {
+      roomDetails += `Room ${idx + 1} -> Room Name: ${
+        item?.roomName
+      } Room Type: ${
+        item?.roomTypeName
+      } Price Per Night: ${item?.price?.toLocaleString()} Number Of Rooms: ${
+        item?.roomQuantity
+      } `;
+
+      idx++;
+    }
+
+    const description = `check-in: ${checkInDate},check-out: ${checkOutDate},number of guest: ${formData?.numberOfGuests}`;
+
+    try {
+      const { data } = await axios.post(
+        "https://nexon.eazotel.com/eazotel/addcontacts",
+        {
+          Domain: "sparvhospitality",
+          Contact: `${formData.phone}`,
+          email: `${formData?.email}`,
+          Description: description,
+          Name: `${formData?.name}`,
+          Remark: "",
+          Subject: roomDetails,
+          created_from: "Chatbot",
+          check_in: checkInDate,
+          check_out: checkOutDate,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (data.Status) {
+        addBotMessage({
+          from: "bot",
+          message:
+            "Your booking has been confirmed. Our representative will contact you soon.🎉",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
     // GetPayLaterOrderId();
     // const res = await loadRazorpayScript(
     //   "https://checkout.razorpay.com/v1/checkout.js"
@@ -1463,17 +1529,19 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
   return (
     <div className="bg-black/60 w-full h-full">
       <div className="fixed right-0 bottom-0 bg-red-900">
-        <div className=" bg-white pb-5 shadow-2xl overflow-hidden  h-[100dvh] sm:h-[85dvh]  flex flex-col scroll w-full md:w-[390px] overflow-x-hidden mx-auto">
+        <div className=" bg-white pb-5 shadow-2xl overflow-hidden  h-[100dvh] sm:h-[85dvh]  flex flex-col scroll w-full md:w-[390px] overflow-x-hidden mx-auto relative">
           {/* Header */}
           <div
-            className={` ${mymessages.length <= 1 ? "h-[168px] p-4" : "h-[50px]"} relative duration-300 flex justify-between items-center transition-all rounded-br-2xl rounded-bl-2xl flex w-full overflow-hidden`}
+            className={` ${
+              mymessages.length <= 1 ? "h-[168px] p-4" : "h-[50px]"
+            } relative duration-300 justify-between items-center transition-all rounded-br-2xl rounded-bl-2xl flex w-full overflow-hidden`}
             style={{
               background: themeStyle?.BackgroundColor,
               color: "white",
             }}
           >
             {mymessages.length <= 1 ? (
-              <div className="flex flex-col  gap-4 w-full justify-center items-center">
+              <div className="flex flex-col gap-4 w-full justify-center items-center">
                 <Image
                   width={80}
                   height={80}
@@ -1486,7 +1554,7 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
                 <h1 className="font-medium text-md">{headingTitle}</h1>
               </div>
             ) : (
-              <div className="flex h-full items-center justify-between w-full px-5">
+              <div className="flex h-full items-center justify-center w-full px-5">
                 <p>Sparv Hospitality</p>
               </div>
             )}
@@ -1497,6 +1565,13 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
             >
               <FaPhone className="rotate-90" />
             </Link>
+
+            <div
+              className="absolute left-3 top-3 font-bold cursor-pointer"
+              onClick={onClose}
+            >
+              X
+            </div>
 
             {/* <div className="flex space-x-2"> */}
             {/* <button
@@ -1762,10 +1837,10 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
                     )}
 
                     {msg?.roomsDetails && (
-                      <div className="w-[280px]">
+                      <div className="w-[340px]">
                         {msg?.roomsDetails?.length > 0 ? (
                           <div className="w-full">
-                            <div className="flex overflow-x-auto w-full gap-5 hidescrollbar">
+                            <div className="flex overflow-x-auto w-full gap-5 scroll-hidden">
                               {msg?.roomsDetails?.map((room, index) => (
                                 <div
                                   key={index}
@@ -1884,7 +1959,11 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
                                   color: themeStyle.BackgroundColor
                                     ? themeStyle.BackgroundColor
                                     : "#2e3b61",
-                                  border: `1px solid ${themeStyle.BackgroundColor ? themeStyle.BackgroundColor : "#2e3b61"}`,
+                                  border: `1px solid ${
+                                    themeStyle.BackgroundColor
+                                      ? themeStyle.BackgroundColor
+                                      : "#2e3b61"
+                                  }`,
                                 }}
                                 onClick={() => {
                                   handleButtonClick({
@@ -1902,7 +1981,11 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
                                   color: themeStyle.BackgroundColor
                                     ? themeStyle.BackgroundColor
                                     : "#2e3b61",
-                                  border: `1px solid ${themeStyle.BackgroundColor ? themeStyle.BackgroundColor : "#2e3b61"}`,
+                                  border: `1px solid ${
+                                    themeStyle.BackgroundColor
+                                      ? themeStyle.BackgroundColor
+                                      : "#2e3b61"
+                                  }`,
                                 }}
                                 onClick={() => {
                                   ChangeCheckinoutData();
@@ -1976,6 +2059,7 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
                             </div>
 
                             <h1>Room details:</h1>
+
                             {msg?.roomSummary?.map((item, index) => (
                               <div key={index} className="">
                                 <section className="max-w-4xl mx-auto ">
@@ -2059,7 +2143,7 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
                                 ? `1px solid ${themeStyle?.BackgroundColor}`
                                 : "1px solid #2e3b61",
                             }}
-                            onClick={confirmBooking}
+                            onClick={() => confirmBooking()}
                           >
                             Confirm Booking
                           </button>
@@ -2097,78 +2181,29 @@ const ChatWindow = ({ logo }: ChatWindowProps) => {
                   </div>
                 );
               })}
+
+              {isTyping && (
+                <div className="max-w-[80%] w-fit">
+                  <div>
+                    <p className="text-sm rounded-lg mt-1 text-[#474747]">
+                      {/* {title} */}
+                    </p>
+                  </div>
+
+                  <div className="mt-1 w-fit">
+                    {/* <span class="loader"></span> */}
+                    <div className="flex bg-gray-200 py-3 gap-2 px-4 rounded-lg text-sm">
+                      <div className="h-[10px] animate-pulse w-[10px] rounded-full bg-gray-400" />
+                      <div className="h-[10px] animate-pulse w-[10px] rounded-full bg-gray-400" />
+                      <div className="h-[10px] animate-pulse w-[10px] rounded-full bg-gray-400" />
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <div ref={messagesEndRef} />
             </div>
-
-            {/* <div className="grid grid-cols-2 gap-2">
-            {dynamicButtons.length > 0
-              ? dynamicButtons.map((btn, i) => (
-                  <button
-                    key={i}
-                    onClick={() => handleButtonClick(currentFlow.nextFlowKey)}
-                    className="bg-blue-500 text-white px-3 py-2 rounded"
-                  >
-                    {btn}
-                  </button>
-                ))
-              : currentFlow.buttons?.map((btn, i) => (
-                  <button
-                    key={i}
-                    onClick={() => handleButtonClick(btn)}
-                    className="bg-gray-200 text-black px-3 py-2 rounded"
-                  >
-                    {btn}
-                  </button>
-                ))}
-          </div> */}
           </div>
-          {/* input field form */}
-          {/* {currentIndex < messageFlows.length && ( */}
-          {/* <form
-            className="opacity-30 "
-          onSubmit={handleSubmit} className="p-1 border-t  w-full sm:px-0 px-4 py-1 flex items-center"
-          >
-            <div className="flex items-center gap-2 w-full border sm:border-none border-gray-600 sm:rounded-none rounded-full px-2">
-              <input
-                // type={messageFlows[currentIndex]?.type}
-                // value={input}
-                // onChange={handleChange}
-                placeholder="Type your answer..."
-                className="w-full h-full flex-grow  rounded-full px-3 py-2 text-sm outline-none bg-transparent"
-                style={{
-                  border: `2px solid ${themeStyle.BackgroundColor}`
-                }}
-                disabled
-                // disabled={
-                // !!messageFlows[currentIndex].options ||
-                //   messageFlows.length === currentStep
-                // }
-                required
-              />
-
-              <button
-                type="submit"
-
-                style={{
-                  border: `2px solid ${themeStyle.BackgroundColor}`,
-                  // background: themeStyle.BackgroundColor || "#C2185B",
-                }}
-                // disabled={!!messageFlows[currentIndex].options}
-                className=" flex justify-center items-center rounded-full p-1"
-              >
-                <span className="inline-block duration-200">
-                  <IoIosSend
-                    size={24}
-
-                    color={themeStyle.BackgroundColor || ""}
-                  // opacity={""}
-                  />
-                  jgjgfg
-                </span>
-              </button>
-            </div>
-          </form> */}
-          {/* )} */}
         </div>
       </div>
     </div>
