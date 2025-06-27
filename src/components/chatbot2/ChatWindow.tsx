@@ -298,6 +298,11 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
             ...msg,
             disabled: true,
           };
+        } else if (msg?.checkInOutDetails) {
+          return {
+            ...msg,
+            disabled: true,
+          };
         }
         return msg;
       });
@@ -1556,9 +1561,9 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                         }
                         className="w-66 bg-gray-100 rounded-tr-3xl rounded-br-3xl rounded-bl-3xl overflow-hidden"
                       >
-                        <div className="flex flex-col gap-5 shadow px-3 py-3 rounded-md ">
+                        <div className="flex flex-col gap-5 shadow px-3 py-3 rounded-md date-picker-container">
                           <DatePicker
-                            calendarClassName="custom"
+                            maxDate={msg?.disabled ? new Date() : undefined}
                             inline
                             selectsRange
                             startDate={startDate}
@@ -1573,7 +1578,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
 
                           <div className="flex w-full justify-center  items-center">
                             <button
-                              className="  text-white bg- py-1.5 px-6 text-sm tracking-wide rounded-full cursor-pointer"
+                              disabled={msg?.disabled}
+                              className={`text-white bg- py-1.5 px-6 text-sm tracking-wide rounded-full cursor-pointer ${msg?.disabled && "opacity-30"}`}
                               style={{
                                 background: themeStyle?.BackgroundColor
                                   ? themeStyle?.BackgroundColor
@@ -2020,20 +2026,18 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
 
               {isTyping && (
                 <div className="max-w-[80%] w-fit">
-                  <div>
-                    <p className="text-sm rounded-lg mt-1 text-[#474747]">
-                      {/* {title} */}
-                    </p>
+                  helo
+                  {/* <div>
+                    <p className="text-sm rounded-lg mt-1 text-[#474747]"></p>
                   </div>
 
-                  <div className="mt-1 w-fit">
-                    {/* <span class="loader"></span> */}
+                  <div className="w-fit">
                     <div className="flex bg-gray-200 py-3 gap-2 px-4 rounded-lg text-sm">
                       <div className="h-[10px] animate-pulse w-[10px] rounded-full bg-gray-400" />
                       <div className="h-[10px] animate-pulse w-[10px] rounded-full bg-gray-400" />
                       <div className="h-[10px] animate-pulse w-[10px] rounded-full bg-gray-400" />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               )}
 
