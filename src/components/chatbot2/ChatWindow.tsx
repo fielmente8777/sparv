@@ -56,9 +56,10 @@ type Message = {
       country: string;
       pinCode: string;
       local: string;
+      disabled?: boolean;
     }
   >;
-  disable?: false;
+  disabled?: false;
   apiCall?: string;
   personalDetails?: Record<string, string>[];
   checkInOutDetails?: boolean;
@@ -266,253 +267,58 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
     return `${day}-${month}-${year}`;
   };
 
-  // const { checkIn, checkOut } = extractDates(dateRange);
-
-  // const loadRazorpayScript = (src: string) => {
-  //   return new Promise((resolve) => {
-  //     const script = document.createElement("script");
-  //     script.src = src;
-  //     script.onload = () => resolve(true);
-  //     script.onerror = () => resolve(false);
-  //     document.body.appendChild(script);
-  //   });
-  // };
-
-  // check date validation
-  // const isValidDate = (dateStr: string) => {
-  //   const [day, month, year] = dateStr.split("-").map(Number);
-  //   if (!day || !month || !year || year.toString().length !== 4) return false;
-  //   const date = new Date(year, month - 1, day);
-  //   return (
-  //     date.getFullYear() === year &&
-  //     date.getMonth() === month - 1 &&
-  //     date.getDate() === day
-  //   );
-  // };
-
-  // const toDate = (dateStr: string) => {
-  //   const [day, month, year] = dateStr.split("-").map(Number);
-  //   return new Date(year, month - 1, day);
-  // };
-
-  // const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
-  //   setInput(e.target.value);
-
-  // // handleInputSumbit
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   const currentFlow = messageFlows[currentIndex];
-  //   const key = currentFlow.key || `q${currentIndex}`;
-  //   const answer = input;
-
-  //   const today = new Date();
-  //   today.setHours(0, 0, 0, 0);
-
-  //   if (key.toLocaleLowerCase() === "check-in") {
-  //     if (!isValidDate(input)) {
-  //       addBotMessage(
-  //         "❌ Invalid check-in date. Format should be DD-MM-YYYY.",
-  //         key
-  //       );
-  //       return;
-  //     }
-
-  //     const checkInDate = toDate(input);
-  //     setCheckInDate(checkInDate);
-
-  //     if (key.toLocaleLowerCase() === "check-in" && checkInDate < today) {
-  //       addBotMessage("❌ Check-in date cannot be in the past.", key);
-  //       return;
-  //     }
-  //   }
-
-  //   if (key.toLocaleLowerCase() === "check-out") {
-  //     if (!isValidDate(input)) {
-  //       addBotMessage(
-  //         "❌ Invalid check-out date. Format should be DD-MM-YYYY.",
-  //         key
-  //       );
-  //       return;
-  //     }
-
-  //     const checkOutDate = toDate(input);
-
-  //     if (
-  //       key.toLocaleLowerCase() === "check-out" &&
-  //       checkOutDate <= checkInDate!
-  //     ) {
-  //       addBotMessage("❌ Check-out date must be after check-in date.", key);
-  //       return;
-  //     }
-  //   }
-
-  //   // Step 1: Show user's message
-  //   setChat((prev) => [...prev, { sender: "user", text: answer, key }]);
-  //   setAnswers((prev) => ({ ...prev, [key]: answer }));
-  //   setInput("");
-  //   setCurrentStep((prev) => prev + 1);
-  //   // Step 2: Show typing... then bot message
-  //   setIsTyping(true);
-
-  //   setTimeout(() => {
-  //     setIsTyping(false);
-  //     const nextIndex = currentIndex + 1;
-
-  //     if (nextIndex < messageFlows.length) {
-  //       setCurrentIndex(nextIndex);
-  //       setChat((prev) => [
-  //         ...prev,
-  //         {
-  //           sender: "bot",
-  //           text: messageFlows[nextIndex].question,
-  //           ...(messageFlows[nextIndex].options && {
-  //             options: messageFlows[nextIndex].options,
-  //           }),
-  //           key: messageFlows[nextIndex].key as string,
-  //         },
-  //       ]);
-  //     } else {
-  //       // End of questions
-  //       setShowFinalMessage(true);
-  //       if (onSubmit) onSubmit({ ...answers, [key]: answer });
-  //     }
-  //   }, 1000);
-  // };
-
-  // handleOptionSelected
-  // const handleOptionSelect = (
-  //   selectedOption: Option,
-  //   allOptions: Option[],
-  //   key: string
-  // ) => {
-  //   if (selectedOption.value === "all") {
-  //     setSelectedOptions((prev) => {
-  //       const existing = prev[key] || { isSelcted: false, value: [] };
-  //       if (existing.isSelected) {
-  //         return prev;
-  //       }
-  //       // Prevent duplicates
-  //       if (
-  //         existing.value &&
-  //         existing.value.length > 0 &&
-  //         existing.value.includes(selectedOption.label)
-  //       ) {
-  //         return {
-  //           ...prev,
-  //           [key]: {
-  //             ...existing,
-  //             value: [],
-  //           },
-  //         };
-  //       }
-
-  //       return {
-  //         ...prev,
-  //         [key]: {
-  //           ...existing,
-  //           value: allOptions.map((item) => item.label),
-  //         },
-  //       };
-  //     });
-  //   } else {
-  //     setSelectedOptions((prev) => {
-  //       const existing = prev[key] || { isSelcted: false, value: [] };
-  //       if (existing.isSelected) {
-  //         return prev;
-  //       }
-  //       // Prevent duplicates
-  //       if (
-  //         existing.value &&
-  //         existing.value.length > 0 &&
-  //         existing.value.includes(selectedOption.label)
-  //       ) {
-  //         return {
-  //           ...prev,
-  //           [key]: {
-  //             ...existing,
-  //             value: existing.value.filter(
-  //               (opt) => opt !== selectedOption.label
-  //             ),
-  //           },
-  //         };
-  //       }
-
-  //       return {
-  //         ...prev,
-  //         [key]: {
-  //           ...existing,
-  //           value: [...existing.value, selectedOption.label],
-  //         },
-  //       };
-
-  //       return prev;
-  //     });
-  //   }
-  // };
-
-  // handleConfirm
-  // const handleConfirm = () => {
-  //   const currentFlow = messageFlows[currentIndex];
-  //   const key = currentFlow.key || `q${currentIndex}`;
-
-  //   setChat((prev) => [
-  //     ...prev,
-  //     { sender: "user", text: selectedOptions[key].value, key },
-  //   ]);
-
-  //   setSelectedOptions((prev) => {
-  //     const isExist = prev[key];
-
-  //     if (isExist && isExist.value.length > 0) {
-  //       return {
-  //         ...prev,
-  //         [key]: { ...isExist, isSelected: true },
-  //       };
-  //     }
-
-  //     return {
-  //       ...prev,
-  //     };
-  //   });
-
-  //   setAnswers((prev) => ({ ...prev, [key]: selectedOptions[key].value }));
-  //   setIsTyping(true);
-
-  //   setTimeout(() => {
-  //     setIsTyping(false);
-  //     const nextIndex = currentIndex + 1;
-
-  //     if (nextIndex < messageFlows.length) {
-  //       setCurrentIndex(nextIndex);
-  //       setChat((prev) => [
-  //         ...prev,
-  //         {
-  //           sender: "bot",
-  //           text: messageFlows[nextIndex].question,
-  //           ...(messageFlows[nextIndex].options && {
-  //             options: messageFlows[nextIndex].options,
-  //           }),
-  //           key: messageFlows[nextIndex].key as string,
-  //         },
-  //       ]);
-  //     } else {
-  //       setShowFinalMessage(true);
-  //       if (onSubmit)
-  //         onSubmit({ ...answers, [key]: selectedOptions[key]?.value });
-  //     }
-  //   }, 1000);
-  // };
-
-  // const addBotMessage = (text: string, key: string) => {
-  //   setChat((prev) => [...prev, { sender: "bot", text, key }]);
-  // };
-
   const addUserMessage = (text: string) => {
     setMyMessages((prev) => [...prev, { from: "user", message: text }]);
   };
 
   const addBotMessage = (flow: Message) => {
-    setMyMessages((prev) => [...prev, { ...flow, from: "bot" }]);
+    setMyMessages((prevMessages: any) => {
+      // Disable buttons in all previous messages
+      const updatedMessages = prevMessages.map((msg: any) => {
+        if (msg.buttons) {
+          const updatedButtons = msg.buttons.map((btn: any) => ({
+            ...btn,
+            disabled: true,
+          }));
+          return { ...msg, buttons: updatedButtons };
+        } else if (msg?.location) {
+          const updateLocation = Object.entries(msg.location).map(
+            ([key, value]) => {
+              return [
+                key,
+                typeof value === "object" && value !== null
+                  ? { ...value, disabled: true }
+                  : { value, disabled: true },
+              ];
+            }
+          );
+
+          return { ...msg, location: Object.fromEntries(updateLocation) };
+        } else if (msg?.numberOfGuests) {
+          console.log("aaya");
+          return {
+            ...msg,
+            disabled: true,
+          };
+        } else if (msg?.roomsDetails?.length > 0) {
+          return {
+            ...msg,
+            disabled: true,
+          };
+        } else if (msg?.roomSummary?.length > 0) {
+          return {
+            ...msg,
+            disabled: true,
+          };
+        }
+        return msg;
+      });
+
+      // Add the new bot message
+      return [...updatedMessages, { ...flow, from: "bot" }];
+    });
+
+    // setMyMessages((prev) => [...prev, updatedFlow]);
   };
 
   const handleButtonClick = async ({
@@ -537,6 +343,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
             message: `Welcome to ${headingTitle}, How can I help you today?`,
           },
         ]);
+
       const nextFlow = chatFlow[
         nextFlowKey as keyof typeof chatFlow
       ] as Message;
@@ -558,7 +365,6 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           }
         }
 
-        disabledPreviousButtons();
         return;
       }
 
@@ -568,43 +374,39 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           ...nextFlow,
           message: details?.AboutUs,
         });
-        disabledPreviousButtons();
+
         return;
       }
 
       // if(nextFlow && nextFlow)
       addUserMessage(label);
       addBotMessage(nextFlow);
-      disabledPreviousButtons();
       setIsTyping(false);
     }, 1000);
   };
 
-  const disabledPreviousButtons = () => {
-    setMyMessages((prev) => {
-      const clonePrevData = [...prev];
+  // const disabledPreviousButtons = () => {
+  //   setMyMessages((prev) => {
+  //     const clonePrevData = [...prev];
 
-      const lastBotMessageIndex = [...prev]
-        .reverse()
-        .findIndex((msg) => msg.from === "bot" && msg.buttons);
+  //     const lastBotMessageIndex = [...prev]
+  //       .reverse()
+  //       .findIndex((msg) => msg.from === "bot" && msg.buttons);
 
-      // console.log([...prev].reverse());
-      // console.log(lastBotMessageIndex);
-
-      if (lastBotMessageIndex !== -1) {
-        const indexToUpdate = lastBotMessageIndex;
-        clonePrevData[indexToUpdate] = {
-          ...clonePrevData[indexToUpdate],
-          buttons: clonePrevData[indexToUpdate].buttons?.map((btn) => ({
-            ...btn,
-            disabled: true,
-          })),
-        };
-      }
-
-      return clonePrevData;
-    });
-  };
+  //     if (lastBotMessageIndex !== -1) {
+  //       const indexToUpdate = lastBotMessageIndex;
+  //       clonePrevData[indexToUpdate] = {
+  //         ...clonePrevData[indexToUpdate],
+  //         buttons: clonePrevData[indexToUpdate].buttons?.map((btn) => ({
+  //           ...btn,
+  //           disabled: true,
+  //         })),
+  //       };
+  //     }
+  //     console.log(clonePrevData);
+  //     return clonePrevData;
+  //   });
+  // };
 
   const handleSelectLoaction = (
     key: string,
@@ -627,7 +429,6 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
       from: "bot",
     });
     setHid(key);
-    disabledPreviousButtons();
   };
 
   const handleInputChange = (
@@ -743,10 +544,15 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
 
         // console.log(responseData)
 
-        setMyMessages((prev) => [
-          ...prev,
-          { from: "bot", roomsDetails: responseData?.Details, message: "" },
-        ]);
+        // setMyMessages((prev) => [
+        //   ...prev,
+        //   { from: "bot", roomsDetails: responseData?.Details, message: "" },
+        // ]);
+        addBotMessage({
+          from: "bot",
+          roomsDetails: responseData?.Details,
+          message: "",
+        });
 
         // addBotMessage({
         //   message: "No rooms available",
@@ -1416,6 +1222,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
 
   const addMoreRooms = () => {
     const rooms = mymessages?.filter((item) => item?.roomsDetails)[0];
+
     addBotMessage({
       roomsDetails: [...(rooms?.roomsDetails as any)],
       from: "bot",
@@ -1526,6 +1333,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
   // }, [mymessages]);
 
   // console.log(hotelDetails)
+
+  console.log(mymessages);
   return (
     <div className="bg-black/60 w-full h-full">
       <div className="fixed right-0 bottom-0 bg-red-900">
@@ -1611,7 +1420,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           </div>
 
           {/* Messages area */}
-          <div className="max-w-md mx-auto bg-white overflow-hidden rounded space-y-4 flex-1 overflow-y-auto w-full hidescrollbar">
+          <div className="max-w-md mx-auto overflow-hidden rounded space-y-4 flex-1 overflow-y-auto w-full hidescrollbar">
             <div
               className={`${
                 mymessages.length <= 1 ? "mt-14" : ""
@@ -1678,9 +1487,14 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                         {Object.entries(msg?.location).map(
                           ([key, value], i) => (
                             <button
+                              disabled={value?.disabled as boolean}
                               key={i}
                               onClick={() => handleSelectLoaction(key, value)}
                               className={` border-1 border-[#2e3b61] text-[#2e3b61] px-3 py-1.5 text-md rounded-full
+                              ${
+                                value?.disabled
+                                  ? "opacity-50 cursor-not-allowed"
+                                  : "cursor-pointer"
                               }`}
                               style={{
                                 color: themeStyle?.BackgroundColor
@@ -1822,7 +1636,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                           /> */}
                           <div className="flex w-full justify-end  items-center">
                             <button
-                              className="  text-white bg- py-1.5 px-6 text-sm tracking-wide rounded-full cursor-pointer"
+                              disabled={msg?.disabled}
+                              className={`text-white bg- py-1.5 px-6 text-sm tracking-wide rounded-full ${msg?.disabled ? "opacity-40" : "cursor-pointer"}`}
                               style={{
                                 background: themeStyle?.BackgroundColor
                                   ? themeStyle?.BackgroundColor
@@ -1929,7 +1744,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                             {isRoomAdd && (
                               <form className="flex items-center gap-4 mt-3 ">
                                 <button
-                                  className="border border-[#2e3b61] bg-white px-3 py-1.5 text-[#2e3b61] rounded-full"
+                                  disabled={msg?.disabled}
+                                  className={`border border-[#2e3b61] bg-white px-3 py-1.5 text-[#2e3b61] rounded-full ${msg?.disabled && "opacity-30"}`}
                                   onClick={(e) => {
                                     e.preventDefault();
                                     makeRoomSummary();
@@ -1938,8 +1754,10 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                   Book Now
                                 </button>
                                 <button
-                                  className="border border-[#2e3b61] bg-white px-3 py-1.5 text-[#2e3b61] rounded-full"
-                                  // onClick={() => addMoreRooms()}
+                                  disabled={msg?.disabled}
+                                  type="button"
+                                  className={`border border-[#2e3b61] bg-white px-3 py-1.5 text-[#2e3b61] rounded-full ${msg?.disabled && "opacity-30"}`}
+                                  onClick={() => addMoreRooms()}
                                 >
                                   Add More Rooms
                                 </button>
@@ -2134,7 +1952,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                         </div>
                         <div className="flex flex-wrap gap-3">
                           <button
-                            className=" rounded-full px-4 py-2 cursor-pointer"
+                            disabled={msg?.disabled}
+                            className={`rounded-full px-4 py-2 cursor-pointer ${msg?.disabled && "opacity-30"}`}
                             style={{
                               color: themeStyle?.BackgroundColor
                                 ? themeStyle?.BackgroundColor
@@ -2148,7 +1967,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                             Confirm Booking
                           </button>
                           <button
-                            className=" rounded-full px-4 py-2 cursor-pointer"
+                            disabled={msg?.disabled}
+                            className={`rounded-full px-4 py-2 cursor-pointer ${msg?.disabled && "opacity-30"}`}
                             style={{
                               color: themeStyle?.BackgroundColor
                                 ? themeStyle?.BackgroundColor
@@ -2162,7 +1982,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                             Cancel Booking
                           </button>
                           <button
-                            className="rounded-full px-4 py-2 cursor-pointer"
+                            disabled={msg?.disabled}
+                            className={`rounded-full px-4 py-2 cursor-pointer ${msg?.disabled && "opacity-30"}`}
                             style={{
                               color: themeStyle?.BackgroundColor
                                 ? themeStyle?.BackgroundColor
