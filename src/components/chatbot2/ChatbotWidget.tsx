@@ -68,18 +68,18 @@ const ChatbotWidget = ({
   //   };
   // }, [isOpen]);
 
-
   return (
     <div>
       {isOpen && (
         <div
-          className={`fixed sm:bottom-0 md:right-0 sm:right-2 right-0 z-[99999999] sm:w-fit w-full sm:h-fit h-dvh bg-gray-500`}
+          className={`fixed sm:bottom-2 md:right-2 sm:right-2 right-0 z-[99999999] sm:w-fit w-full sm:h-fit h-dvh bg-gray-500`}
         >
           <div
-            className={`w-full h-full ${isOpen
-              ? "transition-all duration-500 translate-y-0 block"
-              : "translate-y-full opacity-0 hidden"
-              }`}
+            className={`w-full h-full ${
+              isOpen
+                ? "transition-all duration-500 translate-y-0 block"
+                : "translate-y-full opacity-0 hidden"
+            }`}
           >
             <ChatWindow
               messages={messages}

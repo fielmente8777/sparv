@@ -148,6 +148,10 @@ const chatFlow = {
         label: "Explore Location",
         nextFlowKey: "Explore Location",
       },
+      {
+        label: "🛀 Facilities",
+        nextFlowKey: "Facilities",
+      },
       { label: "Back to Start", nextFlowKey: "Start" },
     ],
   },
@@ -197,24 +201,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
   const [isBeforeCheckInOutSubmit, setIsBeforeCheckInOutSubmit] =
     useState(false);
   const [mymessages, setMyMessages] = useState<Message[] | []>([]);
-  // const [currentKey, setCurrentKey] = useState("Start");
-  // const [currentStep, setCurrentStep] = useState(0);
-  // const [currentIndex, setCurrentIndex] = useState(0);
-  // const [answers, setAnswers] = useState<Record<string, string | string[]>>({});
-  // const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false); // questions shown
-  // const [showFinalMessage, setShowFinalMessage] = useState(false);
-  // const [chat, setChat] = useState<ChatMessage[]>([]);
-  // const [checkInDate, setCheckInDate] = useState<Date | null>(null);
-  // const [selectedOptions, setSelectedOptions] = useState<
-  //   Record<
-  //     string,
-  //     {
-  //       isSelected: boolean;
-  //       value: string[];
-  //     }
-  //   >
-  // >({});
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const [headingTitle, setHeadingTitle] = useState("");
   const [hotelPhone, setPhoneNumber] = useState("");
@@ -224,6 +211,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
     hotels?: Record<string, any>;
     [key: string]: any;
   };
+
   const [hotelDetails, setHotelDetails] = useState<HotelDetailsType>({});
 
   const [themeStyle, setThemeStyle] = useState({
@@ -1337,13 +1325,13 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
   console.log(mymessages);
   return (
     <div className="bg-black/60 w-full h-full">
-      <div className="fixed right-0 bottom-0 bg-red-900">
-        <div className=" bg-white pb-5 shadow-2xl overflow-hidden  h-[100dvh] sm:h-[85dvh]  flex flex-col scroll w-full md:w-[390px] overflow-x-hidden mx-auto relative">
+      <div className="fixed right-0 bottom-0">
+        <div className=" bg-white pb-5 rounded-t-xl shadow-2xl overflow-hidden  h-[100dvh] sm:h-[85dvh]  flex flex-col scroll w-full md:w-[390px] overflow-x-hidden mx-auto relative">
           {/* Header */}
           <div
             className={` ${
               mymessages.length <= 1 ? "h-[168px] p-4" : "h-[50px]"
-            } relative duration-300 justify-between items-center transition-all rounded-br-2xl rounded-bl-2xl flex w-full overflow-hidden`}
+            } relative duration-300 justify-between items-center transition-all rounded-t-xl flex w-full overflow-hidden`}
             style={{
               background: themeStyle?.BackgroundColor,
               color: "white",
@@ -1364,7 +1352,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
               </div>
             ) : (
               <div className="flex h-full items-center justify-center w-full px-5">
-                <p>Sparv Hospitality</p>
+                <p>{headingTitle}</p>
               </div>
             )}
 
@@ -1420,7 +1408,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           </div>
 
           {/* Messages area */}
-          <div className="max-w-md mx-auto overflow-hidden rounded space-y-4 flex-1 overflow-y-auto w-full hidescrollbar">
+          <div className="max-w-md mx-auto overflow-hidden rounded space-y-4 flex-1 overflow-y-auto w-full scroll-hidden">
             <div
               className={`${
                 mymessages.length <= 1 ? "mt-14" : ""
@@ -1529,6 +1517,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                   {val?.key}
                                 </label>
                                 <input
+                                  type={val?.type}
                                   key={i}
                                   name={val?.key}
                                   onChange={handleInputChange}
@@ -1579,7 +1568,9 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                               setDateRange(update);
                             }}
                             isClearable
+                            minDate={new Date()}
                           />
+
                           <div className="flex w-full justify-center  items-center">
                             <button
                               className="  text-white bg- py-1.5 px-6 text-sm tracking-wide rounded-full cursor-pointer"
@@ -1876,20 +1867,26 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                               </p>
                             </div>
 
-                            <h1>Room details:</h1>
+                            <h1 className="font-medium">Room details :</h1>
 
                             {msg?.roomSummary?.map((item, index) => (
                               <div key={index} className="">
                                 <section className="max-w-4xl mx-auto ">
-                                  <h2 className="mb-2">Room {index + 1}</h2>
+                                  <h2 className="mb-2 font-semibold text-gray-600">
+                                    {item?.roomTypeName}
+                                  </h2>
                                   <p>Room Name: {item?.roomName} </p>
-                                  <p>Room Type: {item?.roomTypeName} </p>
+                                  {/* <p>Room Type: {item?.roomTypeName} </p> */}
                                   <p>
                                     Price Per Night: ₹
                                     {item?.price?.toLocaleString()}{" "}
                                   </p>
                                   <p>Number Of Rooms: {item?.roomQuantity} </p>
-                                  {/* <p>{() => totalPrice({ room: Number(item?.roomQuantity), price: Number(item?.price) })}</p> */}
+                                  <p>
+                                    Total Price: ₹{" "}
+                                    {Number(item?.price) *
+                                      Number(item?.roomQuantity)}
+                                  </p>
 
                                   {/* <div className="space-y-4 text-gray-800 text-base leading-relaxed">
                                 <div className="flex gap-2 items-center">
@@ -1943,13 +1940,29 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                               </div>
                             ))}
 
-                            {/* <p>Total amount {"("}inclusive of taxes{")"}:{totalBookingPrice}  /-</p> */}
+                            <p>
+                              <span className="font-medium">
+                                {" "}
+                                Total Price: ₹{" "}
+                              </span>
+
+                              <span className="font-bold">
+                                {msg?.roomSummary?.reduce(
+                                  (total, item) =>
+                                    total +
+                                    Number(item?.price) *
+                                      Number(item?.roomQuantity),
+                                  0
+                                )}
+                              </span>
+                            </p>
                           </div>
 
                           <div className="flex flex-col gap-5 text-md bg-gray-100 w-[90%] px-5 py-1.5 text-gray-600 rounded-br-3xl rounded-bl-3xl rounded-tr-3xl">
                             Looks good? Let&#39;s proceed with your booking.
                           </div>
                         </div>
+
                         <div className="flex flex-wrap gap-3">
                           <button
                             disabled={msg?.disabled}
@@ -1966,7 +1979,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                           >
                             Confirm Booking
                           </button>
-                          <button
+
+                          {/* <button
                             disabled={msg?.disabled}
                             className={`rounded-full px-4 py-2 cursor-pointer ${msg?.disabled && "opacity-30"}`}
                             style={{
@@ -1980,7 +1994,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                             onClick={cancelBooking}
                           >
                             Cancel Booking
-                          </button>
+                          </button> */}
+
                           <button
                             disabled={msg?.disabled}
                             className={`rounded-full px-4 py-2 cursor-pointer ${msg?.disabled && "opacity-30"}`}
