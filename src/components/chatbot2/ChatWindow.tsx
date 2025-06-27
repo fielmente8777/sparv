@@ -2026,8 +2026,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
 
               {isTyping && (
                 <div className="max-w-[80%] w-fit">
-                  helo
-                  {/* <div>
+                  <div>
                     <p className="text-sm rounded-lg mt-1 text-[#474747]"></p>
                   </div>
 
@@ -2037,7 +2036,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                       <div className="h-[10px] animate-pulse w-[10px] rounded-full bg-gray-400" />
                       <div className="h-[10px] animate-pulse w-[10px] rounded-full bg-gray-400" />
                     </div>
-                  </div> */}
+                  </div>
                 </div>
               )}
 
