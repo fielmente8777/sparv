@@ -13,6 +13,7 @@ import "react-datepicker/dist/react-datepicker.css";
 // import { IoIosSend } from "react-icons/io";
 import { FaPhone } from "react-icons/fa";
 import Link from "next/link";
+import { format } from "date-fns";
 
 export type Option = {
   label: string;
@@ -68,6 +69,29 @@ type Message = {
   roomSummary?: Record<string, string>[];
 };
 
+type HotelDetailsType = {
+  hotels?: Record<string, any>;
+  [key: string]: any;
+};
+
+interface GetRoomType {
+  roomtype: string;
+  Adult: number;
+}
+
+type RateChangeType = {
+  TotalPrice?: number;
+  // aur fields chahiye to add karle
+};
+
+type RoomData = {
+  roomType: string;
+  roomTypeName?: string;
+  roomName?: string;
+  price?: number;
+  roomQuantity?: number;
+};
+
 const chatFlow = {
   Start: {
     personalDetails: [
@@ -93,25 +117,6 @@ const chatFlow = {
         required: true,
       },
     ],
-
-    // buttons: [
-    //   {
-    //     label: "🛌 About Us",
-    //     nextFlowKey: "About Us",
-    //   },
-    //   {
-    //     label: "📅 Book Now",
-    //     nextFlowKey: "Explore Location",
-    //   },
-    //   {
-    //     label: "🛀 Facilities",
-    //     nextFlowKey: "Facilities",
-    //   },
-    //   {
-    //     label: "📍 Explore Location",
-    //     nextFlowKey: "Explore Location",
-    //   },
-    // ],
   },
 
   "After Start": {
@@ -198,6 +203,65 @@ const chatFlow = {
 };
 
 const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
+  const [DeluxAdult, setDeluxAdult] = useState(0);
+  const [SuperDeluxAdult, setSuperDeluxAdult] = useState(0);
+  const [SuiteAdult, setSuiteAdult] = useState(0);
+  const [PremiumAdult, setPremiumAdult] = useState(0);
+  const [PremiereRetreatAdult, setPremiereRetreatAdult] = useState(0);
+  const [EliteSuiteAdult, setEliteSuiteAdult] = useState(0);
+  const [GrandDeluxeAdult, setGrandDeluxeAdult] = useState(0);
+  const [ImperialSuiteAdult, setImperialSuiteAdult] = useState(0);
+  const [SupremeRetreatAdult, setSupremeRetreatAdult] = useState(0);
+  const [RoyalDeluxeAdult, setRoyalDeluxeAdult] = useState(0);
+  const [PrestigeSuiteAdult, setPrestigeSuiteAdult] = useState(0);
+  const [ExclusiveRetreatAdult, setExclusiveRetreatAdult] = useState(0);
+
+  const [Delux, setDelux] = useState(0);
+  const [SuperDelux, setSuperDelux] = useState(0);
+  const [Suite, setSuite] = useState(0);
+  const [Premium, setPremium] = useState(0);
+  const [PremiereRetreat, setPremiereRetreat] = useState(0);
+  const [EliteSuite, setEliteSuite] = useState(0);
+  const [GrandDeluxe, setGrandDeluxe] = useState(0);
+  const [ImperialSuite, setImperialSuite] = useState(0);
+  const [SupremeRetreat, setSupremeRetreat] = useState(0);
+  const [RoyalDeluxe, setRoyalDeluxe] = useState(0);
+  const [PrestigeSuite, setPrestigeSuite] = useState(0);
+  const [ExclusiveRetreat, setExclusiveRetreat] = useState(0);
+
+  const [deluxroomCount, setDeluxRoomcount] = useState(0);
+  const [superroomCount, setsuperRoomcount] = useState(0);
+  const [suiteroomCount, setsuiteRoomcount] = useState(0);
+  const [premiumroomCount, setpremiumRoomcount] = useState(0);
+  const [premiumretreatroomCount, setpremiumretreatRoomcount] = useState(0);
+  const [EliteSuiteroomCount, setEliteSuiteRoomcount] = useState(0);
+  const [GrandDeluxeroomCount, setGrandDeluxeRoomcount] = useState(0);
+  const [ImperialSuiteroomCount, setImperialSuiteRoomcount] = useState(0);
+  const [SupremeRetreatroomCount, setSupremeRetreatRoomcount] = useState(0);
+  const [RoyalDeluxeroomCount, setRoyalDeluxeRoomcount] = useState(0);
+  const [PrestigeSuiteroomCount, setPrestigeSuiteRoomcount] = useState(0);
+  const [ExclusiveRetreatroomCount, setExclusiveRetreatRoomcount] = useState(0);
+
+  const [PaymentStatus, setPaymentStatus] = useState("PENDING");
+  const [PayStatus, setPayStatus] = useState("PENDING");
+  const [OrderId, setOrderId] = useState("");
+  const [RedirectLink, setRedirectLink] = useState("");
+
+  const [RoomCategoryCombination, setRoomCategoryCombination] = useState({
+    DELUX: "-",
+    SUPERDELUX: "-",
+    SUITE: "-",
+    PREMIUM: "-",
+    PremiereRetreat: "-",
+    EliteSuite: "-",
+    GrandDeluxe: "-",
+    ImperialSuite: "-",
+    SupremeRetreat: "-",
+    RoyalDeluxe: "-",
+    PrestigeSuite: "-",
+    ExclusiveRetreat: "-",
+  });
+
   const [isBeforeCheckInOutSubmit, setIsBeforeCheckInOutSubmit] =
     useState(false);
   const [mymessages, setMyMessages] = useState<Message[] | []>([]);
@@ -206,11 +270,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
   const [headingTitle, setHeadingTitle] = useState("");
   const [hotelPhone, setPhoneNumber] = useState("");
   const [roomSummary, setRoomSummary] = useState([]);
-
-  type HotelDetailsType = {
-    hotels?: Record<string, any>;
-    [key: string]: any;
-  };
+  const [roomsdata, setroomsdata] = useState<RoomData[]>([]);
 
   const [hotelDetails, setHotelDetails] = useState<HotelDetailsType>({});
 
@@ -232,6 +292,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
   ]);
   const [startDate, endDate] = dateRange;
 
+  const [numberOfNights, setNumberOfNights] = useState(0);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -246,6 +308,634 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
   const [hid, setHid] = useState("28886842");
   // const [roomSummary, setRoomSummary] = useState([]);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
+
+  const [Available, setAvailable] = useState({
+    DELUX: 0,
+    PREMIUM: 0,
+    SUITE: 0,
+    SUPERDELUX: 0,
+    PremiereRetreat: 0,
+    EliteSuite: 0,
+    GrandDeluxe: 0,
+    ImperialSuite: 0,
+    SupremeRetreat: 0,
+    RoyalDeluxe: 0,
+    PrestigeSuite: 0,
+    ExclusiveRetreat: 0,
+  });
+
+  const [ratesChange, setRateChange] = useState<{
+    [key: string]: RateChangeType;
+  }>({
+    "1": {},
+  });
+
+  const RoomNameAvailable: Record<string, keyof typeof Available> = {
+    DELUX: "DELUX",
+    PREMIUM: "PREMIUM",
+    SUITE: "SUITE",
+    "SUPER DELUX": "SUPERDELUX",
+    "Premiere Retreat": "PremiereRetreat",
+    "Elite Suite": "EliteSuite",
+    "Grand Deluxe": "GrandDeluxe",
+    "Imperial Suite": "ImperialSuite",
+    "Supreme Retreat": "SupremeRetreat",
+    "Royal Deluxe": "RoyalDeluxe",
+    "Prestige Suite": "PrestigeSuite",
+    "Exclusive Retreat": "ExclusiveRetreat",
+  };
+
+  const HandlePaymentRazorpay = (orderID: any, amnt: Number, status: any) => {
+    try {
+      const mockOrderData = {
+        amount: amnt * 100, // Convert amount to paise (assuming INR)
+        orderId: orderID, // Generate a unique order ID
+      };
+
+      const options = {
+        key: "rzp_test_UZ0V9jh3jMC0C9", // Enter the Key ID generated from the Dashboard rzp_test_UZ0V9jh3jMC0C9,rzp_live_5uaIIwZcxLC70j
+        amount: mockOrderData.amount.toString(), // Use the amount from the order data
+        currency: "INR",
+        name: hotelDetails,
+        description: "Test Transaction",
+        // image: websiteData?.[localStorage.getItem("hid")]?.Footer?.Logo,
+        image: "",
+        order_id: OrderId, // Use the order ID from the order data
+        handler: async function (response) {
+          setOrderId(response.razorpay_order_id);
+          UpdateBooking(orderID, response.razorpay_payment_id, status);
+          setPayment({
+            Status: true,
+            Logo: websiteData?.[localStorage.getItem("hid")]?.Footer?.Logo,
+            HotelName: HotelName,
+            Order: orderID,
+            Payment: response.razorpay_payment_id,
+            Name: Name,
+            Phone: Phone,
+            Email: Email,
+            City: "",
+            Country: "",
+            Checkin: selectedDate,
+            Checkout: nextselectedDate,
+            Adult: Adult,
+            Kid: kids,
+            Tax: tax,
+            Total: Subtotal,
+            Grandtotal: Grandtotal,
+            Paid: amnt,
+            PayStatus: status,
+            Delux: Delux,
+            Sd: SuperDelux,
+            Suite: Suite,
+            Premium: Premium,
+            PremiereRetreat: PremiereRetreat,
+            EliteSuite: EliteSuite,
+            GrandDeluxe: GrandDeluxe,
+            ImperialSuite: ImperialSuite,
+            SupremeRetreat: SupremeRetreat,
+            RoyalDeluxe: RoyalDeluxe,
+            PrestigeSuite: PrestigeSuite,
+            ExclusiveRetreat: ExclusiveRetreat,
+            MealPlan: "",
+            Mealprice: "",
+            Rooms: RoomCategoryCombination,
+          });
+        },
+
+        theme: {
+          color: "#978667",
+        },
+      };
+
+      const rzp1 = new Razorpay(options);
+
+      rzp1.on("payment.failed", function (response) {
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+      });
+
+      rzp1.open();
+    } catch (error) {
+      console.log("Payment Error:", error);
+    }
+  };
+
+  const CreateBooking = async () => {
+    if (
+      `${formData.name}` === "" ||
+      `${formData.email}` === "" ||
+      `${formData.phone}` === ""
+    ) {
+      alert("Please fill the form before submit");
+    } else {
+      const total_cost = roomsdata?.reduce(
+        (total, item) =>
+          total +
+          Number(ratesChange[item?.roomType].TotalPrice) *
+            Number(roomtypeCount[item?.roomType]),
+        0
+      );
+      const response = await fetch(
+        `https://nexon.eazotel.com/payment/create_order`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json, text/plain, /",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            roomNumbers: [],
+            hId: "17212625",
+            ndid: "d3d464ff-f449-4f12-8886-7c2a3aa0e5f8",
+            amount: total_cost,
+            currency: "INR",
+            guestInfo: {
+              guestName: `${formData.name}`,
+              EmailId: `${formData.email}`,
+              Phone: `${formData.phone}`,
+              City: "-",
+              Country: { value: "IN", label: "India" },
+              address: "-",
+            },
+            Adults: 1,
+            Kids: 2,
+            Bookings: [
+              { RoomType: "1", Qty: deluxroomCount },
+              { RoomType: "2", Qty: superroomCount },
+              { RoomType: "3", Qty: suiteroomCount },
+              { RoomType: "4", Qty: premiumroomCount },
+              { RoomType: "5", Qty: premiumretreatroomCount },
+              { RoomType: "6", Qty: EliteSuiteroomCount },
+              { RoomType: "7", Qty: GrandDeluxeroomCount },
+              { RoomType: "8", Qty: ImperialSuiteroomCount },
+              { RoomType: "9", Qty: SupremeRetreatroomCount },
+              { RoomType: "10", Qty: RoyalDeluxeroomCount },
+              { RoomType: "11", Qty: PrestigeSuiteroomCount },
+              { RoomType: "12", Qty: ExclusiveRetreatroomCount },
+            ],
+            payment: {
+              Status: "PENDING",
+              RefNo: "",
+              PaymentProvider: "RazorPay",
+              Mode: "Online",
+            },
+            mealPlan: {
+              PackageId: "NA",
+              PackageName: "NA",
+              PackagePrice: "NA",
+              PackageperRoom: "NA",
+            },
+            promocode: {
+              PromoId: "NA",
+              Code: "NA",
+              Discount: "NA",
+            },
+            packages: {
+              packageId: "NA",
+              packageName: "NA",
+              packagePrice: "NA",
+              specialRequest: "NA",
+            },
+            checkIn: `${formData.checkInDate}`,
+            checkOut: `${formData.checkOutDate}`,
+            price: {
+              amountPay: total_cost,
+              Principal: 0,
+              Tax: 0,
+              Total: total_cost,
+            },
+            isCheckedIn: false,
+            isCheckedOut: false,
+          }),
+        }
+      );
+
+      const json = await response.json();
+
+      if (json.Status === true) {
+        setOrderId(json.order_id);
+        setRedirectLink(json.redirectLink);
+        HandlePaymentRazorpay(json.order_id, total_cost, "SUCCESS");
+        alert(json.redirectLink);
+      } else {
+        alert("Some Problem");
+        // setLoader_50(false)
+      }
+    }
+  };
+
+  const relatedToRoomPricing = ({ roomtype, Adult }: GetRoomType) => {
+    if (roomtype === "1") {
+      setDeluxAdult(Adult);
+    }
+    if (roomtype === "2") {
+      setSuperDeluxAdult(Adult);
+    }
+    if (roomtype === "3") {
+      setSuiteAdult(Adult);
+    }
+    if (roomtype === "4") {
+      setPremiumAdult(Adult);
+    }
+    if (roomtype === "5") {
+      setPremiereRetreatAdult(Adult);
+    }
+    if (roomtype === "6") {
+      setEliteSuiteAdult(Adult);
+    }
+    if (roomtype === "7") {
+      setGrandDeluxeAdult(Adult);
+    }
+    if (roomtype === "8") {
+      setImperialSuiteAdult(Adult);
+    }
+    if (roomtype === "9") {
+      setSupremeRetreatAdult(Adult);
+    }
+    if (roomtype === "10") {
+      setRoyalDeluxeAdult(Adult);
+    }
+    if (roomtype === "11") {
+      setPrestigeSuiteAdult(Adult);
+    }
+    if (roomtype === "12") {
+      setExclusiveRetreatAdult(Adult);
+    }
+  };
+
+  const totalCost = (currency: any, ratesChange: any) => {
+    try {
+      var deluxcost = Delux * Number(ratesChange["1"]["Price"]);
+    } catch {
+      deluxcost = 0;
+    }
+    try {
+      var sdcost = SuperDelux * Number(ratesChange["2"]["Price"]);
+    } catch {
+      sdcost = 0;
+    }
+    try {
+      var suitecost = Suite * Number(ratesChange["3"]["Price"]);
+    } catch {
+      suitecost = 0;
+    }
+    try {
+      var premiumcost = Premium * Number(ratesChange["4"]["Price"]);
+    } catch {
+      premiumcost = 0;
+    }
+    try {
+      var premiereretreatcost =
+        PremiereRetreat * Number(ratesChange["5"]["Price"]);
+    } catch {
+      premiereretreatcost = 0;
+    }
+    try {
+      var elitesuitecost = EliteSuite * Number(ratesChange["6"]["Price"]);
+    } catch {
+      elitesuitecost = 0;
+    }
+    try {
+      var granddeluxecost = GrandDeluxe * Number(ratesChange["7"]["Price"]);
+    } catch {
+      granddeluxecost = 0;
+    }
+    try {
+      var imperialsuitecost = ImperialSuite * Number(ratesChange["8"]["Price"]);
+    } catch {
+      imperialsuitecost = 0;
+    }
+    try {
+      var supremeretreatcost =
+        SupremeRetreat * Number(ratesChange["9"]["Price"]);
+    } catch {
+      supremeretreatcost = 0;
+    }
+    try {
+      var royaldeluxecost = RoyalDeluxe * Number(ratesChange["10"]["Price"]);
+    } catch {
+      royaldeluxecost = 0;
+    }
+    try {
+      var prestigesuitecost =
+        PrestigeSuite * Number(ratesChange["11"]["Price"]);
+    } catch {
+      prestigesuitecost = 0;
+    }
+    try {
+      var exclusiveretreatcost =
+        ExclusiveRetreat * Number(ratesChange["12"]["Price"]);
+    } catch {
+      exclusiveretreatcost = 0;
+    }
+
+    let tax = 0;
+    let cost =
+      Number(deluxcost) +
+      Number(sdcost) +
+      Number(suitecost) +
+      Number(premiumcost) +
+      Number(premiereretreatcost) +
+      Number(elitesuitecost) +
+      Number(granddeluxecost) +
+      Number(imperialsuitecost) +
+      Number(supremeretreatcost) +
+      Number(royaldeluxecost) +
+      Number(prestigesuitecost) +
+      Number(exclusiveretreatcost);
+    // Number( Mealprice);
+    if (currency == "INR") {
+      //   if (addTax) {
+      //     tax = 0.18 * Number(cost);
+      //   }
+      // } else {
+      //   tax = 0;
+      // }
+      let totalcost = Number(cost) + Number(tax);
+      return totalcost;
+    }
+  };
+
+  const AddRoomCount = (room: any) => {
+    console.log(room);
+    if (
+      room.roomType === "1" &&
+      parseInt(
+        Available[
+          RoomNameAvailable[room.roomTypeName as keyof typeof Available]
+        ].toString()
+      ) >=
+        deluxroomCount + 1
+    ) {
+      setDelux(deluxroomCount + 1);
+      setDeluxRoomcount(deluxroomCount + 1);
+      setRoomCategoryCombination((prevRoomcatname) => ({
+        ...prevRoomcatname,
+        ["DELUX"]: room.roomName,
+      }));
+    }
+
+    if (
+      room.roomType === "2" &&
+      parseInt(
+        Available[
+          RoomNameAvailable[room.roomTypeName as keyof typeof Available]
+        ].toString()
+      ) >=
+        superroomCount + 1
+    ) {
+      setSuperDelux(superroomCount + 1);
+      setsuperRoomcount(superroomCount + 1);
+      setRoomCategoryCombination((prevRoomcatname) => ({
+        ...prevRoomcatname,
+        ["SUPERDELUX"]: room.roomName,
+      }));
+    }
+
+    if (
+      room.roomType === "3" &&
+      parseInt(
+        Available[
+          RoomNameAvailable[room.roomTypeName as keyof typeof Available]
+        ].toString()
+      ) >=
+        suiteroomCount + 1
+    ) {
+      setSuite(suiteroomCount + 1);
+      setsuiteRoomcount(suiteroomCount + 1);
+      setRoomCategoryCombination((prevRoomcatname) => ({
+        ...prevRoomcatname,
+        ["SUITE"]: room.roomName,
+      }));
+    }
+
+    if (
+      room.roomType === "4" &&
+      parseInt(
+        Available[
+          RoomNameAvailable[room.roomTypeName as keyof typeof Available]
+        ].toString()
+      ) >=
+        premiumroomCount + 1
+    ) {
+      setPremium(premiumroomCount + 1);
+      setpremiumRoomcount(premiumroomCount + 1);
+      setRoomCategoryCombination((prevRoomcatname) => ({
+        ...prevRoomcatname,
+        ["PREMIUM"]: room.roomName,
+      }));
+    }
+
+    if (
+      room.roomType === "5" &&
+      parseInt(
+        Available[
+          RoomNameAvailable[room.roomTypeName as keyof typeof Available]
+        ].toString()
+      ) >=
+        premiumretreatroomCount + 1
+    ) {
+      setPremiereRetreat(premiumretreatroomCount + 1);
+      setpremiumretreatRoomcount(premiumretreatroomCount + 1);
+      setRoomCategoryCombination((prevRoomcatname) => ({
+        ...prevRoomcatname,
+        ["PremiereRetreat"]: room.roomName,
+      }));
+    }
+
+    if (
+      room.roomType === "6" &&
+      parseInt(
+        Available[
+          RoomNameAvailable[room.roomTypeName as keyof typeof Available]
+        ].toString()
+      ) >=
+        EliteSuiteroomCount + 1
+    ) {
+      setEliteSuite(EliteSuiteroomCount + 1);
+      setEliteSuiteRoomcount(EliteSuiteroomCount + 1);
+      setRoomCategoryCombination((prevRoomcatname) => ({
+        ...prevRoomcatname,
+        ["EliteSuite"]: room.roomName,
+      }));
+    }
+
+    if (
+      room.roomType === "7" &&
+      parseInt(
+        Available[
+          RoomNameAvailable[room.roomTypeName as keyof typeof Available]
+        ].toString()
+      ) >=
+        GrandDeluxeroomCount + 1
+    ) {
+      setGrandDeluxe(GrandDeluxeroomCount + 1);
+      setGrandDeluxeRoomcount(GrandDeluxeroomCount + 1);
+      setRoomCategoryCombination((prevRoomcatname) => ({
+        ...prevRoomcatname,
+        ["GrandDeluxe"]: room.roomName,
+      }));
+    }
+
+    if (
+      room.roomType === "8" &&
+      parseInt(
+        Available[
+          RoomNameAvailable[room.roomTypeName as keyof typeof Available]
+        ].toString()
+      ) >=
+        ImperialSuiteroomCount + 1
+    ) {
+      setImperialSuite(ImperialSuiteroomCount + 1);
+      setImperialSuiteRoomcount(ImperialSuiteroomCount + 1);
+      setRoomCategoryCombination((prevRoomcatname) => ({
+        ...prevRoomcatname,
+        ["ImperialSuite"]: room.roomName,
+      }));
+    }
+
+    if (
+      room.roomType === "9" &&
+      parseInt(
+        Available[
+          RoomNameAvailable[room.roomTypeName as keyof typeof Available]
+        ].toString()
+      ) >=
+        SupremeRetreatroomCount + 1
+    ) {
+      setSupremeRetreat(SupremeRetreatroomCount + 1);
+      setSupremeRetreatRoomcount(SupremeRetreatroomCount + 1);
+      setRoomCategoryCombination((prevRoomcatname) => ({
+        ...prevRoomcatname,
+        ["SupremeRetreat"]: room.roomName,
+      }));
+    }
+
+    if (
+      room.roomType === "10" &&
+      parseInt(
+        Available[
+          RoomNameAvailable[room.roomTypeName as keyof typeof Available]
+        ].toString()
+      ) >=
+        RoyalDeluxeroomCount + 1
+    ) {
+      setRoyalDeluxe(RoyalDeluxeroomCount + 1);
+      setRoyalDeluxeRoomcount(RoyalDeluxeroomCount + 1);
+      setRoomCategoryCombination((prevRoomcatname) => ({
+        ...prevRoomcatname,
+        ["RoyalDeluxe"]: room.roomName,
+      }));
+    }
+
+    if (
+      room.roomType === "11" &&
+      parseInt(
+        Available[
+          RoomNameAvailable[room.roomTypeName as keyof typeof Available]
+        ].toString()
+      ) >=
+        PrestigeSuiteroomCount + 1
+    ) {
+      setPrestigeSuite(PrestigeSuiteroomCount + 1);
+      setPrestigeSuiteRoomcount(PrestigeSuiteroomCount + 1);
+      setRoomCategoryCombination((prevRoomcatname) => ({
+        ...prevRoomcatname,
+        ["PrestigeSuite"]: room.roomName,
+      }));
+    }
+
+    if (
+      room.roomType === "12" &&
+      parseInt(
+        Available[
+          RoomNameAvailable[room.roomTypeName as keyof typeof Available]
+        ].toString()
+      ) >=
+        ExclusiveRetreatroomCount + 1
+    ) {
+      setExclusiveRetreat(ExclusiveRetreatroomCount + 1);
+      setExclusiveRetreatRoomcount(ExclusiveRetreatroomCount + 1);
+      setRoomCategoryCombination((prevRoomcatname) => ({
+        ...prevRoomcatname,
+        ["ExclusiveRetreat"]: room.roomName,
+      }));
+    }
+
+    // }
+  };
+
+  const DelRoomCount = (room: any) => {
+    const roomType = room?.roomType;
+    if (roomType === "1") {
+      setDelux(deluxroomCount - 1);
+      setDeluxRoomcount(deluxroomCount - 1);
+    }
+    if (roomType === "2") {
+      setSuperDelux(superroomCount - 1);
+      setsuperRoomcount(superroomCount - 1);
+    }
+    if (roomType === "3") {
+      setSuite(suiteroomCount - 1);
+      setsuiteRoomcount(suiteroomCount - 1);
+    }
+    if (roomType === "4") {
+      setPremium(premiumroomCount - 1);
+      setpremiumRoomcount(premiumroomCount - 1);
+    }
+    if (roomType === "5") {
+      setPremiereRetreat(premiumretreatroomCount - 1);
+      setpremiumretreatRoomcount(premiumretreatroomCount - 1);
+    }
+    if (roomType === "6") {
+      setEliteSuite(EliteSuiteroomCount - 1);
+      setEliteSuiteRoomcount(EliteSuiteroomCount - 1);
+    }
+    if (roomType === "7") {
+      setGrandDeluxe(GrandDeluxeroomCount - 1);
+      setGrandDeluxeRoomcount(GrandDeluxeroomCount - 1);
+    }
+    if (roomType === "8") {
+      setImperialSuite(ImperialSuiteroomCount - 1);
+      setImperialSuiteRoomcount(ImperialSuiteroomCount - 1);
+    }
+    if (roomType === "9") {
+      setSupremeRetreat(SupremeRetreatroomCount - 1);
+      setSupremeRetreatRoomcount(SupremeRetreatroomCount - 1);
+    }
+    if (roomType === "10") {
+      setRoyalDeluxe(RoyalDeluxeroomCount - 1);
+      setRoyalDeluxeRoomcount(RoyalDeluxeroomCount - 1);
+    }
+    if (roomType === "11") {
+      setPrestigeSuite(PrestigeSuiteroomCount - 1);
+      setPrestigeSuiteRoomcount(PrestigeSuiteroomCount - 1);
+    }
+    if (roomType === "12") {
+      setExclusiveRetreat(ExclusiveRetreatroomCount - 1);
+      setExclusiveRetreatRoomcount(ExclusiveRetreatroomCount - 1);
+    }
+  };
+
+  const roomtypeCount: { [key: string]: number } = {
+    "1": deluxroomCount,
+    "2": superroomCount,
+    "3": suiteroomCount,
+    "4": premiumroomCount,
+    "5": premiumretreatroomCount,
+    "6": EliteSuiteroomCount,
+    "7": GrandDeluxeroomCount,
+    "8": ImperialSuiteroomCount,
+    "9": SupremeRetreatroomCount,
+    "10": RoyalDeluxeroomCount,
+    "11": PrestigeSuiteroomCount,
+    "12": ExclusiveRetreatroomCount,
+  };
 
   const formatDate = (date: Date | null): string => {
     if (!date) return "";
@@ -310,8 +1000,6 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
       // Add the new bot message
       return [...updatedMessages, { ...flow, from: "bot" }];
     });
-
-    // setMyMessages((prev) => [...prev, updatedFlow]);
   };
 
   const handleButtonClick = async ({
@@ -442,6 +1130,107 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
     }));
   };
 
+  // const handleFormSubmit = async (
+  //   e: React.FormEvent<HTMLFormElement>,
+  //   key: string,
+  //   beforeSubmit = false
+  // ) => {
+  //   e.preventDefault();
+
+  //   const nextFlow = chatFlow[
+  //     "Fill Details" as keyof typeof chatFlow
+  //   ] as Message;
+
+  //   if (key === "personalDetails") {
+  //     // api call
+  //     addUserMessage("Thanks, What are you looking for?");
+  //     addBotMessage({
+  //       ...chatFlow["After Start"],
+  //       from: "bot",
+  //     });
+
+  //     return;
+  //   }
+
+  //   if (key === "checkInOutDetails") {
+  //     addUserMessage("Thankyou");
+  //     addBotMessage({
+  //       message: beforeSubmit ? "Please select number of guest" : "",
+  //       numberOfGuests: beforeSubmit,
+  //       from: "bot",
+  //     });
+
+  //     if (!beforeSubmit && nextFlow?.apiCall) {
+  //       const formDatas = {
+  //         checkIn: startDate,
+  //         checkOut: endDate,
+  //         hId: hid,
+  //       };
+  //       const response = await fetch(nextFlow?.apiCall, {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(formDatas),
+  //       });
+  //       const responseData = await response?.json();
+
+  //       setMyMessages((prev) => [
+  //         ...prev,
+  //         { from: "bot", roomsDetails: responseData?.Details, message: "" },
+  //       ]);
+  //     }
+
+  //     return;
+  //   }
+
+  //   if (key === "numberOfGuests") {
+  //     // if (Number(formData.numberOfGuests) > 2) {
+  //     //   setError(true)
+  //     //   return;
+  //     // }
+  //     // setError(false)
+  //     // console.log(formData.numberOfGuests)
+  //     if (nextFlow?.apiCall) {
+  //       const formDatas = {
+  //         checkIn: startDate,
+  //         checkOut: endDate,
+  //         hId: hid,
+  //       };
+  //       const response = await fetch(nextFlow?.apiCall, {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(formDatas),
+  //       });
+  //       const responseData = await response?.json();
+
+  //       // console.log(responseData)
+
+  //       // setMyMessages((prev) => [
+  //       //   ...prev,
+  //       //   { from: "bot", roomsDetails: responseData?.Details, message: "" },
+  //       // ]);
+  //       addBotMessage({
+  //         from: "bot",
+  //         roomsDetails: responseData?.Details,
+  //         message: "",
+  //       });
+
+  //       // addBotMessage({
+  //       //   message: "No rooms available",
+  //       //   from: "bot",
+  //       // });
+
+  //       // addBotMessage({
+  //       //   from: "bot",
+  //       //   ...chatFlow["Explore Location"],
+  //       // });
+  //     }
+  //   }
+  // };
+
   const handleFormSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
     key: string,
@@ -478,8 +1267,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
 
       if (!beforeSubmit && nextFlow?.apiCall) {
         const formDatas = {
-          checkIn: startDate,
-          checkOut: endDate,
+          checkIn: startDate ? format(startDate, "yyyy-MM-dd") : startDate,
+          checkOut: endDate ? format(endDate, "yyyy-MM-dd") : endDate,
           hId: hid,
         };
         const response = await fetch(nextFlow?.apiCall, {
@@ -490,7 +1279,27 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           body: JSON.stringify(formDatas),
         });
         const responseData = await response?.json();
-        // setRateChange(responseData?.Price)
+        setroomsdata(responseData?.Details);
+
+        const formdata_one = {
+          checkin: startDate ? format(startDate, "yyyy-MM-dd") : startDate,
+          checkout: endDate ? format(endDate, "yyyy-MM-dd") : endDate,
+          hId: hid,
+          ndid: "d3d464ff-f449-4f12-8886-7c2a3aa0e5f8",
+        };
+        const response1 = await fetch(
+          "https://nexon.eazotel.com/booking/availablity",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formdata_one),
+          }
+        );
+        const responseData1 = await response1?.json();
+        console.log(responseData1);
+        setAvailable(responseData1.Avaiblity);
 
         // console.log(responseData)
 
@@ -522,10 +1331,17 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
       // console.log(formData.numberOfGuests)
       if (nextFlow?.apiCall) {
         const formDatas = {
-          checkIn: startDate,
-          checkOut: endDate,
+          checkIn: startDate ? format(startDate, "yyyy-MM-dd") : startDate,
+          checkOut: endDate ? format(endDate, "yyyy-MM-dd") : endDate,
           hId: hid,
         };
+        const formdata_one = {
+          checkin: startDate ? format(startDate, "yyyy-MM-dd") : startDate,
+          checkout: endDate ? format(endDate, "yyyy-MM-dd") : endDate,
+          hId: hid,
+          ndid: "e50d8dc6-4cfc-4c87-b6c0-145ccdeb4121",
+        };
+
         const response = await fetch(nextFlow?.apiCall, {
           method: "POST",
           headers: {
@@ -534,6 +1350,22 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           body: JSON.stringify(formDatas),
         });
         const responseData = await response?.json();
+        setRateChange(responseData?.Price);
+        setroomsdata(responseData?.Details);
+
+        const response1 = await fetch(
+          "https://nexon.eazotel.com/booking/availablity",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formdata_one),
+          }
+        );
+        const responseData1 = await response1?.json();
+        setAvailable(responseData1.Avaiblity);
+        console.log(responseData1);
 
         // console.log(responseData)
 
@@ -562,81 +1394,87 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
 
   const makeRoomSummary = () => {
     const rooms = mymessages.filter((item) => item?.roomsDetails)[0];
-    const roomSelected: any = rooms?.roomsDetails?.filter(
-      (item) => item?.roomQuantity
-    );
+    // const roomSelected: any = rooms?.roomsDetails?.filter(
+    //   (item) => item?.roomQuantity
+    // );
 
-    setRoomSummary([...roomSelected] as any);
+    const selectedRooms = roomsdata.filter((item) => {
+      const count = roomtypeCount[item?.roomType];
+      return count && count > 0;
+    });
+
+    setRoomSummary([...selectedRooms] as any);
 
     addBotMessage({
       message: "Room Summary",
       from: "bot",
-      roomSummary: [...roomSelected!],
+      roomSummary: [...selectedRooms] as any,
     });
   };
 
   const confirmBooking = async () => {
-    const checkInDate = new Date(startDate as any).toLocaleDateString("en-GB", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
+    CreateBooking();
+    // const checkInDate = new Date(startDate as any).toLocaleDateString("en-GB", {
+    //   day: "2-digit",
+    //   month: "2-digit",
+    //   year: "numeric",
+    // });
 
-    const checkOutDate = new Date(endDate as any).toLocaleDateString("en-GB", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
+    // const checkOutDate = new Date(endDate as any).toLocaleDateString("en-GB", {
+    //   day: "2-digit",
+    //   month: "2-digit",
+    //   year: "numeric",
+    // });
 
-    let roomDetails = "";
-    let idx = 0;
+    // let roomDetails = "";
+    // let idx = 0;
 
-    for (const item of roomSummary as any) {
-      roomDetails += `Room ${idx + 1} -> Room Name: ${
-        item?.roomName
-      } Room Type: ${
-        item?.roomTypeName
-      } Price Per Night: ${item?.price?.toLocaleString()} Number Of Rooms: ${
-        item?.roomQuantity
-      } `;
+    // for (const item of roomSummary as any) {
+    //   roomDetails += `Room ${idx + 1} -> Room Name: ${
+    //     item?.roomName
+    //   } Room Type: ${
+    //     item?.roomTypeName
+    //   } Price Per Night: ${item?.price?.toLocaleString()} Number Of Rooms: ${
+    //     item?.roomQuantity
+    //   } `;
 
-      idx++;
-    }
+    //   idx++;
+    // }
 
-    const description = `check-in: ${checkInDate},check-out: ${checkOutDate},number of guest: ${formData?.numberOfGuests}`;
+    // const description = `check-in: ${checkInDate},check-out: ${checkOutDate},number of guest: ${formData?.numberOfGuests}`;
 
-    try {
-      const { data } = await axios.post(
-        "https://nexon.eazotel.com/eazotel/addcontacts",
-        {
-          Domain: "sparvhospitality",
-          Contact: `${formData.phone}`,
-          email: `${formData?.email}`,
-          Description: description,
-          Name: `${formData?.name}`,
-          Remark: "",
-          Subject: roomDetails,
-          created_from: "Chatbot",
-          check_in: checkInDate,
-          check_out: checkOutDate,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+    // try {
+    //   const { data } = await axios.post(
+    //     "https://nexon.eazotel.com/eazotel/addcontacts",
+    //     {
+    //       Domain: "sparvhospitality",
+    //       Contact: `${formData.phone}`,
+    //       email: `${formData?.email}`,
+    //       Description: description,
+    //       Name: `${formData?.name}`,
+    //       Remark: "",
+    //       Subject: roomDetails,
+    //       created_from: "Chatbot",
+    //       check_in: checkInDate,
+    //       check_out: checkOutDate,
+    //     },
+    //     {
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     }
+    //   );
 
-      if (data.Status) {
-        addBotMessage({
-          from: "bot",
-          message:
-            "Your booking has been confirmed. Our representative will contact you soon.🎉",
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    //   if (data.Status) {
+    //     addBotMessage({
+    //       from: "bot",
+    //       message:
+    //         "Your booking has been confirmed. Our representative will contact you soon.🎉",
+    //     });
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
 
     // GetPayLaterOrderId();
     // const res = await loadRazorpayScript(
@@ -675,182 +1513,6 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
     // const paymentObject = new (window as any).Razorpay(options);
     // paymentObject.open();
   };
-  // const [Delux, setDelux] = useState(0)
-  // const [SuperDelux, setSuperDelux] = useState(0)
-  // const [Suite, setSuite] = useState(0)
-  // const [Premium, setPremium] = useState(0)
-  // const [PremiereRetreat, setPremiereRetreat] = useState(0)
-  // const [EliteSuite, setEliteSuite] = useState(0)
-  // const [GrandDeluxe, setGrandDeluxe] = useState(0)
-  // const [ImperialSuite, setImperialSuite] = useState(0)
-  // const [SupremeRetreat, setSupremeRetreat] = useState(0)
-  // const [RoyalDeluxe, setRoyalDeluxe] = useState(0)
-  // const [PrestigeSuite, setPrestigeSuite] = useState(0)
-  // const [ExclusiveRetreat, setExclusiveRetreat] = useState(0)
-
-  // const [DeluxAdult, setDeluxAdult] = useState(0)
-  // const [SuperDeluxAdult, setSuperDeluxAdult] = useState(0)
-  // const [SuiteAdult, setSuiteAdult] = useState(0)
-  // const [PremiumAdult, setPremiumAdult] = useState(0)
-  // const [PremiereRetreatAdult, setPremiereRetreatAdult] = useState(0)
-  // const [EliteSuiteAdult, setEliteSuiteAdult] = useState(0)
-  // const [GrandDeluxeAdult, setGrandDeluxeAdult] = useState(0)
-  // const [ImperialSuiteAdult, setImperialSuiteAdult] = useState(0)
-  // const [SupremeRetreatAdult, setSupremeRetreatAdult] = useState(0)
-  // const [RoyalDeluxeAdult, setRoyalDeluxeAdult] = useState(0)
-  // const [PrestigeSuiteAdult, setPrestigeSuiteAdult] = useState(0)
-  // const [ExclusiveRetreatAdult, setExclusiveRetreatAdult] = useState(0)
-  // const [ratesChange, setRateChange] = useState({})
-
-  // const [RoomCategoryCombination, setRoomCategoryCombination] = useState({
-  //   "DELUX": "-",
-  //   "SUPERDELUX": "-",
-  //   "SUITE": "-",
-  //   "PREMIUM": "-",
-  //   "PremiereRetreat": "-",
-  //   "EliteSuite": "-",
-  //   "GrandDeluxe": "-",
-  //   "ImperialSuite": "-",
-  //   "SupremeRetreat": "-",
-  //   "RoyalDeluxe": "-",
-  //   "PrestigeSuite": "-",
-  //   "ExclusiveRetreat": "-"
-
-  // })
-  // const [Night, setNights] = useState(0)
-  // let [maxAdult, setmaxAdult] = useState(0)
-
-  // const [Available, setAvailable] = useState({
-  //   "DELUX": 0,
-  //   "PREMIUM": 0,
-  //   "SUITE": 0,
-  //   "SUPERDELUX": 0,
-  //   "PremiereRetreat": 0,
-  //   "EliteSuite": 0,
-  //   "GrandDeluxe": 0,
-  //   "ImperialSuite": 0,
-  //   "SupremeRetreat": 0,
-  //   "RoyalDeluxe": 0,
-  //   "PrestigeSuite": 0,
-  //   "ExclusiveRetreat": 0
-  // })
-
-  // const totalCost = (currency: any, ratesChange: any) => {
-  //   try {
-  //     var deluxcost = Delux * Number(ratesChange["1"]["Price"]);
-  //   } catch {
-  //     deluxcost = 0;
-  //   }
-  //   try {
-  //     var sdcost = SuperDelux * Number(ratesChange["2"]["Price"]);
-  //   } catch {
-  //     sdcost = 0;
-  //   }
-  //   try {
-  //     var suitecost = Suite * Number(ratesChange["3"]["Price"]);
-  //   } catch {
-  //     suitecost = 0;
-  //   }
-  //   try {
-  //     var premiumcost = Premium * Number(ratesChange["4"]["Price"]);
-  //   } catch {
-  //     premiumcost = 0;
-  //   }
-  //   try {
-  //     var premiereretreatcost =
-  //       PremiereRetreat * Number(ratesChange["5"]["Price"]);
-  //   } catch {
-  //     premiereretreatcost = 0;
-  //   }
-  //   try {
-  //     var elitesuitecost =
-  //       EliteSuite * Number(ratesChange["6"]["Price"]);
-  //   } catch {
-  //     elitesuitecost = 0;
-  //   }
-  //   try {
-  //     var granddeluxecost =
-  //       GrandDeluxe * Number(ratesChange["7"]["Price"]);
-  //   } catch {
-  //     granddeluxecost = 0;
-  //   }
-  //   try {
-  //     var imperialsuitecost =
-  //       ImperialSuite * Number(ratesChange["8"]["Price"]);
-  //   } catch {
-  //     imperialsuitecost = 0;
-  //   }
-  //   try {
-  //     var supremeretreatcost =
-  //       SupremeRetreat * Number(ratesChange["9"]["Price"]);
-  //   } catch {
-  //     supremeretreatcost = 0;
-  //   }
-  //   try {
-  //     var royaldeluxecost =
-  //       RoyalDeluxe * Number(ratesChange["10"]["Price"]);
-  //   } catch {
-  //     royaldeluxecost = 0;
-  //   }
-  //   try {
-  //     var prestigesuitecost =
-  //       PrestigeSuite * Number(ratesChange["11"]["Price"]);
-  //   } catch {
-  //     prestigesuitecost = 0;
-  //   }
-  //   try {
-  //     var exclusiveretreatcost =
-  //       ExclusiveRetreat * Number(ratesChange["12"]["Price"]);
-  //   } catch {
-  //     exclusiveretreatcost = 0;
-  //   }
-
-  //   let tax = 0;
-  //   let cost =
-  //     Number(deluxcost) +
-  //     Number(sdcost) +
-  //     Number(suitecost) +
-  //     Number(premiumcost) +
-  //     Number(premiereretreatcost) +
-  //     Number(elitesuitecost) +
-  //     Number(granddeluxecost) +
-  //     Number(imperialsuitecost) +
-  //     Number(supremeretreatcost) +
-  //     Number(royaldeluxecost) +
-  //     Number(prestigesuitecost) +
-  //     Number(exclusiveretreatcost);
-  //   // Number( Mealprice);
-  //   if (currency == "INR") {
-  //     //   if (addTax) {
-  //     //     tax = 0.18 * Number(cost);
-  //     //   }
-  //     // } else {
-  //     //   tax = 0;
-  //     // }
-  //     let totalcost = Number(cost) + Number(tax);
-  //     return totalcost;
-  //   }
-
-  // }
-
-  // interface GetRoomType {
-  //   roomtype: string,
-  //   Adult: number
-  // }
-  // const relatedToRoomPricing = ({ roomtype, Adult }: GetRoomType) => {
-  //   if (roomtype === "1") { setDeluxAdult(Adult) }
-  //   if (roomtype === "2") { setSuperDeluxAdult(Adult) }
-  //   if (roomtype === "3") { setSuiteAdult(Adult) }
-  //   if (roomtype === "4") { setPremiumAdult(Adult) }
-  //   if (roomtype === "5") { setPremiereRetreatAdult(Adult) }
-  //   if (roomtype === "6") { setEliteSuiteAdult(Adult) }
-  //   if (roomtype === "7") { setGrandDeluxeAdult(Adult) }
-  //   if (roomtype === "8") { setImperialSuiteAdult(Adult) }
-  //   if (roomtype === "9") { setSupremeRetreatAdult(Adult) }
-  //   if (roomtype === "10") { setRoyalDeluxeAdult(Adult) }
-  //   if (roomtype === "11") { setPrestigeSuiteAdult(Adult) }
-  //   if (roomtype === "12") { setExclusiveRetreatAdult(Adult) }
-  // }
 
   const handleAddRoom = (room: any) => {
     // console.log(room)
@@ -923,277 +1585,6 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
 
     setMyMessages([...updatedMessages] as any);
   };
-  // const DelCount = (id: String) => {
-  //   // setIsOpen(false)
-  //   let number = Number(document.getElementById(id).innerHTML);
-  //   if (number > 0) {
-  //     number -= 1;
-  //     if (id === "DELUX") {
-  //       setDelux(number)
-  //     }
-  //     if (id === "SUPER DELUX") {
-  //       setSuperDelux(number)
-  //     }
-  //     if (id === "SUITE") {
-  //       setSuite(number)
-  //     }
-  //     if (id === "PREMIUM") {
-  //       setPremium(number)
-  //     }
-  //     if (id === "Premiere Retreat") {
-  //       setPremiereRetreat(number)
-  //     }
-  //     if (id === "Elite Suite") {
-  //       setEliteSuite(number)
-  //     }
-  //     if (id === "Grand Deluxe") {
-  //       setGrandDeluxe(number)
-  //     }
-  //     if (id === "Imperial Suite") {
-  //       setImperialSuite(number)
-  //     }
-  //     if (id === "Supreme Retreat") {
-  //       setSupremeRetreat(number)
-  //     }
-  //     if (id === "Royal Deluxe") {
-  //       setRoyalDeluxe(number)
-  //     }
-  //     if (id === "Prestige Suite") {
-  //       setPrestigeSuite(number)
-  //     }
-  //     if (id === "Exclusive Retreat") {
-  //       setExclusiveRetreat(number)
-  //     }
-  //     let price = number * Number(Original_Price)
-  //     setPrice(price)
-  //     setRooms(number)
-  //   }
-  // }
-
-  // const AddCount = (id: String) => {
-  //   // setIsOpen(false)
-  //   let number = 0;
-  //   if (number < Available_rooms) {
-  //     number += 1;
-  //     if (id === "DELUX") {
-  //       setDelux(number)
-  //       setRoomCategoryCombination((prevRoomcatname) => ({
-  //         ...prevRoomcatname,
-  //         ["DELUX"]: name,
-  //       }));
-  //     }
-  //     if (id === "SUPER DELUX") {
-  //       setSuperDelux(number)
-  //       setRoomCategoryCombination((prevRoomcatname) => ({
-  //         ...prevRoomcatname,
-  //         ["SUPERDELUX"]: name,
-  //       }));
-  //     }
-  //     if (id === "SUITE") {
-  //       setSuite(number)
-  //       setRoomCategoryCombination((prevRoomcatname) => ({
-  //         ...prevRoomcatname,
-  //         ["SUITE"]: name,
-  //       }));
-  //     }
-  //     if (id === "PREMIUM") {
-  //       setPremium(number)
-  //       setRoomCategoryCombination((prevRoomcatname) => ({
-  //         ...prevRoomcatname,
-  //         ["PREMIUM"]: name,
-  //       }));
-  //     }
-  //     if (id === "Premiere Retreat") {
-  //       setPremiereRetreat(number)
-  //       setRoomCategoryCombination((prevRoomcatname) => ({
-  //         ...prevRoomcatname,
-  //         ["PremiereRetreat"]: name,
-  //       }));
-  //     }
-  //     if (id === "Elite Suite") {
-  //       setEliteSuite(number)
-  //       setRoomCategoryCombination((prevRoomcatname) => ({
-  //         ...prevRoomcatname,
-  //         ["EliteSuite"]: name,
-  //       }));
-  //     }
-  //     if (id === "Grand Deluxe") {
-  //       setGrandDeluxe(number)
-  //       setRoomCategoryCombination((prevRoomcatname) => ({
-  //         ...prevRoomcatname,
-  //         ["GrandDeluxe"]: name,
-  //       }));
-  //     }
-  //     if (id === "Imperial Suite") {
-  //       setImperialSuite(number)
-  //       setRoomCategoryCombination((prevRoomcatname) => ({
-  //         ...prevRoomcatname,
-  //         ["ImperialSuite"]: name,
-  //       }));
-  //     }
-  //     if (id === "Supreme Retreat") {
-  //       setSupremeRetreat(number)
-  //       setRoomCategoryCombination((prevRoomcatname) => ({
-  //         ...prevRoomcatname,
-  //         ["SupremeRetreat"]: name,
-  //       }));
-  //     }
-  //     if (id === "Royal Deluxe") {
-  //       setRoyalDeluxe(number)
-  //       setRoomCategoryCombination((prevRoomcatname) => ({
-  //         ...prevRoomcatname,
-  //         ["RoyalDeluxe"]: name,
-  //       }));
-  //     }
-  //     if (id === "Prestige Suite") {
-  //       setPrestigeSuite(number)
-  //       setRoomCategoryCombination((prevRoomcatname) => ({
-  //         ...prevRoomcatname,
-  //         ["PrestigeSuite"]: name,
-  //       }));
-  //     }
-  //     if (id === "Exclusive Retreat") {
-  //       setExclusiveRetreat(number)
-  //       setRoomCategoryCombination((prevRoomcatname) => ({
-  //         ...prevRoomcatname,
-  //         ["ExclusiveRetreat"]: name,
-  //       }));
-  //     }
-  //     let price = number * Number(Original_Price)
-  //     setPrice(price)
-  //     setRooms(number)
-  //   }
-
-  // }
-  // const GetPayLaterOrderId = async () => {
-  //   // setispaymentProcessing(true);
-  //   const totoalcost = 2000;
-  //   const currency = "INR";
-  //   const Name = "test";
-  //   const Email = "test@gmail.com";
-  //   const Phone = "1234567890";
-  //   const City = "city";
-  //   const Country = "country";
-  //   const cost = 1500;
-  //   const tax = 18;
-
-  //   const response = await fetch(
-  //     `https://nexon.eazotel.com/payment/create_order`,
-  //     {
-  //       method: "POST",
-  //       headers: {
-  //         Accept: "application/json, text/plain, /",
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         roomNumbers: [],
-  //         hId: "56369483",
-  //         ndid: "e50d8dc6-4cfc-4c87-b6c0-145ccdeb4121",
-  //         amount: totoalcost,
-  //         currency: currency,
-  //         guestInfo: {
-  //           guestName: Name,
-  //           EmailId: Email,
-  //           Phone: Phone,
-  //           City: City,
-  //           Country: Country,
-  //           address: City,
-  //         },
-  //         Adults: 3,
-  //         Kids: 0,
-  //         Bookings: [
-  //           // { RoomType: "1", Qty:  Delux },
-  //           // { RoomType: "2", Qty:  SuperDelux },
-  //           // { RoomType: "3", Qty:  Suite },
-  //           // { RoomType: "4", Qty:  Premium },
-  //           // { RoomType: "5", Qty:  PremiereRetreat },
-  //           // { RoomType: "6", Qty:  EliteSuite },
-  //           // { RoomType: "7", Qty:  GrandDeluxe },
-  //           // { RoomType: "8", Qty:  ImperialSuite },
-  //           // { RoomType: "9", Qty:  SupremeRetreat },
-  //           // { RoomType: "10", Qty:  RoyalDeluxe },
-  //           // { RoomType: "11", Qty:  PrestigeSuite },
-  //           // { RoomType: "12", Qty:  ExclusiveRetreat },
-  //         ],
-  //         payment: {
-  //           Status: "PENDING",
-  //           RefNo: "",
-  //           PaymentProvider: "RazorPay",
-  //           Mode: "Online",
-  //         },
-  //         mealPlan: {
-  //           // PackageId:  mealplanId,
-  //           // PackageName:  selectedMealPlan,
-  //           // PackagePrice:  Mealprice,
-  //           // PackageperRoom:  isperRoom,
-  //         },
-  //         promocode: {
-  //           PromoId: "NA",
-  //           Code: "NA",
-  //           Discount: "NA",
-  //         },
-  //         packages: {
-  //           packageId: "NA",
-  //           packageName: "NA",
-  //           packagePrice: "NA",
-  //           specialRequest: "NA",
-  //         },
-  //         checkIn: "2025-04-12",
-  //         checkOut: "2025-04-12",
-  //         price: {
-  //           AmountPay: 0,
-  //           Principal: cost,
-  //           Tax: tax,
-  //           Total: totoalcost,
-  //         },
-  //         isCheckedIn: false,
-  //         isCheckedOut: false,
-  //       }),
-  //     }
-  //   );
-
-  //   const json = await response.json();
-  //   console.log(json);
-
-  //   if (json.Status === true) {
-  //     console.log(json);
-  //     //  setPayment({
-  //     //   Status: true,
-  //     //   Logo:  HotelLogo,
-  //     //   HotelName:  HotelName,
-  //     //   Order: json.order_id, // Order ID from the payment gateway
-  //     //   Name: Name,
-  //     //   Phone: Phone,
-  //     //   Email: Email,
-  //     //   City: City,
-  //     //   Country: Country.label,
-  //     //   Delux:  Delux,
-  //     //   Sd:  SuperDelux,
-  //     //   Suite:  Suite,
-  //     //   Premium:  Premium,
-  //     //   PremiereRetreat:  PremiereRetreat,
-  //     //   EliteSuite:  EliteSuite,
-  //     //   GrandDeluxe:  GrandDeluxe,
-  //     //   ImperialSuite:  ImperialSuite,
-  //     //   SupremeRetreat:  SupremeRetreat,
-  //     //   RoyalDeluxe:  RoyalDeluxe,
-  //     //   PrestigeSuite:  PrestigeSuite,
-  //     //   ExclusiveRetreat:  ExclusiveRetreat,
-  //     //   Checkin: localStorage.getItem("Checkin"),
-  //     //   Checkout: localStorage.getItem("Checkout"),
-  //     //   Adult: localStorage.getItem("Adult"),
-  //     //   Kid: localStorage.getItem("Kid"),
-  //     //   Tax: tax,
-  //     //   Amount: totoalcost,
-  //     //   PayStatus: "Pay At Hotel",
-  //     //   MealPlan:  selectedMealPlan,
-  //     //   Mealprice:  selectedMealPlanPrice,
-  //     //   Rooms:  RoomCategoryCombination,
-  //     // });
-  //   } else {
-  //     // document.getElementById("No_rooms").style.display = "block";
-  //   }
-  // };
 
   const cancelBooking = () => {
     // addUserMessage("Booking cancelled successfully");
@@ -1248,6 +1639,37 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
     }
   }, [mymessages]);
 
+  useEffect(() => {
+    const totalRooms =
+      deluxroomCount +
+      superroomCount +
+      suiteroomCount +
+      premiumroomCount +
+      premiumretreatroomCount +
+      EliteSuiteroomCount +
+      GrandDeluxeroomCount +
+      ImperialSuiteroomCount +
+      SupremeRetreatroomCount +
+      RoyalDeluxeroomCount +
+      PrestigeSuiteroomCount +
+      ExclusiveRetreatroomCount;
+
+    setIsRoomAdd(totalRooms > 0);
+  }, [
+    deluxroomCount,
+    superroomCount,
+    suiteroomCount,
+    premiumroomCount,
+    premiumretreatroomCount,
+    EliteSuiteroomCount,
+    GrandDeluxeroomCount,
+    ImperialSuiteroomCount,
+    SupremeRetreatroomCount,
+    RoyalDeluxeroomCount,
+    PrestigeSuiteroomCount,
+    ExclusiveRetreatroomCount,
+  ]);
+
   const fetchBaseData = async () => {
     try {
       const { data } = await axios.get(
@@ -1288,46 +1710,14 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
     }
   }, [mymessages]);
 
-  // interface ToTalPriceType {
-  //   room: number,
-  //   price: number,
-  // }
+  useEffect(() => {
+    if (startDate && endDate) {
+      const totalDays =
+        (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24);
+      setNumberOfNights(totalDays);
+    }
+  }, [startDate, endDate]);
 
-  // const totalPrice = (summary: any, operation: "add" | "subtract") => {
-  //   const total = summary?.reduce((acc: number, item: any) => {
-  //     return acc + (item.price * item.roomQuantity);
-  //   }, 0);
-
-  //   if (operation === "add") {
-  //     setTotalBookingPrice((prev: number) => prev + total);
-  //   } else {
-  //     setTotalBookingPrice((prev: number) => prev - total);
-  //   }
-
-  //   return total;
-  // };
-
-  // useEffect(() => {
-  //   // 1. Find the message with roomSummary
-  //   const summaryObj = mymessages.find(msg => msg?.roomSummary);
-
-  //   if (!summaryObj?.roomSummary || !Array.isArray(summaryObj.roomSummary)) return;
-
-  //   // 2. Calculate room total (price * roomQuantity)
-  //   const roomTotal = summaryObj.roomSummary.reduce((acc, item: any) => {
-  //     return acc + (item.price * item.roomQuantity);
-  //   }, 0);
-
-  //   let nights = 1; // Default to 1 night if no dates found
-
-  //   // 4. Calculate final total price
-  //   const totalPrice = roomTotal * nights;
-
-  // }, [mymessages]);
-
-  // console.log(hotelDetails)
-
-  console.log(mymessages);
   return (
     <div className="bg-black/60 w-full h-full">
       <div className="fixed right-0 bottom-0">
@@ -1374,42 +1764,6 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
             >
               X
             </div>
-
-            {/* <div className="flex space-x-2"> */}
-            {/* <button
-            onClick={onReset}
-            className="p-1 rounded hover:bg-opacity-20 hover:rotate-45 duration-500"
-            aria-label="Start new conversation"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-5 h-5"
-            >
-              <path
-                fillRule="evenodd"
-                d="M15.312 11.424a5.5 5.5 0 01-9.201 2.466l-.312-.311h2.433a.75.75 0 000-1.5H3.989a.75.75 0 00-.75.75v4.242a.75.75 0 001.5 0v-2.43l.31.31a7 7 0 0011.712-3.138.75.75 0 00-1.449-.39zm1.23-3.723a.75.75 0 00.219-.53V2.929a.75.75 0 00-.75-.75H11.77a.75.75 0 000 1.5h2.43l-.31.31a7 7 0 00-11.712 3.138.75.75 0 001.45.389a5.5 5.5 0 019.2-2.466l.312.31h-2.432a.75.75 0 000 1.5h4.243a.75.75 0 00.53-.219z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button> */}
-
-            {/* <button
-              onClick={onClose}
-              className="p-1 rounded hover:bg-opacity-20 hover:rotate-180 duration-500"
-              aria-label="Close chat"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-5 h-5"
-              >
-                <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
-              </svg>
-            </button> */}
-            {/* </div> */}
           </div>
 
           {/* Messages area */}
@@ -1682,7 +2036,57 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                     <p className="text-md text-center text-gray-500">
                                       {room?.roomDescription}
                                     </p>
+
                                     <div className="w-full flex justify-center">
+                                      {!roomtypeCount[room?.roomType] ? (
+                                        <button
+                                          className="text-sm text-white rounded-full px-3 py-2 w-full"
+                                          onClick={() => AddRoomCount(room)}
+                                          style={{
+                                            background:
+                                              themeStyle.BackgroundColor
+                                                ? themeStyle.BackgroundColor
+                                                : "#2e3b61",
+                                          }}
+                                        >
+                                          Add Room
+                                        </button>
+                                      ) : (
+                                        <div className="flex items-center gap-2">
+                                          <span
+                                            className="size-6  text-white rounded-sm flex items-center justify-center cursor-pointer"
+                                            style={{
+                                              background:
+                                                themeStyle.BackgroundColor
+                                                  ? themeStyle.BackgroundColor
+                                                  : "#2e3b61",
+                                            }}
+                                            onClick={() => DelRoomCount(room)}
+                                          >
+                                            -
+                                          </span>
+
+                                          <p className="font-medium text-xs">
+                                            {roomtypeCount[room?.roomType]}
+                                          </p>
+
+                                          <span
+                                            className="size-6 text-white rounded-sm flex items-center justify-center cursor-pointer"
+                                            style={{
+                                              background:
+                                                themeStyle.BackgroundColor
+                                                  ? themeStyle.BackgroundColor
+                                                  : "#2e3b61",
+                                            }}
+                                            onClick={() => AddRoomCount(room)}
+                                          >
+                                            +
+                                          </span>
+                                        </div>
+                                      )}
+                                    </div>
+
+                                    {/* <div className="w-full flex justify-center">
                                       {!room?.roomQuantity ? (
                                         <button
                                           className="text-sm text-white rounded-full px-3 py-2 w-full"
@@ -1729,7 +2133,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                           </span>
                                         </div>
                                       )}
-                                    </div>
+                                    </div> */}
+
                                     {/* <p className="py-2 px-5 text-white w-full text-center rounded-full text-sm font-medium" style={{ background: themeStyle.BackgroundColor ? themeStyle.BackgroundColor : "#2e3b61" }}>
                                       RS {room?.price} / Night
                                     </p> */}
@@ -1848,6 +2253,169 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                             <div>
                               <p className="capitalize">
                                 Address:{" "}
+                                {/* {hotelDetails.hotels &&
+                                  hotelDetails?.hotels["17212625"].local} */}
+                              </p>
+                              <p>
+                                City:{" "}
+                                {hotelDetails.hotels &&
+                                  hotelDetails?.hotels[hid].city}
+                              </p>
+                              <p>
+                                State:{" "}
+                                {hotelDetails.hotels &&
+                                  hotelDetails?.hotels[hid].state}
+                              </p>
+                              <p>
+                                Pincode:{" "}
+                                {hotelDetails.hotels &&
+                                  hotelDetails?.hotels[hid].city}
+                              </p>
+                              <p>
+                                Country:{" "}
+                                {hotelDetails.hotels &&
+                                  hotelDetails?.hotels[hid].country}
+                              </p>
+                            </div>
+
+                            <h1 className="font-medium">Room details :</h1>
+
+                            {msg.roomSummary?.map((item, index) =>
+                              roomtypeCount[item?.roomType] ? (
+                                <div key={index} className="">
+                                  <section className="max-w-4xl mx-auto">
+                                    <h2 className="mb-2 font-semibold text-gray-600">
+                                      {item?.roomName} ({item?.roomTypeName})
+                                    </h2>
+                                    <p>
+                                      Number Of Rooms:{" "}
+                                      {roomtypeCount[item?.roomType]}
+                                    </p>
+                                    {/* <p>Price : {item?.price}</p> */}
+                                    <p>
+                                      Price: ₹
+                                      {Number(
+                                        ratesChange[item?.roomType].TotalPrice
+                                      ) * Number(roomtypeCount[item?.roomType])}
+                                    </p>
+                                  </section>
+                                </div>
+                              ) : null
+                            )}
+
+                            <p>
+                              <span className="font-medium">
+                                {" "}
+                                Total Price: ₹{" "}
+                              </span>
+
+                              <span className="font-bold">
+                                {msg?.roomSummary?.reduce(
+                                  (total, item) =>
+                                    total +
+                                    Number(
+                                      ratesChange[item?.roomType].TotalPrice
+                                    ) *
+                                      Number(roomtypeCount[item?.roomType]) *
+                                      numberOfNights,
+                                  0
+                                )}
+                              </span>
+                            </p>
+                          </div>
+
+                          <div className="flex flex-col gap-5 text-md bg-gray-100 w-[90%] px-5 py-1.5 text-gray-600 rounded-br-3xl rounded-bl-3xl rounded-tr-3xl">
+                            Looks good? Let&#39;s proceed with your booking.
+                          </div>
+                        </div>
+
+                        <div className="flex flex-wrap gap-3">
+                          <button
+                            disabled={msg?.disabled}
+                            className={`rounded-full px-4 py-2 cursor-pointer ${
+                              msg?.disabled && "opacity-30"
+                            }`}
+                            style={{
+                              color: themeStyle?.BackgroundColor
+                                ? themeStyle?.BackgroundColor
+                                : "#2e3b61",
+                              border: themeStyle?.BackgroundColor
+                                ? `1px solid ${themeStyle?.BackgroundColor}`
+                                : "1px solid #2e3b61",
+                            }}
+                            onClick={() => confirmBooking()}
+                          >
+                            Pay full amount
+                          </button>
+
+                          {/* <button
+                            disabled={msg?.disabled}
+                            className={`rounded-full px-4 py-2 cursor-pointer ${msg?.disabled && "opacity-30"}`}
+                            style={{
+                              color: themeStyle?.BackgroundColor
+                                ? themeStyle?.BackgroundColor
+                                : "#2e3b61",
+                              border: themeStyle?.BackgroundColor
+                                ? `1px solid ${themeStyle?.BackgroundColor}`
+                                : "1px solid #2e3b61",
+                            }}
+                            onClick={cancelBooking}
+                          >
+                            Cancel Booking
+                          </button> */}
+
+                          {/* <button
+                            disabled={msg?.disabled}
+                            className={`rounded-full px-4 py-2 cursor-pointer ${msg?.disabled && "opacity-30"}`}
+                            style={{
+                              color: themeStyle?.BackgroundColor
+                                ? themeStyle?.BackgroundColor
+                                : "#2e3b61",
+                              border: themeStyle?.BackgroundColor
+                                ? `1px solid ${themeStyle?.BackgroundColor}`
+                                : "1px solid #2e3b61",
+                            }}
+                            onClick={addMoreRooms}
+                          >
+                            Add More Rooms
+                          </button> */}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* {msg?.roomSummary && (
+                      <div className=" flex flex-col gap-10">
+                        <div className="flex flex-col gap-3 ">
+                          <div className=" flex flex-col gap-5 text-md bg-gray-100 text-gray-600 w-[90%] p-5 rounded-br-3xl rounded-bl-3xl rounded-tr-3xl">
+                            <h1 className=" text-lg">
+                              Hotel Name: {headingTitle}
+                            </h1>
+
+                            <div>
+                              <p>Name: {formData.name}</p>
+                              <p>Phone: {formData.phone}</p>
+                              <p>Email: {formData.email}</p>
+                              <p>Check-in Date: {formatDate(startDate)}</p>
+                              <p>Check-out Date: {formatDate(endDate)}</p>
+                              <p>Number of Guest: {formData.numberOfGuests}</p>
+                              <p>
+                                Number Of Nights:{" "}
+                                {startDate && endDate
+                                  ? Math.max(
+                                      1,
+                                      Math.ceil(
+                                        (endDate.getTime() -
+                                          startDate.getTime()) /
+                                          (1000 * 60 * 60 * 24)
+                                      )
+                                    )
+                                  : "-"}
+                              </p>
+                            </div>
+
+                            <div>
+                              <p className="capitalize">
+                                Address:{" "}
                                 {hotelDetails.hotels &&
                                   hotelDetails?.hotels["56369483"].local}
                               </p>
@@ -1882,7 +2450,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                     {item?.roomTypeName}
                                   </h2>
                                   <p>Room Name: {item?.roomName} </p>
-                                  {/* <p>Room Type: {item?.roomTypeName} </p> */}
+
                                   <p>
                                     Price Per Night: ₹
                                     {item?.price?.toLocaleString()}{" "}
@@ -1893,55 +2461,6 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                     {Number(item?.price) *
                                       Number(item?.roomQuantity)}
                                   </p>
-
-                                  {/* <div className="space-y-4 text-gray-800 text-base leading-relaxed">
-                                <div className="flex gap-2 items-center">
-                                  <FaBed className="text-indigo-600" />
-                                  <span>
-                                    <strong>Room Name:</strong> {item?.roomName}
-                                  </span>
-                                </div>
-
-                                <div className="flex gap-2 items-center">
-                                  <FaListUl className="text-indigo-600" />
-                                  <span>
-                                    <strong>Room Type:</strong>{" "}
-                                    {item?.roomTypeName}
-                                  </span>
-                                </div>
-
-                                <div className="flex gap-2 items-center">
-                                  <FaRupeeSign className="text-indigo-600" />
-                                  <span>
-                                    <strong>Price per Night:</strong> ₹
-                                    {item?.price?.toLocaleString()}
-                                  </span>
-                                </div>
-
-                                <div className="flex gap-2 items-center">
-                                  <FaListUl className="text-indigo-600" />
-                                  <span>
-                                    <strong>No. of Rooms:</strong>{" "}
-                                    {item?.roomQuantity}
-                                  </span>
-                                </div>
-
-                                <div className="flex gap-2 items-center">
-                                  <FaListUl className="text-indigo-600" />
-                                  <span>
-                                    <strong>No. of Nights:</strong>{" "}
-                                    {item?.numberOfNights}
-                                  </span>
-                                </div>
-
-                                <div className="flex gap-2 items-center">
-                                  <FaUsers className="text-indigo-600" />
-                                  <span>
-                                    <strong>Guests per Room:</strong>{" "}
-                                    {item?.guestsPerRoom}
-                                  </span>
-                                </div>
-                              </div> */}
                                 </section>
                               </div>
                             ))}
@@ -1986,22 +2505,6 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                             Confirm Booking
                           </button>
 
-                          {/* <button
-                            disabled={msg?.disabled}
-                            className={`rounded-full px-4 py-2 cursor-pointer ${msg?.disabled && "opacity-30"}`}
-                            style={{
-                              color: themeStyle?.BackgroundColor
-                                ? themeStyle?.BackgroundColor
-                                : "#2e3b61",
-                              border: themeStyle?.BackgroundColor
-                                ? `1px solid ${themeStyle?.BackgroundColor}`
-                                : "1px solid #2e3b61",
-                            }}
-                            onClick={cancelBooking}
-                          >
-                            Cancel Booking
-                          </button> */}
-
                           <button
                             disabled={msg?.disabled}
                             className={`rounded-full px-4 py-2 cursor-pointer ${msg?.disabled && "opacity-30"}`}
@@ -2019,7 +2522,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                           </button>
                         </div>
                       </div>
-                    )}
+                    )} */}
                   </div>
                 );
               })}
