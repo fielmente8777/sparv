@@ -14,6 +14,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FaPhone } from "react-icons/fa";
 import Link from "next/link";
 import { format } from "date-fns";
+import { useRazorpay, RazorpayOrderOptions } from "react-razorpay";
 
 export type Option = {
   label: string;
@@ -246,6 +247,14 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
   const [PayStatus, setPayStatus] = useState("PENDING");
   const [OrderId, setOrderId] = useState("");
   const [RedirectLink, setRedirectLink] = useState("");
+  const [GatewayConnected, setGatewayConnected] = useState({
+    Type: "Razorpay",
+    API_KEY: "rzp_test_UZ0V9jh3jMC0C9",
+    SECRET_KEY: "XHctZxmnMhzkkwcAlDtF0Xuc",
+  });
+
+  const { isLoading, Razorpay } = useRazorpay();
+  // const Razorpay = useRazorpay();
 
   const [RoomCategoryCombination, setRoomCategoryCombination] = useState({
     DELUX: "-",
@@ -330,6 +339,56 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
     "1": {},
   });
 
+
+  const [Payment, setPayment] = useState({
+    Status: false,
+    Logo: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.1546980028.1703548800&semt=sph",
+    HotelName: "Peace at Peak",
+    Payment: "2",
+    Order: "3",
+    Name: "4",
+    Phone: "5",
+    Email: "6",
+    Country: "6",
+    Checkin: "7",
+    Checkout: "8",
+    Adult: "8",
+    Kid: "1",
+    Tax: "2",
+    Amount: "3",
+    PayStatus: "Paid",
+    Delux: "4",
+    Sd: "4",
+    Suite: "4",
+    Premium: "4",
+    PremiereRetreat: "1",
+    EliteSuite: "0",
+    GrandDeluxe: "0",
+    ImperialSuite: "0",
+    SupremeRetreat: "0",
+    RoyalDeluxe: "0",
+    PrestigeSuite: "0",
+    ExclusiveRetreat: "0",
+    MealPlan: "Meal",
+    Mealprice: "200",
+    PackagePlan: "Package",
+    PackagePrice: "1200",
+    Rooms: {
+      DELUX: "a",
+      SUPERDELUX: "a",
+      SUITE: "a",
+      PREMIUM: "a",
+      PremiereRetreat: "a",
+      EliteSuite: "a",
+      GrandDeluxe: "a",
+      ImperialSuite: "-",
+      SupremeRetreat: "-",
+      RoyalDeluxe: "-",
+      PrestigeSuite: "-",
+      ExclusiveRetreat: "-",
+    },
+  });
+
   const RoomNameAvailable: Record<string, keyof typeof Available> = {
     DELUX: "DELUX",
     PREMIUM: "PREMIUM",
@@ -345,43 +404,68 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
     "Exclusive Retreat": "ExclusiveRetreat",
   };
 
+  console.log(hotelDetails)
+  const PaymentSuccessFull = async (payid: any) => {
+    console.log("PaymentSuccessFull called with payid:", payid);
+    const response = await fetch(`${"https://nexon.eazotel.com"}/booking/update`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, /",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ndid: "e50d8dc6-4cfc-4c87-b6c0-145ccdeb4121",
+        orderid: OrderId,
+        paymentid: payid,
+        Status: PaymentStatus,
+        hId: "56369483",
+      }),
+    });
+  };
+
   const HandlePaymentRazorpay = (orderID: any, amnt: Number, status: any) => {
+
+    console.log("HandlePaymentRazorpay called with orderID:", orderID, "and amount:", amnt);
+
     try {
+
+      console.log("msnfsdf")
       const mockOrderData = {
         amount: amnt * 100, // Convert amount to paise (assuming INR)
         orderId: orderID, // Generate a unique order ID
       };
 
       const options = {
-        key: "rzp_test_UZ0V9jh3jMC0C9", // Enter the Key ID generated from the Dashboard rzp_test_UZ0V9jh3jMC0C9,rzp_live_5uaIIwZcxLC70j
+        key: GatewayConnected.API_KEY, // Enter the Key ID generated from the Dashboard rzp_test_UZ0V9jh3jMC0C9,rzp_live_5uaIIwZcxLC70j
         amount: mockOrderData.amount.toString(), // Use the amount from the order data
         currency: "INR",
-        name: hotelDetails,
+        name: hotelDetails?.hotelName || "Hotel Name",
         description: "Test Transaction",
-        // image: websiteData?.[localStorage.getItem("hid")]?.Footer?.Logo,
-        image: "",
+        image: "https://via.placholder.com",
         order_id: OrderId, // Use the order ID from the order data
-        handler: async function (response) {
+        handler: async function (response: any) {
           setOrderId(response.razorpay_order_id);
-          UpdateBooking(orderID, response.razorpay_payment_id, status);
+          await PaymentSuccessFull(response.razorpay_payment_id);
+          // UpdateBooking(orderID, response.razorpay_payment_id, status);
           setPayment({
             Status: true,
-            Logo: websiteData?.[localStorage.getItem("hid")]?.Footer?.Logo,
-            HotelName: HotelName,
+            // Logo: websiteData?.[localStorage.getItem("hid")]?.Footer?.Logo || "https://via.placholder.com",
+            Logo: "https://via.placholder.com",
+            HotelName: hotelDetails?.hotelName || "Hotel Name",
             Order: orderID,
             Payment: response.razorpay_payment_id,
-            Name: Name,
-            Phone: Phone,
-            Email: Email,
+            Name: formData?.name,
+            Phone: formData?.phone,
+            Email: formData?.email,
             City: "",
             Country: "",
-            Checkin: selectedDate,
-            Checkout: nextselectedDate,
-            Adult: Adult,
-            Kid: kids,
-            Tax: tax,
-            Total: Subtotal,
-            Grandtotal: Grandtotal,
+            Checkin: formData?.checkInDate,
+            Checkout: formData?.checkOutDate,
+            Adult: formData.numberOfGuests,
+            Kid: "0",
+            Tax: "3",
+            Total: totalCost("INR", ratesChange),
+            Grandtotal: totalCost("INR", ratesChange),
             Paid: amnt,
             PayStatus: status,
             Delux: Delux,
@@ -409,7 +493,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
 
       const rzp1 = new Razorpay(options);
 
-      rzp1.on("payment.failed", function (response) {
+      rzp1.on("payment.failed", function (response: any) {
         alert(response.error.code);
         alert(response.error.description);
         alert(response.error.source);
@@ -437,7 +521,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
         (total, item) =>
           total +
           Number(ratesChange[item?.roomType].TotalPrice) *
-            Number(roomtypeCount[item?.roomType]),
+          Number(roomtypeCount[item?.roomType]),
         0
       );
       const response = await fetch(
@@ -670,7 +754,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           RoomNameAvailable[room.roomTypeName as keyof typeof Available]
         ].toString()
       ) >=
-        deluxroomCount + 1
+      deluxroomCount + 1
     ) {
       setDelux(deluxroomCount + 1);
       setDeluxRoomcount(deluxroomCount + 1);
@@ -687,7 +771,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           RoomNameAvailable[room.roomTypeName as keyof typeof Available]
         ].toString()
       ) >=
-        superroomCount + 1
+      superroomCount + 1
     ) {
       setSuperDelux(superroomCount + 1);
       setsuperRoomcount(superroomCount + 1);
@@ -704,7 +788,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           RoomNameAvailable[room.roomTypeName as keyof typeof Available]
         ].toString()
       ) >=
-        suiteroomCount + 1
+      suiteroomCount + 1
     ) {
       setSuite(suiteroomCount + 1);
       setsuiteRoomcount(suiteroomCount + 1);
@@ -721,7 +805,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           RoomNameAvailable[room.roomTypeName as keyof typeof Available]
         ].toString()
       ) >=
-        premiumroomCount + 1
+      premiumroomCount + 1
     ) {
       setPremium(premiumroomCount + 1);
       setpremiumRoomcount(premiumroomCount + 1);
@@ -738,7 +822,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           RoomNameAvailable[room.roomTypeName as keyof typeof Available]
         ].toString()
       ) >=
-        premiumretreatroomCount + 1
+      premiumretreatroomCount + 1
     ) {
       setPremiereRetreat(premiumretreatroomCount + 1);
       setpremiumretreatRoomcount(premiumretreatroomCount + 1);
@@ -755,7 +839,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           RoomNameAvailable[room.roomTypeName as keyof typeof Available]
         ].toString()
       ) >=
-        EliteSuiteroomCount + 1
+      EliteSuiteroomCount + 1
     ) {
       setEliteSuite(EliteSuiteroomCount + 1);
       setEliteSuiteRoomcount(EliteSuiteroomCount + 1);
@@ -772,7 +856,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           RoomNameAvailable[room.roomTypeName as keyof typeof Available]
         ].toString()
       ) >=
-        GrandDeluxeroomCount + 1
+      GrandDeluxeroomCount + 1
     ) {
       setGrandDeluxe(GrandDeluxeroomCount + 1);
       setGrandDeluxeRoomcount(GrandDeluxeroomCount + 1);
@@ -789,7 +873,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           RoomNameAvailable[room.roomTypeName as keyof typeof Available]
         ].toString()
       ) >=
-        ImperialSuiteroomCount + 1
+      ImperialSuiteroomCount + 1
     ) {
       setImperialSuite(ImperialSuiteroomCount + 1);
       setImperialSuiteRoomcount(ImperialSuiteroomCount + 1);
@@ -806,7 +890,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           RoomNameAvailable[room.roomTypeName as keyof typeof Available]
         ].toString()
       ) >=
-        SupremeRetreatroomCount + 1
+      SupremeRetreatroomCount + 1
     ) {
       setSupremeRetreat(SupremeRetreatroomCount + 1);
       setSupremeRetreatRoomcount(SupremeRetreatroomCount + 1);
@@ -823,7 +907,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           RoomNameAvailable[room.roomTypeName as keyof typeof Available]
         ].toString()
       ) >=
-        RoyalDeluxeroomCount + 1
+      RoyalDeluxeroomCount + 1
     ) {
       setRoyalDeluxe(RoyalDeluxeroomCount + 1);
       setRoyalDeluxeRoomcount(RoyalDeluxeroomCount + 1);
@@ -840,7 +924,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           RoomNameAvailable[room.roomTypeName as keyof typeof Available]
         ].toString()
       ) >=
-        PrestigeSuiteroomCount + 1
+      PrestigeSuiteroomCount + 1
     ) {
       setPrestigeSuite(PrestigeSuiteroomCount + 1);
       setPrestigeSuiteRoomcount(PrestigeSuiteroomCount + 1);
@@ -857,7 +941,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           RoomNameAvailable[room.roomTypeName as keyof typeof Available]
         ].toString()
       ) >=
-        ExclusiveRetreatroomCount + 1
+      ExclusiveRetreatroomCount + 1
     ) {
       setExclusiveRetreat(ExclusiveRetreatroomCount + 1);
       setExclusiveRetreatRoomcount(ExclusiveRetreatroomCount + 1);
@@ -1724,9 +1808,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
         <div className=" bg-white pb-5 rounded-t-xl shadow-2xl overflow-hidden  h-[100dvh] sm:h-[85dvh]  flex flex-col scroll w-full md:w-[390px] overflow-x-hidden mx-auto relative">
           {/* Header */}
           <div
-            className={` ${
-              mymessages.length <= 1 ? "h-[168px] p-4" : "h-[50px]"
-            } relative duration-300 justify-between items-center transition-all rounded-t-xl flex w-full overflow-hidden`}
+            className={` ${mymessages.length <= 1 ? "h-[168px] p-4" : "h-[50px]"
+              } relative duration-300 justify-between items-center transition-all rounded-t-xl flex w-full overflow-hidden`}
             style={{
               background: themeStyle?.BackgroundColor,
               color: "white",
@@ -1769,9 +1852,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
           {/* Messages area */}
           <div className="max-w-md mx-auto overflow-hidden rounded space-y-4 flex-1 overflow-y-auto w-full scroll-hidden">
             <div
-              className={`${
-                mymessages.length <= 1 ? "mt-14" : ""
-              } p-4 space-y-4`}
+              className={`${mymessages.length <= 1 ? "mt-14" : ""
+                } p-4 space-y-4`}
             >
               {mymessages.map((msg, i) => {
                 return (
@@ -1779,11 +1861,10 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                     {msg?.message && (
                       <div
                         key={i}
-                        className={`text-md flex ${
-                          msg.from === "bot"
-                            ? "justify-start text-black"
-                            : "text-start justify-end"
-                        }`}
+                        className={`text-md flex ${msg.from === "bot"
+                          ? "justify-start text-black"
+                          : "text-start justify-end"
+                          }`}
                       >
                         <p
                           style={{
@@ -1792,11 +1873,10 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                 ? "#f5f7fa"
                                 : themeStyle?.BackgroundColor || "#2e3b61",
                           }}
-                          className={`px-4 py-1.5 inline-block ${
-                            msg.from === "bot"
-                              ? "bg-gray-100 text-[#616e7c] text-md rounded-br-2xl rounded-bl-2xl rounded-tr-2xl"
-                              : "bg-[#2e3b61] text-white rounded-br-2xl rounded-bl-2xl rounded-tl-2xl"
-                          }`}
+                          className={`px-4 py-1.5 inline-block ${msg.from === "bot"
+                            ? "bg-gray-100 text-[#616e7c] text-md rounded-br-2xl rounded-bl-2xl rounded-tr-2xl"
+                            : "bg-[#2e3b61] text-white rounded-br-2xl rounded-bl-2xl rounded-tl-2xl"
+                            }`}
                         >
                           {/* bg-[#f5f7fa] */}
                           {msg.message}
@@ -1819,9 +1899,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                 ? themeStyle?.BackgroundColor
                                 : "black",
                             }}
-                            className={`px-3 py-1.5 text-md rounded-full ${
-                              btn?.disabled ? "opacity-50" : "cursor-pointer"
-                            }`}
+                            className={`px-3 py-1.5 text-md rounded-full ${btn?.disabled ? "opacity-50" : "cursor-pointer"
+                              }`}
                           >
                             {btn?.label}
                           </button>
@@ -1838,11 +1917,10 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                               key={i}
                               onClick={() => handleSelectLoaction(key, value)}
                               className={` border-1 border-[#2e3b61] text-[#2e3b61] px-3 py-1.5 text-md rounded-full
-                              ${
-                                value?.disabled
+                              ${value?.disabled
                                   ? "opacity-50 cursor-not-allowed"
                                   : "cursor-pointer"
-                              }`}
+                                }`}
                               style={{
                                 color: themeStyle?.BackgroundColor
                                   ? themeStyle?.BackgroundColor
@@ -1882,9 +1960,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                   onChange={handleInputChange}
                                   placeholder={val?.placeholder}
                                   required
-                                  className={`${
-                                    i == 2 ? "w-full" : "w-full"
-                                  } bg-white border border-gray-300 text-black px-3 py-2 text-sm rounded-md outline-none`}
+                                  className={`${i == 2 ? "w-full" : "w-full"
+                                    } bg-white border border-gray-300 text-black px-3 py-2 text-sm rounded-md outline-none`}
                                 />
                               </div>
                             ))}
@@ -2011,7 +2088,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                 <div
                                   key={index}
                                   className="w-full overflow-hidden rounded-br-3xl rounded-bl-3xl rounded-tr-3xl flex-shrink-0"
-                                  // style={{ border: `1px solid ${themeStyle.BackgroundColor}` }}
+                                // style={{ border: `1px solid ${themeStyle.BackgroundColor}` }}
                                 >
                                   <div className=" relative w-full h-60">
                                     <Image
@@ -2179,11 +2256,10 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                   color: themeStyle.BackgroundColor
                                     ? themeStyle.BackgroundColor
                                     : "#2e3b61",
-                                  border: `1px solid ${
-                                    themeStyle.BackgroundColor
-                                      ? themeStyle.BackgroundColor
-                                      : "#2e3b61"
-                                  }`,
+                                  border: `1px solid ${themeStyle.BackgroundColor
+                                    ? themeStyle.BackgroundColor
+                                    : "#2e3b61"
+                                    }`,
                                 }}
                                 onClick={() => {
                                   handleButtonClick({
@@ -2201,11 +2277,10 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                   color: themeStyle.BackgroundColor
                                     ? themeStyle.BackgroundColor
                                     : "#2e3b61",
-                                  border: `1px solid ${
-                                    themeStyle.BackgroundColor
-                                      ? themeStyle.BackgroundColor
-                                      : "#2e3b61"
-                                  }`,
+                                  border: `1px solid ${themeStyle.BackgroundColor
+                                    ? themeStyle.BackgroundColor
+                                    : "#2e3b61"
+                                    }`,
                                 }}
                                 onClick={() => {
                                   ChangeCheckinoutData();
@@ -2239,13 +2314,13 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                 Number Of Nights:{" "}
                                 {startDate && endDate
                                   ? Math.max(
-                                      1,
-                                      Math.ceil(
-                                        (endDate.getTime() -
-                                          startDate.getTime()) /
-                                          (1000 * 60 * 60 * 24)
-                                      )
+                                    1,
+                                    Math.ceil(
+                                      (endDate.getTime() -
+                                        startDate.getTime()) /
+                                      (1000 * 60 * 60 * 24)
                                     )
+                                  )
                                   : "-"}
                               </p>
                             </div>
@@ -2316,8 +2391,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                                     Number(
                                       ratesChange[item?.roomType].TotalPrice
                                     ) *
-                                      Number(roomtypeCount[item?.roomType]) *
-                                      numberOfNights,
+                                    Number(roomtypeCount[item?.roomType]) *
+                                    numberOfNights,
                                   0
                                 )}
                               </span>
@@ -2332,9 +2407,8 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
                         <div className="flex flex-wrap gap-3">
                           <button
                             disabled={msg?.disabled}
-                            className={`rounded-full px-4 py-2 cursor-pointer ${
-                              msg?.disabled && "opacity-30"
-                            }`}
+                            className={`rounded-full px-4 py-2 cursor-pointer ${msg?.disabled && "opacity-30"
+                              }`}
                             style={{
                               color: themeStyle?.BackgroundColor
                                 ? themeStyle?.BackgroundColor
