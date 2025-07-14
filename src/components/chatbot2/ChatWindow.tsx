@@ -1733,7 +1733,7 @@ const ChatWindow = ({ logo, onClose }: ChatWindowProps) => {
 
   return (
     <div className="bg-black/60 w-full h-full">
-      <div className="fixed right-0 bottom-0">
+      <div className="sm:fixed right-0 bottom-0">
         <div className=" bg-white pb-5 rounded-t-xl shadow-2xl overflow-hidden  h-[100dvh] sm:h-[85dvh]  flex flex-col scroll w-full md:w-[390px] overflow-x-hidden mx-auto relative">
           {/* Header */}
           <div
