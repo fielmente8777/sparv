@@ -71,25 +71,25 @@ export const ResortFacilitiesData = {
         },
         {
             title: "Pool",
-            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-6.jpg",
+            img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-6.jpg",
             description:
                 "Refreshment and Relaxation at Our Pool Paradise.",
         },
         {
             title: "Restaurant",
-            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Home+page+/Resort+facilities/Restaurant.jpg",
+            img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/Resort+facilities/Restaurant.jpg",
             description:
                 "Dine in to enjoy authentic Multi-cuisine with SPARV hospitality.",
         },
         {
             title: "Tea Point",
-            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Home+page+/Resort+facilities/Tea+Point.jpg",
+            img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/Resort+facilities/Tea+Point.jpg",
             description:
                 "Refreshment Station",
         },
         {
             title: "Sea View",
-            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-32.jpg",
+            img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-32.jpg",
             description:
                 "Experience the beauty of the ocean from your bedside at SPARV Beach Resort.",
         },
@@ -105,19 +105,19 @@ export const galleryData = {
     data: [
         {
             id: 1,
-            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Home+page+/gallery/Restaurant.jpg",
+            img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Restaurant.jpg",
             label: "restaurant",
             href: "/Gallery/",
         },
         {
             id: 2,
-            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Home+page+/gallery/Hotel.jpg",
+            img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Hotel.jpg",
             label: "hotel",
             href: "/Gallery/",
         },
         {
             id: 3,
-            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Home+page+/gallery/Nearby.jpg",
+            img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Nearby.jpg",
             label: "nearby",
             href: "/Gallery/",
         },
@@ -157,13 +157,13 @@ export const nearbyData = {
         },
         {
             id: 2,
-            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/LocalAttractions/Ashvem+Beach.jpg",
+            img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/LocalAttractionsPictures/Ashvem+Beach.jpg",
             label: "Ashwem Beach",
             href: "",
         },
         {
             id: 3,
-            img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/LocalAttractions/Mandrem+Beach.jpg",
+            img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/LocalAttractionsPictures/Mandrem+Beach.jpg",
             label: "Mandrem Beach",
             href: "",
         },
