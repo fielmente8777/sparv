@@ -12,6 +12,7 @@ const Banner: React.FC<BannerProps> = ({
   data,
   imgSlider = false,
 }) => {
+  console.log(data);
   return (
     <section className="lg:pb-10 pb-5 font-p-d max-w-[1600px] mx-auto w-full">
       {imgSlider ? (

@@ -21,6 +21,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "s3.amazonaws.com",
       },
+      {
+        protocol: "https",
+        hostname: "eazotel-clients-images.s3.ap-south-1.amazonaws.com",
+      },
     ],
     dangerouslyAllowSVG: true,
   },
