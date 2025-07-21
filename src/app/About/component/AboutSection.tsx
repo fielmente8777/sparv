@@ -96,15 +96,15 @@ const AboutSection = () => {
 export default AboutSection;
 
 const image = [
-  "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/about+us/Hotel+Features.jpg",
-  "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/DJI_0694.jpg",
+  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/about+us/Hotel+Features.jpg",
+  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DJI_0694.jpg",
   "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/updatedImage/About+us/3rd+pool+picture+change.jpg",
-  "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/about+us/Hotel+Information.jpg",
-  "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-34.jpg",
-  "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-31.jpg",
+  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/about+us/Hotel+Information.jpg",
+  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-34.jpg",
+  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-31.jpg",
   "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/Hotel/DSCF4137-HDR.jpg",
   "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/RUAN0030.jpg",
-  "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-39.jpg",
-  "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/RUAN9852.jpg",
-  "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-12.jpg",
+  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-39.jpg",
+  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9852.jpg",
+  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-12.jpg",
 ];

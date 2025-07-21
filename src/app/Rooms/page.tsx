@@ -4,7 +4,7 @@ import { amenities, data2, roomsCardsData } from "@/db/roomPage";
 
 const page = () => {
   const bannerData = {
-    src: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated3/RUAN9935+copy.jpg",
+    src: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9935.jpg",
     title: "ROOMS & SUITES",
     description: "WHERE COMFORT MEETS CONVENIENCE",
   };
