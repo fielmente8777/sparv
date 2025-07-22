@@ -98,7 +98,7 @@ export default AboutSection;
 const image = [
   "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/about+us/Hotel+Features.jpg",
   "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DJI_0694.jpg",
-  "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/updatedImage/About+us/3rd+pool+picture+change.jpg",
+  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/About+us/3rd+pool+picture+change.jpg",
   "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/about+us/Hotel+Information.jpg",
   "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-34.jpg",
   "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-31.jpg",

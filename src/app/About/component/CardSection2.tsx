@@ -69,31 +69,31 @@ export default CardSection2;
 const data = [
   {
     id: 1,
-    img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/updatedImage/Things+to+do+in+Mandrem/Historical+Sites.jpg",
+    img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Things+to+do+in+Mandrem/Historical+Sites.jpg",
     label: "Historical Sites",
     href: "",
   },
   {
     id: 2,
-    img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/updatedImage/Things+to+do+in+Mandrem/Nightlife.jpg",
+    img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Things+to+do+in+Mandrem/Nightlife.jpg",
     label: "Nightlife",
     href: "",
   },
   {
     id: 3,
-    img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/updatedImage/Things+to+do+in+Mandrem/Food+_+Drink.jpg",
+    img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Things+to+do+in+Mandrem/FoodDrink.jpg",
     label: "Food and Drink",
     href: "",
   },
   {
     id: 4,
-    img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/updatedImage/Things+to+do+in+Mandrem/Water+Activities.jpg",
+    img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Things+to+do+in+Mandrem/Water+Activities.jpg",
     label: "Water activities",
     href: "",
   },
   {
     id: 5,
-    img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/updatedImage/Things+to+do+in+Mandrem/Explore+the+city.jpg",
+    img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Things+to+do+in+Mandrem/Explore+the+city.jpg",
     label: "Explore the City",
     href: "",
   },

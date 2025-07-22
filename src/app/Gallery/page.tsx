@@ -4,7 +4,7 @@ import { galleryData } from "@/db/gallery";
 
 const page = () => {
   const bannerData = {
-    src: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Gallery/Gallery+Banner.jpg",
+    src: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Gallery/Gallery+Banner.jpg",
     title: "GALLERY",
     description: "WHERE OPEN SKIES BECOME YOUR HORIZON",
   };

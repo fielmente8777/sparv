@@ -259,13 +259,13 @@ export const facilityData = [
   },
   {
     id: 3,
-    img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Gallery/All.jpg",
+    img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Gallery/All.jpg",
     label: "Bar",
     href: "#",
   },
   {
     id: 4,
-    img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/Hotel/DSCF7095.JPG",
+    img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DSCF7095.JPG",
     label: "Dinner",
     href: "#",
   },
