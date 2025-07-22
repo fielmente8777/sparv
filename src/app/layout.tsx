@@ -29,11 +29,11 @@ export default function RootLayout({
           `,
           }}
         /> */}
-        <Script
+        {/* <Script
           id="zoho-widget"
           src="https://salesiq.zohopublic.in/widget?wc=siq68bd71d03faa62c37d1255ad8a8cdf8200f340a75a33ee9f62c5704ff6ca12a9"
           strategy="lazyOnload"
-        />
+        /> */}
       </head>
       <body suppressHydrationWarning={true}>
         <RenderChatBot />

@@ -30,8 +30,8 @@ export const roomsCardsData: roomDataType[] = [
     currency: "inr",
     time: "per night",
     img: [
-      "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated4/IMG_4390.jpg",
-      "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated4/IMG_4395.jpg",
+      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/IMG_4390.jpg",
+      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/IMG_4395.jpg",
       "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/images/cf9af91f-fec9-44b7-91de-23d167e396de.jpg",
       "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/images/f900c97b-cd81-4143-aa53-46662295bd9f.jpg",
     ],
@@ -59,7 +59,7 @@ export const roomsCardsData: roomDataType[] = [
     currency: "inr",
     time: "per night",
     img: [
-      "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated3/RUAN9933+copy.jpg",
+      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9933+copy.jpg",
       "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/images/17b44d73-032c-4ee9-8546-44c037eed661.jpg",
       "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/images/adb8ecb4-aabb-45dc-b515-10fe14bc3964.jpg",
     ],
@@ -77,7 +77,7 @@ export const ResortFacilitiesData = {
   imageData: [
     {
       title: "Best Stay Place",
-      img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated/gallery/RUAN9822+(1).jpg",
+      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9822.jpg",
       description: "Your dream holiday resort in Mandrem, Goa.",
     },
     {
@@ -160,7 +160,7 @@ export const nearbyData = {
   data: [
     {
       id: 1,
-      img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/LocalAttractions/Arambol+Beach.jpg",
+      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/LocalAttractionsPictures/Arambol+Beach.jpg",
       label: "Arambol Beach",
       href: "",
     },
@@ -247,13 +247,13 @@ export const roomData = {
 export const facilityData = [
   {
     id: 1,
-    img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/updatedImage/restaurants_images/IMG_7659.JPG",
+    img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/IMG_7659.JPG",
     label: "Breakfast",
     href: "#",
   },
   {
     id: 2,
-    img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/updatedImage/restaurants_images/IMG_7656.JPG",
+    img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/IMG_7656.JPG",
     label: "Lunch",
     href: "#",
   },

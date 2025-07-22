@@ -1,104 +1,104 @@
 export const galleryData: { image: string, category: string }[] = [
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Home+page+/gallery/Restaurant.jpg",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Restaurant.jpg",
         category: "restaurant",
     },
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/Hotel/DSCF7106.JPG",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DSCF7106.JPG",
         category: "restaurant",
     },
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PHOTOS/RESTAURANT/_DSF0293_4_5.jpg",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/_DSF0293_4_5.jpg",
         category: "restaurant",
     },
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/Hotel/DSCF7309.JPG",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DSCF7309.JPG",
         category: "restaurant",
     },
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/Hotel/DSCF7315.JPG",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DSCF7315.JPG",
         category: "restaurant",
     },
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/Hotel/DSCF7312.JPG",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DSCF7312.JPG",
         category: "restaurant",
     },
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/Hotel/DSCF7259.JPG",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DSCF7259.JPG",
         category: "restaurant",
     },
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/Hotel/DSCF7269.JPG",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DSCF7269.JPG",
         category: "restaurant",
     },
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Gallery/All.jpg",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Gallery/All.jpg",
         category: "restaurant",
     },
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Gallery/ALL-2.jpg",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Gallery/ALL-2.jpg",
         category: "restaurant",
     },
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated3/VER_0776.jpg",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/VER_0776.jpg",
         category: "restaurant",
     },
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-17.jpg",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-17.jpg",
         category: "restaurant",
     },
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-20.jpg",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-20.jpg",
         category: "restaurant",
     },
     {
         image:
-            "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Home+page+/gallery/Hotel.jpg",
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Hotel.jpg",
         category: "hotel"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/Hotel/DSCF3920-HDR.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DSCF3920-HDR.jpg",
         category: "hotel"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-2.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-2.jpg",
         category: "hotel"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/RUAN9847.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9847.jpg",
         category: "hotel"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/RUAN9975.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9975.jpg",
         category: "hotel"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/RUAN9822.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9822.jpg",
         category: "hotel"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-34.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-34.jpg",
         category: "hotel"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-28.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-28.jpg",
         category: "hotel"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated2/Home+page+/gallery/Nearby.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Nearby.jpg",
         category: "nearby"
     },
     {
@@ -133,23 +133,23 @@ export const galleryData: { image: string, category: string }[] = [
         category: "nearby"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/Hotel/DSCF7575-HDR.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DSCF7575-HDR.jpg",
         category: "view"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-5.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-5.jpg",
         category: "view"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/RUAN9975.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9975.jpg",
         category: "view"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdatedWebsite/Copy+of+DJI_0722.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Copy+of+DJI_0722.jpg",
         category: "view"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdatedWebsite/Copy+of+DJI_0731.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/WEBSITE+IMAGES/Copy+of+DJI_0731.jpg",
         category: "view"
     },
     {
@@ -165,7 +165,7 @@ export const galleryData: { image: string, category: string }[] = [
         category: "Rooms"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated3/RUAN9933+copy.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9933.jpg",
         category: "Rooms"
     },
     {
@@ -177,23 +177,23 @@ export const galleryData: { image: string, category: string }[] = [
         category: "Rooms"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/Hotel/DSCF4137-HDR.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DSCF4137-HDR.jpg",
         category: "lobby"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/Photos/lyamin.pro-7.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-7.jpg",
         category: "lobby"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/RUAN9851.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9851.jpg",
         category: "lobby"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/RUAN9844.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9844.jpg",
         category: "lobby"
     },
     {
-        image: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/RUAN9827.jpg",
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9827.jpg",
         category: "lobby"
     },
 ];

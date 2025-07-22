@@ -17,7 +17,7 @@ import { bannerData } from "@/db/homePage";
 
 const page = () => {
   const url =
-    "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/Sparv+Aulakhs+Resort+Goa.mp4";
+    "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Sparv+Aulakhs+Resort+Goa.mp4";
 
   return (
     <main>
