@@ -72,7 +72,7 @@ const VideoCompo = ({
             loop
             muted={!isPlaying}
             controls={isPlaying}
-            picture-in-picture={false}
+            // picture-in-picture={false}
             controlsList="nodownload noplaybackrate"
             poster={poster}
             // Disable PiP

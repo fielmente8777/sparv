@@ -12,7 +12,7 @@ const page = () => {
     <main>
       <Banner {...bannerData} />
       <CommonSection {...contactPagedata1} form />
-      <CommonSection {...contactPagedata2} form={false} />
+{/*       <CommonSection {...contactPagedata2} form={false} /> */}
     </main>
   );
 };
