@@ -37,9 +37,9 @@ interface ChatbotDataFlow {
 
 const RenderChatBot = () => {
   const [eazbotConfig, setEazbotConfig] = useState<EazobotConfig | null>({
-    hid: "",
-    ndid: "",
-    interval: 2000,
+    hid: "56369483",
+    ndid: "e50d8dc6-4cfc-4c87-b6c0-145ccdeb4121",
+    interval: 40000,
   });
 
   const [chatbotData, setChatbotData] = useState<ChatbotDataFlow>({
@@ -70,7 +70,7 @@ const RenderChatBot = () => {
     title: "",
     theme: "",
     logo: {
-      url: "/logo.jpg",
+      url: "/log2.png",
     },
     interval: 40000,
   });
@@ -135,6 +135,8 @@ const RenderChatBot = () => {
       const { data } = await axios.get(
         `https://nexon.eazotel.com/booking/getenginedetails/${ndid}/${hid}`
       );
+
+      console.log(data);
 
       setChatbotData({
         ...chatbotData,
