@@ -38,11 +38,11 @@ export const roomsCardsData: roomDataType[] = [
 ];
 
 export const amenities: AmenityItemProps[] = [
-    { icon: "/conference.webp", name: "Conference Hall" },
-    { icon: "/conditioner.webp", name: "Air Conditioner" },
-    { icon: "/security.webp", name: "24hr Security" },
-    { icon: "/laundry.webp", name: "Laundry Service" },
-    { icon: "/service.webp", name: "24hr Room Service" }
+  { icon: "/conference.webp", name: "Conference Hall" },
+  { icon: "/conditioner.webp", name: "Air Conditioner" },
+  { icon: "/security.webp", name: "24hr Security" },
+  { icon: "/laundry.webp", name: "Laundry Service" },
+  { icon: "/service.webp", name: "24hr Room Service" },
 ];
 
 export const data2 = [
