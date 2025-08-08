@@ -184,7 +184,7 @@ export const nearbyData = {
     },
     {
       id: 5,
-      img: "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/LocalAttractions/Shopping+and+Dining/5c18f1ca6b2e5c3f8eb3cd63_1545138634233.jpg",
+      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/LocalAttractionsPictures/Shopping+and+Dining/5c18f1ca6b2e5c3f8eb3cd63_1545138634233.jpg",
       label: "Shopping & Dining",
       href: "",
     },
