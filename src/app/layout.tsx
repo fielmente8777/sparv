@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import "./globals.scss";
 import { Call, Footer, NavBar, Whatsapp } from "@/components";
 import Script from "next/script";
-<<<<<<< HEAD
+
 import RenderChatBot from "@/components/chatbot/RenderChatBot";
-=======
-import RenderChatBot from "@/components/LeadChatbot/RenderChatBot";
->>>>>>> 32e581c1c2428615e0a4410a25ee517a4710aad4
+
 // import Script from "next/script";
 
 export const metadata: Metadata = {
