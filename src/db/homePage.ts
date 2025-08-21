@@ -80,17 +80,17 @@ export const ResortFacilitiesData = {
   imageData: [
     {
       title: "Best Stay Place",
-      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9822.jpg",
+      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9933.jpg",
       description: "Your dream holiday resort in Mandrem, Goa.",
     },
     {
       title: "Pool",
-      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-6.jpg",
+      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9975.jpg",
       description: "Refreshment and Relaxation at Our Pool Paradise.",
     },
     {
       title: "Restaurant",
-      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/Resort+facilities/Restaurant.jpg",
+      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Restaurant.jpg",
       description:
         "Dine in to enjoy authentic Multi-cuisine with SPARV hospitality.",
     },
@@ -101,7 +101,7 @@ export const ResortFacilitiesData = {
     },
     {
       title: "Sea View",
-      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-32.jpg",
+      img: "https://travelentice.com/wp-content/uploads/2021/02/1.-Silent-beach-resort.jpg",
       description:
         "Experience the beauty of the ocean from your bedside at SPARV Beach Resort.",
     },
@@ -122,7 +122,7 @@ export const galleryData = {
     },
     {
       id: 2,
-      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Hotel.jpg",
+      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9827.jpg",
       label: "hotel",
       href: "/Gallery/",
     },

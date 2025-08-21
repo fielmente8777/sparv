@@ -42,7 +42,7 @@ const data = [
     id: 2,
     title: "Hotel Features",
     image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-31.jpg",
+      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Hotel.jpg",
     list: [
       "Conference Hall",
       "Air Conditioner",

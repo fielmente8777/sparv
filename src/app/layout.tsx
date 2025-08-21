@@ -38,12 +38,12 @@ export default function RootLayout({
         /> */}
       </head>
       <body suppressHydrationWarning={true}>
-        <RenderChatBot />
+        {/* <RenderChatBot /> */}
         <NavBar />
         {children}
         <Footer />
         <Whatsapp />
-        <Call />
+        {/* <Call /> */}
 
         {/* <!-- Google Tag Manager (noscript) --> */}
 
@@ -54,7 +54,19 @@ export default function RootLayout({
         <script id="zsiqscript"
           src="https://salesiq.zohopublic.in/widget?wc=siq68bd71d03faa62c37d1255ad8a8cdf8200f340a75a33ee9f62c5704ff6ca12a9"
           defer></script> */}
+        <Script id="eazbot-script" strategy="afterInteractive">
+          {`window.eazbotConfig = {
+            ndid: "e50d8dc6-4cfc-4c87-b6c0-145ccdeb4121",
+            hid: "56369483",
+          };`}
+        </Script>
+        <Script
+          id="eazbot-widget-script"
+          strategy="afterInteractive"
+          src="https://cb-script.dyq28lyxrazm2.amplifyapp.com/widget/lead-chatbot.js"
+        ></Script>
       </body>
+
     </html>
   );
 }

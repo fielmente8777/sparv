@@ -44,10 +44,10 @@ export const galleryData: { image: string, category: string }[] = [
             "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Hotel.jpg",
         category: "hotel"
     },
-    {
-        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DJI_0718.jpg",
-        category: "hotel"
-    },
+    // {
+    //     image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DJI_0718.jpg",
+    //     category: "hotel"
+    // },
     {
         image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-2.jpg",
         category: "hotel"
