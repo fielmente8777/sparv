@@ -19,11 +19,14 @@ const config: Config = {
           "secondary": '#002639'
         },
         orange: {
-          "primary": '#D0B376'
+          "primary": '#D0B376',
+          "secondary": '#B58E3E'
         },
         gray: {
           "primary": '#3A3D45'
-        }
+        },
+        dark:"#212121",
+        light:"#838383",
       }
     },
   },

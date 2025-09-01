@@ -1,11 +1,28 @@
+import { Whatsapp } from "@/components";
 import type { Metadata } from "next";
-import "./globals.scss";
-import { Call, Footer, NavBar, Whatsapp } from "@/components";
 import Script from "next/script";
+import "./globals.scss";
+import { Montserrat, Playfair_Display, Lato,Playball } from "next/font/google";
 
-import RenderChatBot from "@/components/chatbot/RenderChatBot";
+import Footer from "@/components/footer/Footer";
+import NavBar from "@/components/navbar/Navbar";
 
-// import Script from "next/script";
+const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-m" });
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-p-d",
+});
+const lato = Lato({
+  subsets: ["latin"],
+  variable: "--font-l",
+  weight: ["400", "700"],
+});
+
+const playball = Playball({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-pb",
+});
 
 export const metadata: Metadata = {
   title: "SPARV Aulakhs Resort - 4-Star Beachfront stay in Mandrem",
@@ -37,7 +54,7 @@ export default function RootLayout({
           strategy="lazyOnload"
         /> */}
       </head>
-      <body suppressHydrationWarning={true}>
+      <body className={`${montserrat.variable} ${playball.variable} ${playfairDisplay.variable} ${lato.variable} antialiased`} suppressHydrationWarning={true}>
         {/* <RenderChatBot /> */}
         <NavBar />
         {children}
@@ -66,7 +83,6 @@ export default function RootLayout({
           src="https://cb-script.dyq28lyxrazm2.amplifyapp.com/widget/lead-chatbot.js"
         ></Script>
       </body>
-
     </html>
   );
 }
