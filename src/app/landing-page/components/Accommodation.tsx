@@ -29,7 +29,7 @@ const Accommodation: FC<AccommodationProps> = ({
   cards,
 }) => {
   return (
-    <SectionWithContainer sectionClassName="bg-[#F8F7F0]">
+    <SectionWithContainer sectionClassName="bg-[#F8F7F0] accommodation">
       <div className="w-full space-y-14">
         <div className="space-y-4">
           <SectionHeading title={title} subTitle={subTitle} textCenter />
