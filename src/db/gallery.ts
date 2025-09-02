@@ -1,4 +1,38 @@
 export const galleryData: { image: string, category: string }[] = [
+    
+    {
+        image:
+            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Hotel.jpg",
+        category: "hotel"
+    },
+    // {
+    //     image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DJI_0718.jpg",
+    //     category: "hotel"
+    // },
+    {
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-2.jpg",
+        category: "hotel"
+    },
+    {
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9847.jpg",
+        category: "hotel"
+    },
+    {
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9975.jpg",
+        category: "hotel"
+    },
+    {
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9822.jpg",
+        category: "hotel"
+    },
+    {
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-34.jpg",
+        category: "hotel"
+    },
+    {
+        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-28.jpg",
+        category: "hotel"
+    },
     {
         image:
             "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Restaurant.jpg",
@@ -38,39 +72,6 @@ export const galleryData: { image: string, category: string }[] = [
         image:
             "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-20.jpg",
         category: "restaurant",
-    },
-    {
-        image:
-            "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Hotel.jpg",
-        category: "hotel"
-    },
-    // {
-    //     image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DJI_0718.jpg",
-    //     category: "hotel"
-    // },
-    {
-        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-2.jpg",
-        category: "hotel"
-    },
-    {
-        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9847.jpg",
-        category: "hotel"
-    },
-    {
-        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9975.jpg",
-        category: "hotel"
-    },
-    {
-        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9822.jpg",
-        category: "hotel"
-    },
-    {
-        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-34.jpg",
-        category: "hotel"
-    },
-    {
-        image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-28.jpg",
-        category: "hotel"
     },
     {
         image: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Nearby.jpg",
