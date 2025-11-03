@@ -5,24 +5,31 @@ import React from "react";
 import LazyLoadedMap from "../map/LazyLoadedMap";
 import { Container } from "../sectionComponants";
 import LinkButton from "../buttons/LinkButton";
+import { whatsAppcta } from "@/app/landing-page/landingPageData";
 
 const LandingFooter = () => {
-    const year = new Date().getFullYear();
+  const year = new Date().getFullYear();
   return (
     <footer className="w-full max_screen_width">
       <section className="bg-blue-primary">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:py-20 py-10 md:gap-10">
             <div className="w-full flex flex-col gap-4">
-              <div className="w-full max-w-[183px] relative md:aspect-[4/3] aspect-square max-md:mx-auto">
+              <div className="w-full max-w-[180px] relative md:aspect-[4/3.8] aspect-square max-md:mx-auto">
                 <Image
                   src={footerLinks.src}
                   alt={"logo"}
                   fill
-                  className="object-contain"
+                  className="object-cover"
                 />
               </div>
-              <LinkButton href="" label="Book Now" className="bg-blue-primary self-start border-white px-11 w-fit " />
+              <LinkButton
+                href={whatsAppcta}
+                target="_blank"
+                rel="noreferrer"
+                label="Book Now"
+                className="bg-blue-primary self-start border-white px-11 md:px-[45px] w-fit "
+              />
             </div>
             {footerLinks.data.map((link, index) => (
               <div key={index} className="w-full space-y-4">
@@ -49,7 +56,10 @@ const LandingFooter = () => {
                     ))}
                   </ul>
                 ) : (
-                  <div key={index} className="max-md:aspect-[4/1.6] w-full h-full bg-white">
+                  <div
+                    key={index}
+                    className="max-md:aspect-[4/1.6] w-full h-full bg-white"
+                  >
                     <LazyLoadedMap src={link.mapUrl} />
                   </div>
                 )}
@@ -88,7 +98,6 @@ const LandingFooter = () => {
 
 export default LandingFooter;
 
-
 export const footerLinks = {
   src: "/logo.png",
   data: [
@@ -96,7 +105,8 @@ export const footerLinks = {
       title: "Contact Us",
       links: [
         {
-          label: "Aulakhs The Great Ocean View, Plot No. 451, Ashwem, Mandrem Rd, near White Church",
+          label:
+            "Aulakhs The Great Ocean View, Plot No. 451, Ashwem, Mandrem Rd, near White Church",
           href: "",
         },
         {

@@ -3,6 +3,7 @@ import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
 function Whatsapp() {
+  const enCodedText = "";
   return (
     <div className="fixed bottom-28 lg:left-3  left-4 z-20 cursor-pointer ">
       <Link

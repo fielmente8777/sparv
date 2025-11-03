@@ -1,5 +1,8 @@
 import { galleryData } from "@/db/gallery";
 
+const encodedText = "Hi! I came across your resort on Google and wanted to know more about it"
+
+export const whatsAppcta = "https://wa.me/+917410112895/?text=" + encodedText;
 export const landingPageData = {
   bannerData: {
     title: "Welcome to Sparv Resort",
@@ -35,7 +38,7 @@ export const landingPageData = {
         ],
         link: {
           label: "BOOK NOW",
-          href: "",
+          href: whatsAppcta,
         },
       },
       {
@@ -46,7 +49,7 @@ export const landingPageData = {
         img: ["/images/room1.png", "/images/room2.png", "/images/room3.png"],
         link: {
           label: "BOOK NOW",
-          href: "",
+          href: whatsAppcta,
         },
       },
       {
@@ -64,7 +67,7 @@ export const landingPageData = {
         ],
         link: {
           label: "BOOK NOW",
-          href: "",
+          href: whatsAppcta,
         },
       },
     ],
@@ -77,7 +80,7 @@ export const landingPageData = {
       .map((item) => item.image),
     link: {
       label: "GET EXCLUSIVE OFFER",
-      href: "",
+      href: whatsAppcta,
     },
   },
   testimonialsData: {

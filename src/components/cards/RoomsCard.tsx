@@ -76,8 +76,8 @@ const RoomsCard: React.FC<RoomsCardProps> = ({
         )}
         <Link
           href={link.href}
-          // onClick={() => setOpen(true)}
           target="_blank"
+          rel="noreferrer"
           className="px-8 py-3 bg-blue-primary w-fit text-white flex items-center justify-center gap-2 hover:bg-white hover:text-blue-primary border border-blue-primary transition-all duration-300 ease-in-out hover:scale-x-105 active:scale-95 hover:shadow-lg"
         >
           {link.label}

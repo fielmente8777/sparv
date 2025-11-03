@@ -18,7 +18,7 @@ const Gallery: React.FC<GalleryProps> = ({title, subTitle, images, link}) => {
             <div className="w-full flex flex-col md:gap-14 gap-8">
                 <SectionHeading title={title} subTitle={subTitle} textCenter />
                 <AboutUsSlider images={images} />
-                <LinkButton href={link.href} label={link.label} className="bg-blue-primary w-fit self-center" />
+                <LinkButton target="_blank" rel="noreferrer" href={link.href} label={link.label} className="bg-blue-primary w-fit self-center" />
 
             </div>
         </SectionWithContainer>
