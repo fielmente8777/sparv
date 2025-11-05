@@ -322,7 +322,7 @@ const Form1: React.FC<formProps> = ({
         <button
           type="submit"
           aria-label="Book Now"
-          className="text-center bg-blue-primary py-4 w-full h-full text-white bg-primary duration-300 transition-all ease-in-out uppercase"
+          className="text-center bg-blue-primary py-4 w-full h-full text-white bg-primary duration-300 transition-all ease-in-out capitalize"
           disabled={isSubmitting}
         >
           {isSubmitting ? (

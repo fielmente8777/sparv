@@ -1,6 +1,7 @@
 import { galleryData } from "@/db/gallery";
 
-const encodedText = "Hi! I came across your resort on Google and wanted to know more about it"
+const encodedText =
+  "Hi! I came across your resort on Google and wanted to know more about it";
 
 export const whatsAppcta = "https://wa.me/+917410112895/?text=" + encodedText;
 export const landingPageData = {
@@ -93,19 +94,19 @@ export const landingPageData = {
       //   desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       // },
       {
-        name: "Diwan Chand",
+        name: "Himanshu G",
         desc:
-          "A Serene Escape at Naturoville Wellness, Rishikesh. We’ve been regular visitors to Naturoville Wellness, and every single visit feels like a rejuvenating retreat. This place is not just about wellness—it’s about an experience of their F&b. A huge part of why we keep coming back is because of Vipin Rawat ji. He’s truly the heart of the property. His warmth, deep understanding of hospitality, and personal attention to every detail make all the difference. You can immediately tell that service excellence is not just a goal here—it’s a culture, and much of that credit goes to him. The staff are equally courteous and professional, always ensuring guests feel at ease and well cared for. The food here is another highlight—fresh, wholesome, and thoughtfully prepared, aligning beautifully with the wellness philosophy of the resort. Whether it’s the herbal teas, balanced meals, or nourishing snacks, everything reflects care and quality. And let’s not forget their drinks which they recently introduced. The swimming pool area is absolutely lovely calm, scenic, and perfect for relaxation. The overall property is beautifully maintained with tranquil surroundings, ideal for anyone looking to unwind and recharge. Highly recommend Naturoville Wellness to anyone looking for a holistic getaway, and don’t forget to meet Vipin Rawat ji—his presence alone makes the stay memorable.",
+          "I recently stayed at SPARV Resort and had a fantastic time! The resort is beautiful, with stunning views and peaceful surroundings. My room was cozy and comfortable, perfect for relaxing after exploring. I loved the delicious food at the restaurant. I highly recommend SPARV Resort for a perfect getaway.",
       },
       {
-        name: "Jasleen Anand",
+        name: "Aditya R",
         desc:
-          "I recently had the pleasure of dining at Naturoville Wellness, and it was truly a delightful experience. The serene ambiance surrounded by lush greenery creates a tranquil setting, making it a perfect escape from the hustle and bustle. The lunch menu offered a delectable array of dishes, showcasing a harmonious blend of flavors and fresh, locally sourced ingredients. The chefs at Naturoville Wellness have a commendable skill in crafting dishes that not only satisfy the taste buds but also align with a wellness-focused approach. The attentive and courteous staff added to the overall positive experience, ensuring our needs were met with a genuine warmth. The attention to detail, from presentation to service, was impressive. I would highly recommend Naturoville Wellness for a dining experience that goes beyond just a meal—it's a journey of culinary delight in a rejuvenating natural environment.",
+          "Great Location we love this place as it is peace mind great wether in  really very very beautiful place  Thanks  Team who give a best Hospitality. Food was Also Fresh and tasty.",
       },
       {
-        name: "Krishna Murthy",
+        name: "Aditya Jain",
         desc:
-          "A few months ago I got diagnosed with Type 2 Diabetes. It took me some time to accept it. I finally opted for diabetes management program at Naturoville Wellness. On Diwali morning this year my Fasting Blood Glucose was 250! And HbA1c was over 11. Dr. Archana first explained to me the progression of the disease and how we are planning to tackle it using Ayurveda, healthy diet and exercise. With consistent efforts and continued guidance I managed to achieve fasting blood glucose of 97 and HbA1c of 7.4. So that's a reduction of almost 4 percent in a span of just two months! Besides this therapeutic yoga also helped me heal years of chronic lower back pain. PS - Added bonus of healthy weight loss was remarkable as well. I entered the new year down 10kgs from Diwali. Thank you to the entire team at Naturoville Wellness. Can't wait to be back soon☺️",
+          "I had an amazing stay at the property, we were greeted with welcome drinks, they had gym facilities, playground for the kids, cycling and also they have an extra property for adventure activities, cricket, badminton and the food was so tasty, very good for pure vegetarian people. Felt like home and such a sweet staff. 100% recommended for your trip in this area",
       },
     ],
   },
