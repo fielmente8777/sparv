@@ -6,6 +6,7 @@ import { MobileIcon } from "@/icons/icons";
 import LinkButton from "../buttons/LinkButton";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { whatsAppcta } from "@/app/landing-page/landingPageData";
 
 const LandingNavBar = () => {
   const [fixed, setFixed] = useState(false);
@@ -57,6 +58,8 @@ const LandingNavBar = () => {
             <div className="flex items-center gap-4">
               <Link
                 href="+91 74101 12890"
+                target="_blank"
+                rel="noreferrer"
                 className="flex items-center gap-2 text-white"
               >
                 <span>
@@ -65,7 +68,9 @@ const LandingNavBar = () => {
                 <span className="text-lg max-lg:hidden">+91 74101 12890</span>
               </Link>
               <LinkButton
-                href=""
+                href={whatsAppcta}
+                target="_blank"
+                rel="noreferrer"
                 label="Book Now"
                 className="!text-blue-primary max-lg:hidden bg-white border-white px-14 w-fit "
               />
