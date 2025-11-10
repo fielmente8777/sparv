@@ -1,4 +1,4 @@
-import { Whatsapp } from "@/components";
+import { Call, Whatsapp } from "@/components";
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.scss";
@@ -87,7 +87,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <Whatsapp />
-        {/* <Call /> */}
+        <Call />
 
         {/* <!-- Google Tag Manager (noscript) --> */}
 
