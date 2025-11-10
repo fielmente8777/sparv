@@ -57,7 +57,7 @@ const LandingNavBar = () => {
             </div>
             <div className="flex items-center gap-4">
               <Link
-                href="+91 74101 12890"
+                href="tel:+91 74101 12890"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 text-white"
