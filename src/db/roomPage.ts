@@ -1,5 +1,6 @@
 import { AmenityItemProps, roomDataType } from "@/types/type";
 import { bookNow } from "./homePage";
+import { newImagesLink } from "./constent";
 
 export const roomsCardsData: roomDataType[] = [
   {
@@ -10,7 +11,22 @@ export const roomsCardsData: roomDataType[] = [
     price: 5000,
     currency: "inr",
     time: "per night",
-    img: ["/images/room1.png", "/images/room2.png", "/images/room3.png"],
+    img: [
+      newImagesLink + "Deluxe/_6__5565.webp",
+      newImagesLink + "Deluxe/_6__5562.webp",
+      newImagesLink + "Deluxe/_6__5569.webp",
+      newImagesLink + "Deluxe/_6__5580.webp",
+      newImagesLink + "Deluxe/_6__5597.webp",
+      newImagesLink + "Deluxe/_6__5600.webp",
+      newImagesLink + "Deluxe/_6__5618.webp",
+      newImagesLink + "Deluxe/_6__5866.webp",
+      newImagesLink + "Deluxe/_6__6281.webp",
+      newImagesLink + "Deluxe/_6__5469.webp",
+      newImagesLink + "Deluxe/_6__5546.webp",
+      newImagesLink + "Deluxe/_6__5548.webp",
+      newImagesLink + "Deluxe/_6__5551.webp",
+    ],
+    // ["/images/room1.png", "/images/room2.png", "/images/room3.png"],
     href: bookNow,
   },
   {
@@ -21,7 +37,15 @@ export const roomsCardsData: roomDataType[] = [
     price: 4500,
     currency: "inr",
     time: "per night",
-    img: ["/images/room1.png", "/images/room2.png", "/images/room3.png"],
+    img: [
+      newImagesLink + "Premium/_6__5630.webp",
+      newImagesLink + "Premium/_6__5633.webp",
+      newImagesLink + "Premium/_6__5662.webp",
+      newImagesLink + "Premium/_6__5682.webp",
+      newImagesLink + "Premium/_6__5956.webp",
+      newImagesLink + "Premium/_6__6142.webp",
+      newImagesLink + "Premium/_6__5624.webp",
+    ],
     href: bookNow,
   },
   {
@@ -32,7 +56,17 @@ export const roomsCardsData: roomDataType[] = [
     price: 4000,
     currency: "inr",
     time: "per night",
-    img: ["/images/room1.png", "/images/room2.png", "/images/room3.png"],
+    img: [
+      newImagesLink + "Standard/_6__5705.webp",
+      newImagesLink + "Standard/_6__5709.webp",
+      newImagesLink + "Standard/_6__5720.webp",
+      newImagesLink + "Standard/_6__5722.webp",
+      newImagesLink + "Standard/_6__5724.webp",
+      newImagesLink + "Standard/_6__5826.webp",
+      newImagesLink + "Standard/_6__5694.webp",
+      newImagesLink + "Standard/_6__5697.webp",
+      newImagesLink + "Standard/_6__5699.webp",
+    ],
     href: bookNow,
   },
 ];

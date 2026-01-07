@@ -52,6 +52,7 @@ const CardWithSlider: React.FC<CardWithSliderProps> = ({
           </div>
         )}
       </SliderSwip>
+
       <div className="w-full bg-[#EEEEEE] p-3">
         <div className="flex flex-col gap-1 p-3">
           <h3 className="text-2xl font-semibold font-p-d text-blue-primary">

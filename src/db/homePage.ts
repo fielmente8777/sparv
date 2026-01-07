@@ -1,4 +1,5 @@
 import { roomDataType } from "@/types/type";
+import { newImagesLink } from "./constent";
 
 export const bannerData = [
   {
@@ -18,7 +19,6 @@ export const bannerData = [
     description: "Stroll through our garden paradise",
   },
 ];
-
 export const bookNow =
   "https://engine.eazotel.com/?id=e50d8dc6-4cfc-4c87-b6c0-145ccdeb4121&hid=56369483";
 export const roomsCardsData: roomDataType[] = [
@@ -30,11 +30,24 @@ export const roomsCardsData: roomDataType[] = [
     currency: "inr",
     time: "per night",
     img: [
-      "/deluxe/IMG_4390.webp",
-      "/deluxe/IMG_4393.webp",
-      "/deluxe/IMG_4397.webp",
-      "/deluxe/IMG_4399.webp", 
-      ],
+      // "/deluxe/IMG_4390.webp",
+      // "/deluxe/IMG_4393.webp",
+      // "/deluxe/IMG_4397.webp",
+      // "/deluxe/IMG_4399.webp",
+      newImagesLink + "Deluxe/_6__5565.webp",
+      newImagesLink + "Deluxe/_6__5562.webp",
+      newImagesLink + "Deluxe/_6__5569.webp",
+      newImagesLink + "Deluxe/_6__5580.webp",
+      newImagesLink + "Deluxe/_6__5597.webp",
+      newImagesLink + "Deluxe/_6__5600.webp",
+      newImagesLink + "Deluxe/_6__5618.webp",
+      newImagesLink + "Deluxe/_6__5866.webp",
+      newImagesLink + "Deluxe/_6__6281.webp",
+      newImagesLink + "Deluxe/_6__5469.webp",
+      newImagesLink + "Deluxe/_6__5546.webp",
+      newImagesLink + "Deluxe/_6__5548.webp",
+      newImagesLink + "Deluxe/_6__5551.webp",
+    ],
     href: bookNow,
   },
   {
@@ -44,11 +57,21 @@ export const roomsCardsData: roomDataType[] = [
     price: 4500,
     currency: "inr",
     time: "per night",
-    img: [
-      "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/images/ca89eb8f-2e19-4eab-97d6-b165da01424c.jpg",
-      "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated3/Screenshot+(61)+copy.jpg",
-      "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/images/797dbaef-6d27-4f09-842e-ba0225e65218.jpg",
-    ],
+    img:
+      // [
+      //   "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/images/ca89eb8f-2e19-4eab-97d6-b165da01424c.jpg",
+      //   "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/newUpdated3/Screenshot+(61)+copy.jpg",
+      //   "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/images/797dbaef-6d27-4f09-842e-ba0225e65218.jpg",
+      // ],
+      [
+        newImagesLink + "Premium/_6__5630.webp",
+        newImagesLink + "Premium/_6__5633.webp",
+        newImagesLink + "Premium/_6__5662.webp",
+        newImagesLink + "Premium/_6__5682.webp",
+        newImagesLink + "Premium/_6__5956.webp",
+        newImagesLink + "Premium/_6__6142.webp",
+        newImagesLink + "Premium/_6__5624.webp",
+      ],
     href: bookNow,
   },
   {
@@ -58,14 +81,26 @@ export const roomsCardsData: roomDataType[] = [
     price: 4000,
     currency: "inr",
     time: "per night",
-    img: [
-      "/standard/_DSF0692_3_4.webp",
-      "/standard/_DSF0707_8_9.webp",
-      "/standard/_DSF0740_1_2.webp",
-      "/standard/_DSF0749_50_51.webp",
-      "/standard/_DSF0737_8_9.webp",
-      "/standard/_DSF0758_59_60.webp",
-    ],
+    img:
+      // [
+      //   "/standard/_DSF0692_3_4.webp",
+      //   "/standard/_DSF0707_8_9.webp",
+      //   "/standard/_DSF0740_1_2.webp",
+      //   "/standard/_DSF0749_50_51.webp",
+      //   "/standard/_DSF0737_8_9.webp",
+      //   "/standard/_DSF0758_59_60.webp",
+      // ]
+      [
+        newImagesLink + "Standard/_6__5705.webp",
+        newImagesLink + "Standard/_6__5709.webp",
+        newImagesLink + "Standard/_6__5720.webp",
+        newImagesLink + "Standard/_6__5722.webp",
+        newImagesLink + "Standard/_6__5724.webp",
+        newImagesLink + "Standard/_6__5826.webp",
+        newImagesLink + "Standard/_6__5694.webp",
+        newImagesLink + "Standard/_6__5697.webp",
+        newImagesLink + "Standard/_6__5699.webp",
+      ],
     href: bookNow,
   },
 ];
