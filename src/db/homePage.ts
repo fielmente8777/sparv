@@ -115,7 +115,8 @@ export const ResortFacilitiesData = {
   imageData: [
     {
       title: "Best Stay Place",
-      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9933.jpg",
+      img:  newImagesLink + "Premium/_6__5630.webp",
+      // "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9933.jpg",
       description: "Your dream holiday resort in Mandrem, Goa.",
     },
     {
@@ -175,7 +176,8 @@ export const galleryData = {
     },
     {
       id: 5,
-      img: "/deluxe/IMG_4393.webp",
+      img: newImagesLink + "Deluxe/_6__5565.webp",
+      //  "/deluxe/IMG_4393.webp",
       label: "rooms",
       href: "/Gallery/",
     },
@@ -251,7 +253,8 @@ export const roomData = {
       price: 5000,
       currency: "inr",
       time: "per night",
-      img: "/images/room1.png",
+      img:  newImagesLink + "Deluxe/_6__5565.webp",
+      // "/images/room1.png",
       href: bookNow,
       label: "book",
     },
@@ -263,7 +266,7 @@ export const roomData = {
       price: 4500,
       currency: "inr",
       time: "per night",
-      img: "/images/room2.png",
+      img: newImagesLink + "Premium/_6__5630.webp",
       href: bookNow,
       label: "book",
     },
@@ -275,7 +278,7 @@ export const roomData = {
       price: 4000,
       currency: "inr",
       time: "per night",
-      img: "/images/room3.png",
+      img: newImagesLink + "Standard/_6__5705.webp",
       href: bookNow,
       label: "book",
     },
