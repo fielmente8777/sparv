@@ -1,7 +1,8 @@
 "use client";
-import { Container, FullScreenImageViewPopUP, Section } from "@/components";
+import { Container, Section } from "@/components";
+import { useWebContext } from "@/context-api/WebContext";
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 interface GalleryViewProps {
   data: {
@@ -11,9 +12,7 @@ interface GalleryViewProps {
 }
 
 const GalleryView: React.FC<GalleryViewProps> = ({ data }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [src, setSrc] = useState("");
-
+  const { openImagePopup } = useWebContext();
   const [currentCategory, setCurrentCategory] = useState("All");
   const categories = ["All", ...new Set(data.map((item) => item.category))];
 
@@ -28,6 +27,7 @@ const GalleryView: React.FC<GalleryViewProps> = ({ data }) => {
   );
 
   const filteredData = filterData(currentCategory);
+  const imageList = filteredData.map((item) => item.image);
 
   return (
     <Section className="lg:pt-0 lg:pb-14">
@@ -58,21 +58,13 @@ const GalleryView: React.FC<GalleryViewProps> = ({ data }) => {
                 fill
                 className="w-full h-full cursor-pointer object-cover group-hover:scale-95 transition-all ease-in duration-300"
                 onClick={() => {
-                  setShowModal(true);
-                  setSrc(item.image);
+                  openImagePopup(imageList, index);
                 }}
               />
             </div>
           ))}
         </div>
       </Container>
-      {showModal && (
-        <FullScreenImageViewPopUP
-          src={src}
-          showModal={showModal}
-          setShowModal={setShowModal}
-        />
-      )}
     </Section>
   );
 };

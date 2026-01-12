@@ -1,8 +1,9 @@
 "use client";
+import { useWebContext } from "@/context-api/WebContext";
 import Image from "next/image";
-import SliderSwip from "./SliderSwip";
 import Link from "next/link";
 import { Autoplay } from "swiper/modules";
+import SwiperCarousel from "./sliders/SwiperCarousel";
 
 interface CardWithSliderProps {
   title?: string;
@@ -29,29 +30,32 @@ const CardWithSlider: React.FC<CardWithSliderProps> = ({
   min_height = false,
   href, // Destructure href prop
 }) => {
+  const { openImagePopup } = useWebContext();
   return (
     <article className="group-hover:scale-[1.03] duration-500">
-      <SliderSwip
+
+      <SwiperCarousel
         data={data}
-        classNameSwiperSlide="w-full"
+        swiperSlideClassName="w-full"
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         speed={900}
         loop={true}
         spaceBetween={0}
         slidesPerView={1}
         modules={[Autoplay]}
-      >
-        {(src) => (
+        renderSlide={(src: string, index) => (
           <div className="relative aspect-[4/3] w-full overflow-hidden">
             <Image
+              title="click to zoom"
               src={src}
               alt={title || "room image"}
               fill
-              className="object-cover group-[&:hover]:scale-105 duration-500"
+              className="object-cover group-[&:hover]:scale-105 duration-500 cursor-pointer"
+              onClick={() => openImagePopup(data, index, title)}
             />
           </div>
         )}
-      </SliderSwip>
+      />
 
       <div className="w-full bg-[#EEEEEE] p-3">
         <div className="flex flex-col gap-1 p-3">

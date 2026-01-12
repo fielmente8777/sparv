@@ -121,12 +121,12 @@ export const ResortFacilitiesData = {
     },
     {
       title: "Pool",
-      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9975.jpg",
+      img: newImagesLink + "Swimming-Pool/_6__5520.webp",
       description: "Refreshment and Relaxation at Our Pool Paradise.",
     },
     {
       title: "Restaurant",
-      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Restaurant.jpg",
+      img: newImagesLink + "restrurent/_6__5742.webp",
       description:
         "Dine in to enjoy authentic Multi-cuisine with SPARV hospitality.",
     },

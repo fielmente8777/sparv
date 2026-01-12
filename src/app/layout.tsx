@@ -6,6 +6,8 @@ import { Montserrat, Playfair_Display, Lato, Playball } from "next/font/google";
 
 import Footer from "@/components/footer/Footer";
 import NavBar from "@/components/navbar/Navbar";
+import { WebProvider } from "@/context-api/WebContext";
+import ImagePopUp from "@/components/Popup/ImagePopUp";
 
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-m" });
 const playfairDisplay = Playfair_Display({
@@ -83,11 +85,14 @@ export default function RootLayout({
           ></iframe>
         </noscript>
         {/* <!-- End Google Tag Manager (noscript) --> */}
-        <NavBar />
-        {children}
-        <Footer />
-        <Whatsapp />
-        <Call />
+        <WebProvider>
+          <NavBar />
+          {children}
+          <Footer />
+          <Whatsapp />
+          <Call />
+          <ImagePopUp />
+        </WebProvider>
 
         {/* <!-- Google Tag Manager (noscript) --> */}
 

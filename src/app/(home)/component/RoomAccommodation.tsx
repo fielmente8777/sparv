@@ -1,8 +1,7 @@
 "use client";
 import { Container, Section, SectionHeading } from "@/components";
 import CardWithSlider from "@/components/CardWithSlider";
-import SliderSwip from "@/components/SliderSwip";
-import Link from "next/link";
+import SwiperCarousel from "@/components/sliders/SwiperCarousel";
 import { Autoplay } from "swiper/modules";
 
 interface Props {
@@ -52,17 +51,16 @@ const RoomAccommodation = ({ data }: Props) => {
           ))}
         </div>
         <div className="block lg:hidden mt-9">
-          <SliderSwip
+          <SwiperCarousel
             data={data}
             modules={[Autoplay]}
-            // autoplay={{ delay: 5000, disableOnInteraction: false }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
             speed={1000}
             loop
             slidesPerView={1}
             spaceBetween={10}
-            classNameSwiper="shadow-2xl group group-hover:scale-105 duration-500"
-          >
-            {(item) => (
+            className="shadow-2xl group group-hover:scale-105 duration-500"
+            renderSlide={(item) => (
               <CardWithSlider
                 title={item.name}
                 data={item.img}
@@ -75,7 +73,7 @@ const RoomAccommodation = ({ data }: Props) => {
                 min_height
               />
             )}
-          </SliderSwip>
+          />
         </div>
       </Container>
       <div className="bg-blue-primary py-56 max-md:py-48 -mt-80  "></div>

@@ -41,43 +41,23 @@ export const galleryData: { image: string; category: string }[] = [
     category: "hotel",
   },
   {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Restaurant.jpg",
+    image: newImagesLink + "restrurent/_6__5525.webp",
     category: "restaurant",
   },
   {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-21.jpg",
+    image: newImagesLink + "restrurent/_6__5736.webp",
     category: "restaurant",
   },
   {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9868.jpg",
+    image: newImagesLink + "restrurent/_6__5739.webp",
     category: "restaurant",
   },
   {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Gallery/All.jpg",
+    image: newImagesLink + "restrurent/_6__5742.webp",
     category: "restaurant",
   },
   {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Gallery/ALL-2.jpg",
-    category: "restaurant",
-  },
-  {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-13.jpg",
-    category: "restaurant",
-  },
-  {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-17.jpg",
-    category: "restaurant",
-  },
-  {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-20.jpg",
+    image: newImagesLink + "restrurent/_6__5748.webp",
     category: "restaurant",
   },
   {
@@ -125,18 +105,35 @@ export const galleryData: { image: string; category: string }[] = [
     category: "nearby",
   },
   {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9988.jpg",
+    image: newImagesLink + "Swimming-Pool/_6__5453.webp",
     category: "view",
   },
   {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-5.jpg",
+    image: newImagesLink + "Swimming-Pool/_6__5455.webp",
     category: "view",
   },
   {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9975.jpg",
+    image: newImagesLink + "Swimming-Pool/_6__5456.webp",
+    category: "view",
+  },
+  {
+    image: newImagesLink + "Swimming-Pool/_6__5516.webp",
+    category: "view",
+  },
+  {
+    image: newImagesLink + "Swimming-Pool/_6__5518.webp",
+    category: "view",
+  },
+  {
+    image: newImagesLink + "Swimming-Pool/_6__5520.webp",
+    category: "view",
+  },
+  {
+    image: newImagesLink + "Swimming-Pool/_6__6290.webp",
+    category: "view",
+  },
+  {
+    image: newImagesLink + "Swimming-Pool/_6__6299.webp",
     category: "view",
   },
   {
@@ -149,9 +146,9 @@ export const galleryData: { image: string; category: string }[] = [
       "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/WEBSITE+IMAGES/Copy+of+DJI_0731.jpg",
     category: "view",
   },
-//   { image: newImagesLink + "Standard/_6__5694.webp", category: "Rooms" },
-//   { image: newImagesLink + "Standard/_6__5697.webp", category: "Rooms" },
-//   { image: newImagesLink + "Standard/_6__5699.webp", category: "Rooms" },
+  //   { image: newImagesLink + "Standard/_6__5694.webp", category: "Rooms" },
+  //   { image: newImagesLink + "Standard/_6__5697.webp", category: "Rooms" },
+  //   { image: newImagesLink + "Standard/_6__5699.webp", category: "Rooms" },
   { image: newImagesLink + "Standard/_6__5705.webp", category: "Rooms" },
   { image: newImagesLink + "Standard/_6__5709.webp", category: "Rooms" },
   { image: newImagesLink + "Standard/_6__5720.webp", category: "Rooms" },
@@ -159,7 +156,7 @@ export const galleryData: { image: string; category: string }[] = [
   { image: newImagesLink + "Standard/_6__5724.webp", category: "Rooms" },
   { image: newImagesLink + "Standard/_6__5826.webp", category: "Rooms" },
 
-//   { image: newImagesLink + "Premium/_6__5624.webp", category: "Rooms" },
+  //   { image: newImagesLink + "Premium/_6__5624.webp", category: "Rooms" },
   { image: newImagesLink + "Premium/_6__5630.webp", category: "Rooms" },
   { image: newImagesLink + "Premium/_6__5633.webp", category: "Rooms" },
   { image: newImagesLink + "Premium/_6__5662.webp", category: "Rooms" },
@@ -169,9 +166,9 @@ export const galleryData: { image: string; category: string }[] = [
   { image: newImagesLink + "Premium/_6__6142.webp", category: "Rooms" },
 
   { image: newImagesLink + "Deluxe/_6__5469.webp", category: "Rooms" },
-//   { image: newImagesLink + "Deluxe/_6__5546.webp", category: "Rooms" },
-//   { image: newImagesLink + "Deluxe/_6__5548.webp", category: "Rooms" },
-//   { image: newImagesLink + "Deluxe/_6__5551.webp", category: "Rooms" },
+  //   { image: newImagesLink + "Deluxe/_6__5546.webp", category: "Rooms" },
+  //   { image: newImagesLink + "Deluxe/_6__5548.webp", category: "Rooms" },
+  //   { image: newImagesLink + "Deluxe/_6__5551.webp", category: "Rooms" },
   { image: newImagesLink + "Deluxe/_6__5562.webp", category: "Rooms" },
   { image: newImagesLink + "Deluxe/_6__5565.webp", category: "Rooms" },
   { image: newImagesLink + "Deluxe/_6__5569.webp", category: "Rooms" },
@@ -182,28 +179,87 @@ export const galleryData: { image: string; category: string }[] = [
   { image: newImagesLink + "Deluxe/_6__5866.webp", category: "Rooms" },
   { image: newImagesLink + "Deluxe/_6__6281.webp", category: "Rooms" },
   {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9839.jpg",
+    image: newImagesLink + "Reception/_6__5460.webp",
     category: "lobby",
   },
   {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-7.jpg",
+    image: newImagesLink + "Reception/_6__5470.webp",
     category: "lobby",
   },
   {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9851.jpg",
+    image: newImagesLink + "Reception/_6__5475.webp",
+    category: "lobby",
+  },
+  // {
+  //   image: newImagesLink + "Reception/_6__5481.webp",
+  //   category: "lobby",
+  // },
+  // {
+  //   image: newImagesLink + "Reception/_6__5482.webp",
+  //   category: "lobby",
+  // },
+  {
+    image: newImagesLink + "Reception/_6__5487.webp",
+    category: "lobby",
+  },
+  // {
+  //   image: newImagesLink + "Reception/_6__5489.webp",
+  //   category: "lobby",
+  // },
+  // {
+  //   image: newImagesLink + "Reception/_6__5503.webp",
+  //   category: "lobby",
+  // },
+  // {
+  //   image: newImagesLink + "Reception/_6__5504.webp",
+  //   category: "lobby",
+  // },
+  {
+    image: newImagesLink + "Reception/_6__5505.webp",
     category: "lobby",
   },
   {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9844.jpg",
+    image: newImagesLink + "Reception/_6__5510.webp",
     category: "lobby",
   },
   {
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9827.jpg",
+    image: newImagesLink + "Reception/_6__5513.webp",
+    category: "lobby",
+  },
+  {
+    image: newImagesLink + "Reception/_6__5515.webp",
+    category: "lobby",
+  },
+  {
+    image: newImagesLink + "Reception/_6__5523.webp",
+    category: "lobby",
+  },
+  {
+    image: newImagesLink + "Reception/_6__5526.webp",
+    category: "lobby",
+  },
+  {
+    image: newImagesLink + "Reception/_6__5527.webp",
+    category: "lobby",
+  },
+  {
+    image: newImagesLink + "Reception/_6__5528.webp",
+    category: "lobby",
+  },
+  {
+    image: newImagesLink + "Reception/_6__5532.webp",
+    category: "lobby",
+  },
+  {
+    image: newImagesLink + "Reception/_6__5795.webp",
+    category: "lobby",
+  },
+  {
+    image: newImagesLink + "Reception/_6__6093.webp",
+    category: "lobby",
+  },
+  {
+    image: newImagesLink + "Reception/_6__6425.webp",
     category: "lobby",
   },
 ];
