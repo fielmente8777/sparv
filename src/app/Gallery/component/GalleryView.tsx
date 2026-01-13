@@ -61,6 +61,7 @@ const GalleryView: React.FC<GalleryViewProps> = ({ data }) => {
                   openImagePopup(imageList, index);
                 }}
               />
+          
             </div>
           ))}
         </div>

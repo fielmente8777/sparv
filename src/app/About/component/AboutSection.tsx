@@ -2,6 +2,7 @@
 
 import { Container, Section } from "@/components";
 import SliderSwip from "@/components/SliderSwip";
+import { newImagesLink } from "@/db/constent";
 import Image from "next/image";
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 
@@ -34,12 +35,7 @@ const AboutSection = () => {
                 key={item}
                 className="w-full relative aspect-[4/1.91] max-md:aspect-square overflow-hidden"
               >
-                <Image
-                  src={item}
-                  alt="hotel"
-                  fill
-                  className="object-cover"
-                />
+                <Image src={item} alt="hotel" fill className="object-cover" />
               </div>
             )}
           </SliderSwip>
@@ -73,7 +69,7 @@ const AboutSection = () => {
               Getting ready for a meeting or event? At SPARV resort in Mandrem,
               our fully-equipped conference rooms are the perfect place for
               meetings to go well. Our kids&apos; play area is safe and fun,
-              which is great for families with kids. 
+              which is great for families with kids.
               {/* Take advantage of the ease
               of room service available 24 hours a day, seven days a week. */}
             </p>
@@ -96,15 +92,12 @@ const AboutSection = () => {
 export default AboutSection;
 
 const image = [
-  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/about+us/Hotel+Features.jpg",
-  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DJI_0694.jpg",
-  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/About+us/3rd+pool+picture+change.jpg",
-  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/about+us/Hotel+Information.jpg",
+  newImagesLink + "Reception/_6__5475.webp",
+  newImagesLink + "Swimming-Pool/_6__5520.webp",
+   newImagesLink + "Swimming-Pool/_6__5518.webp",
+  newImagesLink + "outer-and-other/_6__5770.webp",
   "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-34.jpg",
   "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-31.jpg",
-  "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/Hotel/DSCF4137-HDR.jpg",
-  "https://eazotel-client-images.s3.ap-south-1.amazonaws.com/sparvhospitality/image/PhotoshootPictures/RUAN0030.jpg",
-  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-39.jpg",
   "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9852.jpg",
-  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-12.jpg",
+  newImagesLink + "Reception/_6__6093.webp",
 ];

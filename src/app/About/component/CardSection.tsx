@@ -1,4 +1,5 @@
 import { Container, Section, TwoColGridCard } from "@/components";
+import { newImagesLink } from "@/db/constent";
 
 const CardSection = () => {
   return (
@@ -27,8 +28,8 @@ const data = [
   {
     id: 1,
     title: "Hotel Information",
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/about+us/Hotel+Features.jpg",
+    image: newImagesLink + "Reception/_6__5527.webp",
+    // "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/about+us/Hotel+Features.jpg",
     list: ["Check-in Time: 01:00PM", "Check-out Time: 11:00AM", "Information:"],
     disc: [
       "The minimum age for guests is 7 years.",
@@ -41,8 +42,8 @@ const data = [
   {
     id: 2,
     title: "Hotel Features",
-    image:
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Hotel.jpg",
+    image: newImagesLink + "outer-and-other/_6__5770.webp",
+    // "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Hotel.jpg",
     list: [
       "Conference Hall",
       "Air Conditioner",
