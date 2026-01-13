@@ -3,13 +3,15 @@ import { newImagesLink } from "./constent";
 
 export const bannerData = [
   {
-    src: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DJI_0729.jpg",
+    src: newImagesLink + "outer-and-other/DJI_0141.webp",
+    // src: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DJI_0729.jpg",
     title: "Where Bliss Meets the Beach",
     description:
       "Relax by Goa's Pristine Coastline at the best Mandrem Retreat",
   },
   {
-    src: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-3.jpg",
+    src: newImagesLink + "outer-and-other/_6__5456.webp",
+    // src: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-3.jpg",
     title: "From sunrises to sunset dips",
     description: "Enjoy endless poolside fun at SPARV Aulakh Resort",
   },
@@ -132,7 +134,8 @@ export const ResortFacilitiesData = {
     },
     {
       title: "Tea Point",
-      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/Resort+facilities/Tea+Point.jpg",
+      img: newImagesLink + "outer-and-other/_6__5999.webp",
+      // img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/Resort+facilities/Tea+Point.jpg",
       description: "Refreshment Station",
     },
     {
@@ -152,13 +155,15 @@ export const galleryData = {
   data: [
     {
       id: 1,
-      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Restaurant.jpg",
+      img: newImagesLink + "restrurent/_6__5742.webp",
+      // img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/gallery/Restaurant.jpg",
       label: "restaurant",
       href: "/Gallery/",
     },
     {
       id: 2,
-      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9827.jpg",
+      img: newImagesLink + "outer-and-other/DJI_0141.webp",
+      // img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9827.jpg",
       label: "hotel",
       href: "/Gallery/",
     },
@@ -170,7 +175,8 @@ export const galleryData = {
     },
     {
       id: 4,
-      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9975.jpg",
+      img: newImagesLink + "outer-and-other/_6__5458.webp",
+      // img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9975.jpg",
       label: "view",
       href: "/Gallery/",
     },
@@ -183,7 +189,8 @@ export const galleryData = {
     },
     {
       id: 6,
-      img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-7.jpg",
+      img: newImagesLink + "Reception/_6__5470.webp",
+      // img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-7.jpg",
       label: "lobby",
       href: "/Gallery/",
     },
@@ -294,7 +301,8 @@ export const facilityData = [
   },
   {
     id: 2,
-    img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/IMG_7656.JPG",
+    img: newImagesLink + "outer-and-other/_6__5808.webp",
+    // img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/IMG_7656.JPG",
     label: "Lunch",
     href: "#",
   },
@@ -306,7 +314,8 @@ export const facilityData = [
   },
   {
     id: 4,
-    img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DSCF7095.JPG",
+    img: newImagesLink + "outer-and-other/_6__5813.webp",
+    // img: "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DSCF7095.JPG",
     label: "Dinner",
     href: "#",
   },
