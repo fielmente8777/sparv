@@ -1,4 +1,6 @@
+import { newImagesLink } from "@/db/constent";
 import { galleryData } from "@/db/gallery";
+import { roomsCardsData } from "@/db/roomPage";
 
 const encodedText =
   "Hi! I came across your resort on Google and wanted to know more about it";
@@ -9,8 +11,10 @@ export const landingPageData = {
     title: "Welcome to Sparv Resort",
     description: "MANDREM’S BEST BEACH GETAWAY",
     images: [
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DJI_0729.jpg",
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-3.jpg",
+      // "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DJI_0729.jpg",
+      // "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-3.jpg",
+      newImagesLink + "outer-and-other/DJI_0141.webp",
+      newImagesLink + "outer-and-other/_6__5456.webp",
       "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/beach-goa-india.jpg",
     ],
   },
@@ -31,12 +35,7 @@ export const landingPageData = {
         description:
           "Luxuriate in our Deluxe Rooms at the best resort in Mandrem featuring a plush king-size bed, breathtaking sea views, and your private balcony. Designed for honeymooners and those seeking a romantic getaway.",
         listData: ["Air Conditioner", "Tea & Coffee Maker", "Free Wifi"],
-        img: [
-          "/deluxe/IMG_4390.webp",
-          "/deluxe/IMG_4393.webp",
-          "/deluxe/IMG_4397.webp",
-          "/deluxe/IMG_4399.webp",
-        ],
+        img: roomsCardsData[0].img,
         link: {
           label: "BOOK NOW",
           href: whatsAppcta,
@@ -47,7 +46,7 @@ export const landingPageData = {
         description:
           "Experience the beauty and comfort of our Premium Rooms with picturesque ocean views from your private balcony.Perfect for travelers and families looking for relaxing getaway",
         listData: ["Air Conditioner", "Tea & Coffee Maker", "Free Wifi"],
-        img: ["/images/room1.png", "/images/room2.png", "/images/room3.png"],
+        img: roomsCardsData[1].img,
         link: {
           label: "BOOK NOW",
           href: whatsAppcta,
@@ -58,14 +57,7 @@ export const landingPageData = {
         description:
           "Our Standard Rooms at SPARV resort offer a peaceful retreat with stunning nature views. Step onto your private balcony to find yourself in the beauty of nature. Perfect for couples looking for a romantic escape.",
         listData: ["Air Conditioner", "Tea & Coffee Maker", "Free Wifi"],
-        img: [
-          "/standard/_DSF0692_3_4.webp",
-          "/standard/_DSF0707_8_9.webp",
-          "/standard/_DSF0740_1_2.webp",
-          "/standard/_DSF0749_50_51.webp",
-          "/standard/_DSF0737_8_9.webp",
-          "/standard/_DSF0758_59_60.webp",
-        ],
+        img: roomsCardsData[2].img,
         link: {
           label: "BOOK NOW",
           href: whatsAppcta,
