@@ -1,8 +1,9 @@
 import { Banner } from "@/components";
 import Form from "./components/Form";
+import { newImagesLink } from "@/db/constent";
 const page = () => {
   const bannerData = {
-    src: "/images/Background.png",
+    src: newImagesLink + "outer-and-other/_6__5770.webp",
     title: "Career",
   };
   return (
