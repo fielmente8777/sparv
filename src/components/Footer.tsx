@@ -72,7 +72,7 @@ const Footer = () => {
           </div>
           <div className="flex justify-center items-center gap-4">
             <p className="text-white ">Copyright ©  |</p>
-            <Link
+            {/* <Link
               href="https://www.eazotel.com"
               className="text-white"
               target="_blank"
@@ -81,7 +81,15 @@ const Footer = () => {
             >
               eazotel
               <span className="sr-only">eazotel</span>
-            </Link>
+            </Link> */}
+             <Link
+               className="text-white"
+                href="https://www.fielmente.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Fielmente
+              </Link>
           </div>
         </Container>
       </footer>
