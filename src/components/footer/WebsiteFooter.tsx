@@ -73,6 +73,16 @@ const WebsiteFooter = () => {
           <div className="flex justify-center items-center gap-4">
             <p className="text-white ">Copyright ©  |</p>
             <Link
+              href="https://www.fielmente.com/"
+              className="text-white"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="eazotel"
+            >
+              fielmente
+              <span className="sr-only">fielmente</span>
+            </Link>
+            {/* <Link
               href="https://www.eazotel.com"
               className="text-white"
               target="_blank"
@@ -81,7 +91,7 @@ const WebsiteFooter = () => {
             >
               eazotel
               <span className="sr-only">eazotel</span>
-            </Link>
+            </Link> */}
           </div>
         </Container>
       </footer>
