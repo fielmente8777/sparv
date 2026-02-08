@@ -82,12 +82,19 @@ const LandingFooter = () => {
             <span className="px-6">
               Designed & Developed by{" "}
               <Link
+                href={"https://www.fielmente.com/"}
+                className="font-medium"
+                target="_blank"
+              >
+                Fielmente
+              </Link>
+              {/* <Link
                 href={"https://www.eazotel.com/"}
                 className="font-medium"
                 target="_blank"
               >
                 Eazotel
-              </Link>
+              </Link> */}
             </span>
           </div>
         </Container>
