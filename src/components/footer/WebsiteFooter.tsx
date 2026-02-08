@@ -79,7 +79,7 @@ const WebsiteFooter = () => {
               rel="noreferrer"
               aria-label="eazotel"
             >
-              fielmente
+              Fielmente
               <span className="sr-only">fielmente</span>
             </Link>
             {/* <Link
