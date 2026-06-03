@@ -8,5 +8,6 @@ declare module "*.css" {
     export default content;
 }
 
+
 declare module "swiper/css";
 declare module "swiper/css/*";
