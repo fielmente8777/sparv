@@ -13,6 +13,7 @@ export interface Properties {
   description: string;
   tags: string[];
   images: string[];
+  villaFeaturesPopUp?: any;
 }
 
 export interface PropertiesIntro {
@@ -74,23 +75,24 @@ export const realEstatePageData = {
             "/realEstate/room4.jpg",
             "/realEstate/room4.jpg",
           ],
+          villaFeatures:[]
         },
         {
           villaFeatureType: "Villa Features",
           villaFeatures: [
-            "•Luxury 3-Bedroom Villa",
-            "•Fully Furnished Interiors",
-            "•Spacious Living & Dining Area",
-            "•Private Rooftop Pool",
-            "•Rooftop Café Bar & Lounge",
-            "•Modern Bathrooms & Fixtures",
-            "• Granite / Quartz Kitchen Countertops",
-            "• Concealed Copper Electrical Wiring",
+            "Luxury 3-Bedroom Villa",
+            "Fully Furnished Interiors",
+            "Spacious Living & Dining Area",
+            "Private Rooftop Pool",
+            "Rooftop Café Bar & Lounge",
+            "Modern Bathrooms & Fixtures",
+            "Granite / Quartz Kitchen Countertops",
+            "Concealed Copper Electrical Wiring",
           ],
         },
         {
           villaFeatureType: "Construction Specs",
-          villaFeatures: " •RCC Framed Structure & Vitrified Flooring",
+          villaFeatures: [" •RCC Framed Structure & Vitrified Flooring"],
         },
       ],
     },
@@ -108,6 +110,35 @@ export const realEstatePageData = {
         "/realEstate/room3.jpg",
         "/realEstate/room4.jpg",
         "/realEstate/room4.jpg",
+      ],
+      villaFeaturesPopUp: [
+        {
+          villaFeatureType: "Property Gallery",
+          images: [
+            "/realEstate/room3.jpg",
+            "/realEstate/room4.jpg",
+            "/realEstate/room4.jpg",
+            "/realEstate/room4.jpg",
+          ],
+          villaFeatures: [],
+        },
+        {
+          villaFeatureType: "Villa Features",
+          villaFeatures: [
+            "Luxury 3-Bedroom Villa",
+            "Fully Furnished Interiors",
+            "Spacious Living & Dining Area",
+            "Private Rooftop Pool",
+            "Rooftop Café Bar & Lounge",
+            "Modern Bathrooms & Fixtures",
+            "Granite / Quartz Kitchen Countertops",
+            "Concealed Copper Electrical Wiring",
+          ],
+        },
+        {
+          villaFeatureType: "Construction Specs",
+          villaFeatures: [" •RCC Framed Structure & Vitrified Flooring"],
+        },
       ],
     },
     {
@@ -134,23 +165,25 @@ export const realEstatePageData = {
             "/realEstate/room4.jpg",
             "/realEstate/room4.jpg",
           ],
+          villaFeatures: [],
         },
+
         {
           villaFeatureType: "Villa Features",
           villaFeatures: [
-            "•Luxury 3-Bedroom Villa",
-            "•Fully Furnished Interiors",
-            "•Spacious Living & Dining Area",
-            "•Private Rooftop Pool",
-            "•Rooftop Café Bar & Lounge",
-            "•Modern Bathrooms & Fixtures",
-            "• Granite / Quartz Kitchen Countertops",
-            "• Concealed Copper Electrical Wiring",
+            "Luxury 3-Bedroom Villa",
+            "Fully Furnished Interiors",
+            "Spacious Living & Dining Area",
+            "Private Rooftop Pool",
+            "Rooftop Café Bar & Lounge",
+            "Modern Bathrooms & Fixtures",
+            "Granite / Quartz Kitchen Countertops",
+            "Concealed Copper Electrical Wiring",
           ],
         },
         {
           villaFeatureType: "Construction Specs",
-          villaFeatures: " •RCC Framed Structure & Vitrified Flooring",
+          villaFeatures: [" •RCC Framed Structure & Vitrified Flooring"],
         },
       ],
     },
@@ -169,6 +202,35 @@ export const realEstatePageData = {
         "/realEstate/room4.jpg",
         "/realEstate/room4.jpg",
       ],
+      villaFeaturesPopUp: [
+        {
+          villaFeatureType: "Property Gallery",
+          images: [
+            "/realEstate/room3.jpg",
+            "/realEstate/room4.jpg",
+            "/realEstate/room4.jpg",
+            "/realEstate/room4.jpg",
+          ],
+          villaFeatures: [],
+        },
+        {
+          villaFeatureType: "Villa Features",
+          villaFeatures: [
+            "Luxury 3-Bedroom Villa",
+            "Fully Furnished Interiors",
+            "Spacious Living & Dining Area",
+            "Private Rooftop Pool",
+            "Rooftop Café Bar & Lounge",
+            "Modern Bathrooms & Fixtures",
+            "Granite / Quartz Kitchen Countertops",
+            "Concealed Copper Electrical Wiring",
+          ],
+        },
+        {
+          villaFeatureType: "Construction Specs",
+          villaFeatures: ["RCC Framed Structure & Vitrified Flooring"],
+        },
+      ],
     },
   ],
   enquire: {
@@ -176,6 +238,6 @@ export const realEstatePageData = {
     title: "Schedule a Private Walkthrough",
     description:
       "Speak with our investment desk for floor plans, pricing and site-visit arrangements across our Goa and NCR developments.",
-    phone: "+91 74101 12890",
+    phone: "+917410112890",
   },
 };

@@ -5,6 +5,7 @@ import { Properties, PropertiesIntro } from "./pageData";
 import PropertyCard from "./PropertyCard";
 import SwiperCarousel from "@/components/sliders/SwiperCarousel";
 import { Autoplay } from "swiper/modules";
+import AmenitiesPopup from "./AmenitiesPopup";
 
 interface PropertiesSectionProps {
   intro: PropertiesIntro;
@@ -58,6 +59,8 @@ export default function PropertiesSection({
           ))}
         </div>
       </div>
+      <AmenitiesPopup />
+
     </SectionWithContainer>
   );
 }

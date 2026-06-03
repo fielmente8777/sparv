@@ -2,8 +2,9 @@
 import { createContext, useContext, useState } from "react";
 
 interface OpenAmenityModalArray {
-  amenityType: string;
-  amenities: string[];
+  villaFeatureType: string;
+  villaFeatures: string[];
+  images?: string[];
 }
 interface IWebContextProps {
   isOpenPopup: boolean;
@@ -22,6 +23,9 @@ interface IWebContextProps {
   roomName?: string;
   setRoomName: React.Dispatch<React.SetStateAction<string>>;
   amenityModalArray: OpenAmenityModalArray[];
+  openAmenityModal: boolean;
+  setAmenityModalArray: React.Dispatch<React.SetStateAction<OpenAmenityModalArray[]>>;
+  setOpenAmenityModal: React.Dispatch<React.SetStateAction<boolean>>;
   openImagePopup: (imgs: string[], index?: number, roomName?: string) => void;
 }
 
@@ -68,7 +72,7 @@ export const WebProvider = ({ children }: { children: React.ReactNode }) => {
         openImagePopup,
         roomName,
         setRoomName,
-         openAmenityModal,
+        openAmenityModal,
         setOpenAmenityModal,
 
         amenityModalArray,
