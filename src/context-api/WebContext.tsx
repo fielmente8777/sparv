@@ -1,6 +1,10 @@
 "use client";
 import { createContext, useContext, useState } from "react";
 
+interface OpenAmenityModalArray {
+  amenityType: string;
+  amenities: string[];
+}
 interface IWebContextProps {
   isOpenPopup: boolean;
   setIsOpenPopup: React.Dispatch<React.SetStateAction<boolean>>;
@@ -17,9 +21,11 @@ interface IWebContextProps {
   setActiveImageIndex: React.Dispatch<React.SetStateAction<number>>;
   roomName?: string;
   setRoomName: React.Dispatch<React.SetStateAction<string>>;
-
+  amenityModalArray: OpenAmenityModalArray[];
   openImagePopup: (imgs: string[], index?: number, roomName?: string) => void;
 }
+
+
 
 const WebContext = createContext<IWebContextProps | undefined>(undefined);
 
@@ -30,6 +36,10 @@ export const WebProvider = ({ children }: { children: React.ReactNode }) => {
   const [images, setImages] = useState<string[]>([]);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [roomName, setRoomName] = useState("");
+  const [openAmenityModal, setOpenAmenityModal] = useState(false);
+  const [amenityModalArray, setAmenityModalArray] = useState<
+    OpenAmenityModalArray[]
+  >([]);
 
   const openImagePopup = (
     imgs: string[],
@@ -58,6 +68,11 @@ export const WebProvider = ({ children }: { children: React.ReactNode }) => {
         openImagePopup,
         roomName,
         setRoomName,
+         openAmenityModal,
+        setOpenAmenityModal,
+
+        amenityModalArray,
+        setAmenityModalArray,
       }}
     >
       {children}

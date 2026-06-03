@@ -1,3 +1,5 @@
+import { Viaoda_Libre } from "next/font/google";
+
 export interface HeroData {
   subtitle: string;
   title: string;
@@ -23,7 +25,7 @@ export interface EnquireData {
   subtitle: string;
   title: string;
   description: string;
-    phone: string;
+  phone: string;
 }
 
 export interface RealEstatePageData {
@@ -33,54 +35,147 @@ export interface RealEstatePageData {
   enquire: EnquireData;
 }
 export const realEstatePageData = {
-    hero: {
-        subtitle: "SPARV · Real Estate Portfolio",
-        title: "Where Good Life Begins",
-        bgImage:"/realEstate/hero.jpg",
+  hero: {
+    subtitle: "SPARV · Real Estate Portfolio",
+    title: "Where Good Life Begins",
+    bgImage: "/realEstate/hero.jpg",
+  },
+  propertiesIntro: {
+    subtitle: "CURATED PROPERTIES",
+    title: "Four Addresses. One Standard of Living.",
+    description:
+      "From private rooftop pools above the Arambol coastline to a G+25 IT park redefining Sector 73, each SPARV development is shaped by the same hospitality DNA, uncompromising detail, warm service, and a quiet sense of luxury.",
+  },
+  properties: [
+    {
+      id: 1,
+      title: "SPARV Alora Villas",
+      location: "ARAMBOL, NORTH GOA",
+      description:
+        "A curated collection of premium luxury villas designed for elegant living, modern comfort, and peaceful surroundings.",
+      tags: ["LUXURY 3BHK", "PRIVATE POOL", "ROOFTOP BAR"],
+      images: [
+        "/realEstate/room1.jpg",
+        "/realEstate/room4.jpg",
+        "/realEstate/room4.jpg",
+        "/realEstate/room3.jpg",
+        "/realEstate/room4.jpg",
+        "/realEstate/room4.jpg",
+      ],
+      villaFeaturesPopUp: [
+        {
+          description: "Where Good Life Begins. A curated collection of premium luxury villas designed for elegant living, modern comfort, and peaceful surroundings.",
+        },
+        {
+          villaFeatureType: "Property Gallery",
+          images: [
+            "/realEstate/room3.jpg",
+            "/realEstate/room4.jpg",
+            "/realEstate/room4.jpg",
+            "/realEstate/room4.jpg",
+          ],
+        },
+        {
+          villaFeatureType: "Villa Features",
+          villaFeatures: [
+            "•Luxury 3-Bedroom Villa",
+            "•Fully Furnished Interiors",
+            "•Spacious Living & Dining Area",
+            "•Private Rooftop Pool",
+            "•Rooftop Café Bar & Lounge",
+            "•Modern Bathrooms & Fixtures",
+            "• Granite / Quartz Kitchen Countertops",
+            "• Concealed Copper Electrical Wiring",
+          ],
+        },
+        {
+          villaFeatureType: "Construction Specs",
+          villaFeatures: " •RCC Framed Structure & Vitrified Flooring",
+        },
+      ],
     },
-    propertiesIntro: {
-        subtitle: "CURATED PROPERTIES",
-        title: "Four Addresses. One Standard of Living.",
-        description: "From private rooftop pools above the Arambol coastline to a G+25 IT park redefining Sector 73, each SPARV development is shaped by the same hospitality DNA, uncompromising detail, warm service, and a quiet sense of luxury.",
+    {
+      id: 2,
+      title: "SPARV Solterra Luxury Villa",
+      location: "CORJAO, NORTH GOA",
+      description:
+        "Own a premium villa in one of North Goa's emerging luxury destinations, ideal for personal use or high-yield holiday rentals.",
+      tags: ["ASSURED RETURNS", "3BHK", "MANAGED RENTAL"],
+      images: [
+        "/realEstate/room2.jpg",
+        "/realEstate/room4.jpg",
+        "/realEstate/room4.jpg",
+        "/realEstate/room3.jpg",
+        "/realEstate/room4.jpg",
+        "/realEstate/room4.jpg",
+      ],
     },
-    properties: [
-       {
-            id: 1,
-            title: "SPARV Alora Villas",
-            location: "ARAMBOL, NORTH GOA",
-            description: "A curated collection of premium luxury villas designed for elegant living, modern comfort, and peaceful surroundings.",
-            tags: ["LUXURY 3BHK", "PRIVATE POOL", "ROOFTOP BAR"],
-            images: ["/realEstate/room1.jpg"],
+    {
+      id: 3,
+      title: "IThums Galleria",
+      location: "GREATER NOIDA, OPP. DELTA-1 METRO",
+      description:
+        "A premium multi-dimensional commercial development, officially OC-approved by GNIDA, a landmark hub for retail, dining and entertainment.",
+      tags: ["OC RECEIVED", "NOW OPEN", "HIGH FOOTFALL"],
+      images: [
+        "/realEstate/room3.jpg",
+        "/realEstate/room4.jpg",
+        "/realEstate/room4.jpg",
+        "/realEstate/room4.jpg",
+        "/realEstate/room4.jpg",
+        "/realEstate/room4.jpg",
+      ],
+      villaFeaturesPopUp: [
+        {
+          villaFeatureType: "Property Gallery",
+          images: [
+            "/realEstate/room3.jpg",
+            "/realEstate/room4.jpg",
+            "/realEstate/room4.jpg",
+            "/realEstate/room4.jpg",
+          ],
         },
         {
-            id: 2,
-            title: "SPARV Solterra Luxury Villa",
-            location: "CORJAO, NORTH GOA",
-            description: "Own a premium villa in one of North Goa's emerging luxury destinations, ideal for personal use or high-yield holiday rentals.",
-            tags: ["ASSURED RETURNS", "3BHK", "MANAGED RENTAL"],
-            images: ["/realEstate/room2.jpg"],
+          villaFeatureType: "Villa Features",
+          villaFeatures: [
+            "•Luxury 3-Bedroom Villa",
+            "•Fully Furnished Interiors",
+            "•Spacious Living & Dining Area",
+            "•Private Rooftop Pool",
+            "•Rooftop Café Bar & Lounge",
+            "•Modern Bathrooms & Fixtures",
+            "• Granite / Quartz Kitchen Countertops",
+            "• Concealed Copper Electrical Wiring",
+          ],
         },
         {
-            id: 3,
-            title: "IThums Galleria",
-            location: "GREATER NOIDA, OPP. DELTA-1 METRO",
-            description: "A premium multi-dimensional commercial development, officially OC-approved by GNIDA, a landmark hub for retail, dining and entertainment.",
-            tags: ["OC RECEIVED", "NOW OPEN", "HIGH FOOTFALL"],
-            images: ["/realEstate/room3.jpg"],
+          villaFeatureType: "Construction Specs",
+          villaFeatures: " •RCC Framed Structure & Vitrified Flooring",
         },
-        {
-            id: 4,
-            title: "IThums 73",
-            location: "SECTOR 73, NOIDA",
-            description: "An architectural marvel integrating lifestyle, commerce and technology — designed to enhance collaboration and comfort.",
-            tags: ["IT PARK", "5.5 ACRES", "G + 25 FLOORS"],
-            images: ["/realEstate/room4.jpg"],
-        },
-    ],
-    enquire: {
-        subtitle: "ENQUIRE",
-        title: "Schedule a Private Walkthrough",
-        description: "Speak with our investment desk for floor plans, pricing and site-visit arrangements across our Goa and NCR developments.",
-        phone: "+91 74101 12890"
-    }
+      ],
+    },
+    {
+      id: 4,
+      title: "IThums 73",
+      location: "SECTOR 73, NOIDA",
+      description:
+        "An architectural marvel integrating lifestyle, commerce and technology — designed to enhance collaboration and comfort.",
+      tags: ["IT PARK", "5.5 ACRES", "G + 25 FLOORS"],
+      images: [
+        "/realEstate/room4.jpg",
+        "/realEstate/room4.jpg",
+        "/realEstate/room4.jpg",
+        "/realEstate/room3.jpg",
+        "/realEstate/room4.jpg",
+        "/realEstate/room4.jpg",
+      ],
+    },
+  ],
+  enquire: {
+    subtitle: "ENQUIRE",
+    title: "Schedule a Private Walkthrough",
+    description:
+      "Speak with our investment desk for floor plans, pricing and site-visit arrangements across our Goa and NCR developments.",
+    phone: "+91 74101 12890",
+  },
 };

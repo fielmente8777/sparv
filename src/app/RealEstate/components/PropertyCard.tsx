@@ -8,52 +8,67 @@ import SwiperCarousel from "@/components/sliders/SwiperCarousel";
 
 interface PropertyCardProps {
   property: Properties;
+  isMobile?: boolean;
 }
 
-export default function PropertyCard({ property }: PropertyCardProps) {
+export default function PropertyCard({
+  property,
+  isMobile = false,
+}: PropertyCardProps) {
   return (
     <article className="bg-[#F8F7F0] rounded-lg overflow-hidden">
       <div className="">
-        <SwiperCarousel
-          data={property.images}
-          swiperSlideClassName="w-full"
-          autoplay={{ delay: 4000, disableOnInteraction: false }}
-          speed={900}
-          loop={true}
-          spaceBetween={0}
-          slidesPerView={1}
-          modules={[Autoplay]}
-          renderSlide={(src: string, index) => (
-            <div className="relative h-[350px] w-full overflow-hidden">
-              <Image
-                title="click to zoom"
-                src={src}
-                alt={"room image"}
-                fill
-                className="object-cover group-[&:hover]:scale-105 duration-500 cursor-pointer"
-                //   onClick={() => openImagePopup(data, index, title)}
-              />
-            </div>
-          )}
-        />
-        {/* <Image
-          src={property.images}
-          alt={property.title}
-          fill
-          className="w-full h-auto object-cover"
-        /> */}
+        {isMobile ? (
+          <div className="relative h-[350px] w-full overflow-hidden">
+            <Image
+              src={property.images[0]}
+              alt={property.title}
+              fill
+              className="object-cover"
+            />
+          </div>
+        ) : (
+          <SwiperCarousel
+            data={property.images}
+            swiperSlideClassName="w-full"
+            autoplay={{ delay: 1000, disableOnInteraction: false }}
+            speed={900}
+            loop={true}
+            spaceBetween={0}
+            slidesPerView={1}
+            modules={[Autoplay]}
+            renderSlide={(src: string, index) => (
+              <div className="relative h-[350px] w-full overflow-hidden">
+                <Image
+                  title="click to zoom"
+                  src={src}
+                  alt={"room image"}
+                  fill
+                  className="object-cover group-[&:hover]:scale-105 duration-500 cursor-pointer"
+                  //   onClick={() => openImagePopup(data, index, title)}
+                />
+              </div>
+            )}
+          />
+          // {/* <Image
+          //   src={property.images}
+          //   alt={property.title}
+          //   fill
+          //   className="w-full h-auto object-cover"
+          // /> */}
+        )}
       </div>
 
       <div className="p-4 md:p-6">
         <div className="flex items-center gap-2 mb-6">
           <LocationIcon />
 
-          <span className="text-[18px] uppercase text-[#B58E3E]">
+          <span className="text-[12px] md:text-[18px] uppercase text-[#B58E3E]">
             {property.location}
           </span>
         </div>
 
-        <h3 className="font-p-d text-[#00486B] text-[32px] ">
+        <h3 className="font-p-d text-[#00486B] text-[26px] md:text-[32px] ">
           {property.title}
         </h3>
 
@@ -73,11 +88,15 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         </p>
 
         <div className="flex items-center justify-between mt-6">
-          <button className="border border-[#00486B] px-4 py-2 text-[18px] text-[#00486B]">
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center border border-[#00486B] px-10 py-2 text-[14px] md:text-[18px] text-[#00486B] cursor-pointer"
+          >
             ENQUIRE NOW
-          </button>
-
-          <button className="text-[18px] uppercase text-[#B58E3E]  border-b border-[#B58E3E]">
+          </a>
+          <button className="text-[14px] md:text-[18px] uppercase text-[#B58E3E]  border-b border-[#B58E3E]">
             VILLA FEATURES
           </button>
         </div>
