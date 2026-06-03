@@ -92,7 +92,7 @@ export const realEstatePageData = {
         },
         {
           villaFeatureType: "Construction Specs",
-          villaFeatures: [" •RCC Framed Structure & Vitrified Flooring"],
+          villaFeatures: ["RCC Framed Structure & Vitrified Flooring"],
         },
       ],
     },
@@ -125,19 +125,17 @@ export const realEstatePageData = {
         {
           villaFeatureType: "Villa Features",
           villaFeatures: [
-            "Luxury 3-Bedroom Villa",
-            "Fully Furnished Interiors",
-            "Spacious Living & Dining Area",
-            "Private Rooftop Pool",
-            "Rooftop Café Bar & Lounge",
-            "Modern Bathrooms & Fixtures",
-            "Granite / Quartz Kitchen Countertops",
-            "Concealed Copper Electrical Wiring",
+            "Plot Size: 500 Sq. Mtr (5,380 sq ft)",
+            "190 Sq. Mtr (2045 sq ft)",
+            "3BHK Luxury Villa Semi-Furnished)",
+            "Assured Return: ₹1.5 Lakh/mo for 3 Years",
+            "Proximity to Mandrem, Morjim & Ashwem Beaches",
+            "Fully managed rental model (hassle-free)",
           ],
         },
         {
           villaFeatureType: "Construction Specs",
-          villaFeatures: [" •RCC Framed Structure & Vitrified Flooring"],
+          villaFeatures: [""],
         },
       ],
     },
@@ -146,7 +144,7 @@ export const realEstatePageData = {
       title: "IThums Galleria",
       location: "GREATER NOIDA, OPP. DELTA-1 METRO",
       description:
-        "A premium multi-dimensional commercial development, officially OC-approved by GNIDA, a landmark hub for retail, dining and entertainment.",
+        `"The Mall Which Has IT All." A premium multi-dimensional real estate development. It has officially received its Occupancy Certificate OC) from GNIDA`,
       tags: ["OC RECEIVED", "NOW OPEN", "HIGH FOOTFALL"],
       images: [
         "/realEstate/room3.jpg",
@@ -171,19 +169,16 @@ export const realEstatePageData = {
         {
           villaFeatureType: "Villa Features",
           villaFeatures: [
-            "Luxury 3-Bedroom Villa",
-            "Fully Furnished Interiors",
-            "Spacious Living & Dining Area",
-            "Private Rooftop Pool",
-            "Rooftop Café Bar & Lounge",
-            "Modern Bathrooms & Fixtures",
-            "Granite / Quartz Kitchen Countertops",
-            "Concealed Copper Electrical Wiring",
+            "Landmark commercial hub in Greater Noida",
+            "High foot traffic Near residential societies)",
+            "Ultra-modern commercial property",
+            "Retail, Dining & Entertainment spaces",
+            "Meticulous design & exceptional features",
           ],
         },
         {
           villaFeatureType: "Construction Specs",
-          villaFeatures: [" •RCC Framed Structure & Vitrified Flooring"],
+          villaFeatures: [""],
         },
       ],
     },
@@ -191,8 +186,9 @@ export const realEstatePageData = {
       id: 4,
       title: "IThums 73",
       location: "SECTOR 73, NOIDA",
-      description:
-        "An architectural marvel integrating lifestyle, commerce and technology — designed to enhance collaboration and comfort.",
+      description:  `"The Next Generation IT Park.
+" An architectural marvel integrating lifestyle, commerce,
+and technology. Designed to enhance collaboration and comfort`,
       tags: ["IT PARK", "5.5 ACRES", "G + 25 FLOORS"],
       images: [
         "/realEstate/room4.jpg",
@@ -216,19 +212,16 @@ export const realEstatePageData = {
         {
           villaFeatureType: "Villa Features",
           villaFeatures: [
-            "Luxury 3-Bedroom Villa",
-            "Fully Furnished Interiors",
-            "Spacious Living & Dining Area",
-            "Private Rooftop Pool",
-            "Rooftop Café Bar & Lounge",
-            "Modern Bathrooms & Fixtures",
-            "Granite / Quartz Kitchen Countertops",
-            "Concealed Copper Electrical Wiring",
+            "Spread across 5.5 acres",
+            "G25 Floors High-rise Structure Completed)",
+            "Green building sustainable development model",
+            "Premium office, retail, and restaurant spaces",
+            "Improved indoor air quality & natural lighting",
           ],
         },
         {
           villaFeatureType: "Construction Specs",
-          villaFeatures: ["RCC Framed Structure & Vitrified Flooring"],
+          villaFeatures: [""],
         },
       ],
     },

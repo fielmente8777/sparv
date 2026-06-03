@@ -44,14 +44,14 @@ const AmenitiesPopup = () => {
                 <ul className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3  gap-2 ">
                   {amenity?.villaFeatures?.map((feature, index) => (
                     <li key={index} className="text-md flex md:items-center gap-2">
-                      <span className="text-primary h-2 w-2 rounded-full bg-orange-300 " />{feature}
+                      {feature && <span className="text-primary h-2 w-2 rounded-full bg-orange-300 " />}{feature}
                     </li>
                   ))}
                 </ul>
               )}
               {amenity.images && (
                 <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-4">
-                  {amenity?.images?.map((src, index) => (
+                  {amenity?.images?.slice(0, 3)?.map((src, index) => (
                     <div key={index} className="relative h-[200px]  w-full rounded-lg overflow-hidden">
                       <Image
                         src={src ?? null}

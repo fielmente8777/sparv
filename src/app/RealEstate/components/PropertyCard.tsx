@@ -23,7 +23,7 @@ export default function PropertyCard({
     useWebContext();
 
   const handleOpenFeaturePopup = (data: any) => {
-    console.log(data)
+    // console.log(data)
     // alert("villa features popup opened");
     setAmenityModalArray(data);
     setOpenAmenityModal(true);
