@@ -43,14 +43,14 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           slidesPerView={1}
           modules={[Autoplay]}
           renderSlide={(src: string, index) => (
-            <div className="relative h-[350px] w-full overflow-hidden">
+            <div className="relative h-[328px] w-full overflow-hidden">
               <Image
                 title="click to zoom"
                 src={src}
                 alt={"room image"}
                 fill
-                className="object-cover group-[&:hover]:scale-105 duration-500 cursor-pointer"
-                //   onClick={() => openImagePopup(data, index, title)}
+                className="object-cover h-full group-[&:hover]:scale-105 duration-500 cursor-pointer"
+              //   onClick={() => openImagePopup(data, index, title)}
               />
             </div>
           )}
@@ -63,8 +63,8 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           // /> */}
       </div>
 
-      <div className="p-4 md:p-6">
-        <div className="flex items-center gap-2 mb-6">
+      <div className="p-6 md:p-6 flex flex-col gap-3">
+        <div className="flex items-center gap-2">
           <LocationIcon />
 
           <span className="text-[12px] md:text-[18px] uppercase text-[#B58E3E]">
@@ -76,7 +76,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           {property.title}
         </h3>
 
-        <div className="md:flex flex-wrap gap-5 mt-5 hidden">
+        <div className="md:flex flex-wrap gap-5 hidden">
           {property.tags.map((tag) => (
             <span
               key={tag}
@@ -86,7 +86,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             </span>
           ))}
         </div>
-        <div className={`relative md:hidden overflow-hidden py-4 `}>
+        <div className={`relative md:hidden overflow-hidden`}>
           <div className="marquee-wrapper">
             <div className="marquee-track flex gap-5">
               {property.tags.map((tag) => (
@@ -100,11 +100,11 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             </div>
           </div>
         </div>
-        <p className="mt-6 text-[16px] text-[#7D7D7D] ">
+        <p className=" text-[16px] text-[#7D7D7D] ">
           {property.description}
         </p>
 
-        <div className="flex items-center justify-between mt-6">
+        <div className="flex items-center justify-between">
           <Link
             href="#"
             target="_blank"

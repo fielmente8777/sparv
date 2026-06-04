@@ -125,7 +125,7 @@ export const realEstatePageData = {
         //   villaFeatures: [],
         // },
         {
-          villaFeatureType: "INVESTMENT HIGHLIGHTS",
+          villaFeatureType: "VILLA FEATURES",
 
           villaFeatures: [
             "Plot Size: 500 Sq. Mtr (5,380 sq ft)",
@@ -146,7 +146,7 @@ export const realEstatePageData = {
       id: 3,
       title: "IThums Galleria",
       location: "GREATER NOIDA, OPP. DELTA-1 METRO",
-      description: `"The Mall Which Has IT All." A premium multi-dimensional real estate development. It has officially received its Occupancy Certificate OC) from GNIDA`,
+      description: `"The Mall Which Has IT All." A premium multi-dimensional real estate development. It has officially received its Occupancy Certificate (OC) from GNIDA`,
       tags: ["OC RECEIVED", "NOW OPEN", "HIGH FOOTFALL"],
       images: [
         "/realEstate/room3.jpg",
@@ -212,7 +212,7 @@ and technology. Designed to enhance collaboration and comfort`,
         //   villaFeatures: [],
         // },
         {
-          villaFeatureType: "PROJECT HIGHLIGHTS",
+          villaFeatureType: "VILLA FEATURES",
           villaFeatures: [
             "Spread across 5.5 acres",
             "G25 Floors High-rise (Structure Completed)",
