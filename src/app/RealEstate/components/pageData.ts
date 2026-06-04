@@ -58,11 +58,11 @@ export const realEstatePageData = {
       tags: ["LUXURY 3BHK", "PRIVATE POOL", "ROOFTOP BAR"],
       images: [
         "/realEstate/room1.jpg",
-        "/realEstate/room4.jpg",
-        "/realEstate/room4.jpg",
-        "/realEstate/room3.jpg",
-        "/realEstate/room4.jpg",
-        "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
+        // "/realEstate/room3.jpg",
+        // "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
       ],
       villaFeaturesPopUp: [
         {
@@ -107,11 +107,11 @@ export const realEstatePageData = {
       tags: ["ASSURED RETURNS", "3BHK", "MANAGED RENTAL"],
       images: [
         "/realEstate/room2.jpg",
-        "/realEstate/room4.jpg",
-        "/realEstate/room4.jpg",
-        "/realEstate/room3.jpg",
-        "/realEstate/room4.jpg",
-        "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
+        // "/realEstate/room3.jpg",
+        // "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
       ],
       villaFeaturesPopUp: [
         // {
@@ -150,11 +150,11 @@ export const realEstatePageData = {
       tags: ["OC RECEIVED", "NOW OPEN", "HIGH FOOTFALL"],
       images: [
         "/realEstate/room3.jpg",
-        "/realEstate/room4.jpg",
-        "/realEstate/room4.jpg",
-        "/realEstate/room4.jpg",
-        "/realEstate/room4.jpg",
-        "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
       ],
       villaFeaturesPopUp: [
         // {
@@ -194,11 +194,11 @@ and technology. Designed to enhance collaboration and comfort`,
       tags: ["IT PARK", "5.5 ACRES", "G + 25 FLOORS"],
       images: [
         "/realEstate/room4.jpg",
-        "/realEstate/room4.jpg",
-        "/realEstate/room4.jpg",
-        "/realEstate/room3.jpg",
-        "/realEstate/room4.jpg",
-        "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
+        // "/realEstate/room3.jpg",
+        // "/realEstate/room4.jpg",
+        // "/realEstate/room4.jpg",
       ],
       villaFeaturesPopUp: [
         // {
