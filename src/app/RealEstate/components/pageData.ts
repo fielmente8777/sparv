@@ -35,6 +35,7 @@ export interface RealEstatePageData {
   properties: Properties[];
   enquire: EnquireData;
 }
+
 export const realEstatePageData = {
   hero: {
     subtitle: "SPARV · Real Estate Portfolio",
@@ -65,20 +66,21 @@ export const realEstatePageData = {
       ],
       villaFeaturesPopUp: [
         {
-          description: "Where Good Life Begins. A curated collection of premium luxury villas designed for elegant living, modern comfort, and peaceful surroundings.",
+          description:
+            "Where Good Life Begins. A curated collection of premium luxury villas designed for elegant living, modern comfort, and peaceful surroundings.",
         },
+        // {
+        //   villaFeatureType: "Property Gallery",
+        //   images: [
+        //     "/realEstate/room3.jpg",
+        //     "/realEstate/room4.jpg",
+        //     "/realEstate/room4.jpg",
+        //     "/realEstate/room4.jpg",
+        //   ],
+        //   // villaFeatures:[]
+        // },
         {
-          villaFeatureType: "Property Gallery",
-          images: [
-            "/realEstate/room3.jpg",
-            "/realEstate/room4.jpg",
-            "/realEstate/room4.jpg",
-            "/realEstate/room4.jpg",
-          ],
-          villaFeatures:[]
-        },
-        {
-          villaFeatureType: "Villa Features",
+          villaFeatureType: "VILLA FEATURES",
           villaFeatures: [
             "Luxury 3-Bedroom Villa",
             "Fully Furnished Interiors",
@@ -91,7 +93,7 @@ export const realEstatePageData = {
           ],
         },
         {
-          villaFeatureType: "Construction Specs",
+          villaFeatureType: "CONSTRUCTION SPECS",
           villaFeatures: ["RCC Framed Structure & Vitrified Flooring"],
         },
       ],
@@ -112,39 +114,39 @@ export const realEstatePageData = {
         "/realEstate/room4.jpg",
       ],
       villaFeaturesPopUp: [
+        // {
+        //   villaFeatureType: "Property Gallery",
+        //   images: [
+        //     "/realEstate/room3.jpg",
+        //     "/realEstate/room4.jpg",
+        //     "/realEstate/room4.jpg",
+        //     "/realEstate/room4.jpg",
+        //   ],
+        //   villaFeatures: [],
+        // },
         {
-          villaFeatureType: "Property Gallery",
-          images: [
-            "/realEstate/room3.jpg",
-            "/realEstate/room4.jpg",
-            "/realEstate/room4.jpg",
-            "/realEstate/room4.jpg",
-          ],
-          villaFeatures: [],
-        },
-        {
-          villaFeatureType: "Villa Features",
+          villaFeatureType: "INVESTMENT HIGHLIGHTS",
+
           villaFeatures: [
             "Plot Size: 500 Sq. Mtr (5,380 sq ft)",
             "190 Sq. Mtr (2045 sq ft)",
-            "3BHK Luxury Villa Semi-Furnished)",
+            "3BHK Luxury Villa (Semi-Furnished)",
             "Assured Return: ₹1.5 Lakh/mo for 3 Years",
             "Proximity to Mandrem, Morjim & Ashwem Beaches",
             "Fully managed rental model (hassle-free)",
           ],
         },
-        {
-          villaFeatureType: "Construction Specs",
-          villaFeatures: [""],
-        },
+        // {
+        //   villaFeatureType: "Construction Specs",
+        //   villaFeatures: [""],
+        // },
       ],
     },
     {
       id: 3,
       title: "IThums Galleria",
       location: "GREATER NOIDA, OPP. DELTA-1 METRO",
-      description:
-        `"The Mall Which Has IT All." A premium multi-dimensional real estate development. It has officially received its Occupancy Certificate OC) from GNIDA`,
+      description: `"The Mall Which Has IT All." A premium multi-dimensional real estate development. It has officially received its Occupancy Certificate OC) from GNIDA`,
       tags: ["OC RECEIVED", "NOW OPEN", "HIGH FOOTFALL"],
       images: [
         "/realEstate/room3.jpg",
@@ -155,38 +157,38 @@ export const realEstatePageData = {
         "/realEstate/room4.jpg",
       ],
       villaFeaturesPopUp: [
-        {
-          villaFeatureType: "Property Gallery",
-          images: [
-            "/realEstate/room3.jpg",
-            "/realEstate/room4.jpg",
-            "/realEstate/room4.jpg",
-            "/realEstate/room4.jpg",
-          ],
-          villaFeatures: [],
-        },
+        // {
+        //   villaFeatureType: "Property Gallery",
+        //   images: [
+        //     "/realEstate/room3.jpg",
+        //     "/realEstate/room4.jpg",
+        //     "/realEstate/room4.jpg",
+        //     "/realEstate/room4.jpg",
+        //   ],
+        //   villaFeatures: [],
+        // },
 
         {
-          villaFeatureType: "Villa Features",
+          villaFeatureType: "VILLA FEATURES",
           villaFeatures: [
             "Landmark commercial hub in Greater Noida",
-            "High foot traffic Near residential societies)",
+            "High foot traffic (Near residential societies)",
             "Ultra-modern commercial property",
             "Retail, Dining & Entertainment spaces",
             "Meticulous design & exceptional features",
           ],
         },
-        {
-          villaFeatureType: "Construction Specs",
-          villaFeatures: [""],
-        },
+        // {
+        //   villaFeatureType: "Construction Specs",
+        //   villaFeatures: [""],
+        // },
       ],
     },
     {
       id: 4,
       title: "IThums 73",
       location: "SECTOR 73, NOIDA",
-      description:  `"The Next Generation IT Park.
+      description: `"The Next Generation IT Park.
 " An architectural marvel integrating lifestyle, commerce,
 and technology. Designed to enhance collaboration and comfort`,
       tags: ["IT PARK", "5.5 ACRES", "G + 25 FLOORS"],
@@ -199,30 +201,30 @@ and technology. Designed to enhance collaboration and comfort`,
         "/realEstate/room4.jpg",
       ],
       villaFeaturesPopUp: [
+        // {
+        //   villaFeatureType: "Property Gallery",
+        //   images: [
+        //     "/realEstate/room3.jpg",
+        //     "/realEstate/room4.jpg",
+        //     "/realEstate/room4.jpg",
+        //     "/realEstate/room4.jpg",
+        //   ],
+        //   villaFeatures: [],
+        // },
         {
-          villaFeatureType: "Property Gallery",
-          images: [
-            "/realEstate/room3.jpg",
-            "/realEstate/room4.jpg",
-            "/realEstate/room4.jpg",
-            "/realEstate/room4.jpg",
-          ],
-          villaFeatures: [],
-        },
-        {
-          villaFeatureType: "Villa Features",
+          villaFeatureType: "PROJECT HIGHLIGHTS",
           villaFeatures: [
             "Spread across 5.5 acres",
-            "G25 Floors High-rise Structure Completed)",
+            "G25 Floors High-rise (Structure Completed)",
             "Green building sustainable development model",
             "Premium office, retail, and restaurant spaces",
             "Improved indoor air quality & natural lighting",
           ],
         },
-        {
-          villaFeatureType: "Construction Specs",
-          villaFeatures: [""],
-        },
+        // {
+        //   villaFeatureType: "Construction Specs",
+        //   villaFeatures: [""],
+        // },
       ],
     },
   ],
