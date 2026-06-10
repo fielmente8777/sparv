@@ -149,7 +149,7 @@ export const realEstatePageData = {
       description: `"The Mall Which Has IT All." A premium multi-dimensional real estate development. It has officially received its Occupancy Certificate OC) from GNIDA`,
       tags: ["OC RECEIVED", "NOW OPEN", "HIGH FOOTFALL"],
       images: [
-        "/realEstate/room3.jpg",
+        "/realEstate/room4.jpg",
         // "/realEstate/room4.jpg",
         // "/realEstate/room4.jpg",
         // "/realEstate/room4.jpg",
@@ -169,7 +169,7 @@ export const realEstatePageData = {
         // },
 
         {
-          villaFeatureType: "VILLA FEATURES",
+          villaFeatureType: "FEATURES",
           villaFeatures: [
             "Landmark commercial hub in Greater Noida",
             "High foot traffic (Near residential societies)",
@@ -193,7 +193,7 @@ export const realEstatePageData = {
 and technology. Designed to enhance collaboration and comfort`,
       tags: ["IT PARK", "5.5 ACRES", "G + 25 FLOORS"],
       images: [
-        "/realEstate/room4.jpg",
+        "/realEstate/room3.jpg",
         // "/realEstate/room4.jpg",
         // "/realEstate/room4.jpg",
         // "/realEstate/room3.jpg",

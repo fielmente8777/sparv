@@ -11,9 +11,10 @@ import Link from "next/link";
 import "@/components/sliders/sliding.title.scss";
 interface PropertyCardProps {
   property: Properties;
+  index: number;
 }
 
-export default function PropertyCard({ property }: PropertyCardProps) {
+export default function PropertyCard({ property, index }: PropertyCardProps) {
   const {
     openAmenityModal,
     setOpenAmenityModal,
@@ -117,7 +118,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             onClick={() => handleOpenFeaturePopup(property.villaFeaturesPopUp)}
             className="text-[14px] md:text-[18px] uppercase text-[#B58E3E]  border-b border-[#B58E3E]"
           >
-            VILLA FEATURES
+            {index < 2 ? "VILLA FEATURES" : "FEATURES"}
           </button>
         </div>
       </div>

@@ -33,24 +33,20 @@ export default function PropertiesSection({
           </p>
         </div>
         {/* Mobile Slider */}
-      <div className="mt-16 lg:hidden space-y-6">
-  {properties.map((property) => (
-    <PropertyCard
-      key={property.id}
-      property={property}
-    />
-  ))}
-</div>
+        <div className="mt-16 lg:hidden space-y-6">
+          {properties.map((property, index) => (
+            <PropertyCard key={index} property={property} index={index} />
+          ))}
+        </div>
 
         {/* Desktop Grid */}
         <div className="hidden lg:grid lg:grid-cols-2 gap-6 mt-16">
-          {properties.map((property) => (
-            <PropertyCard key={property.id} property={property} />
+          {properties.map((property, index) => (
+            <PropertyCard key={property.id} property={property} index={index} />
           ))}
         </div>
       </div>
       <AmenitiesPopup />
-
     </SectionWithContainer>
   );
 }
