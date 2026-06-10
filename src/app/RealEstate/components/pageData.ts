@@ -149,7 +149,7 @@ export const realEstatePageData = {
       description: `"The Mall Which Has IT All." A premium multi-dimensional real estate development. It has officially received its Occupancy Certificate OC) from GNIDA`,
       tags: ["OC RECEIVED", "NOW OPEN", "HIGH FOOTFALL"],
       images: [
-        "/realEstate/room4.jpg",
+        "/realEstate/iThums-Galleria-Elevation-2.jpg",
         // "/realEstate/room4.jpg",
         // "/realEstate/room4.jpg",
         // "/realEstate/room4.jpg",
