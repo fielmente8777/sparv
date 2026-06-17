@@ -41,23 +41,23 @@ export const galleryData: { image: string; category: string }[] = [
     category: "hotel",
   },
   {
-    image: newImagesLink + "restrurent/_6__5525.webp",
+    image: "/restaurant/_6__5525.jpg",
     category: "restaurant",
   },
   {
-    image: newImagesLink + "restrurent/_6__5736.webp",
+    image: "/restaurant/_6__5736.jpg",
     category: "restaurant",
   },
   {
-    image: newImagesLink + "restrurent/_6__5739.webp",
+    image: "/restaurant/_6__5739.jpg",
     category: "restaurant",
   },
   {
-    image: newImagesLink + "restrurent/_6__5742.webp",
+    image: "/restaurant/_6__5742.jpg",
     category: "restaurant",
   },
   {
-    image: newImagesLink + "restrurent/_6__5748.webp",
+    image: "/restaurant/_6__5748.jpg",
     category: "restaurant",
   },
   {
@@ -105,37 +105,37 @@ export const galleryData: { image: string; category: string }[] = [
     category: "nearby",
   },
   {
-    image: newImagesLink + "Swimming-Pool/_6__5453.webp",
+    image: "/pool/_6__5453.jpg",
+    category: "view",
+  },
+  // {
+  //   image: "/pool/_6__5455.jpg",
+  //   category: "view",
+  // },
+  {
+    image: "/pool/_6__5456.jpg",
     category: "view",
   },
   {
-    image: newImagesLink + "Swimming-Pool/_6__5455.webp",
+    image: "/pool/_6__5516.jpg",
     category: "view",
   },
   {
-    image: newImagesLink + "Swimming-Pool/_6__5456.webp",
+    image: "/pool/_6__5518.jpg",
     category: "view",
   },
   {
-    image: newImagesLink + "Swimming-Pool/_6__5516.webp",
+    image: "/pool/_6__5520.jpg",
     category: "view",
   },
-  {
-    image: newImagesLink + "Swimming-Pool/_6__5518.webp",
-    category: "view",
-  },
-  {
-    image: newImagesLink + "Swimming-Pool/_6__5520.webp",
-    category: "view",
-  },
-  {
-    image: newImagesLink + "Swimming-Pool/_6__6290.webp",
-    category: "view",
-  },
-  {
-    image: newImagesLink + "Swimming-Pool/_6__6299.webp",
-    category: "view",
-  },
+  // {
+  //   image: "/pool/_6__6290.jpg",
+  //   category: "view",
+  // },
+  // {
+  //   image: "/pool/_6__6299.jpg",
+  //   category: "view",
+  // },
   {
     image:
       "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Copy+of+DJI_0722.jpg",
@@ -149,45 +149,45 @@ export const galleryData: { image: string; category: string }[] = [
   //   { image: newImagesLink + "Standard/_6__5694.webp", category: "Rooms" },
   //   { image: newImagesLink + "Standard/_6__5697.webp", category: "Rooms" },
   //   { image: newImagesLink + "Standard/_6__5699.webp", category: "Rooms" },
-  { image: newImagesLink + "Standard/_6__5705.webp", category: "Rooms" },
-  { image: newImagesLink + "Standard/_6__5709.webp", category: "Rooms" },
-  { image: newImagesLink + "Standard/_6__5720.webp", category: "Rooms" },
-  { image: newImagesLink + "Standard/_6__5722.webp", category: "Rooms" },
-  { image: newImagesLink + "Standard/_6__5724.webp", category: "Rooms" },
-  { image: newImagesLink + "Standard/_6__5826.webp", category: "Rooms" },
+  { image: "/standard/_6__5705.jpg", category: "Rooms" },
+  { image: "/standard/_6__5709.jpg", category: "Rooms" },
+  { image: "/standard/_6__5720.jpg", category: "Rooms" },
+  { image: "/standard/_6__5722.jpg", category: "Rooms" },
+  { image: "/standard/_6__5724.jpg", category: "Rooms" },
+  { image: "/standard/_6__5826.jpg", category: "Rooms" },
 
   //   { image: newImagesLink + "Premium/_6__5624.webp", category: "Rooms" },
-  { image: newImagesLink + "Premium/_6__5630.webp", category: "Rooms" },
-  { image: newImagesLink + "Premium/_6__5633.webp", category: "Rooms" },
-  { image: newImagesLink + "Premium/_6__5662.webp", category: "Rooms" },
-  { image: newImagesLink + "Premium/_6__5682.webp", category: "Rooms" },
-  { image: newImagesLink + "Premium/_6__5956.webp", category: "Rooms" },
-  { image: newImagesLink + "Premium/_6__6124.webp", category: "Rooms" },
-  { image: newImagesLink + "Premium/_6__6142.webp", category: "Rooms" },
+  { image: "/Premium/_6__5630.jpg", category: "Rooms" },
+  { image: "/Premium/_6__5633.jpg", category: "Rooms" },
+  { image: "/Premium/_6__5662.jpg", category: "Rooms" },
+  { image: "/Premium/_6__5682.jpg", category: "Rooms" },
+  { image: "/Premium/_6__5956.jpg", category: "Rooms" },
+  { image: "/Premium/_6__6124.jpg", category: "Rooms" },
+  { image: "/Premium/_6__6142.jpg", category: "Rooms" },
 
-  { image: newImagesLink + "Deluxe/_6__5469.webp", category: "Rooms" },
+  { image: "/deluxe/_6__5469.jpg", category: "Rooms" },
   //   { image: newImagesLink + "Deluxe/_6__5546.webp", category: "Rooms" },
   //   { image: newImagesLink + "Deluxe/_6__5548.webp", category: "Rooms" },
   //   { image: newImagesLink + "Deluxe/_6__5551.webp", category: "Rooms" },
-  { image: newImagesLink + "Deluxe/_6__5562.webp", category: "Rooms" },
-  { image: newImagesLink + "Deluxe/_6__5565.webp", category: "Rooms" },
-  { image: newImagesLink + "Deluxe/_6__5569.webp", category: "Rooms" },
-  { image: newImagesLink + "Deluxe/_6__5580.webp", category: "Rooms" },
-  { image: newImagesLink + "Deluxe/_6__5597.webp", category: "Rooms" },
-  { image: newImagesLink + "Deluxe/_6__5600.webp", category: "Rooms" },
-  { image: newImagesLink + "Deluxe/_6__5618.webp", category: "Rooms" },
-  { image: newImagesLink + "Deluxe/_6__5866.webp", category: "Rooms" },
-  { image: newImagesLink + "Deluxe/_6__6281.webp", category: "Rooms" },
+  { image: "/deluxe/_6__5562.jpg", category: "Rooms" },
+  { image: "/deluxe/_6__5565.jpg", category: "Rooms" },
+  { image: "/deluxe/_6__5569.jpg", category: "Rooms" },
+  { image: "/deluxe/_6__5580.jpg", category: "Rooms" },
+  { image: "/deluxe/_6__5597.jpg", category: "Rooms" },
+  { image: "/deluxe/_6__5600.jpg", category: "Rooms" },
+  { image: "/deluxe/_6__5618.jpg", category: "Rooms" },
+  { image: "/deluxe/_6__5866.jpg", category: "Rooms" },
+  { image: "/deluxe/_6__6281.jpg", category: "Rooms" },
   {
-    image: newImagesLink + "Reception/_6__5460.webp",
+    image: "/Reception/_6__5460.jpg",
     category: "lobby",
   },
   {
-    image: newImagesLink + "Reception/_6__5470.webp",
+    image: "/about/Reception_6__5470.jpg",
     category: "lobby",
   },
   {
-    image: newImagesLink + "Reception/_6__5475.webp",
+    image: "/about/Reception_6__5475.jpg",
     category: "lobby",
   },
   // {
@@ -199,7 +199,7 @@ export const galleryData: { image: string; category: string }[] = [
   //   category: "lobby",
   // },
   {
-    image: newImagesLink + "Reception/_6__5487.webp",
+    image: "/Reception/_6__5487.jpg",
     category: "lobby",
   },
   // {
@@ -215,51 +215,51 @@ export const galleryData: { image: string; category: string }[] = [
   //   category: "lobby",
   // },
   {
-    image: newImagesLink + "Reception/_6__5505.webp",
+    image: "/Reception/_6__5505.jpg",
     category: "lobby",
   },
   {
-    image: newImagesLink + "Reception/_6__5510.webp",
+    image: "/Reception/_6__5510.jpg",
     category: "lobby",
   },
   {
-    image: newImagesLink + "Reception/_6__5513.webp",
+    image: "/Reception/_6__5513.jpg",
     category: "lobby",
   },
   {
-    image: newImagesLink + "Reception/_6__5515.webp",
+    image: "/Reception/_6__5515.jpg",
     category: "lobby",
   },
   {
-    image: newImagesLink + "Reception/_6__5523.webp",
+    image: "/Reception/_6__5523.jpg",
     category: "lobby",
   },
   {
-    image: newImagesLink + "Reception/_6__5526.webp",
+    image: "/Reception/_6__5526.jpg",
     category: "lobby",
   },
   {
-    image: newImagesLink + "Reception/_6__5527.webp",
+    image: "/about/Reception_6__5527.jpg",
     category: "lobby",
   },
   {
-    image: newImagesLink + "Reception/_6__5528.webp",
+    image: "/Reception/_6__5528.jpg",
     category: "lobby",
   },
   {
-    image: newImagesLink + "Reception/_6__5532.webp",
+    image: "/Reception/_6__5532.jpg",
     category: "lobby",
   },
   {
-    image: newImagesLink + "Reception/_6__5795.webp",
+    image: "/Reception/_6__5795.jpg",
     category: "lobby",
   },
   {
-    image: newImagesLink + "Reception/_6__6093.webp",
+    image: "/about/Reception_6__6093.jpg",
     category: "lobby",
   },
   {
-    image: newImagesLink + "Reception/_6__6425.webp",
+    image: "/Reception/_6__6425.jpg",
     category: "lobby",
   },
 ];

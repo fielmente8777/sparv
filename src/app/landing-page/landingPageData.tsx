@@ -13,9 +13,9 @@ export const landingPageData = {
     images: [
       // "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/DJI_0729.jpg",
       // "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-3.jpg",
-      newImagesLink + "outer-and-other/DJI_0141.webp",
-      newImagesLink + "outer-and-other/_6__5456.webp",
-      "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/beach-goa-india.jpg",
+      // newImagesLink + "outer-and-other/DJI_0141.webp",
+      "/about/outer-and-other_6__5456.jpg",
+      // "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/Home+page/beach-goa-india.jpg",
     ],
   },
   aboutUsData: {
@@ -87,18 +87,15 @@ export const landingPageData = {
       // },
       {
         name: "Himanshu G",
-        desc:
-          "I recently stayed at SPARV Resort and had a fantastic time! The resort is beautiful, with stunning views and peaceful surroundings. My room was cozy and comfortable, perfect for relaxing after exploring. I loved the delicious food at the restaurant. I highly recommend SPARV Resort for a perfect getaway.",
+        desc: "I recently stayed at SPARV Resort and had a fantastic time! The resort is beautiful, with stunning views and peaceful surroundings. My room was cozy and comfortable, perfect for relaxing after exploring. I loved the delicious food at the restaurant. I highly recommend SPARV Resort for a perfect getaway.",
       },
       {
         name: "Aditya R",
-        desc:
-          "Great Location we love this place as it is peace mind great wether in  really very very beautiful place  Thanks  Team who give a best Hospitality. Food was Also Fresh and tasty.",
+        desc: "Great Location we love this place as it is peace mind great wether in  really very very beautiful place  Thanks  Team who give a best Hospitality. Food was Also Fresh and tasty.",
       },
       {
         name: "Aditya Jain",
-        desc:
-          "I had an amazing stay at the property, we were greeted with welcome drinks, they had gym facilities, playground for the kids, cycling and also they have an extra property for adventure activities, cricket, badminton and the food was so tasty, very good for pure vegetarian people. Felt like home and such a sweet staff. 100% recommended for your trip in this area",
+        desc: "I had an amazing stay at the property, we were greeted with welcome drinks, they had gym facilities, playground for the kids, cycling and also they have an extra property for adventure activities, cricket, badminton and the food was so tasty, very good for pure vegetarian people. Felt like home and such a sweet staff. 100% recommended for your trip in this area",
       },
     ],
   },

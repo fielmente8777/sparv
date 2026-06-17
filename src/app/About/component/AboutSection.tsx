@@ -92,12 +92,12 @@ const AboutSection = () => {
 export default AboutSection;
 
 const image = [
-  newImagesLink + "Reception/_6__5475.webp",
-  newImagesLink + "Swimming-Pool/_6__5520.webp",
-   newImagesLink + "Swimming-Pool/_6__5518.webp",
-  newImagesLink + "outer-and-other/_6__5770.webp",
-  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-34.jpg",
-  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-31.jpg",
-  "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9852.jpg",
-  newImagesLink + "Reception/_6__6093.webp",
+  "/about/Reception_6__5475.jpg",
+  "/about/Swimming-Pool_6__5520.jpg",
+  "/about/Swimming-Pool_6__5518.jpg",
+  "/about/outer-and-other_6__5770.jpg",
+  // "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-34.jpg",
+  // "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/lyamin.pro-31.jpg",
+  // "https://eazotel-clients-images.s3.ap-south-1.amazonaws.com/sparv/RUAN9852.jpg",
+  "/about/Reception_6__6093.jpg",
 ];

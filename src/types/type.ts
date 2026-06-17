@@ -69,7 +69,7 @@ export interface MelaPackagesDataProps {
 }
 
 export interface CardProps {
-    img: string;
+    img?: string;
     label: string,
     href: string,
 }
