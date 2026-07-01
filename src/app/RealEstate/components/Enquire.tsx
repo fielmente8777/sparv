@@ -1,6 +1,8 @@
 import { SectionWithContainer } from "@/components/sectionComponants";
 import { EnquireData } from "./pageData";
 import { PhoneIcon } from "@/icons/icons";
+import Link from "next/link";
+import WhatsAppBtn from "@/components/buttons/WhatsAppBtn";
 
 interface EnquireProps {
   data: EnquireData;
@@ -23,24 +25,19 @@ export default function Enquire({ data }: EnquireProps) {
             {data.description}
           </p>
           <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
-            <a
-              href={`#?text=${encodeURIComponent(
-                "Hi, I'm interested in your property."
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full md:w-auto bg-[#B58E3E] text-white px-10 py-4 uppercase flex items-center justify-center"
-            >
-              Enquire Now
-            </a>
+           
+            <WhatsAppBtn
+              label="Enquire Now"
+              className="w-full md:w-auto bg-[#B58E3E] text-white px-10! py-4 uppercase flex items-center justify-center"
+            />
 
-            <a
+            <Link
               href={`tel:${data.phone}`}
-              className="w-full md:w-auto border border-white/40 text-white px-8 py-4 flex items-center justify-center gap-2"
+              className="w-full md:w-auto border border-white/40! text-white px-8 py-4 flex items-center justify-center gap-2"
             >
               <PhoneIcon />
               <span>{data.phone}</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

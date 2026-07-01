@@ -1,11 +1,9 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
+import WhatsAppBtn from "../buttons/WhatsAppBtn";
 import LazyLoadedMap from "../map/LazyLoadedMap";
 import { Container } from "../sectionComponants";
-import LinkButton from "../buttons/LinkButton";
-import { whatsAppcta } from "@/app/landing-page/landingPageData";
 
 const LandingFooter = () => {
   const year = new Date().getFullYear();
@@ -23,10 +21,7 @@ const LandingFooter = () => {
                   className="object-cover"
                 />
               </div>
-              <LinkButton
-                href={whatsAppcta}
-                target="_blank"
-                rel="noreferrer"
+              <WhatsAppBtn
                 label="Book Now"
                 className="bg-blue-primary self-start border-white px-11 md:px-[45px] w-fit "
               />

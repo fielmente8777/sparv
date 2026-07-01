@@ -1,10 +1,9 @@
 "use client";
-import { Headings } from "../typography";
-import { Navigation } from "swiper/modules";
-import Image from "next/image";
-import Link from "next/link";
-import SwiperCarousel from "../sliders/SwiperCarousel";
 import { RightTickIcon } from "@/icons/icons";
+import Image from "next/image";
+import { Navigation } from "swiper/modules";
+import SwiperCarousel from "../sliders/SwiperCarousel";
+import { useWebContext } from "@/context-api/WebContext";
 
 interface RoomsCardProps {
   name: string;
@@ -24,6 +23,7 @@ const RoomsCard: React.FC<RoomsCardProps> = ({
   listData: listOfServices,
   link,
 }) => {
+  const { WhatsAppClick } = useWebContext();
   return (
     <div className="grid grid-cols-1 md:grid-cols-7 w-full">
       <div className="md:col-span-5 w-full common2 relative">
@@ -49,9 +49,7 @@ const RoomsCard: React.FC<RoomsCardProps> = ({
       </div>
       <div className="md:col-span-2 flex flex-col gap-4 md:py-9 md:px-8 px-4 py-6 bg-bg1 md:border-y max-md:border-x md:border-r max-md:border-b  border-[#131313] max-md:rounded-b-lg md:rounded-tr-lg md:rounded-br-lg">
         <div className="">
-          <h3
-            className="text-primary capitalize md:text-[2.5rem] font-p-d text-[1.5rem]/[2rem]"
-          >
+          <h3 className="text-primary capitalize md:text-[2.5rem] font-p-d text-[1.5rem]/[2rem]">
             {title}
           </h3>
         </div>
@@ -62,10 +60,7 @@ const RoomsCard: React.FC<RoomsCardProps> = ({
         {listOfServices && (
           <ul className="">
             {listOfServices.map((item, index) => (
-              <li
-                key={index}
-                className="text-light flex items-center gap-2"
-              >
+              <li key={index} className="text-light flex items-center gap-2">
                 <span className="text-secondary">
                   <RightTickIcon />
                 </span>{" "}
@@ -74,14 +69,15 @@ const RoomsCard: React.FC<RoomsCardProps> = ({
             ))}
           </ul>
         )}
-        <Link
-          href={link.href}
-          target="_blank"
-          rel="noreferrer"
+        <button
+          // href={link.href}
+          // target="_blank"
+          // rel="noreferrer"
+          onClick={WhatsAppClick}
           className="px-8 py-3 bg-blue-primary w-fit text-white flex items-center justify-center gap-2 hover:bg-white hover:text-blue-primary border border-blue-primary transition-all duration-300 ease-in-out hover:scale-x-105 active:scale-95 hover:shadow-lg"
         >
           {link.label}
-        </Link>
+        </button>
       </div>
     </div>
   );

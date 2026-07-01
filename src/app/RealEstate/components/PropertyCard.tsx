@@ -1,30 +1,23 @@
 "use client";
 
-import Image from "next/image";
-import { Properties } from "./pageData";
-import { LocationIcon } from "@/icons/icons";
-import { Autoplay } from "swiper/modules";
+import "@/components/sliders/sliding.title.scss";
 import SwiperCarousel from "@/components/sliders/SwiperCarousel";
 import { useWebContext } from "@/context-api/WebContext";
-import AmenitiesPopup from "./AmenitiesPopup";
+import { LocationIcon } from "@/icons/icons";
+import Image from "next/image";
 import Link from "next/link";
-import "@/components/sliders/sliding.title.scss";
+import { Autoplay } from "swiper/modules";
+import { Properties } from "./pageData";
+import WhatsAppBtn from "@/components/buttons/WhatsAppBtn";
 interface PropertyCardProps {
   property: Properties;
   index: number;
 }
 
 export default function PropertyCard({ property, index }: PropertyCardProps) {
-  const {
-    openAmenityModal,
-    setOpenAmenityModal,
-    amenityModalArray,
-    setAmenityModalArray,
-  } = useWebContext();
+  const { setOpenAmenityModal, setAmenityModalArray } = useWebContext();
 
   const handleOpenFeaturePopup = (data: any) => {
-    // console.log(data)
-    // alert("villa features popup opened");
     setAmenityModalArray(data);
     setOpenAmenityModal(true);
   };
@@ -50,18 +43,11 @@ export default function PropertyCard({ property, index }: PropertyCardProps) {
                 src={src}
                 alt={"room image"}
                 fill
-                className="object-cover group-[&:hover]:scale-105 duration-500 cursor-pointer"
-                //   onClick={() => openImagePopup(data, index, title)}
+                className="object-cover group-hover:scale-105 duration-500 cursor-pointer"
               />
             </div>
           )}
         />
-        {/* <Image
-          //   src={property.images}
-          //   alt={property.title}
-          //   fill
-          //   className="w-full h-auto object-cover"
-          // /> */}
       </div>
 
       <div className="p-4 md:p-6">
@@ -105,18 +91,22 @@ export default function PropertyCard({ property, index }: PropertyCardProps) {
           {property.description}
         </p>
 
-        <div className="flex items-center justify-between mt-6">
-          <Link
+        <div className="flex items-center gap-8 justify-between mt-6">
+          {/* <Link
             href="#"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center border border-[#00486B] px-2 md:px-8 py-2 text-[14px] md:text-[18px] text-[#00486B] cursor-pointer"
           >
             ENQUIRE NOW
-          </Link>
+          </Link> */}
+          <WhatsAppBtn
+            label="Enquire Now"
+            className="flex w-fit! items-center text-nowrap justify-center border border-[#00486B] px-2! md:px-8 py-2  md:text-lg text-[#00486B] cursor-pointer"
+          />
           <button
             onClick={() => handleOpenFeaturePopup(property.villaFeaturesPopUp)}
-            className="text-[14px] md:text-[18px] uppercase text-[#B58E3E]  border-b border-[#B58E3E]"
+            className="text-sm md:text-lg text-nowrap uppercase text-[#B58E3E]  border-b border-[#B58E3E]"
           >
             {index < 2 ? "VILLA FEATURES" : "FEATURES"}
           </button>

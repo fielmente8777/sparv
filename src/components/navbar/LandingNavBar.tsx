@@ -1,12 +1,11 @@
 "use client";
 import { contactData } from "@/db/data";
-import Container from "../Container";
-import Link from "next/link";
 import { MobileIcon } from "@/icons/icons";
-import LinkButton from "../buttons/LinkButton";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import { whatsAppcta } from "@/app/landing-page/landingPageData";
+import WhatsAppBtn from "../buttons/WhatsAppBtn";
+import Container from "../Container";
 
 const LandingNavBar = () => {
   const [fixed, setFixed] = useState(false);
@@ -67,10 +66,7 @@ const LandingNavBar = () => {
                 </span>
                 <span className="text-lg max-lg:hidden">+91 74101 12890</span>
               </Link>
-              <LinkButton
-                href={whatsAppcta}
-                target="_blank"
-                rel="noreferrer"
+              <WhatsAppBtn          
                 label="Book Now"
                 className="!text-blue-primary max-lg:hidden bg-white border-white px-14 w-fit "
               />
