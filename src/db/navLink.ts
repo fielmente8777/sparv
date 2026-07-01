@@ -17,6 +17,10 @@ export const navLink = [
         link: "/Gallery/",
     },
     {
+        name: "Real Estate",
+        link: "/RealEstate/",
+    },
+    {
         name: "career",
         link: "/Career/",
     },

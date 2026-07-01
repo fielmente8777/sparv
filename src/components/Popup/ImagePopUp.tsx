@@ -86,7 +86,7 @@ const ImagePopUp = () => {
           onTouchEnd={onTouchEndHandler}
         >
           <Image
-            src={images[activeImageIndex]}
+            src={images?.[activeImageIndex] ?? null}
             alt="popup"
             className="object-contain"
             fill

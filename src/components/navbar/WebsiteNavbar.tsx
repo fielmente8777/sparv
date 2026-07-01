@@ -89,7 +89,7 @@ const WebsiteNavbar = () => {
               <nav className="flex justify-between items-center relative">
                 {/* navbar left */}
                 <ul className="hidden lg:flex items-center gap-3">
-                  {navLink.slice(0, 3).map((link) => (
+                  {navLink.slice(0, 4).map((link) => (
                     <li key={link.name} className="py-3">
                       <Link
                         href={link.link}
@@ -152,7 +152,7 @@ const WebsiteNavbar = () => {
                 </div>
                 {/* navbar right */}
                 <ul className="hidden lg:flex items-center gap-3">
-                  {navLink.slice(3, navLink.length).map((link) => (
+                  {navLink.slice(4, navLink.length).map((link) => (
                     <li key={link.name} className="py-3">
                       <Link
                         href={link.link}
