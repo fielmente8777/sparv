@@ -40,21 +40,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* <Script
-          id="zoho-init"
-          strategy="lazyOnload" // Load script after the page loads
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.$zoho = window.$zoho || {};
-            $zoho.salesiq = $zoho.salesiq || {ready: function () {}};
-          `,
-          }}
-        /> */}
-        {/* <Script
-          id="zoho-widget"
-          src="https://salesiq.zohopublic.in/widget?wc=siq68bd71d03faa62c37d1255ad8a8cdf8200f340a75a33ee9f62c5704ff6ca12a9"
-          strategy="lazyOnload"
-        /> */}
+        {/* <!-- Google tag (gtag.js) --> */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-MCSV6Z7CGY"
+        ></Script>
+        <Script strategy="lazyOnload" id="google-analytics">
+          {`window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-MCSV6Z7CGY');`}
+        </Script>
 
         {/* <!-- Google Tag Manager --> */}
         <Script
