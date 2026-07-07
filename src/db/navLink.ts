@@ -18,7 +18,7 @@ export const navLink = [
     },
     {
         name: "Real Estate",
-        link: "/RealEstate/",
+        link: "/real-estate/",
     },
     {
         name: "career",
