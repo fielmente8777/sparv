@@ -110,6 +110,9 @@ export const realEstatePageData = {
       tags: ["ASSURED RETURNS", "3BHK", "MANAGED RENTAL"],
       images: [
         "/realEstate/room2.jpg",
+        "/real-estate/sprav-s-l-vila.png",
+        "/real-estate/villa-01.png",
+        "/real-estate/villa-02.png",
       ],
       villaFeaturesPopUp: [
         // {
